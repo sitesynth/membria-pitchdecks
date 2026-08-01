@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Membria × Luxembourg AI Factory — Infrastructure Request</title>
+<meta name="description" content="Scaling three SaaS verticals — Accounting, Engineering, Code — to 10,000 clients each: B2B teams and solo developers.">
+<meta property="og:title" content="Membria × Luxembourg AI Factory — Infrastructure Request">
+<meta property="og:description" content="Scaling three SaaS verticals — Accounting, Engineering, Code — to 10,000 clients each: B2B teams and solo developers.">
+<meta property="og:image" content="og-infra.jpg">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Membria × Luxembourg AI Factory — Infrastructure Request">
+<meta name="twitter:image" content="og-infra.jpg">
+<style>
+@font-face {
+  font-family: 'DM Serif Display';
+  font-style: normal;
+  font-weight: 400;
+  src: url('DMSerifDisplay.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'DM Serif Display';
+  font-style: italic;
+  font-weight: 400;
+  src: url('DMSerifDisplay-Italic.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Geist';
+  font-style: normal;
+  font-weight: 100 900;
+  src: url('Geist.ttf') format('truetype');
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:     #f2f0ed;
+  --white:  #ffffff;
+  --ink:    #1c1b1a;
+  --mid:    #56524f;
+  --muted:  #999491;
+  --border: #e0dcd7;
+  --coral:  #f57f65;
+  --blue:   #5b8fc9;
+  --navy:   #1a2548;
+  --serif:  'DM Serif Display', Georgia, serif;
+  --sans:   'Geist', -apple-system, system-ui, sans-serif;
+  --shadow: 0 1px 3px rgba(0,0,0,0.05), 0 4px 16px rgba(0,0,0,0.07);
+}
+
+html {
+  height: 100%;
+  background: #181614;
+  font-family: var(--sans);
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #181614;
+}
+
+#frame {
+  position: relative;
+  width: min(100vw, 177.7778vh);
+  height: min(100vh, 56.25vw);
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+  background: #181614;
+  container-type: size;
+  container-name: deck;
+}
+
+/* ── SLIDE ──────────────────────────────────────────── */
+.slide {
+  width: 100%;
+  height: 100%;
+  scroll-snap-align: start;
+  position: relative;
+  overflow: hidden;
+  background: var(--bg);
+  font-size: min(1.08cqw, 1.92cqh);
+  line-height: 1.38;
+}
+.slide:not(:last-child) { border-bottom: 14px solid #181614; }
+
+/* ── PROGRESS ───────────────────────────────────────── */
+#progress {
+  position: absolute; top: 0; left: 0; right: 0;
+  height: 3px; z-index: 998;
+  background: rgba(0,0,0,0.04);
+}
+#progress-fill {
+  height: 100%; width: 0;
+  background: var(--coral);
+  transition: width .12s ease-out;
+}
+
+/* ── DOTS ───────────────────────────────────────────── */
+#dots {
+  position: absolute; top: 50%; right: 1.4em;
+  transform: translateY(-50%); z-index: 998;
+  display: flex; flex-direction: column; gap: 9px;
+}
+#dots a {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: rgba(0,0,0,0.16);
+  transition: all .25s ease; display: block;
+}
+#dots a:hover { background: rgba(0,0,0,0.32); transform: scale(1.2); }
+#dots a.active {
+  background: var(--coral);
+  width: 8px; height: 22px; border-radius: 5px;
+}
+
+/* ── PAGE NUM ───────────────────────────────────────── */
+.pagenum {
+  position: absolute; top: 1.8em; right: 3.8em; z-index: 5;
+  font-size: 0.75em; font-weight: 600;
+  letter-spacing: 0.04em; color: var(--coral);
+  pointer-events: none;
+}
+
+/* ── SHARED COMPONENTS ──────────────────────────────── */
+.tag {
+  display: inline-block;
+  font-size: 0.7em; color: var(--blue);
+  background: rgba(91,143,201,0.10);
+  border: 1px solid rgba(91,143,201,0.25);
+  border-radius: 999px;
+  padding: 0.3em 0.85em;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  font-weight: 500; margin-bottom: 0.6em;
+}
+.card {
+  background: var(--white);
+  border-radius: 0.5em;
+  box-shadow: var(--shadow);
+}
+.rule { height: 1px; background: var(--border); }
+
+/* ── INNER (standard slide content) ────────────────── */
+.inner {
+  position: absolute; inset: 0;
+  padding: 2.6em 3.8em 3.5em;
+  display: flex; flex-direction: column;
+}
+.inner h1 {
+  font-family: var(--serif);
+  font-size: 3.8em; font-weight: 400;
+  color: var(--ink); letter-spacing: -0.025em; line-height: 1.08;
+  margin: 0.2em 0 0.35em;
+}
+.inner h1 em { font-style: italic; }
+.sub {
+  font-size: 0.82em; color: var(--muted);
+  font-weight: 300; margin: 0 0 1em;
+}
+
+/* ── TABLE ──────────────────────────────────────────── */
+.tbl-wrap {
+  background: var(--white); border-radius: 0.5em;
+  box-shadow: var(--shadow); overflow: hidden;
+  display: flex; flex-direction: column;
+}
+.dtbl { width: 100%; border-collapse: collapse; flex: 1; }
+.dtbl tbody { height: 100%; }
+.dtbl tbody tr { height: 1px; }
+.dtbl thead tr { background: var(--coral); }
+.dtbl thead th {
+  color: white; font-size: 0.78em; font-weight: 600;
+  letter-spacing: 0.07em; text-transform: uppercase;
+  padding: 0.82em 1.3em; text-align: left; white-space: nowrap;
+}
+.dtbl tbody tr { border-bottom: 1px solid var(--border); }
+.dtbl tbody tr:last-child { border-bottom: none; }
+.dtbl tbody td { padding: 0.65em 1.3em; font-size: 0.84em; color: var(--mid); font-weight: 300; }
+.dtbl tbody td:first-child { color: var(--ink); font-weight: 500; white-space: nowrap; }
+.dtbl tbody td.coral { color: var(--coral) !important; font-weight: 600 !important; }
+.dtbl tbody td.num { font-variant-numeric: tabular-nums; font-weight: 600 !important; color: var(--ink) !important; }
+
+/* ── BADGE ──────────────────────────────────────────── */
+.badge {
+  display: inline-block; font-size: 0.78em; font-weight: 700;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  padding: 0.18em 0.6em; border-radius: 3px;
+}
+.badge-red   { background: rgba(220,38,38,0.10); color: #dc2626; }
+.badge-amber { background: rgba(180,83,9,0.10);  color: #b45309; }
+.badge-blue  { background: rgba(91,143,201,0.12); color: var(--blue); }
+
+/* ── SNUM (stat number) ─────────────────────────────── */
+.snum {
+  font-family: var(--serif);
+  font-size: 2.8em; font-weight: 400;
+  color: var(--coral); line-height: 1;
+  letter-spacing: -0.02em; white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+.sdesc { font-size: 0.78em; color: var(--muted); line-height: 1.4; font-weight: 300; }
+
+/* ── CALLOUT ────────────────────────────────────────── */
+.callout {
+  border-left: 3px solid #dc2626;
+  background: var(--white); box-shadow: var(--shadow);
+  border-radius: 0 0.4em 0.4em 0;
+  padding: 0.9em 1.2em; margin-bottom: 0.8em;
+}
+.callout.amber { border-color: #b45309; }
+.callout-lbl {
+  font-size: 0.72em; font-weight: 700;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: #dc2626; margin-bottom: 0.3em;
+}
+.callout.amber .callout-lbl { color: #b45309; }
+.callout p {
+  font-size: 0.84em; color: var(--mid); font-weight: 300;
+  line-height: 1.5; margin: 0;
+}
+
+/* ── BOTTOM NOTE ────────────────────────────────────── */
+.bottom {
+  background: rgba(0,0,0,0.04); border-radius: 0.45em;
+  padding: 0.75em 1.2em; margin-top: auto;
+  font-size: 0.78em; color: var(--mid); font-weight: 300; line-height: 1.5; flex-shrink: 0;
+}
+.bottom b { font-weight: 600; color: var(--ink); }
+
+/* ── FADE-UP ────────────────────────────────────────── */
+.fade-up {
+  opacity: 0; transform: translateY(1.6em);
+  transition: opacity .5s ease, transform .5s ease;
+}
+.fade-up.visible { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  .fade-up { opacity: 1; transform: none; }
+}
+
+/* ══════════════════════════════════════════════════════
+   SLIDE 1 — COVER
+══════════════════════════════════════════════════════ */
+.s1 { background: #0f1820; }
+.s1 .overlay {
+  position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.15) 35%, transparent 60%),
+    linear-gradient(180deg, transparent 55%, rgba(0,0,0,0.5) 100%);
+}
+.s1 .inner {
+  z-index: 2; padding: 4.5em;
+  justify-content: space-between;
+}
+.s1 .title {
+  font-family: var(--serif);
+  font-size: 5.2em; font-weight: 400; color: white;
+  line-height: 1.07; letter-spacing: -0.025em;
+  margin-bottom: 0.5em;
+}
+.s1 .title em { font-style: italic; color: var(--coral); }
+.s1 .sub-title {
+  font-size: 0.95em; font-weight: 300;
+  color: rgba(255,255,255,0.6); letter-spacing: 0.01em;
+  max-width: 38em;
+}
+.s1 .footer-row {
+  display: flex; align-items: center; justify-content: space-between;
+}
+.s1 .author {
+  display: flex; align-items: center; gap: 0.9em;
+}
+.s1 .avatar-wrap {
+  width: 3.8em; height: 3.8em; border-radius: 0.85em;
+  overflow: hidden; box-shadow: 0 4px 16px rgba(0,0,0,0.45); flex-shrink: 0;
+  padding: 0.6em;
+}
+.s1 .avatar-wrap img { width: 100%; height: 100%; object-fit: contain; display: block; }
+.s1 .aname {
+  font-size: 0.88em; font-weight: 500; color: white;
+  display: block; margin-bottom: 0.15em;
+}
+.s1 .arole {
+  font-size: 0.75em; font-weight: 300; color: rgba(255,255,255,0.55);
+}
+.s1 .doc-info {
+  text-align: right; font-size: 0.75em; font-weight: 300;
+  color: rgba(255,255,255,0.35); line-height: 1.7;
+}
+.s1 .partner-logo { height: 3.4em; width: auto; margin-bottom: 0.9em; opacity: 0.95; }
+.s1 .doc-info strong {
+  color: rgba(255,255,255,0.6); font-weight: 500;
+  display: block; font-size: 1em; letter-spacing: 0.05em; text-transform: uppercase;
+}
+/* Animated gradient background for cover */
+#s1-canvas {
+  position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0;
+}
+
+/* ══════════════════════════════════════════════════════
+   SLIDE 2 — WHAT IS MEMBRIA
+══════════════════════════════════════════════════════ */
+.s2 .inner {
+  display: grid;
+  grid-template-columns: 38% 1fr;
+  padding: 0;
+}
+.s2 .left {
+  padding: 2.6em 2.8em 3.5em 3.8em;
+  border-right: 1px solid var(--border);
+  display: flex; flex-direction: column;
+}
+.s2 .right {
+  padding: 2.6em 3.8em 3.5em 2.8em;
+  display: flex; flex-direction: column;
+  justify-content: space-between;
+}
+.s2 .right-top { display: flex; flex-direction: column; gap: 1em; flex: 1; justify-content: center; }
+.s2 .item { display: flex; align-items: flex-start; gap: 0.9em; }
+.s2 .item-num {
+  font-family: var(--serif); font-style: italic;
+  font-size: 1.6em; color: var(--coral); flex-shrink: 0;
+  line-height: 1; width: 1.4em;
+}
+.s2 .item-t { font-size: 1em; font-weight: 700; color: var(--ink); margin-bottom: 0.2em; }
+.s2 .item-b { font-size: 0.86em; color: var(--mid); font-weight: 300; line-height: 1.45; }
+
+/* ══════════════════════════════════════════════════════
+   SLIDE 3 — KEY NUMBERS (5 stat cards)
+══════════════════════════════════════════════════════ */
+.s3 .inner {
+  display: flex; flex-direction: column;
+}
+.s3 .stats {
+  display: grid; grid-template-columns: repeat(5, 1fr);
+  gap: 1em; flex: 1; min-height: 0;
+}
+.s3 .stat-card {
+  background: var(--white); border-radius: 0.5em;
+  box-shadow: var(--shadow); padding: 1.4em 1.5em 1.6em;
+  display: flex; flex-direction: column; justify-content: space-between;
+}
+.s3 .stat-card:first-child { background: var(--navy); }
+.s3 .stat-card:first-child .snum { color: var(--coral); }
+.s3 .stat-card:first-child .sdesc { color: rgba(255,255,255,0.4); }
+
+/* ══════════════════════════════════════════════════════
+   SLIDE 4 — PER-CLIENT ASSUMPTIONS
+══════════════════════════════════════════════════════ */
+.s4 .inner { display: flex; flex-direction: column; }
+.s4 .tbl-wrap { flex: 1; min-height: 0; }
+
+/* ══════════════════════════════════════════════════════
+   SLIDE 5 — TRAFFIC & COMPUTE
+══════════════════════════════════════════════════════ */
+.s5 .inner { display: flex; flex-direction: column; }
+.s5 .tbl-wrap { flex: 1; min-height: 0; }
+
+/* ══════════════════════════════════════════════════════
+   SLIDE 6 — GRAPH MEMORY CHALLENGE
+══════════════════════════════════════════════════════ */
+.s6 .inner { display: flex; flex-direction: column; }
+.s6 .thesis {
+  font-size: 0.9em; color: var(--mid); font-weight: 300;
+  line-height: 1.5; max-width: 60em; margin-bottom: 1em;
+}
+.s6 .thesis b { font-weight: 600; color: var(--ink); }
+.s6 .tbl-wrap { flex: 1; min-height: 0; margin-bottom: 1em; }
+
+/* ══════════════════════════════════════════════════════
+   SLIDE 7 — RESOURCE SUMMARY
+══════════════════════════════════════════════════════ */
+.s7 .inner { display: flex; flex-direction: column; }
+.s7 .tbl-wrap { flex: 1; min-height: 0; }
+
+/* ══════════════════════════════════════════════════════
+   SLIDE 8 — COST RAMP
+══════════════════════════════════════════════════════ */
+.s8 .inner { display: flex; flex-direction: column; }
+.s8 .ramp {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 1.1em; flex: 1; min-height: 0;
+}
+.s8 .step {
+  padding: 1.8em 1.7em; display: flex; flex-direction: column;
+  position: relative; overflow: hidden;
+}
+.s8 .step::before {
+  content: ''; position: absolute; top: 0; left: 0; height: 4px;
+  background: var(--coral); border-radius: 0 0 2px 0;
+}
+.s8 .step.p1::before { width: 33%; }
+.s8 .step.p2::before { width: 66%; }
+.s8 .step.p3::before { width: 100%; }
+.s8 .step.p1 { background: var(--navy); }
+.s8 .step.p1 .phase-lbl { color: rgba(255,255,255,0.35); }
+.s8 .step.p1 .phase-n { color: #fff; }
+.s8 .step.p1 .phase-cost { color: var(--coral); }
+.s8 .step.p1 .phase-specs { color: rgba(255,255,255,0.4); }
+.phase-lbl {
+  font-size: 0.72em; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.09em; color: var(--muted); margin-bottom: 0.5em;
+}
+.phase-n {
+  font-family: var(--serif);
+  font-size: 3em; font-weight: 400; color: var(--ink);
+  letter-spacing: -0.02em; line-height: 1; margin-bottom: 0.25em;
+  font-variant-numeric: tabular-nums;
+}
+.phase-cost { font-size: 0.9em; color: var(--coral); font-weight: 500; margin-bottom: 1em; }
+.phase-specs {
+  font-size: 0.78em; color: var(--muted); font-weight: 300; line-height: 1.9;
+}
+
+/* ══════════════════════════════════════════════════════
+   SLIDE 10 — ASK (dark)
+══════════════════════════════════════════════════════ */
+.s10 { background: var(--navy); }
+.s10 .inner { display: flex; flex-direction: column; }
+.s10 .inner h1 { color: #fff; }
+.s10 .sub { color: rgba(255,255,255,0.35); }
+.s10 .tag {
+  color: rgba(91,143,201,0.9);
+  background: rgba(91,143,201,0.12);
+  border-color: rgba(91,143,201,0.28);
+}
+.s10 .tbl-wrap {
+  background: rgba(255,255,255,0.05);
+  box-shadow: none;
+  border: 1px solid rgba(255,255,255,0.08);
+  flex: 1; min-height: 0;
+}
+.s10 .dtbl thead tr { background: rgba(255,255,255,0.08); }
+.s10 .dtbl thead th { color: rgba(255,255,255,0.4); }
+.s10 .dtbl tbody tr { border-bottom-color: rgba(255,255,255,0.07); }
+.s10 .dtbl tbody td { color: rgba(255,255,255,0.45); }
+.s10 .dtbl tbody td:first-child { color: rgba(255,255,255,0.85); }
+.s10 .badge-red   { background: rgba(239,68,68,0.18);  color: #f87171; }
+.s10 .badge-amber { background: rgba(245,158,11,0.18); color: #fbbf24; }
+.s10 .badge-blue  { background: rgba(91,143,201,0.18); color: #93c5fd; }
+.s10 .pagenum { color: rgba(245,127,101,0.6); }
+#dots a.active { background: var(--coral); }
+
+@media print {
+  @page { size: 1280px 720px; margin: 0; }
+  *, *::before, *::after {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  html { scroll-snap-type: none; overflow: visible; background: #181614; }
+  body { width: 1280px; }
+  .slide {
+    width: 1280px !important; height: 720px !important;
+    page-break-after: always; break-after: page;
+    font-size: 12.8px !important; overflow: hidden !important;
+  }
+  #dots, #progress { display: none !important; }
+  .fade-up { opacity: 1 !important; transform: none !important; }
+}
+
+</style>
+</head>
+<body>
+<div id="frame">
+
+<div id="progress"><div id="progress-fill"></div></div>
+<nav id="dots"></nav>
+
+<!-- ══════════════════════ SLIDE 1 — COVER ══════════════ -->
+<section class="slide s1">
+  <canvas id="s1-canvas"></canvas>
+  <div class="overlay"></div>
+  <div class="inner">
+    <div class="fade-up">
+      <div class="title">Membria <em>&times;</em> Luxembourg AI Factory<br><em>Infrastructure Request</em></div>
+      <div class="sub-title">Scaling three SaaS verticals — Accounting, Engineering, Code — to 10,000 clients each: B2B teams and solo developers.</div>
+    </div>
+    <div class="footer-row fade-up" style="transition-delay:.15s">
+      <div class="author">
+        <div class="avatar-wrap">
+          <img src="membria-logo/logo.svg" alt="Membria">
+        </div>
+        <div>
+          <span class="aname">Membria.AI</span>
+          <span class="arole">Hosted MCP Layer for Enterprise AI Agents</span>
+        </div>
+      </div>
+      <div class="doc-info">
+        <img class="partner-logo" src="aif.png" alt="Luxembourg AI Factory">
+        <strong>Infrastructure Brief</strong>
+        For Luxembourg AI Factory &nbsp;·&nbsp; Confidential<br>
+        July 2026 &nbsp;·&nbsp; v1.0
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════ SLIDE 2 — WHAT IS MEMBRIA ══════ -->
+<section class="slide s2">
+  <div class="pagenum">02</div>
+  <div class="inner">
+    <div class="left">
+      <span class="tag fade-up">Context</span>
+      <h1 class="fade-up" style="transition-delay:.05s">What<br>Membria Is</h1>
+      <div class="sub fade-up" style="transition-delay:.08s">A cloud memory service for AI coding assistants (Claude Code / Codex). It remembers everything the AI learned yesterday — so clients get an assistant that gets smarter with use, with nothing to install.</div>
+      <div class="bottom fade-up" style="transition-delay:.12s;margin-top:auto;">
+        <b>Currently:</b> single GCP VM, prototype stage. This brief covers what's needed to reach commercial scale with Luxembourg AI Factory.
+      </div>
+    </div>
+    <div class="right fade-up" style="transition-delay:.1s">
+      <div class="right-top">
+        <div class="item">
+          <div class="item-num">1.</div>
+          <div>
+            <div class="item-t">Memory That Learns From Mistakes</div>
+            <div class="item-b">Every decision the AI agent makes is recorded in a knowledge graph, together with how it turned out. When something fails, the failure is remembered — and the agent never repeats it. That memory is the product.</div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="item-num">2.</div>
+          <div>
+            <div class="item-t">Three SaaS Verticals</div>
+            <div class="item-b">Engineering (industrial standards and design rules) and Accounting (regulatory requirements) serve B2B teams. Code is also sold as a solo subscription — an add-on to Claude Code and similar assistants for individual developers. Each client's data is private; shared industry knowledge benefits everyone.</div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="item-num">3.</div>
+          <div>
+            <div class="item-t">Speed Is a Hard Requirement</div>
+            <div class="item-b">The AI assistant checks Membria's memory before every step it takes — hundreds of times per working day, per user. Each check must return in under 200 ms, or every user feels the slowdown directly.</div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="item-num">4.</div>
+          <div>
+            <div class="item-t">Background Knowledge Processing</div>
+            <div class="item-b">Behind the scenes, Membria reviews the AI's work, reads documents, and turns raw experience into reusable knowledge. Today this runs on rented third-party AI services with usage limits — our own inference servers remove that ceiling.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════ SLIDE 3 — KEY NUMBERS ══════════ -->
+<section class="slide s3">
+  <div class="pagenum">03</div>
+  <div class="inner">
+    <span class="tag fade-up">Scale</span>
+    <h1 class="fade-up" style="transition-delay:.05s">The Numbers</h1>
+    <div class="sub fade-up" style="transition-delay:.08s">Target scale across all three verticals at full commercial deployment.</div>
+    <div class="stats fade-up" style="transition-delay:.12s">
+      <div class="stat-card">
+        <div class="snum">30k</div>
+        <div class="sdesc">total clients across Accounting, Engineering, Code — B2B teams and solo developers</div>
+      </div>
+      <div class="stat-card">
+        <div class="snum">~3M</div>
+        <div class="sdesc">MCP tool calls per day at 35% DAU &times; 300 calls/client</div>
+      </div>
+      <div class="stat-card">
+        <div class="snum">~50M</div>
+        <div class="sdesc">LLM tokens / day for knowledge extraction (20% of DAU ingest)</div>
+      </div>
+      <div class="stat-card">
+        <div class="snum">1.5&ndash;3 TB</div>
+        <div class="sdesc">RAM for Memgraph graph layer across all three verticals</div>
+      </div>
+      <div class="stat-card">
+        <div class="snum">$25&ndash;45k</div>
+        <div class="sdesc">estimated infrastructure cost per month at full scale</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════ SLIDE 4 — ASSUMPTIONS ══════════ -->
+<section class="slide s4">
+  <div class="pagenum">04</div>
+  <div class="inner">
+    <span class="tag fade-up">Model</span>
+    <h1 class="fade-up" style="transition-delay:.05s">Per-Client<br>Assumptions</h1>
+    <div class="sub fade-up" style="transition-delay:.08s">Variables that drive all sizing calculations. All numbers are per-tenant, per-vertical.</div>
+    <div class="tbl-wrap fade-up" style="transition-delay:.12s">
+      <table class="dtbl">
+        <thead><tr>
+          <th>Parameter</th><th>Value</th><th>Notes</th>
+        </tr></thead>
+        <tbody>
+          <tr><td>Client type</td><td class="num">mixed</td><td>Engineering &amp; Accounting: 5–10 seat B2B teams; Code: solo developers (1 seat)</td></tr>
+          <tr><td>Daily active clients</td><td class="num">35%</td><td>~3,500 active per vertical per day</td></tr>
+          <tr><td>MCP tool calls / day</td><td class="num">300</td><td>memory reads in hot path of every AI agent turn</td></tr>
+          <tr><td>LLM extraction calls / day</td><td class="num">10 (20% of DAU)</td><td>knowledge ingestion on active ingest days only — ~2k tokens each</td></tr>
+          <tr><td>Private graph RAM</td><td class="num">50&ndash;100 MB</td><td>per tenant in Memgraph in-memory; grows with usage</td></tr>
+          <tr><td>Document storage</td><td class="num">3&ndash;5 GB</td><td>PDFs, DOCX, OCR cache per client</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════ SLIDE 5 — TRAFFIC ══════════════ -->
+<section class="slide s5">
+  <div class="pagenum">05</div>
+  <div class="inner">
+    <span class="tag fade-up">Compute</span>
+    <h1 class="fade-up" style="transition-delay:.05s">Traffic &amp;<br>Compute</h1>
+    <div class="sub fade-up" style="transition-delay:.08s">Daily volumes across all three verticals at full scale.</div>
+    <div class="tbl-wrap fade-up" style="transition-delay:.12s">
+      <table class="dtbl">
+        <thead><tr>
+          <th>Layer</th><th>Daily Volume</th><th>Peak RPS</th><th>Latency Target</th><th>Priority</th>
+        </tr></thead>
+        <tbody>
+          <tr>
+            <td>MCP API (graph reads)</td>
+            <td class="num">~3.15M calls</td>
+            <td class="num">~180 RPS</td>
+            <td class="num">&lt;200 ms</td>
+            <td><span class="badge badge-red">Critical</span></td>
+          </tr>
+          <tr>
+            <td>LLM inference (extraction)</td>
+            <td class="num">~21k calls &middot; ~50M tokens</td>
+            <td>queue-based</td>
+            <td class="num">&lt;30 s</td>
+            <td><span class="badge badge-amber">High</span></td>
+          </tr>
+          <tr>
+            <td>Document OCR / ingest</td>
+            <td>async, user-triggered</td>
+            <td>&mdash;</td>
+            <td>&lt;5 min</td>
+            <td><span class="badge badge-blue">Normal</span></td>
+          </tr>
+          <tr>
+            <td>Graph snapshots / backup</td>
+            <td>nightly</td>
+            <td>&mdash;</td>
+            <td>&mdash;</td>
+            <td><span class="badge badge-blue">Normal</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="bottom fade-up" style="transition-delay:.15s">
+      <b>MCP latency is non-negotiable.</b> Calls sit in the hot path of every AI agent turn — each 100 ms added is felt directly by the developer. RPS is modest; latency and tenant isolation are the hard constraints.
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════ SLIDE 6 — GRAPH MEMORY ═════════ -->
+<section class="slide s6">
+  <div class="pagenum">06</div>
+  <div class="inner">
+    <span class="tag fade-up">Bottleneck</span>
+    <h1 class="fade-up" style="transition-delay:.05s">The Graph<br>Memory Challenge</h1>
+    <div class="thesis fade-up" style="transition-delay:.08s">Memgraph holds all active tenant graphs in RAM for sub-millisecond reads. At 10k tenants per vertical, <b>RAM becomes the dominant infrastructure constraint</b> — not CPU or network.</div>
+    <div class="tbl-wrap fade-up" style="transition-delay:.1s">
+      <table class="dtbl">
+        <thead><tr>
+          <th>Vertical</th><th>Tenants</th><th>RAM low</th><th>RAM high</th><th>Commons graph</th>
+        </tr></thead>
+        <tbody>
+          <tr><td>Engineering</td><td class="num">10,000</td><td class="num">500 GB</td><td class="num">1 TB</td><td>EPC standards, 34k NK, formulas (~50 GB)</td></tr>
+          <tr><td>Accounting</td><td class="num">10,000</td><td class="num">500 GB</td><td class="num">1 TB</td><td>regulatory corpus (~30 GB)</td></tr>
+          <tr><td>Code</td><td class="num">10,000</td><td class="num">500 GB</td><td class="num">1 TB</td><td>CodeDigger 965 repos (~20 GB)</td></tr>
+          <tr><td style="font-weight:700">Total</td><td class="num">30,000</td><td class="coral">1.5 TB</td><td class="coral">3 TB</td><td>+ commons read replicas</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="bottom fade-up" style="transition-delay:.14s">
+      Hot/cold tiering (DAU = 35%) reduces effective RAM by 3&ndash;5&times; &rarr; <b>300&ndash;600 GB active RAM</b> across 12&ndash;24 nodes of 256 GB each.
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════ SLIDE 7 — RESOURCE SUMMARY ═════ -->
+<section class="slide s7">
+  <div class="pagenum">07</div>
+  <div class="inner">
+    <span class="tag fade-up">Requirements</span>
+    <h1 class="fade-up" style="transition-delay:.05s">Infrastructure<br>Summary</h1>
+    <div class="sub fade-up" style="transition-delay:.08s">Full-scale resource requirements across all three verticals at 30k clients.</div>
+    <div class="tbl-wrap fade-up" style="transition-delay:.12s">
+      <table class="dtbl">
+        <thead><tr>
+          <th>Resource</th><th>Spec</th><th>Count</th><th>Purpose</th>
+        </tr></thead>
+        <tbody>
+          <tr><td>Graph nodes (RAM)</td><td>32 vCPU &middot; 256 GB RAM &middot; NVMe</td><td class="num">12&ndash;24</td><td>Memgraph shards + read replicas; <b>static IPs required</b></td></tr>
+          <tr><td>Application nodes</td><td>16 vCPU &middot; 64 GB RAM</td><td class="num">6&ndash;10</td><td>MCP API, ingest workers, auth, tenant router</td></tr>
+          <tr><td>GPU (LLM inference)</td><td>H100 80 GB &nbsp;or&nbsp; L40S 48 GB</td><td class="num">4&times; H100 / 8&times; L40S</td><td>vLLM, 7&ndash;30B models; async extraction queue</td></tr>
+          <tr><td>Object storage</td><td>S3-compatible</td><td class="num">100&ndash;150 TB</td><td>PDF/DOCX corpus, OCR cache, graph snapshots</td></tr>
+          <tr><td>Managed Postgres</td><td>HA, 500 GB+</td><td class="num">1 cluster</td><td>tenant registry, billing, auth, audit log</td></tr>
+          <tr><td>Cold backup storage</td><td>object / tape tier</td><td class="num">~200 TB</td><td>nightly graph snapshots + document archive</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════ SLIDE 8 — COST RAMP ════════════ -->
+<section class="slide s8">
+  <div class="pagenum">08</div>
+  <div class="inner">
+    <span class="tag fade-up">Roadmap</span>
+    <h1 class="fade-up" style="transition-delay:.05s">Cost by Phase</h1>
+    <div class="sub fade-up" style="transition-delay:.08s">Linear ramp from MVP to full commercial scale. RAM and GPU represent ~70% of cost at Phase 3.</div>
+    <div class="ramp fade-up" style="transition-delay:.12s">
+      <div class="card step p1">
+        <div class="phase-lbl">Phase 1</div>
+        <div class="phase-n">1,000</div>
+        <div class="phase-cost">$3&ndash;5k / mo</div>
+        <div class="phase-specs">
+          3&ndash;4 graph nodes<br>
+          2 application nodes<br>
+          1&times; GPU (L40S)<br>
+          5 TB storage
+        </div>
+      </div>
+      <div class="card step p2">
+        <div class="phase-lbl">Phase 2</div>
+        <div class="phase-n">5,000</div>
+        <div class="phase-cost">$10&ndash;18k / mo</div>
+        <div class="phase-specs">
+          6 graph nodes<br>
+          4 application nodes<br>
+          2&times; GPU<br>
+          40 TB storage
+        </div>
+      </div>
+      <div class="card step p3">
+        <div class="phase-lbl">Phase 3</div>
+        <div class="phase-n">30,000</div>
+        <div class="phase-cost">$25&ndash;45k / mo</div>
+        <div class="phase-specs">
+          12&ndash;24 graph nodes<br>
+          6&ndash;10 application nodes<br>
+          4&times; H100 / 8&times; L40S<br>
+          150 TB+ storage
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════ SLIDE 9 — ASK (dark) ══════════ -->
+<section class="slide s10">
+  <div class="pagenum">09</div>
+  <div class="inner">
+    <span class="tag fade-up">Ask</span>
+    <h1 class="fade-up" style="transition-delay:.05s">What We Need<br>from Luxembourg AI Factory</h1>
+    <div class="sub fade-up" style="transition-delay:.08s">Prioritised requirements for an infrastructure partnership.</div>
+    <div class="tbl-wrap fade-up" style="transition-delay:.12s">
+      <table class="dtbl">
+        <thead><tr>
+          <th>Requirement</th><th>Priority</th><th>Why it matters</th>
+        </tr></thead>
+        <tbody>
+          <tr>
+            <td>Static IPs for all VMs</td>
+            <td><span class="badge badge-red">Critical</span></td>
+            <td>GCP rotates IP on restart; MCP clients hardcode endpoints — one restart breaks all clients</td>
+          </tr>
+          <tr>
+            <td>High-RAM instances (256 GB+)</td>
+            <td><span class="badge badge-red">Critical</span></td>
+            <td>Memgraph must hold active tenant graphs in RAM for &lt;200 ms reads</td>
+          </tr>
+          <tr>
+            <td>GPU instances (H100 / L40S)</td>
+            <td><span class="badge badge-red">Critical</span></td>
+            <td>Self-hosted LLM eliminates external API quota limits on extraction pipeline</td>
+          </tr>
+          <tr>
+            <td>Private network between nodes</td>
+            <td><span class="badge badge-red">Critical</span></td>
+            <td>Shard-to-shard Memgraph replication and ingest-to-graph writes require low-latency private fabric</td>
+          </tr>
+          <tr>
+            <td>EU / data residency options</td>
+            <td><span class="badge badge-amber">High</span></td>
+            <td>Enterprise engineering clients require jurisdiction control over proprietary knowledge graphs</td>
+          </tr>
+          <tr>
+            <td>S3-compatible object storage</td>
+            <td><span class="badge badge-amber">High</span></td>
+            <td>Document corpus, OCR cache, graph snapshots — 150 TB+ at scale</td>
+          </tr>
+          <tr>
+            <td>Predictable flat-rate pricing</td>
+            <td><span class="badge badge-blue">Preferred</span></td>
+            <td>GCP egress billing makes unit economics per tenant unpredictable at scale</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+</div>
+
+<script>
+// ── Dots & progress ────────────────────────────────
+const slides = document.querySelectorAll('.slide');
+const dotsEl = document.getElementById('dots');
+const fillEl = document.getElementById('progress-fill');
+
+slides.forEach((_, i) => {
+  const a = document.createElement('a');
+  a.href = '#';
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    slides[i].scrollIntoView({ behavior: 'smooth' });
+  });
+  dotsEl.appendChild(a);
+});
+
+const dotLinks = dotsEl.querySelectorAll('a');
+
+const frameEl = document.getElementById('frame');
+
+function onScroll() {
+  const total = frameEl.scrollHeight - frameEl.clientHeight;
+  fillEl.style.width = (frameEl.scrollTop / total * 100) + '%';
+
+  const frameRect = frameEl.getBoundingClientRect();
+  let active = 0;
+  slides.forEach((s, i) => {
+    const rect = s.getBoundingClientRect();
+    if (rect.top - frameRect.top <= frameEl.clientHeight * 0.5) active = i;
+  });
+  dotLinks.forEach((d, i) => d.classList.toggle('active', i === active));
+}
+
+// ── Fade-up on enter ───────────────────────────────
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.querySelectorAll('.fade-up').forEach((el, i) => {
+        setTimeout(() => el.classList.add('visible'), i * 60);
+      });
+    }
+  });
+}, { threshold: 0.25 });
+
+slides.forEach(s => io.observe(s));
+
+frameEl.addEventListener('scroll', onScroll, { passive: true });
+onScroll();
+
+// ── Cover animated background ──────────────────────
+(function() {
+  const canvas = document.getElementById('s1-canvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  let W, H, t = 0;
+
+  function resize() {
+    W = canvas.width = canvas.offsetWidth;
+    H = canvas.height = canvas.offsetHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  const pts = Array.from({length: 6}, () => ({
+    x: Math.random(), y: Math.random(),
+    vx: (Math.random() - 0.5) * 0.0004,
+    vy: (Math.random() - 0.5) * 0.0004,
+  }));
+
+  const colors = ['#c44020','#f57f65','#1a2548','#0f1820'];
+
+  function draw() {
+    ctx.clearRect(0, 0, W, H);
+    pts.forEach(p => {
+      p.x += p.vx; p.y += p.vy;
+      if (p.x < 0 || p.x > 1) p.vx *= -1;
+      if (p.y < 0 || p.y > 1) p.vy *= -1;
+    });
+    pts.forEach((p, i) => {
+      const g = ctx.createRadialGradient(p.x*W, p.y*H, 0, p.x*W, p.y*H, W * 0.55);
+      const c = colors[i % colors.length];
+      g.addColorStop(0, c + '55');
+      g.addColorStop(1, 'transparent');
+      ctx.fillStyle = g;
+      ctx.fillRect(0, 0, W, H);
+    });
+    t++;
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+</script>
+
+</body>
+</html>

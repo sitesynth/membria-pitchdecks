@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Membria — Внутренний план 2026–2027</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; overflow: hidden; }
+
+:root {
+  --white:  #ffffff;
+  --beige:  #f2f0ee;
+  --beige2: #e8e5e2;
+  --border: #d2ceca;
+  --border2:#c4c0bb;
+  --dark:   #202020;
+  --text:   #616060;
+  --muted:  #9e9e9e;
+  --orange: #ed4f00;
+  --orange2:#b83c00;
+  --mono: "Geist Mono", ui-monospace, monospace;
+  --sans: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+body {
+  background: var(--beige);
+  color: var(--dark);
+  font-family: var(--sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+#deck { position: relative; width: 100%; height: 100vh; }
+
+.slide {
+  position: absolute;
+  inset: 0;
+  padding: 56px 80px 76px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.22s ease;
+  background: var(--beige);
+}
+.slide.active { opacity: 1; pointer-events: all; }
+
+.eyebrow {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 20px;
+}
+
+h1 {
+  font-size: clamp(36px, 5.5vw, 54px);
+  font-weight: 700;
+  line-height: 1.06;
+  letter-spacing: -0.04em;
+  color: var(--dark);
+}
+
+h2 {
+  font-size: clamp(26px, 4vw, 42px);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+  color: var(--dark);
+}
+
+.sub {
+  font-size: 15.5px;
+  color: var(--text);
+  line-height: 1.65;
+  margin-top: 14px;
+  max-width: 580px;
+}
+
+.rule { height: 1px; background: var(--border); margin: 26px 0; }
+
+.card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  padding: 18px 22px;
+}
+.card.accent-border { border-color: var(--orange); border-width: 1.5px; }
+.card.beige { background: var(--beige2); }
+
+.g2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.g3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+
+.big-n {
+  font-family: var(--mono);
+  font-size: 32px;
+  font-weight: 500;
+  color: var(--orange);
+  line-height: 1;
+}
+
+.tag {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  background: var(--orange);
+  color: var(--white);
+}
+.tag.g {
+  background: var(--beige2);
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+.tag.dark {
+  background: var(--dark);
+  color: var(--white);
+}
+
+.mono { font-family: var(--mono); color: var(--orange); font-size: 11.5px; }
+
+.tl-row {
+  display: flex;
+  align-items: baseline;
+  gap: 24px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+}
+.tl-row:last-child { border-bottom: none; }
+
+.tl-date {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--orange);
+  min-width: 108px;
+  flex-shrink: 0;
+}
+
+.tl-text { font-size: 13.5px; color: var(--dark); line-height: 1.5; }
+.tl-text small { color: var(--text); font-size: 12.5px; display: block; margin-top: 2px; }
+
+.box {
+  border: 1px solid var(--border);
+  padding: 13px 17px;
+  background: var(--white);
+}
+.box.hi { border-color: var(--orange); border-width: 1.5px; }
+
+.bl { border-left: 2px solid var(--orange); padding-left: 14px; }
+.bl.dim { border-color: var(--border2); }
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text);
+  border: 1px solid var(--border);
+  padding: 4px 11px;
+  background: var(--white);
+  white-space: nowrap;
+}
+
+#nav {
+  position: absolute;
+  bottom: 22px;
+  left: 0; right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  z-index: 20;
+}
+
+#nav button {
+  background: var(--white);
+  border: 1px solid var(--border);
+  color: var(--text);
+  width: 32px; height: 32px;
+  cursor: pointer;
+  font-size: 14px;
+  font-family: var(--sans);
+  transition: all 0.12s;
+  display: flex; align-items: center; justify-content: center;
+}
+#nav button:hover { border-color: var(--dark); color: var(--dark); }
+
+#ctr {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--muted);
+  min-width: 42px;
+  text-align: center;
+}
+
+#dots {
+  position: absolute;
+  top: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 7px;
+  z-index: 20;
+}
+.dot { width: 5px; height: 5px; background: var(--border2); cursor: pointer; transition: background 0.18s; }
+.dot.on { background: var(--orange); }
+
+.logo-mark {
+  position: absolute;
+  bottom: 28px;
+  left: 80px;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.node-chip {
+  flex: 1;
+  min-width: 100px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  padding: 14px 10px;
+  text-align: center;
+}
+.nc-label {
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 7px;
+}
+
+.arr { color: var(--border2); font-size: 16px; flex-shrink: 0; line-height: 1; }
+
+.step-n {
+  font-family: var(--mono);
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--orange);
+  min-width: 28px;
+  flex-shrink: 0;
+  line-height: 1.2;
+}
+</style>
+</head>
+<body>
+
+<div id="dots"></div>
+<span class="logo-mark">Membria · Конфиденциально</span>
+
+<div id="deck">
+
+  <!-- 1 · ОБЛОЖКА -->
+  <div class="slide active">
+    <div style="max-width:700px;">
+      <div class="eyebrow">Внутренний план · Июль 2026 · Конфиденциально</div>
+      <h1>Membria<br>2026 — 2027</h1>
+      <div style="display:flex; align-items:center; gap:8px; margin-top:22px; flex-wrap:wrap;">
+        <div class="pill">вертикаль CODE</div>
+        <div class="pill">вертикаль EPC</div>
+        <div class="pill">Meluxina HPC</div>
+        <div class="pill">Delaware-флип</div>
+        <div class="pill">US seed $3–5M</div>
+      </div>
+      <div class="rule"></div>
+      <div style="font-size:14.5px; color:var(--muted); font-style:italic; line-height:1.65;">
+        «Открытый Палантир эпохи агентов —<br>онтология, которая строит себя сама из продакшн-сигнала»
+      </div>
+    </div>
+  </div>
+
+  <!-- 2 · МОАТ -->
+  <div class="slide">
+    <div class="eyebrow">Основное конкурентное преимущество</div>
+    <h2>Правдоподобное ≠ Проверенное</h2>
+    <p class="sub">Любой агент пишет код, который выглядит правильно. Но ни один из них не знает, выжил ли этот код в продакшне — потому что такого сигнала у модели нет.</p>
+    <div class="rule"></div>
+    <div class="g2" style="gap:16px;">
+      <div>
+        <div style="font-family:var(--mono); font-size:9.5px; letter-spacing:0.09em; text-transform:uppercase; color:var(--muted); margin-bottom:10px;">Что есть у модели</div>
+        <div class="card beige">
+          <div style="font-size:13.5px; color:var(--text); line-height:1.75;">
+            Обучающие данные · статичные знания · сопоставление паттернов
+            <div style="margin-top:8px; color:var(--muted);">Нет обратной связи. Нет внешней верификации. Нет памяти о продакшне.</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div style="font-family:var(--mono); font-size:9.5px; letter-spacing:0.09em; text-transform:uppercase; color:var(--muted); margin-bottom:10px;">Что добавляем мы</div>
+        <div class="card accent-border">
+          <div style="font-size:13.5px; line-height:1.75;">
+            <span style="color:var(--orange);">removal_rate · git revert · survival · incident</span>
+            <div style="margin-top:8px; color:var(--text);">Внешний сигнал: что команды удаляют, откатывают и считают причиной аварий. Это структурно недоступно любой LLM.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:18px; font-size:13.5px; color:var(--text); padding-left:14px; border-left:2px solid var(--orange);">
+      Membria замыкает петлю между агентом и реальностью продакшна. Это наш ров.
+    </div>
+  </div>
+
+  <!-- 3 · КПО -->
+  <div class="slide">
+    <div class="eyebrow">Архитектура · Каузальная Петля Опыта (КПО)</div>
+    <h2>Решение → Результат →<br>Урок → Контекст</h2>
+    <div style="margin-top:26px; display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+      <div class="node-chip">
+        <div class="nc-label">Решение</div>
+        <div style="font-size:13px; color:#0077b6; font-weight:500;">агент пишет код</div>
+      </div>
+      <div class="arr">→</div>
+      <div class="node-chip">
+        <div class="nc-label">Результат</div>
+        <div style="font-size:13px; color:#c97d10; font-weight:500;">сигнал продакшна</div>
+      </div>
+      <div class="arr">→</div>
+      <div class="node-chip" style="border-color:var(--orange);">
+        <div class="nc-label">Урок</div>
+        <div style="font-size:13px; color:var(--orange); font-weight:500;">NK извлечён</div>
+      </div>
+      <div class="arr">→</div>
+      <div class="node-chip">
+        <div class="nc-label">Контекст</div>
+        <div style="font-size:13px; color:var(--text); font-weight:500;">следующий агент наследует</div>
+      </div>
+    </div>
+    <div class="rule"></div>
+    <div class="g3">
+      <div>
+        <div class="mono" style="margin-bottom:5px;">membria.capture_decision</div>
+        <div style="font-size:12px; color:var(--text);">записать выбор агента</div>
+      </div>
+      <div>
+        <div class="mono" style="margin-bottom:5px;">membria.record_outcome</div>
+        <div style="font-size:12px; color:var(--text);">подключить продакшн-сигнал</div>
+      </div>
+      <div>
+        <div class="mono" style="margin-bottom:5px;">membria.get_decision_context</div>
+        <div style="font-size:12px; color:var(--text);">инжектировать перед следующим запуском</div>
+      </div>
+    </div>
+    <div style="margin-top:16px; font-size:13px; color:var(--muted);">
+      LLM-агностик через MCP · Claude Code, Codex, Cursor, любой MCP-клиент · Работает на Memgraph · Петля замкнута end-to-end
+    </div>
+  </div>
+
+  <!-- 4 · ПРОДУКТЫ -->
+  <div class="slide">
+    <div class="eyebrow">Выход на рынок · Две вертикали, одна архитектура</div>
+    <h2>CODE · EPC</h2>
+    <div class="g2" style="margin-top:24px; gap:16px;">
+      <div class="card accent-border" style="display:flex; flex-direction:column; gap:13px;">
+        <div style="display:flex; align-items:center; gap:10px;">
+          <span class="tag">CODE</span>
+          <span style="font-family:var(--mono); font-size:10px; color:var(--muted);">code.membria.ai</span>
+        </div>
+        <div style="font-size:13.5px; color:var(--text); line-height:1.7;">
+          PLG · разработчик ставит MCP в свой агент-клиент.<br>
+          Commons-знания открыты (<span style="color:var(--orange);">zone_*</span>).<br>
+          Приватная петля команды — платно.<br>
+          <div style="margin-top:10px; color:var(--dark);">Корпус: CodeDigger — 965 репо, git-антипаттерны.</div>
+        </div>
+      </div>
+      <div class="card" style="display:flex; flex-direction:column; gap:13px;">
+        <div style="display:flex; align-items:center; gap:10px;">
+          <span class="tag dark">EPC</span>
+          <span style="font-family:var(--mono); font-size:10px; color:var(--muted);">epc.membria.ai</span>
+        </div>
+        <div style="font-size:13.5px; color:var(--text); line-height:1.7;">
+          Enterprise · ИИ-агент читает EU-стандарты.<br>
+          NK/PK извлечены из Еврокодов + DEXPI.<br>
+          Приватная петля на проект / на клиента.<br>
+          <div style="margin-top:10px; color:var(--dark);">Корпус: EU Eurocodes на Meluxina HPC (середина августа).</div>
+        </div>
+      </div>
+    </div>
+    <div class="rule"></div>
+    <div style="display:flex; gap:28px; align-items:center;">
+      <div>
+        <div class="big-n">1</div>
+        <div style="font-size:11.5px; color:var(--text); margin-top:5px; line-height:1.5;">архитектура<br>два корпуса</div>
+      </div>
+      <div style="flex:1; font-size:13.5px; color:var(--text); line-height:1.7;">
+        Одинаковый MCP-стек, одинаковый граф, одинаковая КПО — разница только в том, что лежит в корпусе. Каждая следующая вертикаль — новый корпус, а не новая продуктовая команда.
+      </div>
+    </div>
+  </div>
+
+  <!-- 5 · ФАБРИКА КОРПУСОВ -->
+  <div class="slide">
+    <div class="eyebrow">Инфраструктура · Фабрика корпусов</div>
+    <h2>Meluxina HPC<br>середина августа 2026</h2>
+    <div class="rule"></div>
+    <div class="g3" style="margin-top:0;">
+      <div class="card">
+        <div class="big-n" style="margin-bottom:8px;">10k</div>
+        <div style="font-size:12.5px; color:var(--text); line-height:1.6;">GitHub-репозиториев<br>CodeDigger v2<br><span style="color:var(--muted);">с 965 сейчас</span></div>
+      </div>
+      <div class="card">
+        <div class="big-n" style="margin-bottom:8px;">EU</div>
+        <div style="font-size:12.5px; color:var(--text); line-height:1.6;">Еврокоды для EPC<br>нормативный корпус<br><span style="color:var(--muted);">Нормы + DEXPI</span></div>
+      </div>
+      <div class="card">
+        <div class="big-n" style="margin-bottom:8px; font-family:var(--sans);">own</div>
+        <div style="font-size:12.5px; color:var(--text); line-height:1.6;">собственный экстрактор<br>обученный in-house<br><span style="color:var(--muted);">пайплайн NK/PK</span></div>
+      </div>
+    </div>
+    <div style="margin-top:18px; padding:16px 20px; background:var(--white); border:1px solid var(--border);">
+      <div style="font-size:13.5px; color:var(--text); line-height:1.7;">
+        <span style="color:var(--dark); font-weight:500;">Структурное преимущество по стоимости корпуса:</span> Meluxina — субсидированная EU HPC-инфраструктура. Строим корпус в 3× дешевле любого US-конкурента на AWS. Это структурная маржа — не операционная эффективность — и ей место на слайде инвестиционной презентации.
+      </div>
+    </div>
+  </div>
+
+  <!-- 6 · БИЗНЕС-МОДЕЛЬ -->
+  <div class="slide">
+    <div class="eyebrow">Бизнес-модель · Три уровня</div>
+    <h2>Корпус стоит денег.<br>Петля — тоже.</h2>
+    <div class="rule"></div>
+    <div style="display:flex; flex-direction:column; gap:11px; margin-top:0;">
+      <div class="card" style="display:flex; align-items:flex-start; gap:20px;">
+        <div style="min-width:62px; padding-top:2px;"><span class="tag g">Starter</span></div>
+        <div>
+          <div style="font-size:14px; font-weight:500; margin-bottom:4px;">Доступ к Commons &nbsp;<span class="mono">zone_*</span></div>
+          <div style="font-size:13px; color:var(--text); line-height:1.6;">Знания, извлечённые нами из корпуса: git-антипаттерны (CodeDigger), EU-нормы (Meluxina). Мы платили за ингест, за HPC, за стандарты — это подписка, не халява. Низкий порог входа для отдельного разработчика.</div>
+        </div>
+      </div>
+      <div class="card accent-border" style="display:flex; align-items:flex-start; gap:20px;">
+        <div style="min-width:62px; padding-top:2px;"><span class="tag">Team</span></div>
+        <div>
+          <div style="font-size:14px; font-weight:500; margin-bottom:4px;">Commons + приватная петля &nbsp;<span class="mono">ten_{uid}_*</span></div>
+          <div style="font-size:13px; color:var(--text); line-height:1.6;">Commons-знания плюс изолированная петля команды — решения, результаты, уроки из вашего конкретного продакшна. Именно здесь накапливается ценность, которую нельзя купить у конкурента.</div>
+        </div>
+      </div>
+      <div class="card" style="display:flex; align-items:flex-start; gap:20px;">
+        <div style="min-width:62px; padding-top:2px;"><span class="tag dark">Enterprise</span></div>
+        <div>
+          <div style="font-size:14px; font-weight:500; margin-bottom:4px;">Кастомный корпус под вертикаль</div>
+          <div style="font-size:13px; color:var(--text); line-height:1.6;">Мы покупаем, ингестируем и обрабатываем платные стандарты клиента (Еврокоды, DEXPI, проприетарные нормы). NK извлечён, петля замкнута на проект. Годовой контракт, высокий ACV.</div>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:14px; font-size:12px; color:var(--muted); font-family:var(--mono);">Freemium-тира нет — мы строили корпус, мы его и монетизируем.</div>
+  </div>
+
+  <!-- 7 · СТРУКТУРА -->
+  <div class="slide">
+    <div class="eyebrow">Корпоративная структура · Delaware-флип</div>
+    <h2>US-холдинг.<br>EU-операции.</h2>
+    <div class="rule"></div>
+    <div style="display:flex; gap:48px; align-items:flex-start; margin-top:0;">
+      <div style="flex:1;">
+        <div class="box hi" style="margin-bottom:7px;">
+          <div style="font-family:var(--mono); font-size:9.5px; color:var(--muted); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:5px;">US-холдинг · Q1 2027</div>
+          <div style="font-size:15px; font-weight:600;">Delaware C-Corp</div>
+          <div style="font-size:12px; color:var(--text); margin-top:4px; line-height:1.5;">Cap table для US-инвесторов · SAFE конвертируется здесь · Опционы</div>
+        </div>
+        <div style="text-align:center; font-size:12px; color:var(--muted); padding:5px 0;">↓ 100% владение</div>
+        <div class="box">
+          <div style="font-family:var(--mono); font-size:9.5px; color:var(--muted); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:5px;">EU-операционная · Сейчас</div>
+          <div style="font-size:15px; font-weight:600;">Luxembourg S.à r.l.</div>
+          <div style="font-size:12px; color:var(--text); margin-top:4px; line-height:1.5;">IP · R&D-команда · Meluxina · Гранты · EU-контракты</div>
+        </div>
+        <div style="font-size:11.5px; color:var(--muted); padding-top:6px; font-family:var(--mono);">→ US Inc. для GTM — потом, когда понадобится</div>
+      </div>
+      <div style="flex:1;">
+        <div style="font-family:var(--mono); font-size:9.5px; color:var(--muted); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:14px;">Почему эта структура</div>
+        <div style="display:flex; flex-direction:column; gap:11px;">
+          <div class="bl" style="font-size:13px; color:var(--text); line-height:1.6;">
+            <strong style="color:var(--dark);">IP-box:</strong> Люксембург освобождает 80% квалифицированного IP-дохода. Эффективная ставка ~5%.
+          </div>
+          <div class="bl dim" style="font-size:13px; color:var(--text); line-height:1.6;">
+            <strong style="color:var(--dark);">EIC-грант:</strong> EIC требует EU-операционное юрлицо. Delaware-холдинг — ОК. Брать только грантовый компонент, отказаться от доли EIC Fund.
+          </div>
+          <div class="bl dim" style="font-size:13px; color:var(--text); line-height:1.6;">
+            <strong style="color:var(--dark);">Бридж сейчас:</strong> MFN SAFE на LuxCo с оговоркой о флипе. Конвертируется в Delaware cap table автоматически — без переподписания.
+          </div>
+        </div>
+        <div style="margin-top:14px; padding:11px 14px; background:var(--beige2); border:1px solid var(--border);">
+          <div style="font-size:11.5px; color:var(--muted); line-height:1.65; font-family:var(--mono);">Тайминг флипа: решение принято → ДО подписания term sheet. ~4–8 недель. Нанять люксембургского советника до Q4 2026.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 8 · ГРАНТЫ -->
+  <div class="slide">
+    <div class="eyebrow">Стратегия финансирования · Безразводняковый стек</div>
+    <h2>Сначала гранты.<br>Потом дилюция.</h2>
+    <div class="rule"></div>
+    <div style="display:flex; flex-direction:column; gap:11px; margin-top:0;">
+      <div class="card accent-border" style="display:flex; align-items:center; gap:20px;">
+        <div style="min-width:80px;">
+          <div class="big-n" style="font-size:26px;">€?</div>
+          <div style="font-size:10px; color:var(--muted); margin-top:4px; font-family:var(--mono);">R&D грант</div>
+        </div>
+        <div style="flex:1;">
+          <div style="font-size:14px; font-weight:500; margin-bottom:4px;">Luxinnovation — компенсация R&D</div>
+          <div style="font-size:13px; color:var(--text); line-height:1.6;">Ретроспективная, по майлстоунам. Задокументировать уже сделанное: КПО, Memgraph, CodeDigger, EPC-корпус. Причин откладывать нет.</div>
+        </div>
+        <div><span class="tag">Сейчас</span></div>
+      </div>
+      <div class="card" style="display:flex; align-items:center; gap:20px;">
+        <div style="min-width:80px;">
+          <div class="big-n" style="font-size:26px;">€2.5M</div>
+          <div style="font-size:10px; color:var(--muted); margin-top:4px; font-family:var(--mono);">EIC грант</div>
+        </div>
+        <div style="flex:1;">
+          <div style="font-size:14px; font-weight:500; margin-bottom:4px;">EIC Accelerator — только грантовый компонент</div>
+          <div style="font-size:13px; color:var(--text); line-height:1.6;">Отказаться от доли EIC Fund — она усложняет Delaware-флип. Грантовые деньги остаются чистыми. Подать Q4 2026 с данными Meluxina.</div>
+        </div>
+        <div><span class="tag g">Q4 2026</span></div>
+      </div>
+      <div class="card" style="display:flex; align-items:center; gap:20px;">
+        <div style="min-width:80px;">
+          <div class="big-n" style="font-size:26px;">€400k</div>
+          <div style="font-size:10px; color:var(--muted); margin-top:4px; font-family:var(--mono);">бридж</div>
+        </div>
+        <div style="flex:1;">
+          <div style="font-size:14px; font-weight:500; margin-bottom:4px;">Ангельский бридж — SAFE с оговоркой о флипе</div>
+          <div style="font-size:13px; color:var(--text); line-height:1.6;">Поддерживает runway через построение корпуса и Delaware-флип. MFN SAFE на LuxCo. Конвертируется в Delaware cap table автоматически.</div>
+        </div>
+        <div><span class="tag g">Q4 2026</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 9 · ДОРОЖНАЯ КАРТА -->
+  <div class="slide">
+    <div class="eyebrow">Дорожная карта · H2 2026 → Q2 2027</div>
+    <h2>Последовательность</h2>
+    <div style="margin-top:22px;">
+      <div class="tl-row">
+        <div class="tl-date">Июл – Авг 2026</div>
+        <div class="tl-text">
+          Старт выделения Meluxina HPC
+          <small>Сборка CodeDigger v2 · корпус EU Еврокодов · начало обучения экстрактора</small>
+        </div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-date">Сен 2026</div>
+        <div class="tl-text">
+          Публичный запуск CODE · заявка в Luxinnovation
+          <small>PLG-онбординг · листинг в MCP marketplace · документы R&D-гранта поданы</small>
+        </div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-date">Окт – Ноя 2026</div>
+        <div class="tl-text">
+          Заявка в EIC Accelerator · ангельский SAFE-бридж
+          <small>Опционально: заявка в YC W27. €300–500k бридж с оговоркой о флипе.</small>
+        </div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-date">Q1 2027</div>
+        <div class="tl-text">
+          Delaware-флип → старт US seed-рейза
+          <small>Обмен долей · LuxCo становится 100%-дочкой Delaware · первые встречи с US VC</small>
+        </div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-date">Q2 2027</div>
+        <div class="tl-text">
+          Закрытие seed: $3–5M по US-оценке
+          <small>Запуск EPC-вертикали · рост команды · корпус 10k репо · YC Demo Day (если подали)</small>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 10 · СЛЕДУЮЩИЕ ШАГИ -->
+  <div class="slide">
+    <div class="eyebrow">Немедленные следующие шаги</div>
+    <h2>Три вещи<br>сделать прямо сейчас</h2>
+    <div class="rule"></div>
+    <div style="display:flex; flex-direction:column; gap:12px; margin-top:0;">
+      <div class="card" style="display:flex; gap:22px; align-items:flex-start;">
+        <div class="step-n">01</div>
+        <div>
+          <div style="font-size:14.5px; font-weight:600; margin-bottom:5px;">Нанять люксембургского советника — до Q4</div>
+          <div style="font-size:13px; color:var(--text); line-height:1.6;">Смоделировать налоговые последствия флипа для каждого основателя по его резидентству. Подготовить шаблон SAFE с оговоркой о флипе. Это открывает ангельский раунд. Сделать до начала разговоров с ангелами, не после.</div>
+        </div>
+      </div>
+      <div class="card" style="display:flex; gap:22px; align-items:flex-start;">
+        <div class="step-n">02</div>
+        <div>
+          <div style="font-size:14.5px; font-weight:600; margin-bottom:5px;">Подать заявку в Luxinnovation на R&D-компенсацию</div>
+          <div style="font-size:13px; color:var(--text); line-height:1.6;">Задокументировать ретроспективно: архитектура КПО, интеграция Memgraph, CodeDigger, EPC-корпус. Безразводняково. Укрепляет люксембургскую субстанцию для EIC. Нет причин ждать.</div>
+        </div>
+      </div>
+      <div class="card" style="display:flex; gap:22px; align-items:flex-start;">
+        <div class="step-n">03</div>
+        <div>
+          <div style="font-size:14.5px; font-weight:600; margin-bottom:5px;">Публично запустить CODE, инструментировать US-гео с первого дня</div>
+          <div style="font-size:13px; color:var(--text); line-height:1.6;">PLG-рост в US developer-комьюнити — это главная метрика seed-деки. Каждая инсталляция — данные. «X% инсталляций — США» — это аргумент за US-оценку. Эта цифра должна быть реальной, когда заходим на встречу к VC.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div id="nav">
+  <button id="bp" onclick="go(-1)">←</button>
+  <span id="ctr">1 / 10</span>
+  <button id="bn" onclick="go(1)">→</button>
+</div>
+
+<script>
+const slides = document.querySelectorAll('.slide');
+const ctr = document.getElementById('ctr');
+const dotsEl = document.getElementById('dots');
+const N = slides.length;
+let cur = 0;
+
+slides.forEach((_, i) => {
+  const d = document.createElement('div');
+  d.className = 'dot' + (i === 0 ? ' on' : '');
+  d.onclick = () => goTo(i);
+  dotsEl.appendChild(d);
+});
+
+function goTo(n) {
+  slides[cur].classList.remove('active');
+  dotsEl.children[cur].classList.remove('on');
+  cur = Math.max(0, Math.min(n, N - 1));
+  slides[cur].classList.add('active');
+  dotsEl.children[cur].classList.add('on');
+  ctr.textContent = (cur + 1) + ' / ' + N;
+  document.getElementById('bp').style.opacity = cur === 0 ? '0.3' : '1';
+  document.getElementById('bn').style.opacity = cur === N - 1 ? '0.3' : '1';
+}
+
+function go(d) { goTo(cur + d); }
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === ' ') { e.preventDefault(); go(1); }
+  if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') { e.preventDefault(); go(-1); }
+});
+
+goTo(0);
+</script>
+</body>
+</html>

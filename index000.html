@@ -1,0 +1,2034 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Actiquest — EPC Partnership Proposal</title>
+<link rel="icon" type="image/svg+xml" href="actiq-logo/actiq-logo-round.svg">
+<meta name="description" content="AI Engineering Partner for EPC Digitalization — Membria and AI-EPC for Samsung Engineering's project execution.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Actiquest Labs">
+<meta property="og:title" content="Actiquest — EPC Partnership Proposal">
+<meta property="og:description" content="AI Engineering Partner for EPC Digitalization — Membria and AI-EPC for Samsung Engineering's project execution.">
+<meta property="og:image" content="https://presentation.actiq.ai/og-image.jpg">
+<meta property="og:image:secure_url" content="https://presentation.actiq.ai/og-image.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Actiquest — EPC Partnership Proposal">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Actiquest — EPC Partnership Proposal">
+<meta name="twitter:description" content="AI Engineering Partner for EPC Digitalization — Membria and AI-EPC for Samsung Engineering's project execution.">
+<meta name="twitter:image" content="https://presentation.actiq.ai/og-image.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+
+@font-face {
+  font-family: 'Geist';
+  src: url('Geist.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Geist';
+  src: url('Geist-Italic.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: italic;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:      #f2f0ed;
+  --white:   #ffffff;
+  --ink:     #1c1b1a;
+  --mid:     #56524f;
+  --muted:   #999491;
+  --border:  #e0dcd7;
+  --coral:   #f57f65;
+  --blue:    #007bff;
+  --serif:   'DM Serif Display', Georgia, serif;
+  --sans:    'Geist', -apple-system, system-ui, sans-serif;
+  --shadow:  0 1px 3px rgba(0,0,0,0.05), 0 4px 16px rgba(0,0,0,0.06);
+}
+
+html {
+  height: 100%;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+  background: #181614;
+  font-family: var(--sans);
+}
+
+body { margin: 0; }
+
+/* ── EACH SLIDE ─────────────────────────────────────── */
+.slide {
+  width: 100vw;
+  height: 100vh;
+  scroll-snap-align: start;
+  position: relative;
+  overflow: hidden;
+  background: var(--bg);
+  /* base unit: at 16:9 this equals 1vw = 1.7778vh; ×1.08 for readability */
+  font-size: min(1.08vw, 1.92vh);
+  line-height: 1.38;
+}
+
+/* ── PARALLAX BG ────────────────────────────────────── */
+.pbg {
+  position: absolute;
+  inset: -25% 0;
+  will-change: transform;
+  transition: transform 0ms linear;
+}
+/* photo-slot wrappers inside .pbg — fill parallax area */
+.pbg > .svg-slot {
+  position: absolute; inset: 0;
+  border-radius: 0;
+  font-size: 1em;
+}
+
+/* ── PROGRESS BAR (top, scroll progress) ───────────── */
+#progress {
+  position: fixed; top: 0; left: 0; right: 0;
+  height: 3px; z-index: 998;
+  background: rgba(0,0,0,0.04);
+}
+#progress-fill {
+  height: 100%; width: 0;
+  background: var(--coral);
+  transition: width .12s ease-out;
+}
+
+/* ── SLIDE DOTS (right side, navigation) ────────────── */
+#dots {
+  position: fixed; top: 50%; right: 1.4em;
+  transform: translateY(-50%); z-index: 998;
+  display: flex; flex-direction: column; gap: 9px;
+}
+#dots a {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: rgba(0,0,0,0.16);
+  transition: all .25s ease;
+  display: block;
+}
+#dots a:hover { background: rgba(0,0,0,0.32); transform: scale(1.2); }
+#dots a.active {
+  background: var(--coral);
+  width: 8px; height: 22px; border-radius: 5px;
+}
+
+/* ── SLIDE SEPARATOR — visible dark band between slides ─── */
+/* Each slide ends with a thick dark bottom border. During scroll
+   you see the band, creating a clear "card-on-page" feel. */
+.slide:not(:last-child) {
+  border-bottom: 14px solid #181614;
+}
+
+/* ── PDF BUTTON ─────────────────────────────────────── */
+#pdf-btn {
+  position: fixed;
+  bottom: calc(4.5em + 5px);
+  right: 4.5em;
+  z-index: 999;
+  background: none;
+  border: none;
+  padding: 0;
+  width: 2.8em;
+  height: 2.8em;
+  cursor: pointer;
+  transition: opacity .15s, transform .15s;
+}
+#pdf-btn:hover { opacity: 0.75; transform: scale(1.08); }
+
+/* ── SHARED ─────────────────────────────────────────── */
+.tag {
+  display: inline-block;
+  align-self: flex-start;
+  font-family: var(--sans);
+  font-size: 0.7em;
+  color: #5b8fc9;
+  background: rgba(91,143,201,0.10);
+  border: 1px solid rgba(91,143,201,0.25);
+  border-radius: 999px;
+  padding: 0.3em 0.85em;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.card {
+  background: var(--white);
+  border-radius: 0.5em;
+  box-shadow: var(--shadow);
+}
+.rule { height: 1px; background: var(--border); }
+
+/* icon wrapper — coral stroke (for inline SVGs) */
+.ico {
+  width: 1.9em; height: 1.9em;
+  color: var(--coral);
+  flex-shrink: 0;
+  display: block;
+}
+
+/* icon SLOT wrapper — fixed size box, holds .svg-slot placeholder or user SVG */
+.ico-wrap {
+  width: 1.9em; height: 1.9em;
+  flex-shrink: 0;
+  color: var(--coral);
+  display: block;
+}
+.ico-wrap .svg-slot {
+  font-size: 0.55em;
+  border-radius: 0.3em;
+}
+.ico-wrap > svg {
+  width: 100%; height: 100%;
+  display: block;
+  color: var(--coral);
+}
+
+/* Coral-masked icon — recolors black SVG asset to coral via CSS mask */
+.masked {
+  width: 100%; height: 100%;
+  background: var(--coral);
+  -webkit-mask-position: center;  mask-position: center;
+  -webkit-mask-size: contain;     mask-size: contain;
+  -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat;
+}
+
+/* Plain image — fills container, cover */
+.photo-img {
+  width: 100%; height: 100%; display: block;
+  object-fit: cover;
+}
+
+/* checklist */
+.chklist { list-style: none; }
+.chklist li {
+  display: flex; align-items: flex-start; gap: 0.55em;
+  font-size: 0.83em; color: var(--mid); line-height: 1.5; font-weight: 300;
+}
+.chklist li + li { margin-top: 0.55em; }
+.chklist li::before {
+  content: '✓'; color: var(--coral);
+  font-size: 0.82em; flex-shrink: 0; margin-top: 0.12em; font-weight: 500;
+}
+
+/* entrance animation */
+.fade-up {
+  opacity: 0;
+  transform: translateY(1.8em);
+  transition: opacity .55s ease, transform .55s ease;
+}
+.fade-up.visible { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .fade-up { opacity: 1; transform: none; }
+}
+
+/* ── SVG ILLUSTRATION SLOTS ─────────────────────────── */
+.svg-slot {
+  position: relative;
+  width: 100%; height: 100%;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(245, 127, 101, 0.04);
+  border: 1px dashed rgba(245, 127, 101, 0.5);
+  border-radius: 0.45em;
+  color: var(--coral);
+  font-family: var(--sans);
+  font-size: 0.72em;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-align: center;
+  overflow: hidden;
+}
+.svg-slot::before {
+  content: '[ ' attr(data-label) ' ]';
+  opacity: 0.7;
+}
+.svg-slot > svg, .svg-slot > img {
+  width: 100%; height: 100%; object-fit: cover;
+}
+/* When SVG is inserted, hide the placeholder label */
+.svg-slot:not(:empty)::before { display: none; }
+.svg-slot:not(:empty) { background: none; border: none; }
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   SLIDE 1 — COVER
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.s1 { background: #0f1820; }
+/* Less parallax stretch so photo isn't blown up & cropped weird */
+.s1 .pbg { inset: -8% 0; }
+.s1 .pbg .photo-img {
+  /* Keep photo natural — no brightness filter */
+  filter: none;
+  object-position: center;
+}
+.s1 .overlay {
+  position: absolute; inset: 0;
+  /* Very light vignette only on left+bottom for text legibility — clean, no muddiness */
+  background:
+    linear-gradient(90deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.1) 30%, transparent 55%),
+    linear-gradient(180deg, transparent 60%, rgba(0,0,0,0.35) 100%);
+  pointer-events: none; z-index: 1;
+}
+.s1 .inner { z-index: 2; }
+.s1 .logo {
+  position: absolute; top: 2.4em; left: 4.5em;
+  height: 4.5em; width: auto; z-index: 3;
+  opacity: 0.95;
+}
+.s1 .inner {
+  position: absolute; inset: 0;
+  padding: 4.5em;
+  display: flex; flex-direction: column;
+  justify-content: space-between;
+}
+.s1 .title {
+  font-family: var(--serif);
+  font-size: 5em;
+  font-weight: 400;
+  color: white;
+  line-height: 1.09;
+  letter-spacing: -0.02em;
+  margin-top: 2.5em;
+}
+.s1 .title em { font-style: italic; }
+.s1 .sub {
+  font-size: 0.95em; font-weight: 300;
+  color: rgba(255,255,255,0.68);
+  margin-top: 0.9em; letter-spacing: 0.01em;
+}
+.s1 .author {
+  padding-bottom: 0.3em;
+  display: flex; align-items: center; gap: 0.95em;
+}
+.s1 .avatar-spin-ring {
+  width: 4em; height: 4em; flex-shrink: 0;
+  border-radius: 50%;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.45);
+}
+.s1 .avatar-ring {
+  width: 100%; height: 100%;
+  border-radius: 50%; overflow: hidden;
+}
+.s1 .avatar {
+  width: 100%; height: 100%;
+  object-fit: cover; display: block;
+  transform: scale(1.15);
+}
+.s1 .author-text { display: flex; flex-direction: column; }
+.s1 .aname {
+  font-size: 0.92em; font-weight: 500; color: white;
+  letter-spacing: 0.005em;
+  text-decoration: none;
+  display: inline-block;
+  transition: opacity .2s ease, border-color .2s ease;
+  border-bottom: 1px solid rgba(255,255,255,0.25);
+  padding-bottom: 0.05em;
+}
+.s1 .aname:hover { border-bottom-color: rgba(255,255,255,0.75); }
+.s1 .arole { font-size: 0.78em; font-weight: 300; color: rgba(255,255,255,0.6); margin-top: 0.22em; }
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   GLOBAL SLIDE TEMPLATE
+   Applies to all standard content slides (s2–s13 excl. s5/s8/s12/s14/s15)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.s2 .inner, .s3 .inner, .s4 .inner,
+.s6 .inner, .s7 .inner, .s9 .inner, .s10 .inner, .s13 .inner {
+  padding: 2.6em 3.8em 3.5em;
+}
+.s2 h1, .s3 h1, .s4 h1,
+.s6 h1, .s7 h1, .s9 h1, .s10 h1, .s13 h1 {
+  font-family: var(--serif);
+  font-size: 3.8em; font-weight: 400;
+  color: var(--ink); letter-spacing: -0.025em; line-height: 1.08;
+  margin: 0.2em 0 0.5em;
+}
+.tag { margin-bottom: 0; }
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   SLIDE 2 — WHO WE ARE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.s2 .inner {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column;
+  gap: 1.2em;
+}
+.s2 .cards {
+  display: grid; grid-template-columns: repeat(4,1fr);
+  gap: 1em; flex: 1; min-height: 0;
+}
+.s2 .card {
+  padding: 0; overflow: hidden;
+  display: flex; flex-direction: column; height: 100%;
+}
+.s2 .card-img {
+  flex: 1; width: 100%; min-height: 0;
+  object-fit: cover; display: block;
+}
+.s2 .card-body { padding: 1.1em 1.2em 1.4em; flex-shrink: 0; }
+.s2 .ct {
+  font-family: var(--serif);
+  font-size: 1em; font-weight: 400;
+  color: var(--ink); margin-bottom: 0.5em;
+  letter-spacing: -0.01em;
+}
+.s2 .cb-sub { font-size: 0.74em; font-weight: 500; color: var(--coral); margin-bottom: 0.45em; letter-spacing: 0.01em; }
+.s2 .cb { font-size: 0.78em; font-weight: 300; color: var(--mid); line-height: 1.38; }
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   SLIDES 3 & 4 — AT A GLANCE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.s3 .inner, .s4 .inner {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column;
+}
+.s3-sub {
+  font-size: 0.85em; color: var(--muted); font-weight: 300;
+  margin-bottom: 0.9em;
+}
+.s3-tagline {
+  font-family: var(--serif); font-style: italic;
+  font-size: 1.4em; color: var(--ink);
+  margin-top: 1em; letter-spacing: -0.01em;
+  opacity: 0.75;
+}
+.glance-grid {
+  display: grid; grid-template-columns: 14em 1fr;
+  gap: 1.5em; flex: 1; min-height: 0;
+}
+.stat-col { display: flex; flex-direction: column; gap: 0.9em; }
+.stat-card {
+  background: var(--white); border-radius: 0.5em;
+  box-shadow: var(--shadow); padding: 1em 1.4em;
+  display: flex; align-items: flex-start; justify-content: flex-start;
+  gap: 1em; flex: 1; min-height: 0;
+}
+.stat-card .snum { padding-top: 0.1em; }
+.snum { flex-shrink: 0; }
+.snum {
+  font-family: var(--serif); font-size: 2.6em; font-weight: 400;
+  color: var(--coral); line-height: 1; white-space: nowrap; letter-spacing: -0.02em;
+}
+.sdesc { font-size: 0.78em; color: var(--muted); line-height: 1.4; font-weight: 300; }
+.twrap {
+  background: var(--white); border-radius: 0.5em;
+  box-shadow: var(--shadow); overflow: hidden;
+  display: flex; flex-direction: column;
+}
+.dtbl { width: 100%; border-collapse: collapse; flex: 1; }
+.dtbl tbody { height: 100%; }
+.dtbl tbody tr { height: 1px; } /* браузер растянет равномерно */
+.dtbl thead tr { background: var(--coral); }
+.dtbl thead th {
+  color: white; font-family: var(--sans);
+  font-size: 0.88em; font-weight: 500;
+  padding: 0.82em 1.4em; text-align: left;
+}
+.dtbl tbody tr { border-bottom: 1px solid var(--border); }
+.dtbl tbody tr:last-child { border-bottom: none; }
+.dtbl tbody td { padding: 0.72em 1.4em; font-size: 0.86em; color: var(--mid); }
+.dtbl tbody td:first-child { color: var(--ink); font-weight: 500; white-space: nowrap; }
+
+/* ── SLIDE 4 — WHY NOW ─────────────────────────────── */
+.s4 .thesis {
+  font-size: 0.95em; color: var(--mid); font-weight: 300;
+  line-height: 1.38; margin: 0 0 0.9em;
+}
+.s4 .thesis b { font-weight: 600; color: var(--ink); }
+.s4 .scenario {
+  font-family: var(--serif); font-style: italic;
+  font-size: 1.25em; color: var(--ink); line-height: 1.35;
+  letter-spacing: -0.01em; margin: 0 0 1.6em; opacity: 0.85;
+}
+.s4 .grid {
+  display: grid; grid-template-columns: repeat(3,1fr);
+  gap: 1.1em; flex: 1; min-height: 0;
+}
+.s4 .card { padding: 1.9em 1.7em 1.7em; display: flex; flex-direction: column; }
+.s4 .cnum {
+  font-family: var(--serif); font-style: italic;
+  font-size: 1.5em; color: var(--coral); line-height: 1; margin-bottom: 0.5em;
+}
+.s4 .ct { font-size: 1.15em; font-weight: 700; color: var(--ink); line-height: 1.25; margin-bottom: 0.6em; }
+.s4 .cb { font-size: 0.92em; color: var(--mid); line-height: 1.6; font-weight: 300; }
+.s4 .cb b { font-weight: 600; color: var(--ink); }
+.s4 .ctake {
+  margin-top: auto; padding-top: 1.1em;
+  border-top: 1px solid var(--border);
+  display: flex; align-items: baseline; gap: 0.5em;
+  font-size: 0.92em; font-weight: 600; color: var(--ink); line-height: 1.35;
+}
+.s4 .ctake::before { content: '→'; color: var(--coral); font-weight: 700; flex-shrink: 0; }
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   SLIDE 5 — MEMBRIA WORKFORCE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.s5 .inner {
+  position: absolute; inset: 0;
+  padding: 3.5em 5em 3.5em 5em;
+  display: flex; flex-direction: column;
+}
+.s5-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 2em; }
+.s5 h1 {
+  font-family: var(--serif);
+  font-size: 3.8em; font-weight: 400;
+  color: var(--ink); letter-spacing: -0.025em; line-height: 1.08;
+}
+.s5 h1 em { font-style: italic; }
+.s5 .note { font-size: 0.78em; color: var(--muted); font-weight: 300; padding-top: 0.6em; white-space: nowrap; }
+
+/* 3 columns — evenly distributed, vertically centered in the remaining space */
+.s5 .cols {
+  display: grid; grid-template-columns: repeat(3,1fr);
+  column-gap: 4em;
+  margin: auto 0;            /* vertically center in remaining space → air above and below */
+  padding: 2em 0;
+}
+.s5 .col { display: flex; flex-direction: column; align-items: flex-start; }
+
+/* Image rendered 1:1 with native source.
+   Source is 1000×1000. On Retina (DPR=2), 500 CSS px = 1000 device px = source 1:1 → crisp. */
+.s5 .pillar-img {
+  display: block;
+  width: 14em;
+  height: 14em;
+  object-fit: cover;
+  margin: 0 0 1.2em;
+  border-radius: 0.6em;
+}
+
+.s5 .ct {
+  font-family: var(--serif); font-size: 1.45em; font-weight: 400;
+  color: var(--ink); letter-spacing: -0.01em;
+}
+.s5 .pill {
+  display: inline-block;
+  font-size: 0.66em; color: #5b8fc9;
+  background: rgba(91,143,201,0.10);
+  border: 1px solid rgba(91,143,201,0.28);
+  border-radius: 999px;
+  padding: 0.32em 0.85em;
+  margin-bottom: 3em;
+  letter-spacing: 0.04em;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+.s5 .ct { margin-bottom: 0.15em; }
+.s5 .chklist { margin-top: 0.9em; }
+.s5 .chklist li { font-size: 0.95em; line-height: 1.45; }
+.s5 .chklist li b { font-weight: 600; color: var(--ink); }
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   SLIDE 6 — 4 DOMAINS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.s6 .inner {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column;
+}
+.s6 .sub { font-size: 0.82em; color: var(--muted); font-weight: 300; margin: 0 0 1em; }
+.s6 .cards {
+  display: grid; grid-template-columns: repeat(4,1fr);
+  gap: 1.1em; flex: none;
+}
+.s6 .card { padding: 1.5em 1.6em; display: flex; flex-direction: column; }
+.s6 .ico-wrap { width: 3em; height: 3em; margin-bottom: 0.6em; flex-shrink: 0; }
+.s6 .ct { font-size: 1.04em; font-weight: 700; color: var(--ink); line-height: 1.25; margin: 0.3em 0 0.55em; height: 2.6em; overflow: hidden; flex-shrink: 0; }
+.s6 .cb { font-size: 0.94em; color: var(--mid); line-height: 1.42; font-weight: 300; height: 6.4em; overflow: hidden; flex-shrink: 0; }
+.s6 .rule { margin: 0.8em 0 0.75em; flex-shrink: 0; }
+.s6 .meta { display: flex; flex-direction: column; gap: 0.6em; flex-shrink: 0; }
+.s6 .ml { font-size: 0.79em; line-height: 1.45; }
+.s6 .ml b { display: block; font-weight: 600; font-size: 0.8em; color: var(--muted); text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 0.16em; }
+.s6 .ml span { color: var(--mid); font-weight: 300; }
+.s6 .ml.val b { color: var(--coral); }
+.s6 .ml.val span { color: var(--ink); font-weight: 500; font-size: 1.02em; }
+.s6 .bottom {
+  background: rgba(0,0,0,0.04);
+  border-radius: 0.45em;
+  padding: 0.75em 1.2em;
+  margin-top: auto;
+  font-size: 0.78em; color: var(--mid); font-weight: 300;
+  line-height: 1.5;
+}
+.s6 .bottom b { font-weight: 600; color: var(--ink); }
+.s7 .bottom {
+  background: rgba(0,0,0,0.04);
+  border-radius: 0.45em;
+  padding: 0.75em 1.2em;
+  margin-top: auto;
+  font-size: 0.78em; color: var(--mid); font-weight: 300;
+  line-height: 1.5;
+}
+.s7 .bottom b { font-weight: 600; color: var(--ink); }
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   SLIDE 7 — CORE CAPABILITIES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.s7 .inner {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column;
+}
+.s7 .grid {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 0.9em;
+}
+.s7 .card {
+  padding: 1.6em 1.5em;
+  display: flex; flex-direction: column;
+}
+.s7 .ico-wrap { width: 4.2em; height: 4.2em; margin-bottom: 0.8em; flex-shrink: 0; }
+.s7 .sub { font-size: 0.82em; color: var(--muted); font-weight: 300; margin: 0 0 1em; }
+.s7 .ct { font-size: 1.04em; font-weight: 700; color: var(--ink); line-height: 1.25; margin: 0.4em 0 0.7em; }
+.s7 .cb { font-size: 0.94em; color: var(--mid); line-height: 1.42; font-weight: 300; }
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   SLIDE 8 — AI-CAD
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.s8 .inner {
+  position: absolute; inset: 0;
+  display: grid; grid-template-columns: 1fr 34%;
+}
+.s8 .left {
+  padding: 2.6em 3.5em 3.5em 4.5em;
+  display: flex; flex-direction: column;
+}
+.s8 h1 {
+  font-family: var(--serif);
+  font-size: 3.8em; font-weight: 400;
+  color: var(--ink); letter-spacing: -0.025em; line-height: 1.08;
+  margin: 0.2em 0 0.5em;
+}
+.s8 .sub { font-size: 0.82em; color: var(--muted); font-weight: 300; margin: 0 0 1em; }
+.s8 .feats {
+  display: flex; flex-direction: column;
+  flex: 1; min-height: 0;
+  justify-content: space-between;
+  padding: 0.6em 0;
+}
+.s8 .feat { display: flex; align-items: flex-start; gap: 0.9em; }
+.s8 .feat .ico-wrap { width: 2.4em; height: 2.4em; flex-shrink: 0; margin-top: 0.1em; }
+.s8 .ft { font-size: 1.0em; font-weight: 700; color: var(--ink); margin-bottom: 0.18em; }
+.s8 .fb { font-size: 0.88em; color: var(--mid); line-height: 1.45; font-weight: 300; }
+.s8 .photo { position: relative; overflow: hidden; background: #1a0c08; }
+.s8 .photo .pbg { background: #1a0c08; }
+.s8 .photo .photo-img {
+  filter: grayscale(1) brightness(0.85) contrast(1.05);
+}
+.s8 .photo::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(160deg, #c95838 0%, #f57f65 60%, #a8462a 100%);
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}
+.s8 .plabel { z-index: 2; }
+.s8 .plabel {
+  position: absolute; top: 1.6em; left: 1.6em; right: 1.6em; z-index: 2;
+}
+.s8 .plt { font-size: 0.85em; font-weight: 500; color: rgba(255,255,255,0.88); }
+.s8 .pls { font-size: 0.72em; color: rgba(255,255,255,0.55); font-weight: 300; margin-top: 0.18em; }
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   SLIDE 9 — SAMSUNG VALUE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.s9 .inner {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column;
+}
+.s9 .thesis {
+  font-size: 0.95em; color: var(--mid); font-weight: 300;
+  line-height: 1.38; margin: 0 0 1.6em; white-space: nowrap;
+}
+.s9 .thesis b { font-weight: 600; color: var(--ink); }
+.s9 .tracks {
+  display: grid; grid-template-columns: 0.82fr 1.18fr;
+  gap: 2.6em; flex: 1; min-height: 0;
+}
+.s9 .track {
+  display: flex; flex-direction: column;
+  padding-left: 1.5em; border-left: 2px solid;
+}
+.s9 .track.consumer { border-color: var(--coral); }
+.s9 .track.enterprise { border-color: var(--blue); }
+.s9 .tlabel {
+  font-size: 0.74em; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+.s9 .track.consumer .tlabel { color: var(--coral); }
+.s9 .track.enterprise .tlabel { color: var(--blue); }
+.s9 .titems {
+  flex: 1; display: flex; flex-direction: column;
+  justify-content: space-between; margin-top: 1em;
+}
+.s9 .titem { display: flex; gap: 0.95em; align-items: flex-start; }
+.s9 .titem .ico-wrap { width: 2.5em; height: 2.5em; flex-shrink: 0; margin-top: 0.05em; }
+.s9 .tt { font-size: 1.02em; font-weight: 700; color: var(--ink); margin-bottom: 0.22em; }
+.s9 .tb { font-size: 0.88em; color: var(--mid); line-height: 1.5; font-weight: 300; }
+.s9 .bottom {
+  background: rgba(0,0,0,0.04); border-radius: 0.45em;
+  padding: 0.75em 1.2em; margin-top: 1.1em; flex-shrink: 0;
+  font-size: 0.82em; color: var(--mid); font-weight: 300; line-height: 1.5;
+}
+.s9 .bottom b { font-weight: 600; color: var(--coral); }
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   SLIDE 10 — COLLABORATION OPTIONS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.s10 .inner {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column;
+}
+.s10 .thesis {
+  font-size: 0.95em; color: var(--mid); font-weight: 300;
+  line-height: 1.38; max-width: 54em; margin: 0 0 1.6em;
+}
+.s10 .thesis b { font-weight: 600; color: var(--ink); }
+.s10 .ladder {
+  display: grid; grid-template-columns: repeat(4,1fr);
+  gap: 1.1em; flex: 1; min-height: 0;
+}
+.s10 .step {
+  padding: 1.7em 1.5em 1.6em; display: flex; flex-direction: column;
+  position: relative; overflow: hidden;
+}
+.s10 .step::before {
+  content: ''; position: absolute; top: 0; left: 0; height: 4px;
+  background: var(--coral); border-radius: 0 0 2px 0;
+}
+.s10 .step.s1::before { width: 25%; }
+.s10 .step.s2::before { width: 50%; }
+.s10 .step.s3::before { width: 75%; }
+.s10 .step.s4::before { width: 100%; }
+.s10 .step.s1 { background: #1a2548; outline: none; }
+.s10 .step.s1 .onum { color: var(--coral); }
+.s10 .step.s1 .ot { color: #fff; }
+.s10 .step.s1 .ogoal { color: rgba(255,255,255,0.6); }
+.s10 .step.s1 .ogoal b { color: rgba(255,255,255,0.9); }
+.s10 .step.s1 .d { color: rgba(255,255,255,0.55); }
+.s10 .step.s1 .d::before { background: var(--coral); opacity: 1; }
+.s10 .step.s1 .oscope { color: rgba(255,255,255,0.35); border-top-color: rgba(255,255,255,0.12); }
+.s10 .badge {
+  position: absolute; top: 1.5em; right: 1.4em;
+  font-size: 0.6em; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.08em; color: var(--coral);
+}
+.s10 .onum {
+  font-family: var(--serif); font-style: italic;
+  font-size: 1.7em; color: var(--coral); line-height: 1; margin-bottom: 0.35em;
+}
+.s10 .ot { font-size: 1.0em; font-weight: 700; color: var(--ink); margin-bottom: 0.5em; }
+.s10 .ogoal { font-size: 0.84em; color: var(--mid); line-height: 1.5; font-weight: 300; margin-bottom: 0.9em; }
+.s10 .ogoal b { font-weight: 600; color: var(--ink); }
+.s10 .odel { display: flex; flex-direction: column; gap: 0.4em; margin-bottom: auto; }
+.s10 .odel .d {
+  font-size: 0.78em; color: var(--mid); font-weight: 300; line-height: 1.35;
+  padding-left: 0.9em; position: relative;
+}
+.s10 .odel .d::before {
+  content: ''; position: absolute; left: 0; top: 0.5em;
+  width: 4px; height: 4px; border-radius: 50%; background: var(--coral); opacity: 0.55;
+}
+.s10 .oscope {
+  margin-top: 1.1em; padding-top: 0.8em; border-top: 1px solid var(--border);
+  font-size: 0.72em; font-weight: 600; text-transform: uppercase;
+  letter-spacing: 0.07em; color: var(--muted);
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   SLIDE 11 — WHAT WE BUILT
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.s11 .inner {
+  position: absolute; inset: 0;
+  padding: 4.5em;
+  display: grid;
+  grid-template-columns: 20em 1fr;
+  gap: 5em; align-items: center;
+}
+.s11 h1 {
+  font-family: var(--serif);
+  font-size: 4.2em; font-weight: 400;
+  color: var(--ink); letter-spacing: -0.025em; line-height: 1.05;
+}
+.s11 .projects { display: flex; flex-direction: column; }
+.s11 .proj {
+  display: flex; gap: 1.2em;
+  padding: 1.35em 0;
+  border-bottom: 1px solid var(--border);
+}
+.s11 .proj:first-child { border-top: 1px solid var(--border); }
+.s11 .pnum {
+  font-family: var(--serif); font-style: italic;
+  font-size: 0.84em; color: var(--coral);
+  flex-shrink: 0; width: 1.8em; padding-top: 0.1em;
+}
+.s11 .ptitle {
+  font-size: 0.94em; font-weight: 600; color: var(--ink); margin-bottom: 0.28em;
+  display: flex; align-items: center; gap: 0.5em;
+}
+.s11 .proj-logo { height: 1.1em; width: auto; opacity: 0.85; }
+.s11 .pbody { font-size: 0.8em; color: var(--mid); line-height: 1.5; font-weight: 300; margin-bottom: 0.3em; }
+.s11 .pstack { font-size: 0.74em; color: var(--muted); font-style: italic; }
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   SLIDE 12 — TECHNOLOGY STACK
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.s12 .inner {
+  position: absolute; inset: 0;
+  display: grid; grid-template-columns: 38% 62%;
+}
+.s12 .left {
+  padding: 4.5em 3em 4.5em 4.5em;
+  border-right: 1px solid var(--border);
+  display: flex; flex-direction: column; justify-content: flex-start;
+}
+.s12 h1 {
+  font-family: var(--serif);
+  font-size: 3.8em; font-weight: 400;
+  color: var(--ink); letter-spacing: -0.025em; line-height: 1.08;
+}
+.s12 .right {
+  padding: 3.2em 4.5em 3.2em 3em;
+  display: flex; flex-direction: column;
+}
+.s12 .sec {
+  padding: 1.05em 0;
+  border-bottom: 1px solid var(--border);
+}
+.s12 .sec:first-child { padding-top: 0; }
+.s12 .sec:last-child { border-bottom: none; }
+.s12 .stitle {
+  font-family: var(--serif); font-style: italic;
+  font-size: 0.88em; color: var(--muted); margin-bottom: 0.45em;
+}
+.s12 ul { list-style: none; display: flex; flex-direction: column; gap: 0.28em; }
+.s12 ul li {
+  font-size: 0.82em; color: var(--mid); font-weight: 300;
+  display: flex; align-items: baseline; gap: 0.5em; line-height: 1.5;
+}
+.s12 ul li::before { content: '·'; color: var(--coral); font-size: 1.4em; line-height: 0.7; flex-shrink: 0; }
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   SLIDE 13 — WHY US
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.s13 .inner {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column;
+}
+.s13 .grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  grid-template-rows: repeat(2,1fr);
+  gap: 0.9em; flex: 1; min-height: 0;
+}
+.s13 .card { padding: 1.35em 1.35em; display: flex; flex-direction: column; gap: 0.42em; }
+.s13 .ico-wrap { width: 4.2em; height: 4.2em; margin-bottom: 0.8em; flex-shrink: 0; }
+.s13 .ct { font-size: 0.9em; font-weight: 600; color: var(--ink); }
+.s13 .cb { font-size: 0.8em; color: var(--mid); line-height: 1.6; font-weight: 300; }
+.s13 .bottom {
+  background: rgba(0,0,0,0.04);
+  border-radius: 0.45em;
+  padding: 0.75em 1.2em;
+  margin-top: 0.9em;
+  font-size: 0.82em; color: var(--mid); font-weight: 300;
+  line-height: 1.5;
+}
+.s13 .bottom b { font-weight: 600; color: var(--ink); }
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   SLIDE 14 — SAMSUNG GETS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.s14 .inner {
+  position: absolute; inset: 0;
+  display: grid; grid-template-columns: 30% 1fr;
+}
+.s14 .photo { position: relative; overflow: hidden; }
+.s14 .photo .pbg {
+  background:
+    radial-gradient(ellipse 80% 80% at 40% 50%, rgba(200,50,20,0.9) 0%, transparent 70%),
+    linear-gradient(160deg, #c04020 0%, #8a2215 45%, #120806 100%);
+}
+.s14 .right {
+  padding: 5em 5em 5em 4.5em;
+  display: flex; flex-direction: column; justify-content: center;
+}
+.s14 h1 {
+  font-family: var(--serif);
+  font-size: 4em; font-weight: 400;
+  color: var(--ink); letter-spacing: -0.025em;
+  margin-bottom: 1.6em; line-height: 1.05;
+}
+.s14 .items { display: flex; flex-direction: column; gap: 1.25em; }
+.s14 .it { font-size: 0.9em; font-weight: 600; color: var(--ink); margin-bottom: 0.2em; }
+.s14 .ib { font-size: 0.82em; color: var(--muted); font-weight: 300; }
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   SLIDE 15 — LET'S START
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.s15 .inner {
+  position: absolute; inset: 0;
+  display: grid; grid-template-columns: 36% 1fr;
+}
+.s15 .photo {
+  position: relative; overflow: hidden;
+  display: flex; flex-direction: column; justify-content: space-between;
+  padding: 3.6em 2.8em;
+}
+.s15 .photo .pbg {
+  background-image: url('letstart.jpg');
+  background-size: cover; background-position: center;
+}
+.s15 .photo::after {
+  content: ''; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  background: linear-gradient(180deg, rgba(8,4,2,0.5) 0%, rgba(8,4,2,0.15) 38%, rgba(8,4,2,0.8) 100%);
+}
+.s15 .plogo { position: relative; z-index: 2; height: 3.2em; width: auto; opacity: 0.95; align-self: flex-start; }
+.s15 .pclose { position: relative; z-index: 2; }
+.s15 .pcline {
+  font-family: var(--serif); font-size: 1.95em; color: #fff;
+  line-height: 1.18; letter-spacing: -0.02em;
+}
+.s15 .pcline em { font-style: italic; color: var(--coral); }
+.s15 .pcsub {
+  font-size: 0.78em; color: rgba(255,255,255,0.5); font-weight: 300;
+  margin-top: 1em; letter-spacing: 0.06em; text-transform: uppercase;
+}
+.s15 .right {
+  padding: 4em 5em 4em 4.5em;
+  display: flex; flex-direction: column;
+}
+.s15 h1 {
+  font-family: var(--serif);
+  font-size: 3.8em; font-weight: 400;
+  color: var(--ink); letter-spacing: -0.025em; line-height: 1.08; margin-bottom: 0.35em;
+}
+.s15 .sub {
+  font-size: 0.9em; color: var(--mid); font-weight: 300;
+  line-height: 1.38; margin-bottom: 1.5em; max-width: 40em;
+}
+.s15 .sub b { font-weight: 600; color: var(--coral); }
+.s15 .steps { flex: 1; display: flex; flex-direction: column; justify-content: space-evenly; gap: 1.2em; }
+.s15 .step { display: flex; align-items: flex-start; gap: 0.8em; }
+.s15 .scheck {
+  width: 1.7em; height: 1.7em; border-radius: 50%;
+  background: var(--coral); color: white;
+  font-size: 0.82em; display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; margin-top: 0.05em; font-weight: 600;
+}
+.s15 .slabel { font-size: 1.08em; font-weight: 600; color: var(--ink); }
+.s15 .sbody { font-size: 0.95em; color: var(--mid); font-weight: 300; margin-top: 0.3em; line-height: 1.45; }
+.s15 .contact {
+  padding-top: 1.4em; border-top: 1px solid var(--border);
+  display: flex; flex-direction: row; gap: 3em; flex-shrink: 0; align-items: flex-start;
+}
+.s15 .cval b { font-weight: 600; color: var(--ink); }
+.s15 .cval a {
+  color: var(--coral); text-decoration: none;
+  border-bottom: 1px solid transparent; transition: border-color .15s;
+}
+.s15 .cval a:hover { border-bottom-color: var(--coral); }
+.s15 .clabel {
+  font-size: 0.68em; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.09em; color: var(--coral); margin-bottom: 0.25em;
+}
+.s15 .cval { font-size: 0.82em; color: var(--mid); font-weight: 300; }
+
+/* ── PAGE NUMBERS ───────────────────────────────────── */
+.pagenum {
+  position: absolute; top: 1.8em; right: 3.8em; z-index: 5;
+  font-family: var(--sans); font-size: 0.75em; font-weight: 600;
+  letter-spacing: 0.04em; color: var(--coral);
+  pointer-events: none;
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   PORTRAIT OVERLAY (mobile)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+#portrait-overlay {
+  display: none;
+  position: fixed; inset: 0; z-index: 9999;
+  background: #0f1820 url('board_flipped_only.jpg') center/cover no-repeat;
+  flex-direction: column;
+  align-items: center; justify-content: space-between;
+  padding: 3rem 2.5rem 3.5rem;
+  text-align: center;
+}
+#portrait-overlay::before {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(10,16,26,0.72) 0%, rgba(10,16,26,0.55) 40%, rgba(10,16,26,0.82) 100%);
+  z-index: 0;
+}
+#portrait-overlay > * { position: relative; z-index: 1; }
+#portrait-overlay.visible { display: flex; }
+.po-logos {
+  display: flex; align-items: center; justify-content: space-between;
+  width: 100%; margin-bottom: 1rem;
+}
+.po-logo { height: 3.2rem; width: auto; opacity: 0.9; }
+.po-brand {
+  font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em;
+  text-transform: uppercase; color: rgba(255,255,255,0.35);
+  margin-bottom: 2.2rem;
+}
+.po-icon {
+  width: 2.8rem; height: 2.8rem; margin-bottom: 1.2rem;
+  animation: po-nudge 2.4s ease-in-out infinite;
+}
+@keyframes po-nudge {
+  0%,100% { transform: rotate(0deg) scale(1); }
+  20%     { transform: rotate(-18deg) scale(1.08); }
+  40%     { transform: rotate(14deg) scale(1.04); }
+  60%     { transform: rotate(-8deg) scale(1.02); }
+  80%     { transform: rotate(4deg) scale(1); }
+}
+.po-bottom {
+  display: flex; flex-direction: column;
+  align-items: center; text-align: center;
+}
+.po-title {
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-size: 1.75rem; font-weight: 400;
+  color: #fff; line-height: 1.2;
+  letter-spacing: -0.02em; margin-bottom: 0.75rem;
+}
+.po-sub {
+  font-size: 0.9rem; color: rgba(255,255,255,0.45);
+  font-weight: 300; line-height: 1.38; margin-bottom: 2.5rem;
+  max-width: 18rem;
+}
+.po-pdf {
+  display: inline-flex; align-items: center; gap: 0.55rem;
+  background: none; border: 1px solid rgba(245,127,101,0.45);
+  border-radius: 2rem; padding: 0.7rem 1.4rem;
+  color: #f57f65; font-size: 0.82rem; font-weight: 500;
+  text-decoration: none; letter-spacing: 0.02em;
+  transition: background .2s, border-color .2s;
+}
+.po-pdf:hover { background: rgba(245,127,101,0.1); border-color: #f57f65; }
+.po-pdf svg { width: 1em; height: 1em; flex-shrink: 0; }
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   SLIDES s_comp / s_epc — TABLE SLIDES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.s_comp .inner, .s_epc .inner {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column;
+  padding: 2.6em 3.8em 3.5em;
+}
+.s_comp h1, .s_epc h1 {
+  font-family: var(--serif);
+  font-size: 3.8em; font-weight: 400;
+  color: var(--ink); letter-spacing: -0.025em; line-height: 1.08;
+  margin: 0.2em 0 0.4em;
+}
+.s_comp .sub, .s_epc .sub {
+  font-size: 0.82em; color: var(--muted); font-weight: 300; margin: 0 0 0.8em;
+}
+.s_comp .tbl-wrap, .s_epc .tbl-wrap {
+  flex: 1; min-height: 0;
+  background: var(--white); border-radius: 0.5em;
+  box-shadow: var(--shadow); overflow: hidden;
+  display: flex; flex-direction: column;
+}
+.s_comp .tbl-wrap .dtbl, .s_epc .tbl-wrap .dtbl { flex: 1; }
+.s_comp .dtbl thead tr { background: #1a2548; }
+.s_comp .dtbl tbody td.pos { color: var(--coral); font-weight: 500; }
+.s_epc .dtbl tbody td.pain { color: var(--ink); font-weight: 500; }
+.s_epc .dtbl tbody td.sol { color: var(--coral); font-weight: 500; }
+.s_comp .bottom, .s_epc .bottom {
+  background: rgba(0,0,0,0.04); border-radius: 0.45em;
+  padding: 0.75em 1.2em; margin-top: 0.8em; flex-shrink: 0;
+  font-size: 0.78em; color: var(--mid); font-weight: 300; line-height: 1.5;
+}
+.s_comp .bottom b, .s_epc .bottom b { font-weight: 600; color: var(--ink); }
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   SLIDE s_pos — HONEST COMPETITIVE POSITION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.s_pos .inner {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column;
+  padding: 2.6em 3.8em 3.5em;
+}
+.s_pos h1 {
+  font-family: var(--serif);
+  font-size: 3.8em; font-weight: 400;
+  color: var(--ink); letter-spacing: -0.025em; line-height: 1.08;
+  margin: 0.2em 0 0.5em;
+}
+.s_pos .cols {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 2.5em; flex: 1; min-height: 0;
+}
+.s_pos .col {
+  display: flex; flex-direction: column;
+  padding-left: 1.5em; border-left: 2px solid;
+}
+.s_pos .col-win { border-color: var(--coral); }
+.s_pos .col-prove { border-color: var(--blue); }
+.s_pos .clabel {
+  font-size: 0.74em; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.1em; margin-bottom: 0.8em;
+}
+.s_pos .col-win .clabel { color: var(--coral); }
+.s_pos .col-prove .clabel { color: var(--blue); }
+.s_pos .items { display: flex; flex-direction: column; gap: 0.65em; flex: 1; justify-content: space-between; }
+.s_pos .item { display: flex; align-items: flex-start; gap: 0.55em; }
+.s_pos .bullet { flex-shrink: 0; font-size: 0.82em; font-weight: 700; margin-top: 0.12em; }
+.s_pos .col-win .bullet { color: var(--coral); }
+.s_pos .col-prove .bullet { color: var(--blue); }
+.s_pos .it { font-size: 0.9em; font-weight: 600; color: var(--ink); margin-bottom: 0.1em; }
+.s_pos .ib { font-size: 0.78em; color: var(--mid); font-weight: 300; line-height: 1.4; }
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   PRINT / PDF
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+@media print {
+  @page { size: 1280px 720px; margin: 0; }
+  *, *::before, *::after {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
+  html { scroll-snap-type: none; overflow: visible; background: #181614; }
+  body { width: 1280px; }
+  .slide {
+    width: 1280px !important; height: 720px !important;
+    page-break-after: always; break-after: page;
+    font-size: 12.8px !important;
+    overflow: hidden !important;
+  }
+  .pbg { transform: none !important; inset: 0 !important; }
+  #pdf-btn, #dots, #progress { display: none !important; }
+  .fade-up { opacity: 1 !important; transform: none !important; }
+  .card { box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 4px 16px rgba(0,0,0,0.06) !important; }
+}
+</style>
+</head>
+<body>
+
+<div id="portrait-overlay">
+  <div class="po-logos">
+    <img class="po-logo" src="actiq-logo/actiq-logo-round.svg" alt="Actiquest">
+    <img class="po-logo" src="membria-logo/logo.svg" alt="Membria">
+  </div>
+  <div class="po-bottom">
+    <img class="po-icon" src="rotate-icon.svg" alt="Rotate">
+    <div class="po-title">Rotate for the<br>best experience</div>
+    <div class="po-sub">Optimised for landscape view</div>
+    <a class="po-pdf" href="actiquest-epc.pdf" download="Actiquest-EPC-Proposal.pdf">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+      Download PDF instead
+    </a>
+  </div>
+</div>
+
+<div id="progress"><div id="progress-fill"></div></div>
+<nav id="dots"></nav>
+
+<a id="pdf-btn" href="actiquest-epc.pdf" download="Actiquest-EPC-Proposal.pdf" title="Download PDF">
+  <img src="pdf-icon.svg" width="100%" height="100%" style="display:block;pointer-events:none;" alt="PDF">
+</a>
+
+<!-- ══════════════════════════════════ SLIDE 1 ══════ -->
+<section class="slide s1">
+  <canvas id="s1-canvas" style="position:absolute;inset:0;width:100%;height:100%;z-index:0;display:block;"></canvas>
+  <div class="overlay"></div>
+  <img class="logo" src="actiq-logo/actiq-logo-round.svg" alt="Actiquest">
+  <div class="inner">
+    <div></div>
+    <div class="fade-up">
+      <div class="title">Actiquest Inc.<br><em>Partnership Proposal</em></div>
+      <div class="sub">AI Engineering Partner for EPC Digitalization</div>
+    </div>
+    <div class="author fade-up" style="transition-delay:.15s">
+      <div class="avatar-spin-ring"><div class="avatar-ring"><img class="avatar" src="ma2.avif" alt="Michael Aprossine"></div></div>
+      <div class="author-text">
+        <a class="aname" href="https://www.linkedin.com/in/miguel2020" target="_blank" rel="noopener">Michael Aprossine</a>
+        <div class="arole">CEO, Founder</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════ SLIDE 2 ══════ -->
+<section class="slide s2">
+  <div class="inner">
+    <h1 class="fade-up">Who We Are</h1>
+    <div class="cards">
+      <div class="card fade-up" style="transition-delay:.05s">
+        <img class="card-img" src="who1.jpg" alt="Actiquest">
+        <div class="card-body">
+          <div class="ct">Actiquest Labs</div>
+          <div class="cb-sub">Applied AI Systems Company</div>
+          <div class="cb">Actiquest Labs builds applied AI systems for companies that need practical automation, intelligent workflows and enterprise-grade AI products.</div>
+        </div>
+      </div>
+      <div class="card fade-up" style="transition-delay:.1s">
+        <img class="card-img" src="who2.jpg" alt="Membria">
+        <div class="card-body">
+          <div class="ct">Membria.AI</div>
+          <div class="cb-sub">AI Operating Environment</div>
+          <div class="cb">Our core product — agents, memory, knowledge and verification combined into one enterprise-ready AI platform.</div>
+        </div>
+      </div>
+      <div class="card fade-up" style="transition-delay:.15s">
+        <img class="card-img" src="who3.jpg" alt="Vertical Expertise">
+        <div class="card-body">
+          <div class="ct">Vertical Expertise</div>
+          <div class="cb-sub">Code · Fintech · Government · Audit · EPC</div>
+          <div class="cb">We specialize in complex domains where AI needs precision, context and process understanding — fintech, government, audit, compliance and EPC.</div>
+        </div>
+      </div>
+      <div class="card fade-up" style="transition-delay:.2s">
+        <img class="card-img" src="who4.jpg" alt="How We Work">
+        <div class="card-body">
+          <div class="ct">How We Work</div>
+          <div class="cb-sub">Venture Studio + Enterprise Delivery</div>
+          <div class="cb">We build our own AI products, partner with startups and deliver enterprise AI projects, from concept and prototype to production deployment.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════ SLIDE 3 ══════ -->
+<section class="slide s3">
+  <div class="inner">
+    <span class="tag fade-up">Company Profile</span>
+    <h1 class="fade-up" style="transition-delay:.05s">Actiquest Labs at a Glance</h1>
+    <div class="s3-sub fade-up" style="transition-delay:.07s">Key facts, production footprint and enterprise AI capabilities.</div>
+    <div class="glance-grid fade-up" style="transition-delay:.1s">
+      <div class="stat-col">
+        <div class="stat-card">
+          <div class="snum">10+</div>
+          <div class="sdesc">years enterprise product, AI engineering and venture-building experience</div>
+        </div>
+        <div class="stat-card">
+          <div class="snum">4</div>
+          <div class="sdesc">verticals<br>Fintech · Government · Audit · Engineering / EPC</div>
+        </div>
+        <div class="stat-card">
+          <div class="snum">100+</div>
+          <div class="sdesc">seats deployed across production AI use cases</div>
+        </div>
+      </div>
+      <div class="twrap">
+        <table class="dtbl">
+          <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+          <tbody>
+            <tr><td>Founded</td><td>February 2023 · California, USA</td></tr>
+            <tr><td>Company Focus</td><td>Applied AI systems · Product development · Enterprise AI</td></tr>
+            <tr><td>Core Product</td><td>Membria.AI — AI Operating Environment</td></tr>
+            <tr><td>Production Verticals</td><td>SDLC · Fintech / Banking · AI Accounting / Audit · Engineering / EPC</td></tr>
+            <tr><td>Deployment</td><td>Cloud · On-premise · Enterprise environments</td></tr>
+            <tr><td>Team</td><td>AI engineers · Product managers · Domain experts · Venture builders</td></tr>
+            <tr><td>Production Use</td><td>100+ deployed seats across active use cases</td></tr>
+            <tr><td>Delivery Model</td><td>Venture studio · Enterprise projects · Strategic partnerships</td></tr>
+            <tr><td>Clients &amp; Partners</td><td>OES · Wowcube · Hiscox · K-Telco · Kazakhstan Government · Large industrial enterprises across EMEA / CIS</td></tr>
+            <tr><td>Technology Partners</td><td>NVIDIA · Amazon Web Services</td></tr>
+            <tr><td>Team Background</td><td>20+ years in enterprise software and audit · 9 years in applied AI — across financial services, government, industrial and deep-tech sectors</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="s3-tagline fade-up" style="transition-delay:.2s">From AI concept to production-grade enterprise systems.</div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════ SLIDE 5 ══════ -->
+<section class="slide s5">
+  <div class="inner">
+    <div class="s5-top">
+      <h1 class="fade-up">Membria <em>Reasoning Graph</em> Workforce</h1>
+    </div>
+    <div class="cols">
+
+      <div class="col fade-up" style="transition-delay:.05s">
+        <div><span class="pill">Institutional knowledge</span></div>
+        <img class="pillar-img" src="21.png" alt="Memory pillars">
+        <div class="ct">Memory</div>
+        <ul class="chklist">
+          <li><b>Decisions</b> — every choice captured with its reasoning</li>
+          <li><b>Consistency</b> — behavior chains keep teams aligned</li>
+          <li><b>Skills</b> — wins distilled into reusable know-how</li>
+          <li><b>NegativeKnowledge</b> — failures become «do-not» rules</li>
+        </ul>
+      </div>
+
+      <div class="col fade-up" style="transition-delay:.1s">
+        <div><span class="pill">Multi-agent harness</span></div>
+        <img class="pillar-img" src="22.png" alt="Reasoning pillars">
+        <div class="ct">Reasoning</div>
+        <ul class="chklist">
+          <li><b>Mesh</b> — many agents work in parallel</li>
+          <li><b>Coordination</b> — agents hand off via A2A</li>
+          <li><b>Routing</b> — each task to the right model</li>
+          <li><b>Quality gates</b> — verification blocks bad output</li>
+        </ul>
+      </div>
+
+      <div class="col fade-up" style="transition-delay:.15s">
+        <div><span class="pill">Domain-agnostic foundation</span></div>
+        <img class="pillar-img" src="23.png" alt="Graph pillars">
+        <div class="ct">Graph</div>
+        <ul class="chklist">
+          <li><b>GraphRAG</b> — semantic search over a property graph</li>
+          <li><b>Multi-domain</b> — one schema across every domain</li>
+          <li><b>Orchestration</b> — work runs as a dependency graph</li>
+          <li><b>Adaptive</b> — memory that strengthens with use</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════ SLIDE 6 ══════ -->
+<section class="slide s6">
+  <div class="inner">
+    <span class="tag fade-up">Case Studies</span>
+    <h1 class="fade-up" style="transition-delay:.04s">Proven Across <em>4 Domains</em></h1>
+    <p class="sub fade-up" style="transition-delay:.07s">One AI substrate · any vertical domain</p>
+    <div class="cards">
+      <div class="card fade-up" style="transition-delay:.08s">
+        <div class="ico-wrap"><div class="masked" style="-webkit-mask-image:url('webflow-assets/icon-flow.svg');mask-image:url('webflow-assets/icon-flow.svg')"></div></div>
+        <div class="ct">Software Development / AI-PDLC</div>
+        <div class="cb">Senior engineers leave and take their judgment. Membria keeps every decision — teams stop re-solving the same problems.</div>
+        <div class="rule"></div>
+        <div class="meta">
+          <div class="ml"><b>AI layer</b><span>Code knowledge graph · decision memory · behavior guidance</span></div>
+          <div class="ml val"><b>Value</b><span>Fewer regressions · faster onboarding · knowledge that stays</span></div>
+        </div>
+      </div>
+      <div class="card fade-up" style="transition-delay:.12s">
+        <div class="ico-wrap"><div class="masked" style="-webkit-mask-image:url('webflow-assets/icon-candlestick-chart.svg');mask-image:url('webflow-assets/icon-candlestick-chart.svg')"></div></div>
+        <div class="ct">Banking / Finance</div>
+        <div class="cb">A new regulation meant a six-week release. Now it's live on the next transaction — every posting traceable to the clause that authorized it.</div>
+        <div class="rule"></div>
+        <div class="meta">
+          <div class="ml"><b>AI layer</b><span>Policy graph · automated ledger entries · live rule updates</span></div>
+          <div class="ml val"><b>Value</b><span>Full traceability · no release cycle · operationally instant</span></div>
+        </div>
+      </div>
+      <div class="card fade-up" style="transition-delay:.16s">
+        <div class="ico-wrap"><div class="masked" style="-webkit-mask-image:url('webflow-assets/icon-positive-dynamic.svg');mask-image:url('webflow-assets/icon-positive-dynamic.svg')"></div></div>
+        <div class="ct">Glass — AI Accounting/Audit</div>
+        <div class="cb">Audit teams lose weeks tracing entries to source documents. Membria marks every posting with origin and trust score — unsupported entries surface on day one.</div>
+        <div class="rule"></div>
+        <div class="meta">
+          <div class="ml"><b>AI layer</b><span>Source-linked entries · trust scoring · automatic gap detection</span></div>
+          <div class="ml val"><b>Value</b><span>Audit-ready by default · transparent · no retrofitting</span></div>
+        </div>
+      </div>
+      <div class="card fade-up" style="transition-delay:.2s">
+        <div class="ico-wrap"><div class="masked" style="-webkit-mask-image:url('webflow-assets/icon-process-improvement.svg');mask-image:url('webflow-assets/icon-process-improvement.svg')"></div></div>
+        <div class="ct">AI-EPC / Engineering</div>
+        <div class="cb">A missed P&amp;ID clause becomes a safety incident. Five AI critics check every diagram against 50+ standards before any engineer opens the file.</div>
+        <div class="rule"></div>
+        <div class="meta">
+          <div class="ml"><b>AI layer</b><span>Process · Mechanical · HSE · I&amp;C · Piping — automated risk scoring</span></div>
+          <div class="ml val"><b>Value</b><span>Faster reviews · fewer missed risks · consistent across disciplines</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="bottom fade-up" style="transition-delay:.24s">
+      <b>Common pattern across domains:</b> domain knowledge → graph memory → AI workflows → human verification → production deployment
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════ SLIDE 7 ══════ -->
+<section class="slide s7">
+  <div class="inner">
+    <span class="tag fade-up">Why Membria?</span>
+    <h1 class="fade-up" style="transition-delay:.04s">Core Capabilities</h1>
+    <p class="sub fade-up" style="transition-delay:.07s">The full stack — from memory and reasoning to deployment and governance</p>
+    <div class="grid">
+      <div class="card fade-up" style="transition-delay:.04s">
+        <div class="ico-wrap"><div class="masked" style="-webkit-mask-image:url('webflow-assets/icon-stacked-organizational-chart.svg');mask-image:url('webflow-assets/icon-stacked-organizational-chart.svg')"></div></div>
+        <div class="ct">AI Agent Orchestration</div><div class="cb">Multi-agent BBS mesh, WorkGraph DAG, A2A protocol coordination</div>
+      </div>
+      <div class="card fade-up" style="transition-delay:.08s">
+        <div class="ico-wrap"><div class="masked" style="-webkit-mask-image:url('webflow-assets/icon-collect.svg');mask-image:url('webflow-assets/icon-collect.svg')"></div></div>
+        <div class="ct">Causal Memory</div><div class="cb">Decision / Outcome / NegativeKnowledge graph with time-decay and compounding</div>
+      </div>
+      <div class="card fade-up" style="transition-delay:.12s">
+        <div class="ico-wrap"><div class="masked" style="-webkit-mask-image:url('webflow-assets/interface-icon-check.svg');mask-image:url('webflow-assets/interface-icon-check.svg')"></div></div>
+        <div class="ct">Verification Engine</div><div class="cb">Cross-document consistency checks, rule-based normative validation, quality gates</div>
+      </div>
+      <div class="card fade-up" style="transition-delay:.16s">
+        <div class="ico-wrap"><div class="masked" style="-webkit-mask-image:url('webflow-assets/icon-nebula.svg');mask-image:url('webflow-assets/icon-nebula.svg')"></div></div>
+        <div class="ct">Graph Intelligence</div><div class="cb">FalkorDB property graph, symbol-level CodeGraph, policy graph with Hebbian co-activation</div>
+      </div>
+      <div class="card fade-up" style="transition-delay:.2s">
+        <div class="ico-wrap"><div class="masked" style="-webkit-mask-image:url('webflow-assets/icon-processor.svg');mask-image:url('webflow-assets/icon-processor.svg')"></div></div>
+        <div class="ct">LLM Integration</div><div class="cb">Claude / GPT factory, structured output, behavior chains, context injection</div>
+      </div>
+      <div class="card fade-up" style="transition-delay:.24s">
+        <div class="ico-wrap"><div class="masked" style="-webkit-mask-image:url('webflow-assets/icon-workstation.svg');mask-image:url('webflow-assets/icon-workstation.svg')"></div></div>
+        <div class="ct">Product Engineering</div><div class="cb">Full-stack: FastAPI + React + Node.js, MCP protocol, Telegram, Web Dashboard</div>
+      </div>
+      <div class="card fade-up" style="transition-delay:.28s">
+        <div class="ico-wrap"><div class="masked" style="-webkit-mask-image:url('webflow-assets/icon-earth-planet.svg');mask-image:url('webflow-assets/icon-earth-planet.svg')"></div></div>
+        <div class="ct">Domain AI Systems</div><div class="cb">Vertical-specific schemas, critics, standards compliance (ISA / API / ASME / IEC)</div>
+      </div>
+      <div class="card fade-up" style="transition-delay:.32s">
+        <div class="ico-wrap"><div class="masked" style="-webkit-mask-image:url('webflow-assets/icon-flash-on.svg');mask-image:url('webflow-assets/icon-flash-on.svg')"></div></div>
+        <div class="ct">Security &amp; Governance</div><div class="cb">PolicyEngine, RBAC, OIDC/SSO, prompt injection defense, secrets management, rate limiting</div>
+      </div>
+    </div>
+    <div class="bottom fade-up" style="transition-delay:.36s"><b>Bottom line:</b> Generic AI forgets. Membria remembers, reasons, and governs.</div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════ SLIDE 8 ══════ -->
+<section class="slide s8">
+  <div class="inner">
+    <div class="left">
+      <h1 class="fade-up">AI-CAD for <em>Engineering</em> (AI-EPC)</h1>
+      <div class="sub fade-up" style="transition-delay:.05s">Production-grade engineering AI — built to be trusted on safety-critical drawings</div>
+      <div class="feats fade-up" style="transition-delay:.1s">
+        <div class="feat">
+          <div class="ico-wrap"><div class="masked" style="-webkit-mask-image:url('webflow-assets/icon-flow.svg');mask-image:url('webflow-assets/icon-flow.svg')"></div></div>
+          <div><div class="ft">Production-grade P&amp;ID output</div><div class="fb">ISA 5.1 symbols exported to DEXPI XML, DXF and IFC4 — drawings that drop straight into your existing pipeline.</div></div>
+        </div>
+        <div class="feat">
+          <div class="ico-wrap"><div class="masked" style="-webkit-mask-image:url('webflow-assets/icon-stacked-organizational-chart.svg');mask-image:url('webflow-assets/icon-stacked-organizational-chart.svg')"></div></div>
+          <div><div class="ft">Works with the tools you already run</div><div class="fb">DEXPI interchange with AVEVA and SmartPlant — no rip-and-replace of your toolchain.</div></div>
+        </div>
+        <div class="feat">
+          <div class="ico-wrap"><div class="masked" style="-webkit-mask-image:url('webflow-assets/interface-icon-check.svg');mask-image:url('webflow-assets/interface-icon-check.svg')"></div></div>
+          <div><div class="ft">Deterministic, not generative</div><div class="fb">A rule engine — not a guessing model. No hallucinations on safety-critical drawings.</div></div>
+        </div>
+        <div class="feat">
+          <div class="ico-wrap"><div class="masked" style="-webkit-mask-image:url('webflow-assets/icon-process-improvement.svg');mask-image:url('webflow-assets/icon-process-improvement.svg')"></div></div>
+          <div><div class="ft">Five-discipline AI review</div><div class="fb">Process, Mechanical, HSE, I&amp;C and Piping critics catch errors before sign-off.</div></div>
+        </div>
+        <div class="feat">
+          <div class="ico-wrap"><div class="masked" style="-webkit-mask-image:url('webflow-assets/icon-radio-waves.svg');mask-image:url('webflow-assets/icon-radio-waves.svg')"></div></div>
+          <div><div class="ft">Safety analysis built in</div><div class="fb">HAZOP, SIL matrix and Cause-&amp;-Effect generated automatically — not bolted on after.</div></div>
+        </div>
+        <div class="feat">
+          <div class="ico-wrap"><div class="masked" style="-webkit-mask-image:url('webflow-assets/icon-collect.svg');mask-image:url('webflow-assets/icon-collect.svg')"></div></div>
+          <div><div class="ft">Defensible audit trail</div><div class="fb">Every decision recorded with the alternatives considered and the reasoning behind it.</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="photo">
+      <div class="s8-bg pbg" data-speed="0.25">
+        <img class="photo-img" src="webflow-assets/gradient-map-1.webp" alt="Graph data model">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════ COMPETITIVE LANDSCAPE ══════ -->
+<section class="slide s_comp">
+  <div class="inner">
+    <span class="tag fade-up">Market Context</span>
+    <h1 class="fade-up" style="transition-delay:.04s">Current EPC AI — Nobody Remembers</h1>
+    <p class="sub fade-up" style="transition-delay:.07s">Every EPC AI tool today is stateless — each request starts from zero. None offer persistent agent memory for engineering projects.</p>
+    <div class="tbl-wrap fade-up" style="transition-delay:.1s">
+      <table class="dtbl">
+        <thead><tr><th>Player</th><th>What they do</th><th>Persistent memory?</th><th>Why not a direct competitor</th></tr></thead>
+        <tbody>
+          <tr><td>Autodesk</td><td>Design + construction cloud</td><td style="color:var(--muted)">No</td><td>AI = copilot for CAD, not knowledge management</td></tr>
+          <tr><td>Bentley Systems</td><td>Infrastructure digital twins</td><td style="color:var(--muted)">No</td><td>Twin ≠ memory — no decision provenance, no strategy extraction</td></tr>
+          <tr><td>Trimble</td><td>"Agent Studio" pilot for E&amp;C</td><td style="color:var(--muted)">No</td><td>Early pilot, no persistent memory across sessions</td></tr>
+          <tr><td>Procore</td><td>Helix AI automation + Datagrid</td><td style="color:var(--muted)">No</td><td>Stateless AI — every request starts from zero, no cross-session memory</td></tr>
+          <tr><td>AVEVA / Schneider</td><td>Process industry digital twins</td><td style="color:var(--muted)">No</td><td>Operational data, not engineering decisions</td></tr>
+          <tr><td>SymphonyAI</td><td>P&amp;ID intelligence</td><td style="color:var(--muted)">No</td><td>Drawing recognition, not a memory plane</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="bottom fade-up" style="transition-delay:.18s"><b>The real competition is inertia:</b> Excel + "it works fine as is." Every project starts from a blank page — 28% of time lost to rework, +28% budget overrun on average. That is the memory problem.</div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════ EPC WHITESPACE ══════ -->
+<section class="slide s_epc">
+  <div class="inner">
+    <span class="tag fade-up">Engineering Gap</span>
+    <h1 class="fade-up" style="transition-delay:.04s">The EPC Whitespace</h1>
+    <p class="sub fade-up" style="transition-delay:.07s">Engineering companies don't need another document chatbot. They need project memory that survives handovers, reviews and future projects.</p>
+    <div class="tbl-wrap fade-up" style="transition-delay:.1s">
+      <table class="dtbl">
+        <thead><tr><th>EPC pain</th><th>Current problem</th><th>Membria response</th></tr></thead>
+        <tbody>
+          <tr><td class="pain">Cross-phase handover</td><td>FEED assumptions disappear before detail design and construction</td><td class="sol">Cross-phase memory persistence</td></tr>
+          <tr><td class="pain">Scope changes</td><td>Decisions scattered across emails, PDFs, CAD, meetings and issue logs</td><td class="sol">Scope assumption capture with full provenance</td></tr>
+          <tr><td class="pain">Rework</td><td>Teams repeat mistakes because lessons learned are not operationalized</td><td class="sol">Negative knowledge and reusable strategies</td></tr>
+          <tr><td class="pain">Engineering review</td><td>Generic AI cannot verify discipline-specific logic</td><td class="sol">Human + AI verification workflows (5 critics)</td></tr>
+          <tr><td class="pain">Procurement memory</td><td>Supplier, schedule and specification lessons are lost project to project</td><td class="sol">Procurement/vendor memory graph</td></tr>
+          <tr><td class="pain">Compliance</td><td>Audit trails incomplete or hard to reconstruct before handover</td><td class="sol">Immutable mutation ledger and compliance packs</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="bottom fade-up" style="transition-delay:.18s"><b>Market signal:</b> 9 of 10 large EPC projects exceed budget (+28% avg) · 18% of time lost searching for data · 28% lost to rework. This is the memory problem — and it's solvable.</div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════ HONEST POSITION ══════ -->
+<section class="slide s_pos">
+  <div class="inner">
+    <span class="tag fade-up">Honest Assessment</span>
+    <h1 class="fade-up" style="transition-delay:.04s">Where We Win — and Where We Must Prove Scale</h1>
+    <div class="cols fade-up" style="transition-delay:.08s">
+      <div class="col col-win">
+        <div class="clabel">Where Membria wins</div>
+        <div class="items">
+          <div class="item"><span class="bullet">✓</span><div><div class="it">Memory lifecycle</div><div class="ib">candidate → validated → consolidated → strategy. 8 states, maturity scoring, automatic promotion — 7 memory types vs 4 in Palantir, 3 in Microsoft.</div></div></div>
+          <div class="item"><span class="bullet">✓</span><div><div class="it">Policy-aware retrieval</div><div class="ib">relevance × utility × freshness × permission × risk × budget. Safety engineers see only safety facts — automatic, not manual filtering.</div></div></div>
+          <div class="item"><span class="bullet">✓</span><div><div class="it">External memory plane API</div><div class="ib">Any agent — yours or third-party — reads and writes policy-aware context through one open API. Palantir's Ontology is closed.</div></div></div>
+          <div class="item"><span class="bullet">✓</span><div><div class="it">EPC-native use cases</div><div class="ib">P&amp;ID memory, cross-phase handover, procurement sequencing, engineering decisions with provenance — built in, not bolted on.</div></div></div>
+          <div class="item"><span class="bullet">✓</span><div><div class="it">Compliance-grade audit</div><div class="ib">Immutable mutation ledger, deletion certificates, decision packs — EU AI Act and ISO 19650 ready out of the box.</div></div></div>
+          <div class="item"><span class="bullet">✓</span><div><div class="it">Negative knowledge</div><div class="ib">Explicit graph nodes for what should not be repeated — with evidence, context and project history. No competitor does this.</div></div></div>
+        </div>
+      </div>
+      <div class="col col-prove">
+        <div class="clabel">What we must prove</div>
+        <div class="items">
+          <div class="item"><span class="bullet">→</span><div><div class="it">Scale</div><div class="ib">1000+ users, large enterprise datasets, load testing at production volume — architecture ready, load testing in progress.</div></div></div>
+          <div class="item"><span class="bullet">→</span><div><div class="it">Platform integrations</div><div class="ib">AVEVA, Bentley, SmartPlant, Autodesk, EDMS and ERP connectors — on the roadmap for Phase 2.</div></div></div>
+          <div class="item"><span class="bullet">→</span><div><div class="it">Certifications</div><div class="ib">FedRAMP / ISO 27001 / enterprise security audit path — planned alongside Phase 2 deployments.</div></div></div>
+          <div class="item"><span class="bullet">→</span><div><div class="it">Visual engineering intelligence</div><div class="ib">P&amp;ID image recognition and CAD/BIM extraction for brownfield legacy drawings — early R&amp;D, partner-able capability.</div></div></div>
+          <div class="item"><span class="bullet">→</span><div><div class="it">Enterprise community</div><div class="ib">Developer templates, marketplace, partner ecosystem — building with early design partners.</div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════ SLIDE 4 — WHY NOW ══════ -->
+<section class="slide s4">
+  <div class="inner">
+    <span class="tag fade-up">Strategic Moment</span>
+    <h1 class="fade-up" style="transition-delay:.04s">Why Now</h1>
+    <p class="thesis fade-up" style="transition-delay:.07s">Large EPC companies run <b>multi-billion dollar projects</b> — and the knowledge needed to execute them is scattered across documents, disciplines and rotating teams.</p>
+    <p class="scenario fade-up" style="transition-delay:.09s">An engineer re-solves a P&amp;ID problem solved two projects ago. A compliance clause slips past a busy reviewer. A senior engineer leaves and takes fifteen years of judgment with them.</p>
+    <div class="grid">
+      <div class="card fade-up" style="transition-delay:.1s">
+        <div class="cnum">01</div>
+        <div class="ct">EPC is digitizing — but knowledge stays siloed</div>
+        <div class="cb">Complex EPC projects across <b>oil &amp; gas, petrochemical and industrial sectors</b> each generate thousands of drawings, specifications and decisions that remain isolated per project.</div>
+        <div class="ctake">The knowledge already exists — it just isn't connected</div>
+      </div>
+      <div class="card fade-up" style="transition-delay:.14s">
+        <div class="cnum">02</div>
+        <div class="ct">The missing layer is engineering intelligence</div>
+        <div class="cb">Each discipline has its tools. The opportunity is a governed layer that <b>connects P&amp;ID verification, standards compliance and cross-phase project knowledge</b> — not just within a project, but across all of them.</div>
+        <div class="ctake">Connected intelligence reduces rework and speeds delivery</div>
+      </div>
+      <div class="card fade-up" style="transition-delay:.18s">
+        <div class="cnum">03</div>
+        <div class="ct">The moment is now</div>
+        <div class="cb">EU AI Act and ISO 19650 revision create <b>demand for traceable decisions and immutable audit trails</b> in safety-critical infrastructure — exactly what Membria already delivers.</div>
+        <div class="ctake">Regulation is creating demand for what we already built</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════ SLIDE 9 ══════ -->
+<section class="slide s9">
+  <div class="inner">
+    <h1 class="fade-up">Where We Can Add <em>Value</em></h1>
+    <p class="thesis fade-up" style="transition-delay:.05s;white-space:normal;">One Membria substrate, two fronts — the <b>engineering AI layer</b> for project execution and design verification, the <b>knowledge layer</b> for institutional continuity across projects.</p>
+    <div class="tracks">
+      <div class="track consumer fade-up" style="transition-delay:.08s">
+        <div class="tlabel">Engineering &amp; design</div>
+        <div class="titems">
+          <div class="titem">
+            <div class="ico-wrap"><div class="masked" style="-webkit-mask-image:url('webflow-assets/icon-flow.svg');mask-image:url('webflow-assets/icon-flow.svg')"></div></div>
+            <div>
+              <div class="tt">P&amp;ID AI</div>
+              <div class="tb">AI-CAD generating and verifying P&amp;IDs against ISA 5.1 / API / ASME standards — five-discipline critics before any sign-off.</div>
+            </div>
+          </div>
+          <div class="titem">
+            <div class="ico-wrap"><div class="masked" style="-webkit-mask-image:url('webflow-assets/icon-radio-waves.svg');mask-image:url('webflow-assets/icon-radio-waves.svg')"></div></div>
+            <div>
+              <div class="tt">Safety Analysis</div>
+              <div class="tb">HAZOP, SIL matrix and Cause-&amp;-Effect generated automatically from the diagram — not bolted on after review.</div>
+            </div>
+          </div>
+          <div class="titem">
+            <div class="ico-wrap"><div class="masked" style="-webkit-mask-image:url('webflow-assets/icon-nebula.svg');mask-image:url('webflow-assets/icon-nebula.svg')"></div></div>
+            <div>
+              <div class="tt">Document Intelligence</div>
+              <div class="tb">Semantic search over project documentation, specs and datasheets — engineers find answers in seconds, not hours.</div>
+            </div>
+          </div>
+          <div class="titem">
+            <div class="ico-wrap"><div class="masked" style="-webkit-mask-image:url('webflow-assets/interface-icon-check.svg');mask-image:url('webflow-assets/interface-icon-check.svg')"></div></div>
+            <div>
+              <div class="tt">Design Verification</div>
+              <div class="tb">Cross-document consistency checks catch conflicts between P&amp;IDs, datasheets and specs before they reach the field.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="track enterprise fade-up" style="transition-delay:.12s">
+        <div class="tlabel">Project &amp; institutional</div>
+        <div class="titems">
+          <div class="titem">
+            <div class="ico-wrap"><div class="masked" style="-webkit-mask-image:url('webflow-assets/icon-collect.svg');mask-image:url('webflow-assets/icon-collect.svg')"></div></div>
+            <div>
+              <div class="tt">Project Memory</div>
+              <div class="tb">Every design decision captured with its reasoning — survives team rotation on multi-year projects and carries forward to the next.</div>
+            </div>
+          </div>
+          <div class="titem">
+            <div class="ico-wrap"><div class="masked" style="-webkit-mask-image:url('webflow-assets/icon-process-improvement.svg');mask-image:url('webflow-assets/icon-process-improvement.svg')"></div></div>
+            <div>
+              <div class="tt">Standards Compliance</div>
+              <div class="tb">Automatic normative validation against ISA, API, ASME, IEC — compliance by default, not by firefighting before handover.</div>
+            </div>
+          </div>
+          <div class="titem">
+            <div class="ico-wrap"><div class="masked" style="-webkit-mask-image:url('webflow-assets/icon-positive-dynamic.svg');mask-image:url('webflow-assets/icon-positive-dynamic.svg')"></div></div>
+            <div>
+              <div class="tt">Audit Trail</div>
+              <div class="tb">Every change traceable to the clause that authorized it — punch-list and handover package ready from day one, not assembled at the end.</div>
+            </div>
+          </div>
+          <div class="titem">
+            <div class="ico-wrap"><div class="masked" style="-webkit-mask-image:url('webflow-assets/icon-stacked-organizational-chart.svg');mask-image:url('webflow-assets/icon-stacked-organizational-chart.svg')"></div></div>
+            <div>
+              <div class="tt">Procurement AI</div>
+              <div class="tb">Smart recommendations based on historical project data, vendor performance and specifications — negative knowledge that compounds across projects.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="bottom fade-up" style="transition-delay:.18s"><b>Cross-phase persistence:</b> Membria indexes every drawing, spec and decision into a graph — project knowledge that doesn't walk out the door on handover day.</div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════ SLIDE 13 — WHY ACTIQUEST ══════ -->
+<section class="slide s13">
+  <div class="inner">
+    <h1 class="fade-up">Why <em>Actiquest Labs</em>?</h1>
+    <div class="grid">
+      <div class="card fade-up" style="transition-delay:.04s">
+        <div class="ico-wrap"><div class="masked" style="-webkit-mask-image:url('webflow-assets/icon-nebula.svg');mask-image:url('webflow-assets/icon-nebula.svg')"></div></div>
+        <div class="ct">AI-Native from Ground Up</div>
+        <div class="cb">Built architecture-first for multi-agent, memory-driven AI systems from day one, not retrofitted onto legacy software.</div>
+      </div>
+      <div class="card fade-up" style="transition-delay:.08s">
+        <div class="ico-wrap"><div class="masked" style="-webkit-mask-image:url('webflow-assets/icon-flow.svg');mask-image:url('webflow-assets/icon-flow.svg')"></div></div>
+        <div class="ct">Proven Flexibility</div>
+        <div class="cb">One platform, four production verticals: software dev, finance, accounting, industrial engineering. Domain-agnostic by design.</div>
+      </div>
+      <div class="card fade-up" style="transition-delay:.12s">
+        <div class="ico-wrap"><div class="masked" style="-webkit-mask-image:url('webflow-assets/icon-positive-dynamic.svg');mask-image:url('webflow-assets/icon-positive-dynamic.svg')"></div></div>
+        <div class="ct">Memory Compounds</div>
+        <div class="cb">Our moat is causal memory — institutional knowledge that grows with usage and survives team turnover.</div>
+      </div>
+      <div class="card fade-up" style="transition-delay:.16s">
+        <div class="ico-wrap"><div class="masked" style="-webkit-mask-image:url('webflow-assets/interface-icon-check.svg');mask-image:url('webflow-assets/interface-icon-check.svg')"></div></div>
+        <div class="ct">Verification First</div>
+        <div class="cb">We don't just generate — we verify. Consistency checks, normative compliance, and quality gates before output.</div>
+      </div>
+      <div class="card fade-up" style="transition-delay:.2s">
+        <div class="ico-wrap"><div class="masked" style="-webkit-mask-image:url('webflow-assets/icon-stacked-organizational-chart.svg');mask-image:url('webflow-assets/icon-stacked-organizational-chart.svg')"></div></div>
+        <div class="ct">Full-Stack Execution</div>
+        <div class="cb">Strategy + engineering + product + launch in one team. No handoff friction between thinking and building.</div>
+      </div>
+      <div class="card fade-up" style="transition-delay:.24s">
+        <div class="ico-wrap"><div class="masked" style="-webkit-mask-image:url('webflow-assets/icon-flash-on.svg');mask-image:url('webflow-assets/icon-flash-on.svg')"></div></div>
+        <div class="ct">Speed and Rigor</div>
+        <div class="cb">We move fast to prototype but maintain audit trails, policy governance, and enterprise-grade security from day one.</div>
+      </div>
+    </div>
+    <div class="bottom fade-up" style="transition-delay:.3s"><b>What this means for you:</b> a working prototype in weeks · a full AI/product team without the hiring overhead · validation before any major investment.</div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════ SLIDE 10 ══════ -->
+<section class="slide s10">
+  <div class="inner">
+    <h1 class="fade-up">Collaboration Options</h1>
+    <p class="thesis fade-up" style="transition-delay:.05s">A graduated on-ramp — <b>start small, scale as the value proves out.</b> No need to commit to a venture on day one.</p>
+    <div class="ladder">
+      <div class="card step s1 fade-up" style="transition-delay:.08s">
+        <div class="badge">Recommended start</div>
+        <div class="onum">01</div>
+        <div class="ot">Pilot Project</div>
+        <div class="ogoal"><b>Goal:</b> Validate one EPC AI use case end-to-end.</div>
+        <div class="odel">
+          <div class="d">Working prototype</div>
+          <div class="d">Demo &amp; technical report</div>
+          <div class="d">Feasibility assessment</div>
+        </div>
+        <div class="oscope">Minimal · focused · weeks</div>
+      </div>
+      <div class="card step s2 fade-up" style="transition-delay:.12s">
+        <div class="onum">02</div>
+        <div class="ot">MVP Development</div>
+        <div class="ogoal"><b>Goal:</b> Build the first usable AI product for production.</div>
+        <div class="odel">
+          <div class="d">MVP application</div>
+          <div class="d">Architecture documentation</div>
+          <div class="d">Roadmap &amp; test results</div>
+        </div>
+        <div class="oscope">Structured · months</div>
+      </div>
+      <div class="card step s3 fade-up" style="transition-delay:.16s">
+        <div class="onum">03</div>
+        <div class="ot">Innovation Partner</div>
+        <div class="ogoal"><b>Goal:</b> Continuous AI innovation support.</div>
+        <div class="odel">
+          <div class="d">Regular prototypes &amp; research</div>
+          <div class="d">Product concepts</div>
+          <div class="d">Engineering support</div>
+        </div>
+        <div class="oscope">Long-term · ongoing</div>
+      </div>
+      <div class="card step s4 fade-up" style="transition-delay:.2s">
+        <div class="onum">04</div>
+        <div class="ot">Venture Co-Labs</div>
+        <div class="ogoal"><b>Goal:</b> Co-develop AI ventures and licensing for EPC.</div>
+        <div class="odel">
+          <div class="d">Joint product development</div>
+          <div class="d">Venture co-creation</div>
+          <div class="d">Technology licensing</div>
+        </div>
+        <div class="oscope">Strategic · equity-level</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════ SLIDE 15 ══════ -->
+<section class="slide s15">
+  <div class="inner">
+    <div class="photo">
+      <div class="s15-bg pbg" data-speed="0.3"></div>
+      <img class="plogo" src="membria-logo/logo.svg" alt="Membria">
+      <div class="pclose fade-up">
+        <div class="pcline">From isolated documents to a <em>connected engineering brain.</em></div>
+      </div>
+    </div>
+    <div class="right">
+      <h1 class="fade-up">Let's Work Together</h1>
+      <div class="sub fade-up" style="transition-delay:.05s">One 60–90 min discovery session to define one EPC AI use case — and a pilot roadmap in your hands <b>within 7–10 days.</b></div>
+      <div class="steps fade-up" style="transition-delay:.1s">
+        <div class="step">
+          <div class="scheck">1</div>
+          <div><div class="slabel">Discovery Session · Week 1</div><div class="sbody">Align on use case and success criteria. Understand priorities and constraints.</div></div>
+        </div>
+        <div class="step">
+          <div class="scheck">2</div>
+          <div><div class="slabel">Pilot Scoping · Week 2</div><div class="sbody">Technical feasibility, architecture outline, team alignment, NDA and data security.</div></div>
+        </div>
+        <div class="step">
+          <div class="scheck">3</div>
+          <div><div class="slabel">Pilot Kickoff · Week 3–10</div><div class="sbody">Working prototype development begins. Weekly syncs, milestone reviews, ROI tracking.</div></div>
+        </div>
+      </div>
+      <div class="contact fade-up" style="transition-delay:.16s">
+        <div class="cgroup">
+          <div class="clabel">Leadership</div>
+          <div class="cval"><b>Michael Aprossine</b> CEO &nbsp;·&nbsp; <b>Phillipe Khomenok</b> COO &nbsp;·&nbsp; <b>Mike Keer</b> CTO</div>
+        </div>
+        <div class="cgroup">
+          <div class="clabel">Contact</div>
+          <div class="cval"><a href="https://actiq.ai" target="_blank" rel="noopener">actiq.ai</a> &nbsp;·&nbsp; <a href="https://membria.ai" target="_blank" rel="noopener">membria.ai</a> &nbsp;·&nbsp; <a href="mailto:hi@actiq.ai">hi@actiq.ai</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════ APPENDIX — TECHNOLOGY STACK ══════ -->
+<section class="slide s12">
+  <div class="inner">
+    <div class="left">
+      <span class="tag fade-up">Appendix</span>
+      <h1 class="fade-up" style="transition-delay:.04s">Technology<br>Stack</h1>
+    </div>
+    <div class="right">
+      <div class="sec fade-up" style="transition-delay:.05s">
+        <div class="stitle">AI &amp; LLMs</div>
+        <ul>
+          <li>BYOK multi-provider factory · cloud or fully local (Ollama)</li>
+          <li>1536-dim embeddings native in FalkorDB · local MiniLM</li>
+          <li>9 adaptive memory systems: Hebbian · STALE · A-MAC · FSFM · ADAM</li>
+        </ul>
+      </div>
+      <div class="sec fade-up" style="transition-delay:.1s">
+        <div class="stitle">Data &amp; Graph</div>
+        <ul>
+          <li>Graph DB: FalkorDB (RedisGraph, property graph) + native vectors</li>
+          <li>Search: Tantivy full-text · tree-sitter code graph</li>
+          <li>Ingestion: DEXPI/Proteus · IFC · DXF · Excel · PDF (OCR) · web</li>
+        </ul>
+      </div>
+      <div class="sec fade-up" style="transition-delay:.15s">
+        <div class="stitle">Runtime &amp; API</div>
+        <ul>
+          <li>Monty runtime VM (pause / resume) · A2A agent mesh · MCP (86 tools)</li>
+          <li>Rust port → on-device agents · local model router · no cloud</li>
+          <li>Python 3.11 · FastAPI · Node.js / Express · EventBus · pytest</li>
+        </ul>
+      </div>
+      <div class="sec fade-up" style="transition-delay:.2s">
+        <div class="stitle">Frontend &amp; Infra</div>
+        <ul>
+          <li>React 18 · TypeScript 5 · Tailwind · Vite · CodeMirror · xterm.js</li>
+          <li>Deploy: Docker / Compose · on-prem ready · 300+ CLI commands</li>
+          <li>Auth: Keycloak OIDC · OAuth2 · RBAC · JWT · Infisical secrets</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+/* ── PARALLAX ──────────────────────────────────────── */
+const parallaxEls = document.querySelectorAll('.pbg[data-speed]');
+
+function updateParallax() {
+  parallaxEls.forEach(el => {
+    const speed   = parseFloat(el.dataset.speed);
+    const slide   = el.closest('.slide');
+    const rect    = slide.getBoundingClientRect();
+    const center  = rect.top + rect.height / 2 - window.innerHeight / 2;
+    el.style.transform = `translateY(${center * speed}px)`;
+  });
+}
+
+window.addEventListener('scroll', updateParallax, { passive: true });
+updateParallax();
+
+/* ── ENTRANCE ANIMATIONS ───────────────────────────── */
+const fadeEls = document.querySelectorAll('.fade-up');
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.15 });
+
+fadeEls.forEach(el => observer.observe(el));
+
+/* ── KEYBOARD NAV ──────────────────────────────────── */
+const slides = document.querySelectorAll('.slide');
+let current  = 0;
+
+function goTo(n) {
+  const idx = Math.max(0, Math.min(slides.length - 1, n));
+  slides[idx].scrollIntoView({ behavior: 'smooth' });
+  current = idx;
+}
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowDown' || e.key === 'ArrowRight' || e.key === ' ') {
+    e.preventDefault(); goTo(current + 1);
+  }
+  if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
+    e.preventDefault(); goTo(current - 1);
+  }
+});
+
+/* ── DOTS (right-side navigation) ──────────────────── */
+const dotsNav = document.getElementById('dots');
+const total = slides.length;
+slides.forEach((s, i) => {
+  const a = document.createElement('a');
+  a.href = '#';
+  a.title = `Slide ${i + 1}`;
+  a.addEventListener('click', e => { e.preventDefault(); goTo(i); });
+  dotsNav.appendChild(a);
+  // page number (skip cover)
+  if (i > 0) {
+    const pn = document.createElement('div');
+    pn.className = 'pagenum';
+    pn.innerHTML = `${String(i + 1).padStart(2, '0')}`;
+    s.appendChild(pn);
+  }
+});
+const dots = dotsNav.querySelectorAll('a');
+
+function setActiveDot(i) {
+  dots.forEach((d, k) => d.classList.toggle('active', k === i));
+}
+setActiveDot(0);
+
+/* ── PROGRESS BAR ──────────────────────────────────── */
+const progressFill = document.getElementById('progress-fill');
+function updateProgress() {
+  const max = document.documentElement.scrollHeight - window.innerHeight;
+  const pct = max > 0 ? (window.scrollY / max) * 100 : 0;
+  progressFill.style.width = pct + '%';
+}
+window.addEventListener('scroll', updateProgress, { passive: true });
+updateProgress();
+
+/* Track current slide via IntersectionObserver — updates dots too */
+const slideObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      const i = Array.from(slides).indexOf(e.target);
+      current = i;
+      setActiveDot(i);
+    }
+  });
+}, { threshold: 0.5 });
+
+slides.forEach(s => slideObs.observe(s));
+
+/* ── SLIDE 1 — WebGL Graph Background ──────────────── */
+(function() {
+  const canvas = document.getElementById('s1-canvas');
+  if (!canvas) return;
+
+  const FRAG = `#version 300 es
+precision highp float;
+out vec4 O;
+uniform float time;
+uniform vec2 resolution;
+#define FC gl_FragCoord.xy
+#define R resolution
+#define T (time+113.)
+#define S smoothstep
+#define N normalize
+#define MN min(R.x,R.y)
+#define LP vec3(1.+1.*sin(-T),2.-2.*cos(T),-3.-4.*sin(sin(T)))
+
+vec3 CORAL = vec3(1.0, 0.38, 0.22);
+vec3 NAVY  = vec3(0.02,0.04,0.10);
+vec3 BLUE  = vec3(0.20,0.60,1.0);
+
+float smin(float a,float b,float k){k*=log(2.);float x=b-a;return a+x/(1.-exp2(x/k));}
+float box(vec3 p,vec3 s,float r){p=abs(p)-s+r;return length(max(p,.0))+min(.0,max(max(p.x,p.y),p.z))-r;}
+float glow;
+float map(vec3 p,bool g){
+  float d=5e5;
+  if(g){d=length(p-LP+vec3(.2,.2,0))-.02;glow+=.05/(.05+d*d*80.);}
+  p.z-=T*1.8;
+  p=fract(p)-.5;
+  vec4 k=vec4(1,.05,.03,.1);float r=1e-2;
+  return min(d,smin(box(p,k.www,r),min(box(p,k.zxz,r),min(box(p,k.xyz,r),box(p,k.yzx,r))),.01));
+}
+vec3 norm(vec3 p){float h=1e-3;vec2 k=vec2(-1,1);return N(k.xyy*map(p+k.xyy*h,false)+k.yxy*map(p+k.yxy*h,false)+k.yyx*map(p+k.yyx*h,false)+k.xxx*map(p+k.xxx*h,false));}
+bool march(inout vec3 p,vec3 rd,out float dd,out float at){for(float i;i++<400.;){float d=map(p,true);if(abs(d)<1e-3)return true;if(d>100.)return false;p+=rd*d;dd+=d;at+=.05*(.05/dd);}return false;}
+vec3 dir(vec2 uv,vec3 p,vec3 t,float z){vec3 up=vec3(0,1,0),f=N(t-p),r=N(cross(up,f)),u=N(cross(f,r));return mat3(r,u,f)*N(vec3(uv,z));}
+mat3 rotX(float a){float s=sin(a),c=cos(a);return mat3(vec3(1,0,0),vec3(0,c,-s),vec3(0,s,c));}
+mat3 rotY(float a){float s=sin(a),c=cos(a);return mat3(vec3(c,0,s),vec3(0,1,0),vec3(-s,0,c));}
+float rnd(float a){vec2 p=fract(a*vec2(12.9898,78.233));p+=dot(p,p+34.56);return fract(p.x*p.y);}
+float curve(float t,float e){t/=e;return mix(rnd(floor(t)),rnd(floor(t)+1.),pow(S(.0,1.,fract(t)),10.));}
+vec3 org(){float k=-.2*sin(sin(T)),drama=3.14*curve(T*.2,2.);vec3 ro=vec3(0,0,.1);ro*=rotX(-k-.1+drama/12.)*rotY(-.45-sin(cos(T*.2-k+drama)));return ro;}
+float shadow(vec3 p,vec3 lp){float shd=1.,maxd=length(lp-p);vec3 l=N(lp-p);for(float i=1e-3;i<maxd;){float d=map(p+l*i,false);if(d<1e-3){shd=.0;break;}shd=min(shd,64.*d/i);i+=d;}return shd;}
+float calcAO(vec3 p,vec3 n){float occ=.0,sca=1.;for(float i=.0;i<5.;i++){float h=.01+i*.09,d=map(p+h*n,false);occ+=(h-d)*sca;sca*=.55;if(occ>.35)break;}return clamp(1.-3.*occ,.0,1.)*(.5+.5*n.y);}
+
+vec3 render(vec2 uv){
+  vec3 col=vec3(0),p=org(),ro=p,rd=dir(uv,p,vec3(0),1.);
+  float dd,at;
+  if(march(p,rd,dd,at)){
+    vec3 n=norm(p),lp=LP,l=N(lp-p),e=N(ro-p),r=reflect(-l,n);
+    float ld=distance(lp,p),atten=1./(1.+ld*.25+ld*ld*.125),ao=calcAO(p,n),shd=shadow(p+n*5e-2,lp);
+    col+=shd*atten*NAVY*3.+clamp(dot(l,n),.0,1.)*atten*ao*shd*(CORAL*.7+BLUE*.3);
+    col+=pow(max(.0,dot(r,e)),12.)*atten*ao*shd*CORAL*1.8;
+    col+=clamp(dot(-rd,l),.0,1.)*ao*atten*BLUE*1.4;
+  }
+  float k=mix(max(.2,1.-distance(LP,ro)),.25,fract(sin(dot(ro,vec3(12.9898,78.233,156.345)))*345678.)),
+        f=S(1.,.0,clamp(dd/200.,.0,1.));
+  col+=CORAL*at*k*2.0;
+  col+=mix(CORAL,BLUE,k)*k*k*1.8;
+  col=mix(col,NAVY,S(.0,40.,distance(p,ro)));
+  col=tanh(col*1.4);
+  col=sqrt(col);
+  col=mix(sqrt(col)*1.3,col,clamp(S(-.1,.2,dot(uv,uv)),.0,1.));
+  col+=tanh(CORAL*glow*2.5);
+  vec2 c=FC/R;c*=1.-c.yx;
+  float vig=c.x*c.y*25.;vig=pow(vig,.25);col*=vig;
+  return col;
+}
+void main(){O=vec4(render((FC-.5*R)/MN),1);}`;
+
+  const VERT = `#version 300 es
+precision highp float;
+in vec4 position;
+void main(){gl_Position=position;}`;
+
+  const gl = canvas.getContext('webgl2');
+  if (!gl) return;
+
+  function compile(type, src) {
+    const sh = gl.createShader(type);
+    gl.shaderSource(sh, src); gl.compileShader(sh);
+    if (!gl.getShaderParameter(sh, gl.COMPILE_STATUS)) console.warn(gl.getShaderInfoLog(sh));
+    return sh;
+  }
+
+  const prog = gl.createProgram();
+  gl.attachShader(prog, compile(gl.VERTEX_SHADER, VERT));
+  gl.attachShader(prog, compile(gl.FRAGMENT_SHADER, FRAG));
+  gl.linkProgram(prog);
+
+  const buf = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,1,-1,-1,1,1,1,-1]), gl.STATIC_DRAW);
+  const pos = gl.getAttribLocation(prog, 'position');
+  gl.enableVertexAttribArray(pos);
+  gl.vertexAttribPointer(pos, 2, gl.FLOAT, false, 0, 0);
+
+  const uTime = gl.getUniformLocation(prog, 'time');
+  const uRes  = gl.getUniformLocation(prog, 'resolution');
+
+  const DPR = Math.min(window.devicePixelRatio, 2) * 0.5; // half-res for perf
+  let rafId = null;
+
+  function resize() {
+    const w = canvas.offsetWidth, h = canvas.offsetHeight;
+    canvas.width  = w * DPR;
+    canvas.height = h * DPR;
+    gl.viewport(0, 0, canvas.width, canvas.height);
+  }
+
+  function draw(now) {
+    gl.useProgram(prog);
+    gl.uniform1f(uTime, now * 1e-3);
+    gl.uniform2f(uRes, canvas.width, canvas.height);
+    gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+    rafId = requestAnimationFrame(draw);
+  }
+
+  resize();
+  window.addEventListener('resize', resize, {passive:true});
+
+  // Only animate when slide 1 is visible
+  const s1 = document.querySelector('.s1');
+  const visObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { if (!rafId) rafId = requestAnimationFrame(draw); }
+      else { cancelAnimationFrame(rafId); rafId = null; }
+    });
+  }, {threshold: 0.1});
+  visObs.observe(s1);
+})();
+
+// ── PORTRAIT OVERLAY ────────────────────────────────
+(function() {
+  const overlay = document.getElementById('portrait-overlay');
+  function check() {
+    const portrait = window.matchMedia('(orientation: portrait) and (max-width: 1024px)').matches;
+    overlay.classList.toggle('visible', portrait);
+  }
+  check();
+  window.addEventListener('resize', check);
+  window.addEventListener('orientationchange', check);
+})();
+</script>
+</body>
+</html>
