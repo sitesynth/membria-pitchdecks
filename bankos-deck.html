@@ -652,6 +652,26 @@ slides.forEach(s => io.observe(s));
 
 frameEl.addEventListener('scroll', onScroll, { passive: true });
 onScroll();
+
+function currentSlideIndex() {
+  const frameRect = frameEl.getBoundingClientRect();
+  let active = 0;
+  slides.forEach((s, i) => {
+    const rect = s.getBoundingClientRect();
+    if (rect.top - frameRect.top <= frameEl.clientHeight * 0.5) active = i;
+  });
+  return active;
+}
+
+document.addEventListener('keydown', e => {
+  if (e.target instanceof Element && e.target.closest('input, textarea, [contenteditable]')) return;
+  const goDown = ['ArrowDown', 'PageDown', ' '].includes(e.key);
+  const goUp = ['ArrowUp', 'PageUp'].includes(e.key);
+  if (!goDown && !goUp) return;
+  e.preventDefault();
+  const next = currentSlideIndex() + (goDown ? 1 : -1);
+  if (next >= 0 && next < slides.length) slides[next].scrollIntoView({behavior:'smooth'});
+});
 </script>
 
 </body>
