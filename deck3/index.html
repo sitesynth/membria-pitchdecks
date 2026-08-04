@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Membria — Investor Deck (v1, archived)</title>
+<link rel="icon" type="image/svg+xml" href="membria-logo/logo.svg">
+<meta name="description" content="Membria — the memory & experience layer for AI agents. One causal-memory core, many domains.">
+<meta property="og:title" content="Membria — Investor Deck (v1, archived)">
+<meta property="og:description" content="AI agents that learn — Membria is the memory & experience layer for AI agents.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://deck3.membria.ai/og-image-deck.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Membria — Investor Deck (v1, archived)">
+<meta name="twitter:description" content="AI agents that learn — Membria is the memory & experience layer for AI agents.">
+<meta name="twitter:image" content="https://deck3.membria.ai/og-image-deck.jpg">
+<style>
+
+@font-face { font-family:'DM Serif Display'; font-style:normal; font-weight:400; src:url('DMSerifDisplay.ttf') format('truetype'); }
+@font-face { font-family:'DM Serif Display'; font-style:italic; font-weight:400; src:url('DMSerifDisplay-Italic.ttf') format('truetype'); }
+@font-face { font-family:'Geist'; font-style:normal; font-weight:100 900; src:url('Geist.ttf') format('truetype'); }
+@font-face { font-family:'Geist'; font-style:italic; font-weight:100 900; src:url('Geist-Italic.ttf') format('truetype'); }
+
+*, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+
+:root {
+  --bg:      #f2f0ed;
+  --white:   #ffffff;
+  --ink:     #1c1b1a;
+  --mid:     #56524f;
+  --muted:   #999491;
+  --border:  #e0dcd7;
+  --coral:   #f57f65;
+  --blue:    #5b8fc9;
+  --navy:    #1a2548;
+  --serif:   'DM Serif Display', Georgia, serif;
+  --sans:    'Geist', -apple-system, system-ui, sans-serif;
+  --shadow:  0 1px 3px rgba(0,0,0,0.05), 0 4px 16px rgba(0,0,0,0.07);
+}
+
+html { height:100%; background:#181614; font-family:var(--sans); -webkit-text-size-adjust:100%; text-size-adjust:100%; }
+body { margin:0; height:100vh; overflow:hidden; display:flex; align-items:center; justify-content:center; background:#181614; }
+
+#frame {
+  position:relative;
+  width:min(100vw, 177.7778vh);
+  height:min(100vh, 56.25vw);
+  overflow-y:scroll;
+  scroll-snap-type:y mandatory;
+  scroll-behavior:smooth;
+  background:#181614;
+  container-type:size;
+  container-name:deck;
+}
+
+.slide {
+  width:100%; height:100%;
+  scroll-snap-align:start;
+  position:relative; overflow:hidden;
+  background:var(--bg);
+  font-size:min(1.28cqw, 2.27cqh);
+  line-height:1.4;
+}
+.slide:not(:last-child) { border-bottom:14px solid #181614; }
+
+#progress { position:fixed; top:0; left:0; right:0; height:3px; z-index:998; background:rgba(0,0,0,0.04); }
+#progress-fill { height:100%; width:0; background:var(--coral); transition:width .12s ease-out; }
+
+#dots { position:fixed; top:50%; right:1.3em; transform:translateY(-50%); z-index:998; display:flex; flex-direction:column; gap:8px; }
+#dots a { width:8px; height:8px; border-radius:50%; background:rgba(0,0,0,0.16); transition:all .25s ease; display:block; }
+#dots a:hover { background:rgba(0,0,0,0.34); transform:scale(1.2); }
+#dots a.active { background:var(--coral); width:8px; height:22px; border-radius:5px; }
+
+#pdf-btn {
+  display:block; margin:0.7em 0 0 auto;
+  width:1.8em; height:1.8em; cursor:pointer;
+  opacity:0.55;
+  transition:opacity .15s, transform .15s;
+}
+#pdf-btn:hover { opacity:0.9; transform:scale(1.08); }
+
+.pagenum { position:absolute; top:1.7em; right:3.6em; z-index:5; font-size:0.72em; font-weight:600; letter-spacing:0.04em; color:var(--coral); pointer-events:none; }
+
+/* ── SHARED ─────────────────────────────────────────── */
+.tag {
+  display:inline-block; align-self:flex-start; font-size:0.7em; color:var(--blue);
+  background:rgba(91,143,201,0.10); border:1px solid rgba(91,143,201,0.25);
+  border-radius:999px; padding:0.3em 0.85em; letter-spacing:0.08em; text-transform:uppercase;
+  margin-bottom:0.6em;
+}
+.card { background:var(--white); border-radius:0.5em; box-shadow:var(--shadow); }
+.rule { height:1px; background:var(--border); }
+
+.ico-wrap { width:2.6em; height:2.6em; flex-shrink:0; color:var(--coral); display:block; }
+.masked {
+  width:100%; height:100%; background:var(--coral);
+  -webkit-mask-position:center; mask-position:center;
+  -webkit-mask-size:contain; mask-size:contain;
+  -webkit-mask-repeat:no-repeat; mask-repeat:no-repeat;
+}
+.masked.navy { background:var(--navy); }
+.masked.white { background:#fff; }
+
+.chklist { list-style:none; }
+.chklist li { display:flex; align-items:flex-start; gap:0.55em; font-size:0.85em; color:var(--mid); line-height:1.5; font-weight:300; }
+.chklist li + li { margin-top:0.55em; }
+.chklist li::before { content:'✓'; color:var(--coral); font-size:0.82em; flex-shrink:0; margin-top:0.12em; font-weight:600; }
+.chklist li b { font-weight:600; color:var(--ink); }
+
+.fade-up { opacity:0; transform:translateY(1.8em); transition:opacity .55s ease, transform .55s ease; }
+.fade-up.visible { opacity:1; transform:none; }
+@media (prefers-reduced-motion: reduce) { .fade-up { opacity:1; transform:none; } }
+
+.inner { position:absolute; inset:0; padding:2.6em 3.8em 3.5em; display:flex; flex-direction:column; }
+.inner h1 {
+  font-family:var(--serif); font-size:3.7em; font-weight:400; color:var(--ink);
+  letter-spacing:-0.025em; line-height:1.08; margin:0.15em 0 0.4em;
+}
+.inner h1 em { font-style:italic; color:var(--coral); }
+.sub { font-size:0.86em; color:var(--muted); font-weight:300; margin:0 0 1em; max-width:56em; }
+
+.bottom {
+  background:rgba(0,0,0,0.04); border-radius:0.45em; padding:0.78em 1.2em; margin-top:auto;
+  font-size:0.8em; color:var(--mid); font-weight:300; line-height:1.5; flex-shrink:0;
+}
+.bottom b { font-weight:600; color:var(--ink); }
+
+/* table */
+.tbl-wrap { background:var(--white); border-radius:0.5em; box-shadow:var(--shadow); overflow:hidden; display:flex; flex-direction:column; }
+.dtbl { width:100%; border-collapse:collapse; flex:1; }
+.dtbl tbody { height:100%; }
+.dtbl tbody tr { height:1px; }
+.dtbl thead tr { background:var(--coral); }
+.dtbl thead th { color:#fff; font-size:0.76em; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; padding:0.82em 1.3em; text-align:left; white-space:nowrap; }
+.dtbl tbody tr { border-bottom:1px solid var(--border); }
+.dtbl tbody tr:last-child { border-bottom:none; }
+.dtbl tbody td { padding:0.62em 1.3em; font-size:0.85em; color:var(--mid); font-weight:300; }
+.dtbl tbody td:first-child { color:var(--ink); font-weight:600; white-space:nowrap; }
+.dtbl tbody td.num { font-variant-numeric:tabular-nums; font-weight:600 !important; color:var(--ink) !important; }
+
+.badge { display:inline-block; font-size:0.74em; font-weight:700; letter-spacing:0.05em; text-transform:uppercase; padding:0.18em 0.6em; border-radius:3px; }
+.badge-no   { background:rgba(220,38,38,0.10); color:#dc2626; }
+.badge-live { background:rgba(22,136,4,0.12); color:#168804; }
+.badge-soon { background:rgba(180,83,9,0.10); color:#b45309; }
+.badge-blue { background:rgba(91,143,201,0.12); color:var(--blue); }
+
+/* stat cards */
+.stats { display:grid; gap:1em; flex:1; min-height:0; }
+.stat-card { background:var(--white); border-radius:0.5em; box-shadow:var(--shadow); padding:1.3em 1.4em 1.5em; display:flex; flex-direction:column; justify-content:space-between; }
+.stat-card.dark { background:var(--navy); }
+.stat-card.dark .sdesc { color:rgba(255,255,255,0.45); }
+.snum { font-family:var(--serif); font-size:2.5em; font-weight:400; color:var(--coral); line-height:1; letter-spacing:-0.02em; white-space:nowrap; }
+.sdesc { font-size:0.78em; color:var(--muted); line-height:1.42; font-weight:300; margin-top:0.5em; }
+
+/* numbered items (serif italic numerals) */
+.items { display:flex; flex-direction:column; gap:1.05em; flex:1; justify-content:center; }
+.item { display:flex; align-items:flex-start; gap:0.95em; }
+.item-num { font-family:var(--serif); font-style:italic; font-size:1.5em; color:var(--coral); flex-shrink:0; line-height:1.15; width:1.3em; }
+.item-t { font-size:1em; font-weight:700; color:var(--ink); margin-bottom:0.15em; }
+.item-b { font-size:0.87em; color:var(--mid); line-height:1.45; font-weight:300; }
+.item-b b { font-weight:600; color:var(--ink); }
+
+/* grid of cards with icon */
+.grid4 { display:grid; grid-template-columns:repeat(4,1fr); gap:1em; }
+.grid4 .card { padding:1.5em 1.5em 1.6em; display:flex; flex-direction:column; }
+.gcard-ico { margin-bottom:0.7em; }
+.gcard-t { font-size:1em; font-weight:700; color:var(--ink); line-height:1.25; margin-bottom:0.5em; }
+.gcard-b { font-size:0.86em; color:var(--mid); line-height:1.45; font-weight:300; }
+
+/* who-we-are photo cards */
+.who-cards { display:grid; grid-template-columns:repeat(4,1fr); gap:1em; flex:1; min-height:0; }
+.who-cards .card { padding:0; overflow:hidden; display:flex; flex-direction:column; height:100%; }
+.who-cards .card-img { flex:1; width:100%; min-height:0; object-fit:cover; display:block; }
+.who-cards .card-body { padding:1.1em 1.2em 1.3em; flex-shrink:0; }
+.who-cards .ct { font-family:var(--serif); font-size:1.08em; font-weight:400; color:var(--ink); margin-bottom:0.45em; letter-spacing:-0.01em; }
+.who-cards .cb-sub { font-size:0.72em; font-weight:600; color:var(--coral); margin-bottom:0.42em; letter-spacing:0.01em; }
+.who-cards .cb { font-size:0.78em; font-weight:300; color:var(--mid); line-height:1.4; }
+
+/* pillar columns (memory / reasoning / graph) */
+.pillars { display:grid; grid-template-columns:repeat(3,1fr); column-gap:3em; margin:auto 0; padding:1em 0; }
+.pillar-col { display:flex; flex-direction:column; align-items:flex-start; }
+.pillar-img { display:block; width:8.5em; height:8.5em; object-fit:cover; margin:0 0 1em; border-radius:0.55em; box-shadow:var(--shadow); }
+.pillar-pill {
+  display:inline-block; font-size:0.64em; color:var(--blue); background:rgba(91,143,201,0.10);
+  border:1px solid rgba(91,143,201,0.28); border-radius:999px; padding:0.32em 0.85em;
+  margin-bottom:1.3em; letter-spacing:0.04em; font-weight:500; text-transform:uppercase;
+}
+.pillar-ct { font-family:var(--serif); font-size:1.3em; font-weight:400; color:var(--ink); letter-spacing:-0.01em; margin-bottom:0.5em; }
+.pillar-col .chklist { margin-top:0.3em; }
+.pillar-col .chklist li { font-size:0.82em; }
+
+/* ladder / roadmap steps */
+.ladder { display:grid; grid-template-columns:repeat(3,1fr); gap:1.1em; flex:1; min-height:0; }
+.step { padding:1.7em 1.6em 1.6em; display:flex; flex-direction:column; position:relative; overflow:hidden; }
+.step::before { content:''; position:absolute; top:0; left:0; height:4px; background:var(--coral); border-radius:0 0 2px 0; }
+.step.p1::before { width:33%; } .step.p2::before { width:66%; } .step.p3::before { width:100%; }
+.step.p1 { background:var(--navy); }
+.step.p1 .phase-lbl { color:rgba(255,255,255,0.4); }
+.step.p1 .onum { color:var(--coral); }
+.step.p1 .ot { color:#fff; }
+.step.p1 .ob { color:rgba(255,255,255,0.55); }
+.phase-lbl { font-size:0.72em; font-weight:700; text-transform:uppercase; letter-spacing:0.09em; color:var(--muted); margin-bottom:0.5em; }
+.onum { font-family:var(--serif); font-style:italic; font-size:1.7em; color:var(--coral); line-height:1; margin-bottom:0.4em; }
+.ot { font-size:1.05em; font-weight:700; color:var(--ink); margin-bottom:0.7em; }
+.ob { font-size:0.82em; color:var(--mid); font-weight:300; line-height:1.85; }
+
+/* split two-col feature+photo (EPC wedge) */
+.split { display:grid; grid-template-columns:1fr 34%; flex:1; min-height:0; }
+.split .left { padding-right:2.4em; display:flex; flex-direction:column; }
+.split .feats { display:flex; flex-direction:column; flex:1; min-height:0; justify-content:space-between; padding:0.4em 0; }
+.split .feat { display:flex; align-items:flex-start; gap:0.9em; }
+.split .feat .ico-wrap { width:2.1em; height:2.1em; flex-shrink:0; margin-top:0.1em; }
+.split .ft { font-size:0.94em; font-weight:700; color:var(--ink); margin-bottom:0.16em; }
+.split .fb { font-size:0.8em; color:var(--mid); line-height:1.42; font-weight:300; }
+.split .photo { position:relative; overflow:hidden; border-radius:0.6em; background:#1a0c08; }
+.split .photo img { width:100%; height:100%; object-fit:cover; display:block; }
+.split .photo::after {
+  content:''; position:absolute; inset:0;
+  background:linear-gradient(160deg, #c95838 0%, #f57f65 55%, #1a2548 100%);
+  mix-blend-mode:multiply; pointer-events:none;
+}
+.split .plabel { position:absolute; top:1.4em; left:1.4em; right:1.4em; z-index:2; }
+.split .plt { font-size:0.8em; font-weight:600; color:rgba(255,255,255,0.92); }
+.split .pls { font-size:0.68em; color:rgba(255,255,255,0.6); font-weight:300; margin-top:0.16em; }
+
+/* jurisdiction bars */
+.jur { display:flex; flex-direction:column; gap:0.55em; }
+.jur-row { display:grid; grid-template-columns:9em 1fr 4.5em; align-items:center; gap:0.9em; font-size:0.85em; }
+.jur-name { font-weight:700; color:var(--ink); text-align:right; }
+.jur-bar { height:1.1em; border-radius:4px; background:rgba(245,127,101,0.14); position:relative; overflow:hidden; }
+.jur-bar i { position:absolute; inset:0 auto 0 0; background:var(--coral); border-radius:4px; }
+.jur-n { font-variant-numeric:tabular-nums; font-size:0.85em; color:var(--mid); }
+
+/* compact 9-row jurisdiction chart (standards graph slide) */
+.jur.compact { gap:0.3em; }
+.jur.compact .jur-row { grid-template-columns:7em 1fr 4em; gap:0.7em; font-size:0.72em; }
+.jur.compact .jur-bar { height:0.85em; }
+.jur.compact .jur-n { font-size:0.78em; }
+.s13-stats .stat-card { padding:0.9em 1em 1em; }
+.s13-stats .snum { font-size:1.9em; }
+.s13-stats .sdesc { font-size:0.7em; line-height:1.3; margin-top:0.35em; }
+
+/* ══ S-COVER ══ */
+.s-cover {
+  background:linear-gradient(-45deg, #0f1820, #1a2548, #3a2038, #5a2e1f, #1a2548);
+  background-size:400% 400%;
+  animation:coverGradient 22s ease infinite;
+}
+@keyframes coverGradient {
+  0%   { background-position:0% 50%; }
+  50%  { background-position:100% 50%; }
+  100% { background-position:0% 50%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .s-cover { animation:none; }
+}
+.s-cover .brand-row { display:flex; align-items:center; gap:0.6em; margin-bottom:1.4em; }
+.s-cover .logo { height:1.5em; width:auto; opacity:0.95; display:block; }
+.s-cover .overlay {
+  position:absolute; inset:0; z-index:1; pointer-events:none;
+  background:linear-gradient(90deg, rgba(6,4,3,0.35) 0%, rgba(6,4,3,0.15) 45%, transparent 75%),
+             linear-gradient(180deg, transparent 55%, rgba(6,4,3,0.3) 100%);
+}
+.s-cover .inner { z-index:2; padding:4.2em; justify-content:space-between; }
+.s-cover .kicker { font-size:0.75em; color:rgba(255,255,255,0.5); letter-spacing:0.1em; text-transform:uppercase; }
+.s-cover .title { font-family:var(--serif); font-size:4.6em; font-weight:400; color:#fff; line-height:1.08; letter-spacing:-0.025em; margin-bottom:0.5em; }
+.s-cover .title em { font-style:italic; color:var(--coral); }
+.s-cover .sub-title { font-size:0.95em; font-weight:300; color:rgba(255,255,255,0.62); max-width:36em; line-height:1.5; }
+.s-cover .footer-row { display:flex; align-items:center; justify-content:space-between; }
+.s-cover .author { display:flex; align-items:center; gap:0.9em; }
+.s-cover .avatar-wrap { width:3.7em; height:3.7em; border-radius:50%; overflow:hidden; box-shadow:0 4px 16px rgba(0,0,0,0.45); flex-shrink:0; }
+.s-cover .avatar-wrap img { width:100%; height:100%; object-fit:cover; display:block; transform:scale(1.15); }
+.s-cover .aname { font-size:0.9em; font-weight:600; color:#fff; display:block; margin-bottom:0.15em; }
+.s-cover .arole { font-size:0.76em; font-weight:300; color:rgba(255,255,255,0.55); }
+.s-cover .doc-info { text-align:right; font-size:0.75em; font-weight:300; color:rgba(255,255,255,0.35); line-height:1.7; }
+.s-cover .doc-info strong { color:rgba(255,255,255,0.6); font-weight:600; display:block; font-size:1em; letter-spacing:0.05em; text-transform:uppercase; }
+
+/* ══ closing photo slide ══ */
+.s-close .inner { display:grid; grid-template-columns:36% 1fr; padding:0; }
+.s-close .photo { position:relative; overflow:hidden; display:flex; flex-direction:column; justify-content:space-between; padding:3.4em 2.6em; }
+.s-close .photo img.bg { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:0; }
+.s-close .photo::after {
+  content:''; position:absolute; inset:0; z-index:1; pointer-events:none;
+  background:linear-gradient(180deg, rgba(8,4,2,0.55) 0%, rgba(8,4,2,0.18) 38%, rgba(8,4,2,0.82) 100%);
+}
+.s-close .plogo { position:relative; z-index:2; height:2.6em; width:auto; opacity:0.95; align-self:flex-start; }
+.s-close .pclose { position:relative; z-index:2; }
+.s-close .pcline { font-family:var(--serif); font-size:1.7em; color:#fff; line-height:1.2; letter-spacing:-0.02em; }
+.s-close .pcline em { font-style:italic; color:var(--coral); }
+.s-close .right { padding:3.2em 3.6em 3.2em 3em; display:flex; flex-direction:column; justify-content:center; }
+.s-close .right h1 { margin-bottom:0.6em; }
+.s-close .team-row { display:grid; grid-template-columns:repeat(3,1fr); gap:1em; margin:1.1em 0; }
+.s-close .tmember { display:flex; gap:0.7em; align-items:flex-start; }
+.s-close .tmember .tphoto { width:2.9em; height:2.9em; border-radius:50%; object-fit:cover; flex-shrink:0; box-shadow:var(--shadow); }
+.s-close .tmember .tn { font-weight:700; font-size:0.9em; color:var(--ink); }
+.s-close .tmember .tr { font-size:0.72em; color:var(--coral); font-weight:600; margin-top:0.1em; }
+.s-close .tmember .tb { font-size:0.72em; color:var(--muted); line-height:1.35; margin-top:0.25em; }
+.s-close .tbl-wrap { flex:1; min-height:0; margin-top:0.6em; }
+
+@media print {
+  @page { size:1280px 720px; margin:0; }
+  *, *::before, *::after { -webkit-print-color-adjust:exact !important; print-color-adjust:exact !important; }
+  html { scroll-snap-type:none; overflow:visible; background:#181614; }
+  body { width:1280px; height:auto; }
+  #frame { width:1280px !important; height:auto !important; overflow:visible !important; scroll-snap-type:none !important; }
+  .slide { width:1280px !important; height:720px !important; page-break-after:always; break-after:page; font-size:14.6px !important; overflow:hidden !important; }
+  #dots, #progress, #pdf-btn, #portrait-overlay { display:none !important; }
+  .fade-up { opacity:1 !important; transform:none !important; }
+}
+
+/* ══ PORTRAIT OVERLAY (mobile) ══ */
+#portrait-overlay {
+  display:none;
+  position:fixed; inset:0; z-index:9999;
+  background:#0f1820 url('board_flipped_only.jpg') center/cover no-repeat;
+  flex-direction:column;
+  align-items:center; justify-content:space-between;
+  padding:3rem 2.5rem 3.5rem;
+  text-align:center;
+}
+#portrait-overlay::before {
+  content:''; position:absolute; inset:0;
+  background:linear-gradient(180deg, rgba(10,16,26,0.72) 0%, rgba(10,16,26,0.55) 40%, rgba(10,16,26,0.82) 100%);
+  z-index:0;
+}
+#portrait-overlay > * { position:relative; z-index:1; }
+#portrait-overlay.visible { display:flex; }
+.po-logo { height:3.2rem; width:auto; opacity:0.95; }
+.po-icon {
+  width:2.8rem; height:2.8rem; margin-bottom:1.2rem;
+  animation:po-nudge 2.4s ease-in-out infinite;
+}
+@keyframes po-nudge {
+  0%,100% { transform:rotate(0deg) scale(1); }
+  20%     { transform:rotate(-18deg) scale(1.08); }
+  40%     { transform:rotate(14deg) scale(1.04); }
+  60%     { transform:rotate(-8deg) scale(1.02); }
+  80%     { transform:rotate(4deg) scale(1); }
+}
+.po-bottom { display:flex; flex-direction:column; align-items:center; text-align:center; }
+.po-title {
+  font-family:var(--serif); font-size:1.75rem; font-weight:400;
+  color:#fff; line-height:1.2; letter-spacing:-0.02em; margin-bottom:0.75rem;
+}
+.po-sub {
+  font-size:0.9rem; color:rgba(255,255,255,0.45); font-weight:300;
+  line-height:1.38; max-width:18rem;
+}
+</style>
+</head>
+<body>
+
+<div id="portrait-overlay">
+  <img class="po-logo" src="membria-logo/logo.svg" alt="Membria">
+  <div class="po-bottom">
+    <img class="po-icon" src="rotate-icon.svg" alt="Rotate">
+    <div class="po-title">Rotate for the<br>best experience</div>
+    <div class="po-sub">Membria is optimised for landscape view</div>
+  </div>
+</div>
+
+<div id="frame">
+
+<div id="progress"><div id="progress-fill"></div></div>
+<nav id="dots"></nav>
+
+<!-- ══ 01 COVER ══ -->
+<section class="slide s-cover">
+  <div class="overlay"></div>
+  <div class="inner">
+    <div class="fade-up">
+      <div class="brand-row">
+        <img class="logo" src="membria-logo/logo.svg" alt="Membria.AI">
+        <div class="kicker" style="margin:0;">Membria.AI · Investor Deck</div>
+      </div>
+      <div class="title">AI agents that <em>learn</em>.</div>
+      <div class="sub-title">Membria is the memory &amp; experience layer for AI agents — one causal-memory core powering products for software teams, industrial engineering and audit.</div>
+    </div>
+    <div class="footer-row fade-up" style="transition-delay:.15s">
+      <div class="author">
+        <div class="avatar-wrap"><img src="ma2.avif" alt="Michael Aprossine"></div>
+        <div>
+          <span class="aname">Michael Aprossine</span>
+          <span class="arole">CEO, Founder — Membria.AI by Actiquest Labs</span>
+        </div>
+      </div>
+      <div class="doc-info">
+        <strong>Confidential</strong>
+        July 2026 · v1.0
+        <a id="pdf-btn" href="membria-deck.pdf" download="Membria-Investor-Deck.pdf" title="Download PDF">
+          <img src="pdf-icon.svg" width="100%" height="100%" style="display:block;pointer-events:none;" alt="PDF">
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 02 WHO WE ARE ══ -->
+<section class="slide">
+  <div class="pagenum">02</div>
+  <div class="inner" style="gap:1.1em;">
+    <span class="tag fade-up">Company</span>
+    <h1 class="fade-up" style="transition-delay:.05s">Who We Are</h1>
+    <div class="who-cards fade-up" style="transition-delay:.1s">
+      <div class="card">
+        <img class="card-img" src="who1.jpg" alt="Actiquest">
+        <div class="card-body">
+          <div class="ct">Actiquest Labs</div>
+          <div class="cb-sub">Applied AI Systems Company</div>
+          <div class="cb">Practical automation, intelligent workflows and enterprise-grade AI — built for real results.</div>
+        </div>
+      </div>
+      <div class="card">
+        <img class="card-img" src="who2.jpg" alt="Membria">
+        <div class="card-body">
+          <div class="ct">Membria.AI</div>
+          <div class="cb-sub">AI Operating Environment</div>
+          <div class="cb">Our core product — agents, memory, knowledge and verification combined into one enterprise-ready AI platform.</div>
+        </div>
+      </div>
+      <div class="card">
+        <img class="card-img" src="who3.jpg" alt="Vertical Expertise">
+        <div class="card-body">
+          <div class="ct">Vertical Expertise</div>
+          <div class="cb-sub">Code · Fintech · Government · Audit · EPC</div>
+          <div class="cb">We specialize in complex domains where AI needs precision, context and process understanding.</div>
+        </div>
+      </div>
+      <div class="card">
+        <img class="card-img" src="who4.jpg" alt="How We Work">
+        <div class="card-body">
+          <div class="ct">How We Work</div>
+          <div class="cb-sub">Applied AI Engineering</div>
+          <div class="cb">We ship enterprise AI projects that stress-test and fund Membria's core — concept to production.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 03 AT A GLANCE ══ -->
+<section class="slide">
+  <div class="pagenum">03</div>
+  <div class="inner">
+    <span class="tag fade-up">Company Profile</span>
+    <h1 class="fade-up" style="transition-delay:.05s">Actiquest Labs at a Glance</h1>
+    <div class="sub fade-up" style="transition-delay:.08s">Key facts, production footprint and enterprise AI capabilities.</div>
+    <div class="fade-up" style="transition-delay:.1s;display:grid;grid-template-columns:14em 1fr;gap:1.3em;flex:1;min-height:0;">
+      <div style="display:flex;flex-direction:column;gap:0.9em;">
+        <div class="stat-card" style="flex:1;flex-direction:row;align-items:flex-start;gap:0.9em;justify-content:flex-start;">
+          <div class="snum">10+</div><div class="sdesc" style="margin-top:0.15em;">years enterprise product, AI engineering and venture-building</div>
+        </div>
+        <div class="stat-card" style="flex:1;flex-direction:row;align-items:flex-start;gap:0.9em;justify-content:flex-start;">
+          <div class="snum">4</div><div class="sdesc" style="margin-top:0.15em;">verticals — Fintech · Government · Audit · Engineering/EPC</div>
+        </div>
+        <div class="stat-card" style="flex:1;flex-direction:row;align-items:flex-start;gap:0.9em;justify-content:flex-start;">
+          <div class="snum">100+</div><div class="sdesc" style="margin-top:0.15em;">seats deployed across production AI use cases</div>
+        </div>
+      </div>
+      <div class="tbl-wrap">
+        <table class="dtbl">
+          <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+          <tbody>
+            <tr><td>Founded</td><td>February 2023 · California, USA</td></tr>
+            <tr><td>Core Product</td><td>Membria.AI — memory &amp; experience layer for AI agents</td></tr>
+            <tr><td>Production Verticals</td><td>SDLC · Fintech/Banking · AI Accounting/Audit · Engineering/EPC</td></tr>
+            <tr><td>Deployment</td><td>Cloud SaaS · self-hosted · on-premise enterprise</td></tr>
+            <tr><td>Clients &amp; Partners</td><td>OES · Wowcube · Hiscox · K-Telco · Kazakhstan Government · industrial enterprises across EMEA/CIS</td></tr>
+            <tr><td>Technology Partners</td><td>NVIDIA · Amazon Web Services</td></tr>
+            <tr><td>Team Background</td><td>20+ years enterprise software &amp; audit · 9 years applied AI — finance, government, industrial, deep-tech</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 04 PROBLEM ══ -->
+<section class="slide">
+  <div class="pagenum">04</div>
+  <div class="inner">
+    <span class="tag fade-up">Problem</span>
+    <h1 class="fade-up" style="transition-delay:.05s">Intelligence that <em>resets</em> every morning</h1>
+    <div class="items fade-up" style="transition-delay:.1s">
+      <div class="item">
+        <div class="item-num">1.</div>
+        <div><div class="item-t">AI agents are stateless</div>
+        <div class="item-b">Every session starts from zero. Yesterday's reasoning, decisions and failures are discarded the moment the window closes.</div></div>
+      </div>
+      <div class="item">
+        <div class="item-num">2.</div>
+        <div><div class="item-t">Mistakes repeat — and they're expensive</div>
+        <div class="item-b">Coding teams re-solve the same problems; in engineering, <b>28% of EPC budgets</b> are lost to rework and 9 of 10 large projects overrun by +28% on average.</div></div>
+      </div>
+      <div class="item">
+        <div class="item-num">3.</div>
+        <div><div class="item-t">Handovers bleed context</div>
+        <div class="item-b"><b>30–50%</b> of assumptions vanish at every phase handover; 18% of working time is spent searching for data that already exists.</div></div>
+      </div>
+      <div class="item">
+        <div class="item-num">4.</div>
+        <div><div class="item-t">Judgment walks out the door</div>
+        <div class="item-b">A senior engineer leaves — and fifteen years of decisions, lessons and "don't do this" leave with them.</div></div>
+      </div>
+    </div>
+    <div class="bottom fade-up" style="transition-delay:.14s">Every AI tool today can answer questions. <b>None of them remembers why decisions were made — or what happened next.</b></div>
+  </div>
+</section>
+
+<!-- ══ 05 WHY NOW ══ -->
+<section class="slide">
+  <div class="pagenum">05</div>
+  <div class="inner">
+    <span class="tag fade-up">Why now</span>
+    <h1 class="fade-up" style="transition-delay:.05s">The experience graph is <em>unclaimed</em></h1>
+    <div class="items fade-up" style="transition-delay:.1s">
+      <div class="item">
+        <div class="item-num">1.</div>
+        <div><div class="item-t">Agents became the workforce</div>
+        <div class="item-b">Claude Code, Codex and Cursor now do real daily work in code, engineering and finance — but they shipped without memory.</div></div>
+      </div>
+      <div class="item">
+        <div class="item-num">2.</div>
+        <div><div class="item-t">MCP became the standard port</div>
+        <div class="item-b">One protocol plugs a memory plane into every agent on the market — distribution without integration projects.</div></div>
+      </div>
+      <div class="item">
+        <div class="item-num">3.</div>
+        <div><div class="item-t">Regulation demands traceability</div>
+        <div class="item-b">EU AI Act and ISO 19650 require defensible decisions and immutable audit trails in safety-critical work — exactly what a causal memory produces by default.</div></div>
+      </div>
+      <div class="item">
+        <div class="item-num">4.</div>
+        <div><div class="item-t">Incumbents own data, not experience</div>
+        <div class="item-b">Nobody owns the decision → outcome graph. Whoever captures it first gets a moat that compounds with every user, every day.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 06 CORE: REASONING GRAPH WORKFORCE ══ -->
+<section class="slide">
+  <div class="pagenum">06</div>
+  <div class="inner">
+    <span class="tag fade-up">Product</span>
+    <h1 class="fade-up" style="transition-delay:.05s">Membria <em>Reasoning Graph</em> Workforce</h1>
+    <div class="pillars fade-up" style="transition-delay:.1s">
+      <div class="pillar-col">
+        <span class="pillar-pill">Institutional knowledge</span>
+        <img class="pillar-img" src="21.png" alt="Memory pillars">
+        <div class="pillar-ct">Memory</div>
+        <ul class="chklist">
+          <li><b>Decisions</b> — every choice captured with its reasoning</li>
+          <li><b>Consistency</b> — behavior chains keep teams aligned</li>
+          <li><b>Skills</b> — wins distilled into reusable know-how</li>
+          <li><b>NegativeKnowledge</b> — failures become rules</li>
+        </ul>
+      </div>
+      <div class="pillar-col">
+        <span class="pillar-pill">Multi-agent harness</span>
+        <img class="pillar-img" src="22.png" alt="Reasoning pillars">
+        <div class="pillar-ct">Reasoning</div>
+        <ul class="chklist">
+          <li><b>Mesh</b> — many agents work in parallel</li>
+          <li><b>Coordination</b> — agents hand off via A2A</li>
+          <li><b>Routing</b> — each task to the right model</li>
+          <li><b>Quality gates</b> — verification blocks bad output</li>
+        </ul>
+      </div>
+      <div class="pillar-col">
+        <span class="pillar-pill">Domain-agnostic foundation</span>
+        <img class="pillar-img" src="23.png" alt="Graph pillars">
+        <div class="pillar-ct">Graph</div>
+        <ul class="chklist">
+          <li><b>GraphRAG</b> — semantic search over a property graph</li>
+          <li><b>Multi-domain</b> — one schema across every domain</li>
+          <li><b>Orchestration</b> — work runs as a dependency graph</li>
+          <li><b>Adaptive</b> — memory that strengthens with use</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 07 HOW IT WORKS ══ -->
+<section class="slide">
+  <div class="pagenum">07</div>
+  <div class="inner">
+    <span class="tag fade-up">How it works</span>
+    <h1 class="fade-up" style="transition-delay:.05s">One loop, <em>every stage</em></h1>
+    <div class="sub fade-up" style="transition-delay:.08s">Not a memory bolted onto one step — every shipped outcome feeds the next decision.</div>
+    <div class="grid4 fade-up" style="transition-delay:.12s;flex:1;min-height:0;">
+      <div class="card"><div class="onum">01</div><div class="ot">Plan</div><div class="ob">Recalls decisions and outcomes from similar work — the agent starts from what already worked.</div></div>
+      <div class="card"><div class="onum">02</div><div class="ot">Execute</div><div class="ob">Injects validated skills and blocks known anti-patterns as the work is being done.</div></div>
+      <div class="card"><div class="onum">03</div><div class="ot">Review</div><div class="ob">Checks the result against past failures and standards — deterministic critics, auditable output.</div></div>
+      <div class="card"><div class="onum">04</div><div class="ot">Ship</div><div class="ob">Records the real outcome and links it back to the decision that caused it.</div></div>
+    </div>
+    <div class="bottom fade-up" style="transition-delay:.16s"><b>↺ Every outcome feeds the next decision.</b> One MCP connection: <span style="font-family:monospace">npx @membria/cli init</span></div>
+  </div>
+</section>
+
+<!-- ══ 08 ONE CORE FOUR PRODUCTS ══ -->
+<section class="slide">
+  <div class="pagenum">08</div>
+  <div class="inner">
+    <span class="tag fade-up">Focus</span>
+    <h1 class="fade-up" style="transition-delay:.05s">One core, <em>many domains</em></h1>
+    <div class="sub fade-up" style="transition-delay:.08s">Verticals are distribution of one product — not divergence. The same graph schema ships verbatim in every codebase.</div>
+    <div class="tbl-wrap fade-up" style="transition-delay:.12s;flex:1;min-height:0;">
+      <table class="dtbl">
+        <thead><tr><th>Product</th><th>Who buys</th><th>Delivery</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td>Membria CE</td><td>solo developers on Claude Code / Codex / Cursor</td><td>cloud SaaS · zero-install MCP</td><td><span class="badge badge-live">SaaS · code.membria.ai</span></td></tr>
+          <tr><td>Membria Enterprise</td><td>engineering &amp; product teams</td><td>self-hosted platform · own UI</td><td><span class="badge badge-soon">Demo · design partners</span></td></tr>
+          <tr><td>AI-EPC</td><td>EPC contractors &amp; design institutes</td><td>vertical app on the same core</td><td><span class="badge badge-live">Live demo · epc.membria.ai</span></td></tr>
+          <tr><td>Glass</td><td>accounting &amp; audit teams</td><td>vertical app on the same core</td><td><span class="badge badge-blue">Design-partner stage</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="bottom fade-up" style="transition-delay:.15s"><b>Proof of substrate:</b> Decision · Outcome · NegativeKnowledge · Skill — one schema, one causal experience loop, shared verbatim across every codebase. A vertical competitor can't follow us across domains; we can.</div>
+  </div>
+</section>
+
+<!-- ══ 09 PROVEN ACROSS 4 DOMAINS ══ -->
+<section class="slide">
+  <div class="pagenum">09</div>
+  <div class="inner">
+    <span class="tag fade-up">Case Studies</span>
+    <h1 class="fade-up" style="transition-delay:.04s">Proven Across <em>4 Domains</em></h1>
+    <p class="sub fade-up" style="transition-delay:.07s">One AI substrate · any vertical domain</p>
+    <div class="grid4 fade-up" style="transition-delay:.08s;flex:1;min-height:0;">
+      <div class="card">
+        <div class="ico-wrap gcard-ico"><div class="masked" style="-webkit-mask-image:url('webflow-assets/icon-flow.svg');mask-image:url('webflow-assets/icon-flow.svg')"></div></div>
+        <div class="gcard-t">Software Development / AI-PDLC</div>
+        <div class="gcard-b">Senior engineers leave and take their judgment. Membria keeps every decision — teams stop re-solving the same problems.</div>
+      </div>
+      <div class="card">
+        <div class="ico-wrap gcard-ico"><div class="masked" style="-webkit-mask-image:url('webflow-assets/icon-candlestick-chart.svg');mask-image:url('webflow-assets/icon-candlestick-chart.svg')"></div></div>
+        <div class="gcard-t">Banking / Finance</div>
+        <div class="gcard-b">A new regulation used to mean a six-week release. Now it's live on the next transaction — traceable to the clause that authorized it.</div>
+      </div>
+      <div class="card">
+        <div class="ico-wrap gcard-ico"><div class="masked" style="-webkit-mask-image:url('webflow-assets/icon-positive-dynamic.svg');mask-image:url('webflow-assets/icon-positive-dynamic.svg')"></div></div>
+        <div class="gcard-t">Glass — AI Accounting / Audit</div>
+        <div class="gcard-b">Audit teams lose weeks tracing entries to source documents. Membria marks every posting with origin and trust score.</div>
+      </div>
+      <div class="card">
+        <div class="ico-wrap gcard-ico"><div class="masked" style="-webkit-mask-image:url('webflow-assets/icon-process-improvement.svg');mask-image:url('webflow-assets/icon-process-improvement.svg')"></div></div>
+        <div class="gcard-t">AI-EPC / Engineering</div>
+        <div class="gcard-b">A missed P&amp;ID clause becomes a safety incident. Five AI critics check every diagram against standards before sign-off.</div>
+      </div>
+    </div>
+    <div class="bottom fade-up" style="transition-delay:.14s"><b>Common pattern:</b> domain knowledge → graph memory → AI workflows → human verification → production. 100+ seats deployed across these use cases.</div>
+  </div>
+</section>
+
+<!-- ══ 10 CORE CAPABILITIES ══ -->
+<section class="slide">
+  <div class="pagenum">10</div>
+  <div class="inner">
+    <span class="tag fade-up">Why Membria?</span>
+    <h1 class="fade-up" style="transition-delay:.04s">Core Capabilities</h1>
+    <p class="sub fade-up" style="transition-delay:.07s">The full stack — from memory and reasoning to deployment and governance</p>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:1fr 1fr;gap:0.9em;flex:1;min-height:0;" class="fade-up" style="transition-delay:.1s">
+      <div class="card" style="padding:1.4em 1.4em;display:flex;flex-direction:column;">
+        <div class="ico-wrap gcard-ico" style="width:2.2em;height:2.2em;"><div class="masked" style="-webkit-mask-image:url('webflow-assets/icon-stacked-organizational-chart.svg');mask-image:url('webflow-assets/icon-stacked-organizational-chart.svg')"></div></div>
+        <div class="gcard-t" style="font-size:0.92em;">AI Agent Orchestration</div><div class="gcard-b" style="font-size:0.78em;">Multi-agent BBS mesh, WorkGraph DAG, A2A protocol coordination</div>
+      </div>
+      <div class="card" style="padding:1.4em 1.4em;display:flex;flex-direction:column;">
+        <div class="ico-wrap gcard-ico" style="width:2.2em;height:2.2em;"><div class="masked" style="-webkit-mask-image:url('webflow-assets/icon-collect.svg');mask-image:url('webflow-assets/icon-collect.svg')"></div></div>
+        <div class="gcard-t" style="font-size:0.92em;">Causal Memory</div><div class="gcard-b" style="font-size:0.78em;">Decision / Outcome / NegativeKnowledge graph with time-decay and compounding</div>
+      </div>
+      <div class="card" style="padding:1.4em 1.4em;display:flex;flex-direction:column;">
+        <div class="ico-wrap gcard-ico" style="width:2.2em;height:2.2em;"><div class="masked" style="-webkit-mask-image:url('webflow-assets/interface-icon-check.svg');mask-image:url('webflow-assets/interface-icon-check.svg')"></div></div>
+        <div class="gcard-t" style="font-size:0.92em;">Verification Engine</div><div class="gcard-b" style="font-size:0.78em;">Cross-document consistency checks, rule-based normative validation, quality gates</div>
+      </div>
+      <div class="card" style="padding:1.4em 1.4em;display:flex;flex-direction:column;">
+        <div class="ico-wrap gcard-ico" style="width:2.2em;height:2.2em;"><div class="masked" style="-webkit-mask-image:url('webflow-assets/icon-nebula.svg');mask-image:url('webflow-assets/icon-nebula.svg')"></div></div>
+        <div class="gcard-t" style="font-size:0.92em;">Graph Intelligence</div><div class="gcard-b" style="font-size:0.78em;">Memgraph property graph, symbol-level CodeGraph, policy graph with Hebbian co-activation</div>
+      </div>
+      <div class="card" style="padding:1.4em 1.4em;display:flex;flex-direction:column;">
+        <div class="ico-wrap gcard-ico" style="width:2.2em;height:2.2em;"><div class="masked" style="-webkit-mask-image:url('webflow-assets/icon-processor.svg');mask-image:url('webflow-assets/icon-processor.svg')"></div></div>
+        <div class="gcard-t" style="font-size:0.92em;">LLM Integration</div><div class="gcard-b" style="font-size:0.78em;">Claude / GPT factory, structured output, behavior chains, context injection</div>
+      </div>
+      <div class="card" style="padding:1.4em 1.4em;display:flex;flex-direction:column;">
+        <div class="ico-wrap gcard-ico" style="width:2.2em;height:2.2em;"><div class="masked" style="-webkit-mask-image:url('webflow-assets/icon-workstation.svg');mask-image:url('webflow-assets/icon-workstation.svg')"></div></div>
+        <div class="gcard-t" style="font-size:0.92em;">Product Engineering</div><div class="gcard-b" style="font-size:0.78em;">Full-stack: FastAPI + React + Node.js, MCP protocol, Telegram, Web Dashboard</div>
+      </div>
+      <div class="card" style="padding:1.4em 1.4em;display:flex;flex-direction:column;">
+        <div class="ico-wrap gcard-ico" style="width:2.2em;height:2.2em;"><div class="masked" style="-webkit-mask-image:url('webflow-assets/icon-earth-planet.svg');mask-image:url('webflow-assets/icon-earth-planet.svg')"></div></div>
+        <div class="gcard-t" style="font-size:0.92em;">Domain AI Systems</div><div class="gcard-b" style="font-size:0.78em;">Vertical-specific schemas, critics, standards compliance (ISA / API / ASME / IEC)</div>
+      </div>
+      <div class="card" style="padding:1.4em 1.4em;display:flex;flex-direction:column;">
+        <div class="ico-wrap gcard-ico" style="width:2.2em;height:2.2em;"><div class="masked" style="-webkit-mask-image:url('webflow-assets/icon-flash-on.svg');mask-image:url('webflow-assets/icon-flash-on.svg')"></div></div>
+        <div class="gcard-t" style="font-size:0.92em;">Security &amp; Governance</div><div class="gcard-b" style="font-size:0.78em;">PolicyEngine, RBAC, OIDC/SSO, prompt injection defense, secrets management</div>
+      </div>
+    </div>
+    <div class="bottom fade-up" style="transition-delay:.36s;margin-top:0.9em;"><b>Bottom line:</b> Generic AI forgets. Membria remembers, reasons, and governs.</div>
+  </div>
+</section>
+
+<!-- ══ 11 EPC WEDGE ══ -->
+<section class="slide">
+  <div class="pagenum">11</div>
+  <div class="inner">
+    <span class="tag fade-up">The wedge</span>
+    <h1 class="fade-up" style="transition-delay:.05s">EPC first: <em>nobody remembers</em></h1>
+    <div class="split fade-up" style="transition-delay:.08s">
+      <div class="left">
+        <div class="feats">
+          <div class="feat">
+            <div class="ico-wrap"><div class="masked" style="-webkit-mask-image:url('webflow-assets/icon-flow.svg');mask-image:url('webflow-assets/icon-flow.svg')"></div></div>
+            <div><div class="ft">Description → P&amp;ID in minutes</div><div class="fb">Plain words or an equipment CSV in; a laid-out diagram out.</div></div>
+          </div>
+          <div class="feat">
+            <div class="ico-wrap"><div class="masked" style="-webkit-mask-image:url('webflow-assets/icon-stacked-organizational-chart.svg');mask-image:url('webflow-assets/icon-stacked-organizational-chart.svg')"></div></div>
+            <div><div class="ft">Real CAD files, not pictures</div><div class="fb">DXF for AutoCAD, DEXPI for AVEVA/Hexagon, IFC4 for BIM.</div></div>
+          </div>
+          <div class="feat">
+            <div class="ico-wrap"><div class="masked" style="-webkit-mask-image:url('webflow-assets/interface-icon-check.svg');mask-image:url('webflow-assets/interface-icon-check.svg')"></div></div>
+            <div><div class="ft">Five-discipline critics</div><div class="fb">Process, Mechanical, HSE, I&amp;C, Piping — deterministic, auditable, repeatable.</div></div>
+          </div>
+          <div class="feat">
+            <div class="ico-wrap"><div class="masked" style="-webkit-mask-image:url('webflow-assets/icon-collect.svg');mask-image:url('webflow-assets/icon-collect.svg')"></div></div>
+            <div><div class="ft">Every defect becomes memory</div><div class="fb">Finding → change request → negative knowledge, automatically.</div></div>
+          </div>
+          <div class="feat">
+            <div class="ico-wrap"><div class="masked" style="-webkit-mask-image:url('webflow-assets/icon-earth-planet.svg');mask-image:url('webflow-assets/icon-earth-planet.svg')"></div></div>
+            <div><div class="ft">Zero competitors with persistent memory</div><div class="fb">Autodesk, Bentley, AVEVA, Trimble, Procore — all stateless.</div></div>
+          </div>
+          <div class="feat">
+            <div class="ico-wrap"><div class="masked" style="-webkit-mask-image:url('webflow-assets/icon-flash-on.svg');mask-image:url('webflow-assets/icon-flash-on.svg')"></div></div>
+            <div><div class="ft">Regulation is the sales agent</div><div class="fb">EU AI Act + ISO 19650 make traceable decisions mandatory in safety-critical infrastructure.</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="photo">
+        <img src="webflow-assets/gradient-map-1.webp" alt="Graph data model">
+        <div class="plabel">
+          <div class="plt">Graph data model</div>
+          <div class="pls">Every P&amp;ID, spec and decision — one connected graph</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 12 MOAT: THREE COMMONS GRAPHS ══ -->
+<section class="slide">
+  <div class="pagenum">12</div>
+  <div class="inner">
+    <span class="tag fade-up">Moat</span>
+    <h1 class="fade-up" style="transition-delay:.05s">Three EMPIRIA graphs, <em>day one</em></h1>
+    <div class="sub fade-up" style="transition-delay:.08s">Cold start is the hardest problem in agent memory. We don't have one — every vertical ships with a pre-loaded PK/NK library before a single client session runs.</div>
+    <div class="tbl-wrap fade-up" style="transition-delay:.12s;flex:1;min-height:0;">
+      <table class="dtbl">
+        <thead><tr><th>Vertical</th><th>PK — best practices</th><th>NK — anti-patterns / prohibitions</th><th>Source</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td>Engineering (EPC)</td><td class="num">~1.3M</td><td class="num">~1.2M</td><td>20,000+ standards — ISO · IEC · ASTM · ГОСТ · API · ASME · NFPA · DNV</td><td><span class="badge badge-live">Live · Scaling · epc.membria.ai</span></td></tr>
+          <tr><td>Code</td><td class="num">~250K Skills</td><td class="num">~320K AntiPatterns</td><td>96.5K mined repos + curated sources, CWE-mapped</td><td><span class="badge badge-live">Live · Scaling · code.membria.ai</span></td></tr>
+          <tr><td>Audit / Glass</td><td class="num">schema live</td><td class="num">schema live</td><td>materiality &amp; provenance graph — seeding from client engagements</td><td><span class="badge badge-soon">Design-partner stage</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="bottom fade-up" style="transition-delay:.15s"><b>Same schema, same loop, three domains.</b> A generic memory startup starts every client at zero. We start every client already knowing what fails.</div>
+  </div>
+</section>
+
+<!-- ══ 13 STANDARDS GRAPH ══ -->
+<section class="slide">
+  <div class="pagenum">13</div>
+  <div class="inner">
+    <span class="tag fade-up">Data moat</span>
+    <h1 class="fade-up" style="transition-delay:.05s;font-size:2.5em;margin:0.1em 0 0.35em;line-height:1.08;">The engineering knowledge graph <em>no one else has</em></h1>
+    <div class="stats s13-stats fade-up" style="grid-template-columns:repeat(4,1fr);flex:0 0 auto;transition-delay:.08s;margin-bottom:0.8em;">
+      <div class="stat-card dark"><div class="snum">20,000+</div><div class="sdesc">engineering standards processed — API · ASME · IEC · ISO · ГОСТ · DNV · NFPA · AWS · ASTM</div></div>
+      <div class="stat-card"><div class="snum">2.5M+</div><div class="sdesc">machine-extracted rules: ~1.2M prohibitions + ~1.3M best practices</div></div>
+      <div class="stat-card"><div class="snum">10,000+</div><div class="sdesc">equipment types mapped to rules across 20+ disciplines</div></div>
+      <div class="stat-card"><div class="snum">6</div><div class="sdesc">jurisdictions in one graph: US · EU · UK · Norway · CIS · International</div></div>
+    </div>
+    <div class="card fade-up" style="transition-delay:.12s;flex:1;min-height:0;padding:0.9em 1.5em;display:flex;flex-direction:column;justify-content:center;">
+      <div class="jur compact">
+        <div class="jur-row"><div class="jur-name">ISO</div><div class="jur-bar"><i style="width:100%"></i></div><div class="jur-n">~35,000</div></div>
+        <div class="jur-row"><div class="jur-name">IEC</div><div class="jur-bar"><i style="width:56%"></i></div><div class="jur-n">~10,900</div></div>
+        <div class="jur-row"><div class="jur-name">ASTM</div><div class="jur-bar"><i style="width:51%"></i></div><div class="jur-n">~9,200</div></div>
+        <div class="jur-row"><div class="jur-name">ГОСТ (CIS)</div><div class="jur-bar"><i style="width:23%"></i></div><div class="jur-n">~1,800</div></div>
+        <div class="jur-row"><div class="jur-name">API</div><div class="jur-bar"><i style="width:22%"></i></div><div class="jur-n">~1,760</div></div>
+        <div class="jur-row"><div class="jur-name">ASME</div><div class="jur-bar"><i style="width:19%"></i></div><div class="jur-n">~1,200</div></div>
+        <div class="jur-row"><div class="jur-name">NFPA</div><div class="jur-bar"><i style="width:15%"></i></div><div class="jur-n">~760</div></div>
+        <div class="jur-row"><div class="jur-name">DNV</div><div class="jur-bar"><i style="width:14%"></i></div><div class="jur-n">~700</div></div>
+        <div class="jur-row"><div class="jur-name">AWS</div><div class="jur-bar"><i style="width:11%"></i></div><div class="jur-n">~450</div></div>
+      </div>
+      <div style="font-size:0.66em;color:var(--muted);margin-top:0.6em;">+ ACI · EEMUA · WRC · HI · FM · CGA · NORSOK · Eurocode — bars on a sqrt scale for readability</div>
+    </div>
+    <div class="bottom fade-up" style="transition-delay:.15s;margin-top:0.7em;padding:0.6em 1.2em;"><b>Prohibitions + best practices, one graph.</b> No incumbent has anything like it — in any jurisdiction.</div>
+  </div>
+</section>
+
+<!-- ══ 14 CODE PROOF ENGINE ══ -->
+<section class="slide">
+  <div class="pagenum">14</div>
+  <div class="inner">
+    <span class="tag fade-up">Proof engine</span>
+    <h1 class="fade-up" style="transition-delay:.05s">Code: evidence, <em>not opinions</em></h1>
+    <div class="sub fade-up" style="transition-delay:.08s">Membria CE is live for solo developers — and every session strengthens the shared graph the enterprise products run on.</div>
+    <div class="stats fade-up" style="grid-template-columns:repeat(4,1fr);flex:0 0 auto;transition-delay:.1s;margin-bottom:1em;">
+      <div class="stat-card"><div class="snum">96.5K</div><div class="sdesc">production repos mined by the CodeDigger crawler</div></div>
+      <div class="stat-card"><div class="snum">7,448</div><div class="sdesc">anti-patterns cross-validated with an objective removal-rate signal</div></div>
+      <div class="stat-card dark"><div class="snum">~570K</div><div class="sdesc">Skills + AntiPatterns live today — scaling toward 1–2M</div></div>
+      <div class="stat-card"><div class="snum">1</div><div class="sdesc">command to connect: npx @membria/cli init</div></div>
+    </div>
+    <div class="items fade-up" style="transition-delay:.13s">
+      <div class="item">
+        <div class="item-num">→</div>
+        <div><div class="item-t">Removal-rate: the signal nobody else mines</div>
+        <div class="item-b">The share of pull requests that delete a pattern, computed from commit archaeology — historical evidence from real codebases, not scraped opinions.</div></div>
+      </div>
+      <div class="item">
+        <div class="item-num">→</div>
+        <div><div class="item-t">PLG funnel feeds the moat</div>
+        <div class="item-b">Solo developers adopt in one command; their validated experience compounds the commons graph that enterprise and vertical products query.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 15 COMPETITION ══ -->
+<section class="slide">
+  <div class="pagenum">15</div>
+  <div class="inner">
+    <span class="tag fade-up">Competition</span>
+    <h1 class="fade-up" style="transition-delay:.05s">Nobody <em>remembers</em></h1>
+    <div class="tbl-wrap fade-up" style="transition-delay:.1s;flex:1;min-height:0;">
+      <table class="dtbl">
+        <thead><tr><th>Player</th><th>What they do</th><th>Persistent memory?</th><th>Gap</th></tr></thead>
+        <tbody>
+          <tr><td>Autodesk</td><td>design + construction cloud</td><td><span class="badge badge-no">No</span></td><td>AI = copilot for CAD, not knowledge management</td></tr>
+          <tr><td>Bentley Systems</td><td>infrastructure digital twins</td><td><span class="badge badge-no">No</span></td><td>twin ≠ memory — no decision provenance</td></tr>
+          <tr><td>AVEVA / Schneider</td><td>process industry digital twins</td><td><span class="badge badge-no">No</span></td><td>operational data, not engineering decisions</td></tr>
+          <tr><td>Procore</td><td>Helix AI automation</td><td><span class="badge badge-no">No</span></td><td>stateless — every request starts from zero</td></tr>
+          <tr><td>SymphonyAI</td><td>P&amp;ID drawing recognition</td><td><span class="badge badge-no">No</span></td><td>recognition, not a memory plane</td></tr>
+          <tr><td>Memory startups<br><span style="font-weight:300;font-size:0.85em;color:var(--muted)">mem0 · Zep · Letta</span></td><td>generic agent memory</td><td><span class="badge badge-live">Yes</span></td><td>no vertical depth, no verification, no standards graph</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="bottom fade-up" style="transition-delay:.14s"><b>The real competition is inertia:</b> Excel + "it works fine as is." Every project starts from a blank page — that is the memory problem, and it's solvable.</div>
+  </div>
+</section>
+
+<!-- ══ 16 MODEL & ROADMAP ══ -->
+<section class="slide">
+  <div class="pagenum">16</div>
+  <div class="inner">
+    <span class="tag fade-up">Model &amp; roadmap</span>
+    <h1 class="fade-up" style="transition-delay:.05s">Sequencing, not <em>spreading</em></h1>
+    <div class="sub fade-up" style="transition-delay:.08s">CE subscriptions for solo developers · per-seat team plans · self-hosted enterprise license · EPC per-project pricing.</div>
+    <div class="ladder fade-up" style="transition-delay:.12s">
+      <div class="card step p1">
+        <div class="phase-lbl">Now</div>
+        <div class="onum">Foundation</div>
+        <div class="ob">1 bank + 1 government, live<br>EPC pilots in engineering<br>CE &amp; EPC SaaS launching in parallel<br>100+ seats in production</div>
+      </div>
+      <div class="card step p2">
+        <div class="phase-lbl">Next 12 months</div>
+        <div class="onum">EPC revenue</div>
+        <div class="ob">first EPC contracts<br>Glass audit beta<br>commons → 1–2M nodes<br>ISO 27001 / SOC 2 path</div>
+      </div>
+      <div class="card step p3">
+        <div class="phase-lbl">24 months</div>
+        <div class="onum">Memory-plane API</div>
+        <div class="ob">open experience layer<br>any agent, any vendor<br>cross-industry commons<br>platform economics</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 17 TEAM & ASK — CLOSING ══ -->
+<section class="slide s-close">
+  <div class="pagenum" style="color:var(--coral)">17</div>
+  <div class="inner">
+    <div class="photo">
+      <img class="bg" src="letstart.jpg" alt="">
+      <img class="plogo" src="membria-logo/logo.svg" alt="Membria">
+      <div class="pclose fade-up">
+        <div class="pcline">Let's build the layer<br><em>agents can't work without.</em></div>
+      </div>
+    </div>
+    <div class="right">
+      <span class="tag fade-up">Team &amp; Ask</span>
+      <h1 class="fade-up" style="transition-delay:.05s">Let's Work Together</h1>
+      <div class="team-row fade-up" style="transition-delay:.08s">
+        <div class="tmember">
+          <img class="tphoto" src="team-photos/aprossine.webp" alt="Michael Aprossine">
+          <div><div class="tn">Michael Aprossine</div><div class="tr">CEO · Co-Founder</div><div class="tb">Scaling operations, customer-focused growth</div></div>
+        </div>
+        <div class="tmember">
+          <img class="tphoto" src="team-photos/khomenok.webp" alt="Phillipe Khomenok">
+          <div><div class="tn">Phillipe Khomenok</div><div class="tr">COO · Co-Founder</div><div class="tb">Strategic vision, automation-driven growth</div></div>
+        </div>
+        <div class="tmember">
+          <img class="tphoto" src="team-photos/keer.webp" alt="Mike Keer">
+          <div><div class="tn">Mike Keer</div><div class="tr">CTO · Co-Founder</div><div class="tb">AI architecture — fast, reliable, built to scale</div></div>
+        </div>
+      </div>
+      <div class="tbl-wrap fade-up" style="transition-delay:.12s">
+        <table class="dtbl">
+          <thead><tr><th>Ask</th><th>Detail</th></tr></thead>
+          <tbody>
+            <tr><td>Traction</td><td>1 bank + 1 government live enterprise · multiple EPC engineering pilots · 100+ seats deployed · CE &amp; EPC SaaS launching in parallel</td></tr>
+            <tr><td>Raising</td><td>$2M seed on a $15M pre-money valuation</td></tr>
+            <tr><td>Use of funds</td><td>EPC go-to-market &amp; certifications · commons scale-out to 1–2M nodes · enterprise connectors · core team</td></tr>
+            <tr><td>Contact</td><td>hi@actiq.ai · membria.ai · code.membria.ai · epc.membria.ai · glass.membria.ai (soon)</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+</div>
+
+<script>
+const slides = document.querySelectorAll('.slide');
+const dotsEl = document.getElementById('dots');
+const fillEl = document.getElementById('progress-fill');
+const frameEl = document.getElementById('frame');
+
+slides.forEach((_, i) => {
+  const a = document.createElement('a');
+  a.href = '#';
+  a.addEventListener('click', e => { e.preventDefault(); slides[i].scrollIntoView({behavior:'smooth'}); });
+  dotsEl.appendChild(a);
+});
+const dotLinks = dotsEl.querySelectorAll('a');
+
+function onScroll() {
+  const total = frameEl.scrollHeight - frameEl.clientHeight;
+  fillEl.style.width = (frameEl.scrollTop / total * 100) + '%';
+  const frameRect = frameEl.getBoundingClientRect();
+  let active = 0;
+  slides.forEach((s, i) => {
+    const rect = s.getBoundingClientRect();
+    if (rect.top - frameRect.top <= frameEl.clientHeight * 0.5) active = i;
+  });
+  dotLinks.forEach((d, i) => d.classList.toggle('active', i === active));
+}
+
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.querySelectorAll('.fade-up').forEach((el, i) => {
+        setTimeout(() => el.classList.add('visible'), i * 60);
+      });
+    }
+  });
+}, { threshold: 0.25 });
+slides.forEach(s => io.observe(s));
+
+frameEl.addEventListener('scroll', onScroll, { passive: true });
+onScroll();
+
+function currentSlideIndex() {
+  const frameRect = frameEl.getBoundingClientRect();
+  let active = 0;
+  slides.forEach((s, i) => {
+    const rect = s.getBoundingClientRect();
+    if (rect.top - frameRect.top <= frameEl.clientHeight * 0.5) active = i;
+  });
+  return active;
+}
+
+document.addEventListener('keydown', e => {
+  if (e.target instanceof Element && e.target.closest('input, textarea, [contenteditable]')) return;
+  const goDown = ['ArrowDown', 'PageDown', ' '].includes(e.key);
+  const goUp = ['ArrowUp', 'PageUp'].includes(e.key);
+  if (!goDown && !goUp) return;
+  e.preventDefault();
+  const next = currentSlideIndex() + (goDown ? 1 : -1);
+  if (next >= 0 && next < slides.length) slides[next].scrollIntoView({behavior:'smooth'});
+});
+
+// ── Portrait overlay (mobile) ──────────────────────
+(function() {
+  const overlay = document.getElementById('portrait-overlay');
+  if (!overlay) return;
+  function check() {
+    const portrait = window.matchMedia('(orientation: portrait) and (max-width: 1024px)').matches;
+    overlay.classList.toggle('visible', portrait);
+  }
+  check();
+  window.addEventListener('resize', check);
+  window.addEventListener('orientationchange', check);
+})();
+</script>
+
+</body>
+</html>

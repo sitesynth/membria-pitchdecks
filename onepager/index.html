@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Membria — Investor One-Pager</title>
+<link rel="icon" type="image/svg+xml" href="membria-logo/logo.svg">
+<meta name="description" content="Membria — the memory & experience layer for AI agents. Investor one-pager.">
+<meta property="og:title" content="Membria — Investor One-Pager">
+<meta property="og:description" content="AI agents that learn — Membria is the memory & experience layer for AI agents.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://onepager.membria.ai/og-image-deck.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Membria — Investor One-Pager">
+<meta name="twitter:description" content="AI agents that learn — Membria is the memory & experience layer for AI agents.">
+<meta name="twitter:image" content="https://onepager.membria.ai/og-image-deck.jpg">
+<style>
+
+@font-face { font-family:'DM Serif Display'; font-style:normal; font-weight:400; src:url('DMSerifDisplay.ttf') format('truetype'); }
+@font-face { font-family:'DM Serif Display'; font-style:italic; font-weight:400; src:url('DMSerifDisplay-Italic.ttf') format('truetype'); }
+@font-face { font-family:'Geist'; font-style:normal; font-weight:100 900; src:url('Geist.ttf') format('truetype'); }
+@font-face { font-family:'Geist'; font-style:italic; font-weight:100 900; src:url('Geist-Italic.ttf') format('truetype'); }
+
+*, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+
+:root {
+  --bg:      #f2f0ed;
+  --white:   #ffffff;
+  --ink:     #1c1b1a;
+  --mid:     #56524f;
+  --muted:   #999491;
+  --border:  #e0dcd7;
+  --coral:   #f57f65;
+  --blue:    #5b8fc9;
+  --navy:    #1a2548;
+  --serif:   'DM Serif Display', Georgia, serif;
+  --sans:    'Geist', -apple-system, system-ui, sans-serif;
+  --shadow:  0 1px 3px rgba(0,0,0,0.05), 0 4px 16px rgba(0,0,0,0.07);
+}
+
+html { height:100%; background:#181614; font-family:var(--sans); -webkit-text-size-adjust:100%; text-size-adjust:100%; }
+body { margin:0; height:100vh; overflow:hidden; display:flex; align-items:center; justify-content:center; background:#181614; }
+
+#sheet {
+  position:relative;
+  width:min(100vw, 177.7778vh);
+  height:min(100vh, 56.25vw);
+  background:var(--bg);
+  overflow:hidden;
+  display:grid;
+  grid-template-columns:26.5% 1fr;
+  container-type:size;
+  container-name:sheet;
+  font-size:min(1.28cqw, 2.27cqh);
+  line-height:1.4;
+}
+
+#pdf-btn {
+  position:absolute; top:1.5em; right:1.6em; z-index:20;
+  display:flex; align-items:center; gap:0.45em;
+  padding:0.42em 0.8em 0.42em 0.6em;
+  background:var(--white); border:1px solid var(--border); border-radius:999px;
+  box-shadow:var(--shadow); text-decoration:none;
+  font-size:0.72em; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:var(--mid);
+  opacity:0.9; transition:opacity .15s, transform .15s, color .15s;
+}
+#pdf-btn:hover { opacity:1; transform:translateY(-1px); color:var(--ink); }
+#pdf-btn img { width:1.25em; height:1.25em; display:block; pointer-events:none; }
+
+/* ── SIDEBAR ────────────────────────────────────────── */
+.side { background:var(--navy); color:#fff; padding:2.4em 2em 1.8em; display:flex; flex-direction:column; overflow:hidden; }
+.side .logo { width:9.5em; margin-bottom:0.9em; }
+.side .logo img { width:100%; display:block; filter:brightness(0) invert(1); }
+.side .tagline { font-family:var(--serif); font-size:1.32em; line-height:1.22; color:#fff; letter-spacing:-0.01em; margin-bottom:0.15em; }
+.side .tagline em { font-style:italic; color:var(--coral); }
+.side .sub { font-size:0.78em; font-weight:300; color:rgba(255,255,255,0.5); line-height:1.5; margin-bottom:1.5em; }
+
+.sblock { margin-bottom:1.35em; }
+.sblock:last-of-type { margin-bottom:0; }
+.sh { font-size:0.68em; font-weight:700; text-transform:uppercase; letter-spacing:0.11em; color:var(--coral); margin-bottom:0.55em; }
+.sbody { font-size:0.78em; font-weight:300; color:rgba(255,255,255,0.72); line-height:1.62; }
+.sbody b { font-weight:600; color:#fff; }
+.sbody .row { display:flex; gap:0.5em; }
+.sbody .row + .row { margin-top:0.22em; }
+.sbody .row span:first-child { color:rgba(255,255,255,0.42); flex:0 0 5.6em; }
+
+.team { display:flex; flex-direction:column; gap:0.6em; }
+.tm { display:flex; align-items:center; gap:0.65em; }
+.tm img { width:2.5em; height:2.5em; border-radius:50%; object-fit:cover; flex-shrink:0; }
+.tm .tn { font-size:0.8em; font-weight:600; color:#fff; line-height:1.25; }
+.tm .tr { font-size:0.68em; font-weight:300; color:rgba(255,255,255,0.5); line-height:1.3; }
+
+.contact { margin-top:auto; padding-top:1.1em; border-top:1px solid rgba(255,255,255,0.13); font-size:0.75em; font-weight:300; color:rgba(255,255,255,0.55); line-height:1.7; }
+.contact b { display:block; font-weight:600; color:#fff; font-size:1.05em; margin-bottom:0.15em; }
+.contact a { color:var(--coral); text-decoration:none; }
+
+/* ── MAIN ───────────────────────────────────────────── */
+.main { padding:2.4em 2.6em 2em; display:flex; flex-direction:column; gap:1.05em; justify-content:space-between; overflow:hidden; }
+.mh { font-size:0.7em; font-weight:700; text-transform:uppercase; letter-spacing:0.11em; color:var(--blue); margin-bottom:0.42em; }
+.mtext { font-size:0.85em; font-weight:300; color:var(--mid); line-height:1.55; }
+.mtext b { font-weight:600; color:var(--ink); }
+.mtext .lead { font-size:1.06em; color:var(--ink); font-weight:400; }
+
+.two { display:grid; grid-template-columns:1fr 1fr; gap:1.6em; }
+
+.plist { list-style:none; font-size:0.85em; font-weight:300; color:var(--mid); line-height:1.5; }
+.plist li { position:relative; padding-left:0.95em; }
+.plist li + li { margin-top:0.4em; }
+.plist li::before { content:''; position:absolute; left:0; top:0.58em; width:0.36em; height:0.36em; border-radius:50%; background:var(--coral); }
+.plist b { font-weight:600; color:var(--ink); }
+
+/* traction strip */
+.tstrip { display:grid; grid-template-columns:repeat(4,1fr); gap:0.7em; }
+.tcard { background:var(--white); border-radius:0.45em; box-shadow:var(--shadow); padding:0.75em 0.9em; }
+.tcard.dark { background:var(--navy); }
+.tnum { font-family:var(--serif); font-size:1.72em; color:var(--coral); line-height:1; letter-spacing:-0.02em; margin-bottom:0.22em; }
+.tdesc { font-size:0.7em; font-weight:300; color:var(--mid); line-height:1.4; }
+.tcard.dark .tdesc { color:rgba(255,255,255,0.6); }
+
+/* revenue ladder */
+.rev { display:grid; grid-template-columns:repeat(3,1fr); gap:0.7em; }
+.rcard { background:var(--white); border-radius:0.45em; box-shadow:var(--shadow); padding:0.7em 0.9em; position:relative; overflow:hidden; }
+.rcard::before { content:''; position:absolute; top:0; left:0; height:3px; background:var(--coral); border-radius:0 0 2px 0; }
+.rcard.r1::before { width:33%; } .rcard.r2::before { width:66%; } .rcard.r3::before { width:100%; }
+.ryear { font-size:0.68em; font-weight:700; text-transform:uppercase; letter-spacing:0.09em; color:var(--muted); margin-bottom:0.2em; }
+.rval { font-size:1.32em; font-weight:700; color:var(--blue); letter-spacing:-0.02em; font-variant-numeric:tabular-nums; line-height:1.1; }
+.rnote { font-size:0.7em; font-weight:300; color:var(--mid); line-height:1.4; margin-top:0.15em; }
+
+/* ask */
+.ask { background:var(--navy); border-radius:0.5em; padding:1.15em 1.3em; display:grid; grid-template-columns:1.05fr 1fr; gap:1.4em; align-items:center; }
+.ask .ah { font-size:0.68em; font-weight:700; text-transform:uppercase; letter-spacing:0.11em; color:var(--coral); margin-bottom:0.4em; }
+.askbig { font-family:var(--serif); font-size:1.85em; color:#fff; line-height:1.1; letter-spacing:-0.02em; }
+.askbig em { font-style:italic; color:var(--coral); }
+.asksub { font-size:0.76em; font-weight:300; color:rgba(255,255,255,0.6); line-height:1.5; margin-top:0.3em; }
+.uof { font-size:0.75em; font-weight:300; color:rgba(255,255,255,0.72); line-height:1.55; }
+.uof .u { display:flex; align-items:center; gap:0.55em; }
+.uof .u + .u { margin-top:0.28em; }
+.uof .up { flex:0 0 2.6em; font-weight:700; color:#fff; font-variant-numeric:tabular-nums; text-align:right; }
+.uof .ub { flex:1; height:0.32em; background:rgba(255,255,255,0.12); border-radius:2px; position:relative; }
+.uof .ub i { position:absolute; inset:0 auto 0 0; background:var(--coral); border-radius:2px; }
+.uof .ul { flex:0 0 9.5em; }
+
+@media print {
+  @page { size:A4 landscape; margin:0; }
+  html, body { height:auto; overflow:visible; background:#fff; display:block; }
+  #sheet { width:297mm; height:210mm; box-shadow:none; }
+  .side, .tcard.dark, .ask { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  /* Chromium rasterises box-shadow as hard grey blocks in PDF — swap for hairline borders */
+  .tcard, .rcard { box-shadow:none !important; border:1px solid var(--border); }
+  .tcard.dark { border-color:var(--navy); }
+  #pdf-btn { display:none !important; }
+}
+</style>
+</head>
+<body>
+
+<div id="sheet">
+
+  <a id="pdf-btn" href="membria-onepager.pdf" download="Membria-OnePager.pdf" title="Download PDF">
+    <img src="pdf-icon.svg" alt=""> PDF
+  </a>
+
+  <!-- ══ SIDEBAR ══ -->
+  <aside class="side">
+    <div class="logo"><img src="membria-logo/logo.svg" alt="Membria"></div>
+    <div class="tagline">AI agents that <em>learn</em>.</div>
+    <div class="sub">The memory &amp; experience layer for AI agents — one causal-memory core, many domains.</div>
+
+    <div class="sblock">
+      <div class="sh">Business model</div>
+      <div class="sbody">
+        <div class="row"><span>Sector</span><b>AI infrastructure · Engineering</b></div>
+        <div class="row"><span>Clients</span><b>EPC contractors · dev &amp; audit teams</b></div>
+        <div class="row"><span>Revenue</span><b>SaaS seats + per-project EPC licences</b></div>
+        <div class="row"><span>Delivery</span><b>Cloud · self-hosted · on-premise</b></div>
+      </div>
+    </div>
+
+    <div class="sblock">
+      <div class="sh">Team of 4</div>
+      <div class="sbody team">
+        <div class="tm"><img src="team-photos/aprossine.webp" alt=""><div><div class="tn">Michael Aprossine</div><div class="tr">CEO · Co-Founder</div></div></div>
+        <div class="tm"><img src="team-photos/khomenok.webp" alt=""><div><div class="tn">Phillipe Khomenok</div><div class="tr">COO · Co-Founder</div></div></div>
+        <div class="tm"><img src="team-photos/keer.webp" alt=""><div><div class="tn">Mike Keer</div><div class="tr">CTO · Co-Founder</div></div></div>
+      </div>
+    </div>
+
+    <div class="sblock">
+      <div class="sh">European base</div>
+      <div class="sbody">Founded Feb 2023, California. Belgium entity, <b>relocating to Luxembourg</b>. Built for EU AI Act &amp; ISO 19650 from day one.<br>Partners: <b>LuxProvide / MeluXina</b> · NVIDIA · AWS</div>
+    </div>
+
+    <div class="contact">
+      <b>Membria.AI by Actiquest Labs</b>
+      membria.ai · epc.membria.ai<br>
+      <a href="mailto:hi@actiq.ai">hi@actiq.ai</a> · <a href="membria-deck.pdf">full deck (PDF)</a>
+    </div>
+  </aside>
+
+  <!-- ══ MAIN ══ -->
+  <main class="main">
+
+    <div>
+      <div class="mh">What we do</div>
+      <div class="mtext"><span class="lead">Every AI agent today forgets. Membria is the layer that remembers <b>why</b> a decision was made — and <b>what happened next</b>.</span><br>
+      One causal-memory core plugs into Claude Code, Codex and Cursor through MCP, and ships as vertical products for engineering (EPC), software teams and audit.</div>
+    </div>
+
+    <div class="two">
+      <div>
+        <div class="mh">Problem</div>
+        <ul class="plist">
+          <li>Agents are stateless — every session starts from zero, yesterday's reasoning is discarded.</li>
+          <li>In engineering, <b>28% of budget overruns</b> are caused by rework; <b>30–50%</b> of assumptions vanish at every handover.</li>
+          <li>A senior engineer leaves and fifteen years of judgment leaves with them.</li>
+        </ul>
+      </div>
+      <div>
+        <div class="mh">Solution</div>
+        <ul class="plist">
+          <li><b>Causal memory</b> — Decision · Outcome · NegativeKnowledge · Skill in one graph.</li>
+          <li><b>Verification</b> — five discipline critics check every P&amp;ID against standards before sign-off.</li>
+          <li><b>One command to connect</b> — <b>npx @membria/cli init</b>, no integration project.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div>
+      <div class="mh">Traction &amp; moat</div>
+      <div class="tstrip">
+        <div class="tcard dark"><div class="tnum">100+</div><div class="tdesc">seats in production · 1 bank + 1 government live, EPC pilots running</div></div>
+        <div class="tcard"><div class="tnum">20,000+</div><div class="tdesc">engineering standards processed — ISO · IEC · API · ASME · ГОСТ · DNV</div></div>
+        <div class="tcard"><div class="tnum">2.5M+</div><div class="tdesc">machine-extracted rules: 1.2M prohibitions + 1.3M best practices</div></div>
+        <div class="tcard"><div class="tnum">96.5K</div><div class="tdesc">production repos mined — ~570K Skills &amp; AntiPatterns live</div></div>
+      </div>
+    </div>
+
+    <div>
+      <div class="mh">Where this goes</div>
+      <div class="rev">
+        <div class="rcard r1"><div class="ryear">By end of 2026</div><div class="rval">€500K</div><div class="rnote">first EPC contracts · CE &amp; EPC SaaS live</div></div>
+        <div class="rcard r2"><div class="ryear">2027</div><div class="rval">€2M</div><div class="rnote">Glass audit beta · ISO 27001 / SOC 2</div></div>
+        <div class="rcard r3"><div class="ryear">2028</div><div class="rval">€6M</div><div class="rnote">open memory-plane API · any agent, any vendor</div></div>
+      </div>
+    </div>
+
+    <div class="ask">
+      <div>
+        <div class="ah">What we need to make this happen</div>
+        <div class="askbig">€500K pre-seed<br>at <em>€5M</em> pre-revenue</div>
+        <div class="asksub">18 months runway to Series A · core team to 7 · last investment: founders</div>
+      </div>
+      <div>
+        <div class="ah">Use of funds</div>
+        <div class="uof">
+          <div class="u"><span class="up">55%</span><span class="ub"><i style="width:55%"></i></span><span class="ul">Core team to 7</span></div>
+          <div class="u"><span class="up">25%</span><span class="ub"><i style="width:25%"></i></span><span class="ul">EPC go-to-market</span></div>
+          <div class="u"><span class="up">12%</span><span class="ub"><i style="width:12%"></i></span><span class="ul">HPC &amp; infrastructure</span></div>
+          <div class="u"><span class="up">8%</span><span class="ub"><i style="width:8%"></i></span><span class="ul">Legal &amp; certification</span></div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+</body>
+</html>
