@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BANK OS — Автономный ИИ-Банк 2.0</title>
+<meta name="description" content="Автономный ИИ-Банк 2.0 на платформе BANK OS — графовая операционная система для ИИ-агентов.">
+<meta property="og:title" content="BANK OS — Автономный ИИ-Банк 2.0">
+<meta property="og:description" content="Каузальные графы учётных событий, ИИ-агенты и CIR на уровне 4% — платформа BANK OS.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://bankos.membria.ai/og-image-bankos.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="BANK OS — Автономный ИИ-Банк 2.0">
+<meta name="twitter:description" content="Каузальные графы учётных событий, ИИ-агенты и CIR на уровне 4% — платформа BANK OS.">
+<meta name="twitter:image" content="https://bankos.membria.ai/og-image-bankos.jpg">
+<style>
+
+@font-face { font-family:'DM Serif Display'; font-style:normal; font-weight:400; src:url('DMSerifDisplay.ttf') format('truetype'); }
+@font-face { font-family:'DM Serif Display'; font-style:italic; font-weight:400; src:url('DMSerifDisplay-Italic.ttf') format('truetype'); }
+@font-face { font-family:'Geist'; font-style:normal; font-weight:100 900; src:url('Geist.ttf') format('truetype'); }
+@font-face { font-family:'Geist'; font-style:italic; font-weight:100 900; src:url('Geist-Italic.ttf') format('truetype'); }
+
+*, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+
+:root {
+  --bg:      #f2f0ed;
+  --white:   #ffffff;
+  --ink:     #1c1b1a;
+  --mid:     #56524f;
+  --muted:   #999491;
+  --border:  #e0dcd7;
+  --coral:   #f57f65;
+  --blue:    #5b8fc9;
+  --navy:    #1a2548;
+  --green:   #2f8f5b;
+  --serif:   'DM Serif Display', Georgia, serif;
+  --sans:    'Geist', -apple-system, system-ui, sans-serif;
+  --mono:    ui-monospace, 'SF Mono', Menlo, monospace;
+  --shadow:  0 1px 3px rgba(0,0,0,0.05), 0 4px 16px rgba(0,0,0,0.07);
+}
+
+html { height:100%; background:#181614; font-family:var(--sans); -webkit-text-size-adjust:100%; text-size-adjust:100%; }
+body { margin:0; height:100vh; overflow:hidden; display:flex; align-items:center; justify-content:center; background:#181614; }
+
+#frame {
+  position:relative;
+  width:min(100vw, 177.7778vh);
+  height:min(100vh, 56.25vw);
+  overflow-y:scroll;
+  scroll-snap-type:y mandatory;
+  scroll-behavior:smooth;
+  background:#181614;
+  container-type:size;
+  container-name:deck;
+}
+
+.slide {
+  width:100%; height:100%;
+  scroll-snap-align:start;
+  position:relative; overflow:hidden;
+  background:var(--bg);
+  font-size:min(1.28cqw, 2.27cqh);
+  line-height:1.4;
+}
+.slide:not(:last-child) { border-bottom:14px solid #181614; }
+
+#progress { position:fixed; top:0; left:0; right:0; height:3px; z-index:998; background:rgba(0,0,0,0.04); }
+#progress-fill { height:100%; width:0; background:var(--coral); transition:width .12s ease-out; }
+
+#dots { position:fixed; top:50%; right:1.3em; transform:translateY(-50%); z-index:998; display:flex; flex-direction:column; gap:8px; }
+#dots a { width:8px; height:8px; border-radius:50%; background:rgba(0,0,0,0.16); transition:all .25s ease; display:block; }
+#dots a:hover { background:rgba(0,0,0,0.34); transform:scale(1.2); }
+#dots a.active { background:var(--coral); width:8px; height:22px; border-radius:5px; }
+
+.pagenum { position:absolute; top:1.7em; right:3.6em; z-index:5; font-size:0.72em; font-weight:600; letter-spacing:0.04em; color:var(--coral); pointer-events:none; }
+
+/* ── SHARED ─────────────────────────────────────────── */
+.tag {
+  display:inline-block; align-self:flex-start; font-size:0.7em; color:var(--blue);
+  background:rgba(91,143,201,0.10); border:1px solid rgba(91,143,201,0.25);
+  border-radius:999px; padding:0.3em 0.85em; letter-spacing:0.08em; text-transform:uppercase;
+  margin-bottom:0.6em;
+}
+.card { background:var(--white); border-radius:0.5em; box-shadow:var(--shadow); }
+.rule { height:1px; background:var(--border); }
+
+.fade-up { opacity:0; transform:translateY(1.8em); transition:opacity .55s ease, transform .55s ease; }
+.fade-up.visible { opacity:1; transform:none; }
+@media (prefers-reduced-motion: reduce) { .fade-up { opacity:1; transform:none; } }
+
+.inner { position:absolute; inset:0; padding:2.6em 3.8em 3.5em; display:flex; flex-direction:column; }
+.inner h1 {
+  font-family:var(--serif); font-size:3.5em; font-weight:400; color:var(--ink);
+  letter-spacing:-0.025em; line-height:1.08; margin:0.15em 0 0.4em;
+}
+.inner h1 em { font-style:italic; color:var(--coral); }
+.sub { font-size:0.86em; color:var(--muted); font-weight:300; margin:0 0 1em; max-width:58em; }
+
+.bottom {
+  background:rgba(0,0,0,0.04); border-radius:0.45em; padding:0.78em 1.2em; margin-top:auto;
+  font-size:0.8em; color:var(--mid); font-weight:300; line-height:1.5; flex-shrink:0;
+}
+.bottom b { font-weight:600; color:var(--ink); }
+
+/* table */
+.tbl-wrap { background:var(--white); border-radius:0.5em; box-shadow:var(--shadow); overflow:hidden; display:flex; flex-direction:column; }
+.dtbl { width:100%; border-collapse:collapse; flex:1; }
+.dtbl tbody { height:100%; }
+.dtbl tbody tr { height:1px; }
+.dtbl thead tr { background:var(--navy); }
+.dtbl thead th { color:#fff; font-size:0.74em; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; padding:0.75em 1.2em; text-align:left; white-space:nowrap; }
+.dtbl tbody tr { border-bottom:1px solid var(--border); }
+.dtbl tbody tr:last-child { border-bottom:none; }
+.dtbl tbody td { padding:0.55em 1.2em; font-size:0.82em; color:var(--mid); font-weight:300; vertical-align:top; }
+.dtbl tbody td:first-child { color:var(--ink); font-weight:600; }
+.dtbl tbody td.num { font-variant-numeric:tabular-nums; font-weight:600 !important; color:var(--ink) !important; }
+.dtbl.compact tbody td { font-size:0.74em; padding:0.42em 1em; }
+
+.badge { display:inline-block; font-size:0.72em; font-weight:700; letter-spacing:0.05em; text-transform:uppercase; padding:0.16em 0.55em; border-radius:3px; }
+.badge-ok   { background:rgba(47,143,91,0.12); color:var(--green); }
+.badge-soon { background:rgba(180,83,9,0.10); color:#b45309; }
+.badge-no   { background:rgba(220,38,38,0.10); color:#dc2626; }
+
+/* stat cards */
+.stats { display:grid; gap:1em; flex:1; min-height:0; }
+.stat-card { background:var(--white); border-radius:0.5em; box-shadow:var(--shadow); padding:1.2em 1.3em 1.4em; display:flex; flex-direction:column; justify-content:space-between; }
+.stat-card.dark { background:var(--navy); }
+.stat-card.dark .sdesc { color:rgba(255,255,255,0.45); }
+.stat-card.dark .snum { color:var(--coral); }
+.snum { font-family:var(--serif); font-size:2.2em; font-weight:400; color:var(--coral); line-height:1; letter-spacing:-0.02em; white-space:nowrap; }
+.sdesc { font-size:0.76em; color:var(--muted); line-height:1.4; font-weight:300; margin-top:0.45em; }
+
+/* numbered items */
+.items { display:flex; flex-direction:column; gap:0.95em; flex:1; justify-content:center; }
+.item { display:flex; align-items:flex-start; gap:0.9em; }
+.item-num { font-family:var(--serif); font-style:italic; font-size:1.4em; color:var(--coral); flex-shrink:0; line-height:1.2; width:1.2em; }
+.item-t { font-size:0.98em; font-weight:700; color:var(--ink); margin-bottom:0.15em; }
+.item-b { font-size:0.84em; color:var(--mid); line-height:1.45; font-weight:300; }
+.item-b b { font-weight:600; color:var(--ink); }
+
+/* grid of cards */
+.grid2 { display:grid; grid-template-columns:repeat(2,1fr); gap:1em; }
+.grid3 { display:grid; grid-template-columns:repeat(3,1fr); gap:1em; }
+.grid4 { display:grid; grid-template-columns:repeat(4,1fr); gap:1em; }
+.gcard { padding:1.2em 1.3em; display:flex; flex-direction:column; }
+.gcard-t { font-size:0.9em; font-weight:700; color:var(--ink); line-height:1.25; margin-bottom:0.4em; }
+.gcard-b { font-size:0.78em; color:var(--mid); line-height:1.42; font-weight:300; }
+
+/* ladder / roadmap */
+.ladder { display:grid; grid-template-columns:repeat(3,1fr); gap:1.1em; flex:1; min-height:0; }
+.step { padding:1.5em 1.5em; display:flex; flex-direction:column; position:relative; overflow:hidden; }
+.step::before { content:''; position:absolute; top:0; left:0; height:4px; background:var(--coral); }
+.step.p1::before { width:33%; } .step.p2::before { width:66%; } .step.p3::before { width:100%; }
+.phase-lbl { font-size:0.7em; font-weight:700; text-transform:uppercase; letter-spacing:0.09em; color:var(--muted); margin-bottom:0.5em; }
+.onum { font-family:var(--serif); font-style:italic; font-size:1.5em; color:var(--coral); line-height:1; margin-bottom:0.4em; }
+.ot { font-size:0.98em; font-weight:700; color:var(--ink); margin-bottom:0.55em; }
+.ob { font-size:0.78em; color:var(--mid); font-weight:300; line-height:1.75; }
+.phase-meta { display:flex; gap:1.2em; margin-top:auto; padding-top:0.8em; border-top:1px solid var(--border); }
+.phase-meta div { font-size:0.72em; color:var(--muted); }
+.phase-meta b { display:block; font-family:var(--serif); font-size:1.35em; color:var(--ink); font-weight:400; }
+
+/* pyramid / layered architecture */
+.pyramid { display:flex; flex-direction:column; gap:0.5em; flex:1; min-height:0; }
+.player { display:flex; align-items:stretch; gap:0.6em; flex:1; }
+.player-label {
+  width:9em; flex-shrink:0; display:flex; align-items:center; justify-content:center;
+  font-size:0.72em; font-weight:700; text-align:center; color:#fff; border-radius:0.4em;
+  padding:0.4em; line-height:1.3;
+}
+.player-mods { flex:1; display:grid; grid-template-columns:repeat(2,1fr); gap:0.5em; }
+.pmod {
+  background:var(--white); border-radius:0.4em; box-shadow:var(--shadow);
+  display:flex; align-items:center; padding:0.5em 0.9em; gap:0.6em;
+}
+.pmod-dot { width:0.6em; height:0.6em; border-radius:50%; flex-shrink:0; background:var(--coral); }
+.pmod-t { font-size:0.74em; font-weight:600; color:var(--ink); line-height:1.25; }
+
+/* causal graph diagram */
+.dag { position:relative; width:100%; flex:1; min-height:0; }
+.dag-node {
+  position:absolute; transform:translate(-50%,-50%);
+  display:flex; align-items:center; gap:0.5em;
+  background:var(--white); border-radius:0.65em;
+  box-shadow:0 1px 2px rgba(26,37,72,0.05), 0 5px 16px rgba(26,37,72,0.09);
+  padding:0.5em 0.9em 0.5em 0.7em; font-size:0.76em; font-weight:600; color:var(--ink);
+  white-space:nowrap; z-index:2; border:1px solid rgba(26,37,72,0.05);
+}
+.dag-node::before {
+  content:''; width:0.55em; height:0.55em; border-radius:2px; flex-shrink:0;
+  background:var(--dot,var(--coral));
+}
+.dag-node.center {
+  background:linear-gradient(150deg,#243356 0%,#141d38 100%);
+  color:#fff; border:none; border-radius:0.7em;
+  font-family:var(--serif); font-weight:400;
+  font-size:1.05em; padding:0.7em 1.5em; letter-spacing:0.01em;
+  box-shadow:0 0 0 5px rgba(245,127,101,0.10), 0 12px 30px rgba(20,29,56,0.28);
+}
+.dag-node.center::before { display:none; }
+.dag svg { position:absolute; inset:0; width:100%; height:100%; z-index:1; }
+.dag-edge { fill:none; stroke-linecap:round; vector-effect:non-scaling-stroke; }
+.dag-edge.strong { stroke:#ef7a5e; opacity:0.9; }
+.dag-edge.weak   { stroke:#8792ad; opacity:0.6; }
+
+/* flow steps */
+.flow { display:grid; grid-template-columns:repeat(5,1fr); gap:0.8em; flex:1; min-height:0; align-content:center; }
+.flow-step { background:var(--white); border-radius:0.5em; box-shadow:var(--shadow); padding:1em 1em 1.2em; position:relative; display:flex; flex-direction:column; }
+.flow-step .fn { font-family:var(--mono); font-size:0.68em; font-weight:700; color:var(--coral); margin-bottom:0.5em; }
+.flow-step .ft { font-weight:700; font-size:0.84em; color:var(--ink); margin-bottom:0.35em; line-height:1.25; }
+.flow-step .fb { font-size:0.72em; color:var(--mid); line-height:1.4; font-weight:300; }
+.flow-step::after { content:'→'; position:absolute; right:-0.68em; top:50%; transform:translateY(-50%); color:var(--coral); font-size:1.15em; font-weight:700; z-index:3; }
+.flow-step:last-child::after { display:none; }
+
+/* dark slide */
+.s-dark { background:var(--navy); }
+.s-dark .inner h1 { color:#fff; }
+.s-dark .sub { color:rgba(255,255,255,0.4); }
+.s-dark .tbl-wrap { background:rgba(255,255,255,0.05); box-shadow:none; border:1px solid rgba(255,255,255,0.09); }
+.s-dark .dtbl thead tr { background:rgba(255,255,255,0.08); }
+.s-dark .dtbl thead th { color:rgba(255,255,255,0.45); }
+.s-dark .dtbl tbody tr { border-bottom-color:rgba(255,255,255,0.07); }
+.s-dark .dtbl tbody td { color:rgba(255,255,255,0.5); }
+.s-dark .dtbl tbody td:first-child { color:rgba(255,255,255,0.9); }
+.s-dark .bottom { background:rgba(255,255,255,0.05); color:rgba(255,255,255,0.55); }
+.s-dark .bottom b { color:#fff; }
+.s-dark .pagenum { color:var(--coral); }
+
+/* ══ COVER ══ */
+.s-cover {
+  background:linear-gradient(-45deg, #0f1820, #1a2548, #26314f, #3a2a20, #1a2548);
+  background-size:400% 400%;
+  animation:coverGradient 22s ease infinite;
+}
+@keyframes coverGradient {
+  0%   { background-position:0% 50%; }
+  50%  { background-position:100% 50%; }
+  100% { background-position:0% 50%; }
+}
+@media (prefers-reduced-motion: reduce) { .s-cover { animation:none; } }
+.s-cover .overlay {
+  position:absolute; inset:0; z-index:1; pointer-events:none;
+  background:linear-gradient(90deg, rgba(6,4,3,0.35) 0%, rgba(6,4,3,0.15) 45%, transparent 75%),
+             linear-gradient(180deg, transparent 55%, rgba(6,4,3,0.3) 100%);
+}
+.s-cover .brand-row { display:flex; align-items:center; gap:0.6em; margin-bottom:1.4em; }
+.s-cover .logo { height:1.5em; width:auto; opacity:0.95; display:block; }
+.s-cover .kicker { font-size:0.75em; color:rgba(255,255,255,0.5); letter-spacing:0.1em; text-transform:uppercase; }
+.s-cover .inner { z-index:2; padding:4.2em; justify-content:space-between; }
+.s-cover .title { font-family:var(--serif); font-size:4em; font-weight:400; color:#fff; line-height:1.1; letter-spacing:-0.025em; margin-bottom:0.4em; }
+.s-cover .title em { font-style:italic; color:var(--coral); }
+.s-cover .sub-title { font-size:0.95em; font-weight:300; color:rgba(255,255,255,0.62); max-width:40em; line-height:1.5; }
+.s-cover .footer-row { display:flex; align-items:center; justify-content:space-between; }
+.s-cover .author { display:flex; flex-direction:column; gap:0.15em; }
+.s-cover .aname { font-size:0.9em; font-weight:600; color:#fff; }
+.s-cover .arole { font-size:0.76em; font-weight:300; color:rgba(255,255,255,0.55); }
+.s-cover .doc-info { text-align:right; font-size:0.75em; font-weight:300; color:rgba(255,255,255,0.35); line-height:1.7; }
+.s-cover .doc-info strong { color:rgba(255,255,255,0.6); font-weight:600; display:block; font-size:1em; letter-spacing:0.05em; text-transform:uppercase; }
+
+@media print {
+  @page { size:1280px 720px; margin:0; }
+  *, *::before, *::after { -webkit-print-color-adjust:exact !important; print-color-adjust:exact !important; }
+  html { scroll-snap-type:none; overflow:visible; background:#181614; }
+  body { width:1280px; height:auto; }
+  #frame { width:1280px !important; height:auto !important; overflow:visible !important; scroll-snap-type:none !important; }
+  .slide { width:1280px !important; height:720px !important; page-break-after:always; break-after:page; font-size:14.6px !important; overflow:hidden !important; }
+  #dots, #progress { display:none !important; }
+  .fade-up { opacity:1 !important; transform:none !important; }
+}
+</style>
+</head>
+<body>
+<div id="frame">
+
+<div id="progress"><div id="progress-fill"></div></div>
+<nav id="dots"></nav>
+
+<!-- ══ 01 COVER ══ -->
+<section class="slide s-cover">
+  <div class="overlay"></div>
+  <div class="inner">
+    <div class="fade-up">
+      <div class="brand-row">
+        <img class="logo" src="membria-logo/logo.svg" alt="">
+        <div class="kicker">BANK OS · Коммерческое предложение</div>
+      </div>
+      <div class="title">Автономный <em>ИИ-Банк</em> 2.0</div>
+      <div class="sub-title">Слой знаний (Knowledge Layer) на платформе BANK OS — графовой операционной системе для ИИ-агентов, где банковские процессы выполняются под управлением специализированных ИИ-агентов.</div>
+    </div>
+    <div class="footer-row fade-up" style="transition-delay:.15s">
+      <div class="author">
+        <span class="aname">BANK OS</span>
+        <span class="arole">Каузальные графы учётных событий · ИИ-агенты · on-premise</span>
+      </div>
+      <div class="doc-info">
+        <strong>Платформа BANK OS</strong>
+        Автономный ИИ-Банк 2.0<br>
+        Июль 2026 · v1.0
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 02 EXECUTIVE SUMMARY ══ -->
+<section class="slide">
+  <div class="pagenum">02</div>
+  <div class="inner">
+    <span class="tag fade-up">Кратко о предложении</span>
+    <h1 class="fade-up" style="transition-delay:.05s">Банк, где процессами управляют <em>ИИ-агенты</em></h1>
+    <div class="sub fade-up" style="transition-delay:.08s">Первый в России по-настоящему автономный ИИ-Банк — от привлечения клиента до отчётности перед регулятором под управлением специализированных агентов на платформе BANK OS.</div>
+    <div class="stats grid4 fade-up" style="transition-delay:.1s;flex:0 0 auto;margin-bottom:1em;">
+      <div class="stat-card dark"><div class="snum">4%</div><div class="sdesc">CIR — против 29–30% у Сбербанка и 40%+ у большинства крупных банков</div></div>
+      <div class="stat-card"><div class="snum">40</div><div class="sdesc">человек в команде запуска ключевых продуктов вместо сотен сотрудников</div></div>
+      <div class="stat-card"><div class="snum">6–10</div><div class="sdesc">недель до пилота; 8–12 месяцев до полной рабочей модели</div></div>
+      <div class="stat-card"><div class="snum">100%</div><div class="sdesc">автоматизация отчётности перед ЦБ: баланс, закрытие дня, нормативы Н1–Н25</div></div>
+    </div>
+    <div class="bottom fade-up" style="transition-delay:.14s">
+      <b>Бесшовная связка банковских продуктов с экосистемой партнёра</b> — от привлечения клиента до вкладов, кредитов и платежей. Решение разворачивается в контуре банка (on-premise) и полностью отвечает требованиям ЦБ по искусственному интеллекту и информационной безопасности.
+    </div>
+  </div>
+</section>
+
+<!-- ══ 03 PROBLEM ══ -->
+<section class="slide">
+  <div class="pagenum">03</div>
+  <div class="inner">
+    <span class="tag fade-up">Проблема</span>
+    <h1 class="fade-up" style="transition-delay:.05s">Почему классическая модель банка даёт <em>высокий CIR</em></h1>
+    <div class="sub fade-up" style="transition-delay:.08s">Высокий CIR — почти всегда сочетание слабой выручки и тяжёлых расходов.</div>
+    <div class="items fade-up" style="transition-delay:.1s">
+      <div class="item"><div class="item-num">1.</div><div><div class="item-t">Падение комиссионных доходов</div><div class="item-b">Эквайринг, платежи, карты — маржа комиссионного бизнеса сжимается год за годом.</div></div></div>
+      <div class="item"><div class="item-num">2.</div><div><div class="item-t">Дорогая сеть отделений и банкоматов</div><div class="item-b">Большой физический бэк-офис — фиксированные издержки, которые не масштабируются вместе с выручкой.</div></div></div>
+      <div class="item"><div class="item-num">3.</div><div><div class="item-t">Ручные процессы в комплаенсе</div><div class="item-b">Проверки клиентов (KYC), борьба с отмыванием (AML) и операционная работа — вручную, медленно, дорого.</div></div></div>
+      <div class="item"><div class="item-num">4.</div><div><div class="item-t">Высокие резервы и кредитный стресс</div><div class="item-b">Плюс медленная реакция на изменения регулятора и экономики — расходы растут быстрее доходов.</div></div></div>
+    </div>
+    <div class="bottom fade-up" style="transition-delay:.14s">Поэтому мы отказываемся от модели банка с сотнями сотрудников и филиалами и строим <b>полностью цифровой ИИ-Банк</b>, где операционные процессы автоматизированы на новом уровне.</div>
+  </div>
+</section>
+
+<!-- ══ 04 CGAE MODEL ══ -->
+<section class="slide">
+  <div class="pagenum">04</div>
+  <div class="inner">
+    <span class="tag fade-up">Ядро платформы</span>
+    <h1 class="fade-up" style="transition-delay:.05s">Что такое <em>BANK OS</em></h1>
+    <div class="sub fade-up" style="transition-delay:.08s">Бизнес-логика, CRM и бизнес-досье построены на научной модели «Каузальные графы учётных событий» (CGAE, Causal Graphs of Accounting Events) — DOI: 10.5281/zenodo.20597707, CC BY-SA 4.0.</div>
+    <div style="display:grid;grid-template-columns:1.1fr 1fr;gap:1.4em;flex:1;min-height:0;" class="fade-up" style="transition-delay:.12s">
+      <div class="items" style="justify-content:flex-start;gap:0.75em;">
+        <div class="item"><div class="item-num">·</div><div><div class="item-t">Всё — связанные события, не строки</div><div class="item-b">Каждый объект учёта представлен направленным графом; рёбра — отдельные учётные события.</div></div></div>
+        <div class="item"><div class="item-num">·</div><div><div class="item-t">Неизменяемые версии</div><div class="item-b">Любое изменение порождает новую версию графа. Старые данные не перезаписываются — история без потерь.</div></div></div>
+        <div class="item"><div class="item-num">·</div><div><div class="item-t">Главная книга «на лету»</div><div class="item-b">Собирается обходом всех версий графов на отчётную дату — одновременно РСБУ, МСФО и управленческий учёт.</div></div></div>
+        <div class="item"><div class="item-num">·</div><div><div class="item-t">Materiality gate</div><div class="item-b">Принцип существенности решает, нужна ли новая версия — мелкие изменения не плодят лишние версии.</div></div></div>
+      </div>
+      <div class="card" style="padding:1.1em;display:flex;flex-direction:column;">
+        <div style="font-size:0.72em;color:var(--muted);text-align:center;margin-bottom:0.4em;">Каузальный DAG для кредитного скоринга</div>
+        <div class="dag" id="dag">
+          <svg viewBox="0 0 320 240" preserveAspectRatio="none">
+            <!-- рёбра: толщина = сила причинного влияния -->
+            <path class="dag-edge weak"   style="stroke-width:1.6" d="M110,24  C168,24  175,120 212,120"/>
+            <path class="dag-edge strong" style="stroke-width:2.8" d="M110,72  C170,72  178,120 212,120"/>
+            <path class="dag-edge strong" style="stroke-width:2.8" d="M110,120 L212,120"/>
+            <path class="dag-edge weak"   style="stroke-width:1.5" d="M110,168 C170,168 178,120 212,120"/>
+            <path class="dag-edge weak"   style="stroke-width:1.3" d="M110,216 C168,216 175,120 212,120"/>
+          </svg>
+          <div class="dag-node" style="left:22%;top:10%;--dot:#8792ad;">Возраст</div>
+          <div class="dag-node" style="left:22%;top:30%;--dot:#ef7a5e;">Доход</div>
+          <div class="dag-node" style="left:22%;top:50%;--dot:#ef7a5e;">Кредитная история</div>
+          <div class="dag-node" style="left:22%;top:70%;--dot:#8792ad;">Занятость</div>
+          <div class="dag-node" style="left:22%;top:90%;--dot:#8792ad;">Образование</div>
+          <div class="dag-node center" style="left:78%;top:50%;">Дефолт</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 05 RAG vs CGAE ══ -->
+<section class="slide">
+  <div class="pagenum">05</div>
+  <div class="inner">
+    <span class="tag fade-up">Отличие от RAG</span>
+    <h1 class="fade-up" style="transition-delay:.05s">Причинность, а не просто <em>поиск</em></h1>
+    <div class="sub fade-up" style="transition-delay:.08s">RAG найдёт документ и факт: «минимальный доход — 80 тыс.». BANK OS выстроит причинную связь: «если поднять порог до 100 тыс., дефолты упадут на 12%, одобрения сократятся на 18%».</div>
+    <div class="tbl-wrap fade-up" style="transition-delay:.12s;flex:1;min-height:0;">
+      <table class="dtbl">
+        <thead><tr><th>Критерий</th><th>RAG / реляционная АБС</th><th>BANK OS / CGAE</th></tr></thead>
+        <tbody>
+          <tr><td>Причинность</td><td>Поиск по базе: «минимальный доход — 80 тыс.»</td><td>Причинный вывод: «порог 100 тыс. → дефолты −12%, одобрения −18%»</td></tr>
+          <tr><td>История данных</td><td>Перезапись: прежнее значение теряется</td><td>Неизменяемые версии: каждое изменение сохранено навсегда</td></tr>
+          <tr><td>Трансформация</td><td>Потеря аналитики при сборке отчётов</td><td>Субграфы измерений сохраняют детализацию для РСБУ, МСФО и управленки сразу</td></tr>
+          <tr><td>Аудит ИИ (XAI)</td><td>Действие зафиксировано, обоснования нет</td><td>Каузальная цепочка: почему принято решение и на каких данных</td></tr>
+          <tr><td>Смена модели ИИ</td><td>Требует переобучения и миграции данных</td><td>Один параметр конфигурации — граф и память не трогаются</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="bottom fade-up" style="transition-delay:.15s">Граф-СУБД: сейчас <b>FalkorDB</b>, запланирован переход на <b>MemGraph</b> (потоковая обработка + Kafka, лучшая OLAP-производительность). Переход не требует изменений бизнес-логики — смена СУБД на уровне конфигурации оркестратора.</div>
+  </div>
+</section>
+
+<!-- ══ 06 MODULE ARCHITECTURE ══ -->
+<section class="slide">
+  <div class="pagenum">06</div>
+  <div class="inner">
+    <span class="tag fade-up">Архитектура</span>
+    <h1 class="fade-up" style="transition-delay:.05s">Из чего состоит <em>BANK OS</em></h1>
+    <div class="sub fade-up" style="transition-delay:.08s">Платформа организует работу ИИ-Банка вокруг пяти слоёв модулей — от учёта до ликвидности.</div>
+    <div class="pyramid fade-up" style="transition-delay:.1s">
+      <div class="player">
+        <div class="player-label" style="background:var(--blue);">Ликвидность и Казначейство</div>
+        <div class="player-mods">
+          <div class="pmod"><div class="pmod-dot"></div><div class="pmod-t">Модуль ИИ-Казначейства (Liquidity Forecasting)</div></div>
+          <div class="pmod"><div class="pmod-dot"></div><div class="pmod-t">Модуль предиктивного динамического ценообразования</div></div>
+        </div>
+      </div>
+      <div class="player">
+        <div class="player-label" style="background:#4a7a6b;">Фронт-офис и Customer Experience</div>
+        <div class="player-mods">
+          <div class="pmod"><div class="pmod-dot"></div><div class="pmod-t">Диалоговый ИИ-Фронт</div></div>
+          <div class="pmod"><div class="pmod-dot"></div><div class="pmod-t">Предиктивный маркетинг и NBO (Next Best Action)</div></div>
+        </div>
+      </div>
+      <div class="player">
+        <div class="player-label" style="background:var(--coral);">Управление рисками и комплаенс</div>
+        <div class="player-mods">
+          <div class="pmod"><div class="pmod-dot"></div><div class="pmod-t">Интеллектуальный KYC и Онбординг</div></div>
+          <div class="pmod"><div class="pmod-dot"></div><div class="pmod-t">Предиктивный Антифрод и AML (115-ФЗ)</div></div>
+        </div>
+      </div>
+      <div class="player">
+        <div class="player-label" style="background:#8a6a9a;">АБС и Учёт</div>
+        <div class="player-mods">
+          <div class="pmod"><div class="pmod-dot"></div><div class="pmod-t">Автономный Главный Регистр (AI-Ledger)</div></div>
+          <div class="pmod"><div class="pmod-dot"></div><div class="pmod-t">Автоматизированный Опердень (Predictive End-of-Day)</div></div>
+        </div>
+      </div>
+      <div class="player">
+        <div class="player-label" style="background:var(--navy);">Агентная среда и Слой Знаний</div>
+        <div class="player-mods">
+          <div class="pmod"><div class="pmod-dot"></div><div class="pmod-t">Оркестратор ИИ-агентов (AI Agent Mesh) + XAI</div></div>
+          <div class="pmod"><div class="pmod-dot"></div><div class="pmod-t">Мониторинг деградации данных (Data Drift + CDI/RDM)</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 07 CARD PROCESSING SCALE ══ -->
+<section class="slide">
+  <div class="pagenum">07</div>
+  <div class="inner">
+    <span class="tag fade-up">Карточный процессинг</span>
+    <h1 class="fade-up" style="transition-delay:.05s">Гибридная модель на <em>1 млн клиентов</em></h1>
+    <div class="sub fade-up" style="transition-delay:.08s">Быстрый детерминированный контур (Fast Path, до 50 мс) обрабатывает транзакцию в реальном времени; агенты берут на себя 60–70% операций асинхронно: споры, AML, клиентский сервис, отчётность, пересмотр лимитов.</div>
+    <div class="stats grid4 fade-up" style="transition-delay:.1s;flex:0 0 auto;margin-bottom:0.8em;">
+      <div class="stat-card"><div class="snum">1.5M</div><div class="sdesc">карт на 1 млн активных клиентов (~1,5 на клиента)</div></div>
+      <div class="stat-card"><div class="snum">5–10M</div><div class="sdesc">транзакций в день · 58–115 TPS в среднем, 300–600 TPS в пике</div></div>
+      <div class="stat-card dark"><div class="snum">≤300мс</div><div class="sdesc">полный цикл авторизации · ≤20мс скоринг мошенничества внутри пути</div></div>
+      <div class="stat-card"><div class="snum">99,999%</div><div class="sdesc">требуемая доступность — не более 5 минут простоя в год</div></div>
+    </div>
+    <div class="bottom fade-up" style="transition-delay:.14s"><b>LLM никогда не стоит в пути авторизации.</b> Средняя задержка LLM 200мс–5с несовместима с лимитом 300мс. Данные карт изолированы — LLM не видит номер карты (PAN) и CVV. Баланс и проводки — только целочисленная арифметика, без вероятностей (PCI DSS / 382-П ЦБ РФ).</div>
+  </div>
+</section>
+
+<!-- ══ 08 HYBRID ARCHITECTURE ══ -->
+<section class="slide">
+  <div class="pagenum">08</div>
+  <div class="inner">
+    <span class="tag fade-up">Где работает агент</span>
+    <h1 class="fade-up" style="transition-delay:.05s">Быстрый контур + <em>слой агентов</em></h1>
+    <div class="sub fade-up" style="transition-delay:.08s">Ни одна функция процессинга не остаётся без ИИ. Где счёт идёт на миллисекунды — агент работает «метауровнем», не вмешиваясь в сам путь авторизации.</div>
+    <div class="tbl-wrap fade-up" style="transition-delay:.12s;flex:1;min-height:0;">
+      <table class="dtbl">
+        <thead><tr><th>Слой</th><th>Тип / срок</th><th>Агенты и компоненты</th><th>Действие</th></tr></thead>
+        <tbody>
+          <tr><td>Быстрый контур</td><td class="num">до 50 мс</td><td>Rule Engine · ML-скоринг · Redis</td><td>Одобрить / отклонить / пометить → Kafka</td></tr>
+          <tr><td>Слой обогащения</td><td class="num">до 30 сек</td><td>Агент-следователь по фроду · Энергетическая модель (EBM)</td><td>Разбор пометки; новые схемы; обогащение графа CGAE</td></tr>
+          <tr><td>Слой аналитики</td><td class="num">минуты–часы</td><td>AML-мониторинг · риск портфеля</td><td>Поиск сообществ; пересмотр лимитов; чарджбэки; отчётность 407-П / XBRL</td></tr>
+          <tr><td>Операционный слой</td><td>агент + человек</td><td>Клиентский сервис · KYC · NBO · фрод-операции</td><td>До 80% запросов без оператора; персональные предложения</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="bottom fade-up" style="transition-delay:.15s"><b>Двухуровневая защита от мошенничества:</b> XGBoost (до 5 мс) ловит известные схемы; энергетическая модель EBM в фоне находит новые — без разметки, на отклонениях от нормы.</div>
+  </div>
+</section>
+
+<!-- ══ 09 EDINYI KLIENT ══ -->
+<section class="slide">
+  <div class="pagenum">09</div>
+  <div class="inner">
+    <span class="tag fade-up">HFLabs</span>
+    <h1 class="fade-up" style="transition-delay:.05s">Единый клиент — <em>эталонная база</em></h1>
+    <div class="sub fade-up" style="transition-delay:.08s">CRM, ДБО и бизнес-досье опираются на промышленное MDM-решение HFLabs. Применяется в ВТБ, МТС, Ростелекоме, СОГАЗе и десятках крупных организаций.</div>
+    <div class="grid2 fade-up" style="transition-delay:.1s;flex:1;min-height:0;">
+      <div class="card gcard">
+        <div class="gcard-t">Что делает в составе BANK OS</div>
+        <div class="items" style="gap:0.5em;justify-content:flex-start;margin-top:0.6em;">
+          <div class="item"><div class="item-num">·</div><div class="item-b"><b>Дедупликация и «золотая» карточка</b> — база на 100 млн записей обрабатывается за 2 часа.</div></div>
+          <div class="item"><div class="item-num">·</div><div class="item-b"><b>Поиск за 0,2 секунды</b> в базе 50 млн записей по любому признаку.</div></div>
+          <div class="item"><div class="item-num">·</div><div class="item-b"><b>Комплаенс в реальном времени</b> — банкроты (476-ФЗ), санкционные списки, стоп-листы (375-П).</div></div>
+          <div class="item"><div class="item-num">·</div><div class="item-b">Единый идентификатор клиента исключает задвоение позиций риска во всех графах BANK OS.</div></div>
+        </div>
+      </div>
+      <div class="card gcard">
+        <div class="gcard-t">Референсы в финансовом секторе</div>
+        <div class="tbl-wrap" style="box-shadow:none;margin-top:0.5em;flex:1;">
+          <table class="dtbl compact">
+            <tbody>
+              <tr><td>ВТБ</td><td>200+ сервисов, 20+ микросервисов, расширенная дедупликация</td></tr>
+              <tr><td>Газпромбанк</td><td>Аналитический MDM физлиц, ежедневная синхронизация</td></tr>
+              <tr><td>ФК Открытие</td><td>Контроль качества данных, снижение ложных срабатываний AML</td></tr>
+              <tr><td>Бинбанк · МКБ</td><td>Централизованный профиль клиента, контроль по 80+ атрибутам</td></tr>
+              <tr><td>Ренессанс Кредит</td><td>Миграция MDM без остановки критичных процессов</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 10 EVA CREDIT MODULE ══ -->
+<section class="slide">
+  <div class="pagenum">10</div>
+  <div class="inner">
+    <span class="tag fade-up">Кредитный модуль</span>
+    <h1 class="fade-up" style="transition-delay:.05s">EVA — решение <em>без кода</em></h1>
+    <div class="sub fade-up" style="transition-delay:.08s">Система управления решениями (Decision Management System). Бизнес-пользователи сами строят кредитные стратегии в визуальном конструкторе — без программирования. Ответ по заявке онлайн — за несколько секунд.</div>
+    <div class="flow fade-up" style="transition-delay:.12s">
+      <div class="flow-step"><div class="fn">01</div><div class="ft">Заявка</div><div class="fb">Клиент подаёт заявку через мобильное приложение или ДБО. Диалоговый ИИ-фронт проверяет данные.</div></div>
+      <div class="flow-step"><div class="fn">02</div><div class="ft">Идентификация</div><div class="fb">HFLabs собирает контекст клиента: золотая карточка + история из графа BANK OS.</div></div>
+      <div class="flow-step"><div class="fn">03</div><div class="ft">Скоринг EVA</div><div class="fb">Параллельные запросы к БКИ, ФНС, операторам; модель-чемпион + правила + стоп-факторы.</div></div>
+      <div class="flow-step"><div class="fn">04</div><div class="ft">Решение</div><div class="fb">Одобрено / отказ / запрос документов — с кодом причины, публикуется в Kafka.</div></div>
+      <div class="flow-step"><div class="fn">05</div><div class="ft">Договор + аудит</div><div class="fb">AI-Ledger создаёт субграф договора; модуль XAI логирует каузальную цепочку решения для аудита ЦБ.</div></div>
+    </div>
+    <div class="bottom fade-up" style="transition-delay:.15s"><b>Тестирование «чемпион / претендент»</b> — параллельная проверка моделей на реальном трафике с плавным переводом на лучшую. Готовые интеграции: БКИ (НБКИ, Equifax, ОКБ), DaData, МегаФон, Билайн, МТС, Контур, ФНС.</div>
+  </div>
+</section>
+
+<!-- ══ 11 CREDIT PRODUCTS × SAMOLET SYNERGY ══ -->
+<section class="slide">
+  <div class="pagenum">11</div>
+  <div class="inner">
+    <span class="tag fade-up">Кредитный конвейер</span>
+    <h1 class="fade-up" style="transition-delay:.05s">Кредитные продукты на <em>EVA + BANK OS</em></h1>
+    <div class="sub fade-up" style="transition-delay:.08s">Логика скоринга EVA + история из графа BANK OS + данные экосистемы партнёра — известный профиль клиента ещё до обращения в банк.</div>
+    <div class="tbl-wrap fade-up" style="transition-delay:.12s;flex:1;min-height:0;">
+      <table class="dtbl">
+        <thead><tr><th>Продукт</th><th>Логика скоринга EVA</th><th>Синергия с экосистемой партнёра</th></tr></thead>
+        <tbody>
+          <tr><td>Потребкредит (ФЛ)</td><td>Многофакторная модель: история (BANK OS) + БКИ + операторы. Решение онлайн &lt;5 сек.</td><td>Известный профиль клиента экосистемы. Предодобренные лимиты по данным о сделках.</td></tr>
+          <tr><td>Рассрочка и POS-кредит</td><td>Упрощённая модель &lt;2 сек. Лимиты по категориям.</td><td>Рассрочка на товары и услуги через экосистему. Высокая конверсия за счёт предодобрения.</td></tr>
+          <tr><td>Кредитная линия и овердрафт МСБ</td><td>Скоринг ЮЛ: обороты по счёту (BANK OS) + ФНС (СМЭВ) + Контур.</td><td>Подрядчики и партнёры — готовая база для РКО и кредитования.</td></tr>
+          <tr><td>Ипотека (сопровождение)</td><td>EVA выполняет андеррайтинг; BANK OS ведёт договор и залог.</td><td>Прямая связь с застройщиком: объект залога и данные о сделке поступают автоматически.</td></tr>
+          <tr><td>Цессии и продажа портфеля</td><td>BANK OS формирует портфель; EVA оценивает дефолт по пулу и считает цену уступки.</td><td>—</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 12 ROADMAP ══ -->
+<section class="slide">
+  <div class="pagenum">12</div>
+  <div class="inner">
+    <span class="tag fade-up">Реализация</span>
+    <h1 class="fade-up" style="transition-delay:.05s">Три этапа, <em>рабочий контур на каждом</em></h1>
+    <div class="sub fade-up" style="transition-delay:.08s">Каждый этап завершается рабочим контуром, принятым в опытную эксплуатацию, до перехода к следующему. Этапы можно распараллелить, чтобы запустить ключевой функционал за 9–12 месяцев.</div>
+    <div class="ladder fade-up" style="transition-delay:.12s">
+      <div class="card step p1">
+        <div class="phase-lbl">Этап 1</div>
+        <div class="onum">Ядро</div>
+        <div class="ob">BANK OS (AI-Ledger, оркестратор, граф-хранилище)<br>Источники: ГИС ГМП, БКИ, СМЭВ, ФССП, ФТС, СФР<br>Интеграция ДБО SimpleLab · миграция из «Диасофт»</div>
+        <div class="phase-meta"><div><b>1–4 мес</b>срок</div><div><b>446</b>чел.-дн.</div></div>
+      </div>
+      <div class="card step p2">
+        <div class="phase-lbl">Этап 2</div>
+        <div class="onum">CRM и агенты</div>
+        <div class="ob">CRM и бизнес-досье на CGAE · «Единый клиент» HFLabs<br>Предиктивный маркетинг и NBO · Диалоговый ИИ-фронт<br>Генератор договоров · запуск агентного процессинга</div>
+        <div class="phase-meta"><div><b>3–9 мес</b>срок</div><div><b>750</b>чел.-дн.</div></div>
+      </div>
+      <div class="card step p3">
+        <div class="phase-lbl">Этап 3</div>
+        <div class="onum">Комплаенс</div>
+        <div class="ob">KYC, AML (115-ФЗ), кредитный скоринг EVA · FRAUDWALL<br>Отчётность: 36 форм ЦБ РФ, XBRL, автозакрытие дня<br>Модуль XAI · Росфинмониторинг (407-П) · FATCA (340-ФЗ)</div>
+        <div class="phase-meta"><div><b>5–9 мес</b>срок</div><div><b>530</b>чел.-дн.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 13 ASK — CLOSING ══ -->
+<section class="slide s-dark">
+  <div class="pagenum">13</div>
+  <div class="inner">
+    <span class="tag fade-up">Условия</span>
+    <h1 class="fade-up" style="transition-delay:.05s">Готовы начать <em>пилот</em></h1>
+    <div class="sub fade-up" style="transition-delay:.08s">BANK OS разворачивается в контуре банка и запускает ключевой функционал за 9–12 месяцев.</div>
+    <div class="tbl-wrap fade-up" style="transition-delay:.12s;flex:1;min-height:0;">
+      <table class="dtbl">
+        <thead><tr><th>Условие</th><th>Детали</th></tr></thead>
+        <tbody>
+          <tr><td>Сроки</td><td>Пилот — 6–10 недель · полный выход на рабочую модель — 8–12 месяцев</td></tr>
+          <tr><td>Развёртывание</td><td>On-premise, в контуре банка · Astra Linux / ALT Linux (импортозамещение)</td></tr>
+          <tr><td>Гарантия и поддержка</td><td>12 месяцев гарантии на поставленное ПО · ежегодная техподдержка со 2-го года с индексацией по данным Росстата</td></tr>
+          <tr><td>Обучение</td><td>Внутренний учебный центр для каскадного обучения ключевых пользователей по каждому модулю</td></tr>
+          <tr><td>Контакт</td><td>Платформа BANK OS · автономный ИИ-Банк 2.0</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+</div>
+
+<script>
+const slides = document.querySelectorAll('.slide');
+const dotsEl = document.getElementById('dots');
+const fillEl = document.getElementById('progress-fill');
+const frameEl = document.getElementById('frame');
+
+slides.forEach((_, i) => {
+  const a = document.createElement('a');
+  a.href = '#';
+  a.addEventListener('click', e => { e.preventDefault(); slides[i].scrollIntoView({behavior:'smooth'}); });
+  dotsEl.appendChild(a);
+});
+const dotLinks = dotsEl.querySelectorAll('a');
+
+function onScroll() {
+  const total = frameEl.scrollHeight - frameEl.clientHeight;
+  fillEl.style.width = (frameEl.scrollTop / total * 100) + '%';
+  const frameRect = frameEl.getBoundingClientRect();
+  let active = 0;
+  slides.forEach((s, i) => {
+    const rect = s.getBoundingClientRect();
+    if (rect.top - frameRect.top <= frameEl.clientHeight * 0.5) active = i;
+  });
+  dotLinks.forEach((d, i) => d.classList.toggle('active', i === active));
+}
+
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.querySelectorAll('.fade-up').forEach((el, i) => {
+        setTimeout(() => el.classList.add('visible'), i * 60);
+      });
+    }
+  });
+}, { threshold: 0.25 });
+slides.forEach(s => io.observe(s));
+
+frameEl.addEventListener('scroll', onScroll, { passive: true });
+onScroll();
+
+function currentSlideIndex() {
+  const frameRect = frameEl.getBoundingClientRect();
+  let active = 0;
+  slides.forEach((s, i) => {
+    const rect = s.getBoundingClientRect();
+    if (rect.top - frameRect.top <= frameEl.clientHeight * 0.5) active = i;
+  });
+  return active;
+}
+
+document.addEventListener('keydown', e => {
+  if (e.target instanceof Element && e.target.closest('input, textarea, [contenteditable]')) return;
+  const goDown = ['ArrowDown', 'PageDown', ' '].includes(e.key);
+  const goUp = ['ArrowUp', 'PageUp'].includes(e.key);
+  if (!goDown && !goUp) return;
+  e.preventDefault();
+  const next = currentSlideIndex() + (goDown ? 1 : -1);
+  if (next >= 0 && next < slides.length) slides[next].scrollIntoView({behavior:'smooth'});
+});
+</script>
+
+</body>
+</html>
