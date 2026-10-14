@@ -3,19 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Membria — Investor Deck</title>
+<title>Membria — Partnerships</title>
 <link rel="icon" type="image/svg+xml" href="membria-logo/logo.svg">
 <meta name="description" content="Membria — the memory & experience layer for AI agents. One causal-memory core, many domains.">
-<meta property="og:title" content="Membria — Investor Deck">
-<meta property="og:description" content="AI agents that learn — Membria is the memory & experience layer for AI agents.">
+<meta property="og:title" content="Membria — Partnerships">
+<meta property="og:description" content="Partner with Membria — the memory & experience layer for AI agents.">
 <meta property="og:type" content="website">
-<meta property="og:image" content="https://deck3.membria.ai/og-image-deck.jpg">
+<meta property="og:image" content="https://presentation.membria.ai/og-image-deck.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Membria — Investor Deck">
-<meta name="twitter:description" content="AI agents that learn — Membria is the memory & experience layer for AI agents.">
-<meta name="twitter:image" content="https://deck3.membria.ai/og-image-deck.jpg">
+<meta name="twitter:title" content="Membria — Partnerships">
+<meta name="twitter:description" content="Partner with Membria — the memory & experience layer for AI agents.">
+<meta name="twitter:image" content="https://presentation.membria.ai/og-image-deck.jpg">
 <style>
 
 @font-face { font-family:'DM Serif Display'; font-style:normal; font-weight:400; src:url('DMSerifDisplay.ttf') format('truetype'); }
@@ -382,6 +382,21 @@ body { margin:0; height:100vh; height:100dvh; overflow:hidden; display:flex; ali
   font-size:0.9rem; color:rgba(255,255,255,0.45); font-weight:300;
   line-height:1.38; max-width:18rem;
 }
+
+/* ── partner-deck templates: projects list, case studies, team detail ── */
+.tpl-ph { color:var(--muted); }
+.s-case .case-grid { display:grid; grid-template-columns:1fr 14em; gap:1.3em; flex:1; min-height:0; }
+.s-case .items { margin:0; }
+.s-case .stat-card { flex:1; }
+.s-case .case-stats { display:flex; flex-direction:column; gap:0.9em; }
+.s-team .tcards { display:grid; grid-template-columns:repeat(4,1fr); gap:1em; flex:1; min-height:0; }
+.s-team .tc { background:var(--white); border-radius:0.5em; box-shadow:var(--shadow); padding:1.3em 1.2em 1.2em; display:flex; flex-direction:column; gap:0.35em; }
+.s-team .tc img { width:5.2em; height:5.2em; border-radius:50%; object-fit:cover; box-shadow:var(--shadow); margin-bottom:0.45em; }
+.s-team .tc .tn { font-family:var(--serif); font-size:1.28em; color:var(--ink); line-height:1.15; }
+.s-team .tc .tr { font-size:0.74em; font-weight:700; letter-spacing:0.05em; text-transform:uppercase; color:var(--coral); margin-bottom:0.35em; }
+.s-team .tc .tbio { font-size:0.8em; font-weight:300; color:var(--mid); line-height:1.5; }
+.s-team .tc .tfocus { margin-top:auto; padding-top:0.7em; border-top:1px solid var(--border); font-size:0.72em; color:var(--muted); line-height:1.5; }
+.s-team .tc .tfocus b { color:var(--ink); font-weight:600; }
 </style>
 </head>
 <body>
@@ -407,10 +422,10 @@ body { margin:0; height:100vh; height:100dvh; overflow:hidden; display:flex; ali
     <div class="fade-up">
       <div class="brand-row">
         <img class="logo" src="membria-logo/logo.svg" alt="Membria.AI">
-        <div class="kicker" style="margin:0;">Membria.AI · Investor Deck</div>
+        <div class="kicker" style="margin:0;">Membria.AI · Partnerships</div>
       </div>
-      <div class="title">AI agents that <em>learn</em>.</div>
-      <div class="sub-title">Membria is the memory &amp; experience layer for AI agents — one causal-memory core powering products for software teams, industrial engineering and audit.</div>
+      <div class="title">Build with the memory layer for <em>AI agents</em>.</div>
+      <div class="sub-title">We are looking for technology and infrastructure partners to bring persistent, auditable agent memory to more teams, clouds and data centres.</div>
     </div>
     <div class="footer-row fade-up" style="transition-delay:.15s">
       <div class="author">
@@ -421,9 +436,9 @@ body { margin:0; height:100vh; height:100dvh; overflow:hidden; display:flex; ali
         </div>
       </div>
       <div class="doc-info">
-        <strong>Confidential</strong>
-        July 2026 · v1.0
-        <a id="pdf-btn" href="membria-deck.pdf" download="Membria-Investor-Deck.pdf" title="Download PDF">
+        <strong>Partner Deck</strong>
+        2026 · v1.0
+        <a id="pdf-btn" href="membria-partners.pdf" download="Membria-Partner-Deck.pdf" title="Download PDF">
           <img src="pdf-icon.svg" width="100%" height="100%" style="display:block;pointer-events:none;" alt="PDF">
         </a>
       </div>
@@ -432,6 +447,7 @@ body { margin:0; height:100vh; height:100dvh; overflow:hidden; display:flex; ali
 </section>
 
 <!-- ══ 02 WHO WE ARE ══ -->
+
 <section class="slide">
   <div class="pagenum">02</div>
   <div class="inner" style="gap:1.1em;">
@@ -475,6 +491,7 @@ body { margin:0; height:100vh; height:100dvh; overflow:hidden; display:flex; ali
 </section>
 
 <!-- ══ 03 AT A GLANCE ══ -->
+
 <section class="slide">
   <div class="pagenum">03</div>
   <div class="inner">
@@ -513,71 +530,41 @@ body { margin:0; height:100vh; height:100dvh; overflow:hidden; display:flex; ali
 </section>
 
 <!-- ══ 04 PROBLEM ══ -->
+
 <section class="slide">
   <div class="pagenum">04</div>
   <div class="inner">
-    <span class="tag fade-up">Problem</span>
-    <h1 class="fade-up" style="transition-delay:.05s">Intelligence that <em>resets</em> every morning</h1>
-    <div class="items fade-up" style="transition-delay:.1s">
-      <div class="item">
-        <div class="item-num">1.</div>
-        <div><div class="item-t">AI agents are stateless</div>
-        <div class="item-b">Every session starts from zero. Yesterday's reasoning, decisions and failures are discarded the moment the window closes.</div></div>
-      </div>
-      <div class="item">
-        <div class="item-num">2.</div>
-        <div><div class="item-t">Mistakes repeat — and they're expensive</div>
-        <div class="item-b">Coding teams re-solve the same problems; in engineering, <b>28% of budget overruns</b> are caused by rework.</div></div>
-      </div>
-      <div class="item">
-        <div class="item-num">3.</div>
-        <div><div class="item-t">Handovers bleed context</div>
-        <div class="item-b"><b>30–50%</b> of assumptions vanish at every phase handover; 18% of working time is spent searching for data that already exists.</div></div>
-      </div>
-      <div class="item">
-        <div class="item-num">4.</div>
-        <div><div class="item-t">Judgment walks out the door</div>
-        <div class="item-b">A senior engineer leaves — and fifteen years of decisions, lessons and "don't do this" leave with them.</div></div>
-      </div>
-    </div>
-    <div class="bottom fade-up" style="transition-delay:.14s">Every AI tool today can answer questions. <b>None of them remembers why decisions were made — or what happened next.</b></div>
-  </div>
-</section>
-
-<!-- ══ 05 WHY NOW ══ -->
-<section class="slide">
-  <div class="pagenum">05</div>
-  <div class="inner">
-    <span class="tag fade-up">Why now</span>
-    <h1 class="fade-up" style="transition-delay:.05s">The experience graph is <em>unclaimed</em></h1>
+    <span class="tag fade-up">Opportunity</span>
+    <h1 class="fade-up" style="transition-delay:.05s">Why partner <em>with Membria</em></h1>
     <div class="items fade-up" style="transition-delay:.1s">
       <div class="item">
         <div class="item-num">1.</div>
         <div><div class="item-t">Agents became the workforce</div>
-        <div class="item-b">Claude Code, Codex and Cursor now do real daily work in code, engineering and finance — but they shipped without memory.</div></div>
+        <div class="item-b">Claude Code, Codex and Cursor do real daily work in code, engineering and finance — but they ship without memory. Membria adds it.</div></div>
       </div>
       <div class="item">
         <div class="item-num">2.</div>
-        <div><div class="item-t">MCP became the standard port</div>
-        <div class="item-b">One protocol plugs a memory plane into every agent on the market — distribution without integration projects.</div></div>
+        <div><div class="item-t">One integration, every agent</div>
+        <div class="item-b">MCP plugs a memory plane into any agent on the market — technology partners connect once instead of building per-vendor integrations.</div></div>
       </div>
       <div class="item">
         <div class="item-num">3.</div>
-        <div><div class="item-t">Regulation demands traceability</div>
-        <div class="item-b">EU AI Act and ISO 19650 require defensible decisions and immutable audit trails in safety-critical work — exactly what a causal memory produces by default.</div></div>
+        <div><div class="item-t">Sovereign &amp; regulated by design</div>
+        <div class="item-b">EU AI Act and ISO 19650 require defensible decisions and audit trails. Membria runs cloud, self-hosted or on-premise — a fit for sovereign and regulated infrastructure.</div></div>
       </div>
       <div class="item">
         <div class="item-num">4.</div>
-        <div><div class="item-t">Incumbents own data, not experience</div>
-        <div class="item-b">Nobody owns the decision → outcome graph. Whoever captures it first gets a moat that compounds with every user, every day.</div></div>
+        <div><div class="item-t">Experience compounds with every partner</div>
+        <div class="item-b">Nobody owns the decision → outcome graph yet. Every deployment strengthens the shared knowledge graph that all partners build on.</div></div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ══ 06 CORE: REASONING GRAPH WORKFORCE ══ -->
+
 <section class="slide">
-  <div class="pagenum">06</div>
+  <div class="pagenum">05</div>
   <div class="inner">
     <span class="tag fade-up">Product</span>
     <h1 class="fade-up" style="transition-delay:.05s">Membria <em>Reasoning Graph</em> Workforce</h1>
@@ -620,8 +607,9 @@ body { margin:0; height:100vh; height:100dvh; overflow:hidden; display:flex; ali
 </section>
 
 <!-- ══ 07 HOW IT WORKS ══ -->
+
 <section class="slide">
-  <div class="pagenum">07</div>
+  <div class="pagenum">06</div>
   <div class="inner">
     <span class="tag fade-up">How it works</span>
     <h1 class="fade-up" style="transition-delay:.05s">One loop, <em>every stage</em></h1>
@@ -637,63 +625,9 @@ body { margin:0; height:100vh; height:100dvh; overflow:hidden; display:flex; ali
 </section>
 
 <!-- ══ 08 ONE CORE FOUR PRODUCTS ══ -->
-<section class="slide">
-  <div class="pagenum">08</div>
-  <div class="inner">
-    <span class="tag fade-up">Focus</span>
-    <h1 class="fade-up" style="transition-delay:.05s">One core, <em>many domains</em></h1>
-    <div class="sub fade-up" style="transition-delay:.08s">Verticals are distribution of one product — not divergence. The same graph schema ships verbatim in every codebase.</div>
-    <div class="tbl-wrap fade-up" style="transition-delay:.12s;flex:1;min-height:0;">
-      <table class="dtbl">
-        <thead><tr><th>Product</th><th>Who buys</th><th>Delivery</th><th>Status</th></tr></thead>
-        <tbody>
-          <tr><td>Membria CE</td><td>solo developers on Claude Code / Codex / Cursor</td><td>cloud SaaS · zero-install MCP</td><td><span class="badge badge-live">SaaS · code.membria.ai</span></td></tr>
-          <tr><td>Membria Enterprise</td><td>engineering &amp; product teams</td><td>self-hosted platform · own UI</td><td><span class="badge badge-soon">Demo · design partners</span></td></tr>
-          <tr><td>AI-EPC</td><td>EPC contractors &amp; design institutes</td><td>vertical app on the same core</td><td><span class="badge badge-live">Live demo · epc.membria.ai</span></td></tr>
-          <tr><td>Glass</td><td>accounting &amp; audit teams</td><td>vertical app on the same core</td><td><span class="badge badge-blue">Design-partner stage</span></td></tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="bottom fade-up" style="transition-delay:.15s"><b>Proof of substrate:</b> Decision · Outcome · NegativeKnowledge · Skill — one schema, one causal experience loop, shared verbatim across every codebase. A vertical competitor can't follow us across domains; we can.</div>
-  </div>
-</section>
 
-<!-- ══ 09 PROVEN ACROSS 4 DOMAINS ══ -->
 <section class="slide">
-  <div class="pagenum">09</div>
-  <div class="inner">
-    <span class="tag fade-up">Case Studies</span>
-    <h1 class="fade-up" style="transition-delay:.04s">Proven Across <em>4 Domains</em></h1>
-    <p class="sub fade-up" style="transition-delay:.07s">One AI substrate · any vertical domain</p>
-    <div class="grid4 fade-up" style="transition-delay:.08s;flex:1;min-height:0;">
-      <div class="card">
-        <div class="ico-wrap gcard-ico"><div class="masked" style="-webkit-mask-image:url('webflow-assets/icon-flow.svg');mask-image:url('webflow-assets/icon-flow.svg');background-image:url('webflow-assets/icon-flow-coral.svg')"></div></div>
-        <div class="gcard-t">Software Development / AI-PDLC</div>
-        <div class="gcard-b">Senior engineers leave and take their judgment. Membria keeps every decision — teams stop re-solving the same problems.</div>
-      </div>
-      <div class="card">
-        <div class="ico-wrap gcard-ico"><div class="masked" style="-webkit-mask-image:url('webflow-assets/icon-candlestick-chart.svg');mask-image:url('webflow-assets/icon-candlestick-chart.svg');background-image:url('webflow-assets/icon-candlestick-chart-coral.svg')"></div></div>
-        <div class="gcard-t">Banking / Finance</div>
-        <div class="gcard-b">A new regulation used to mean a six-week release. Now it's live on the next transaction — traceable to the clause that authorized it.</div>
-      </div>
-      <div class="card">
-        <div class="ico-wrap gcard-ico"><div class="masked" style="-webkit-mask-image:url('webflow-assets/icon-positive-dynamic.svg');mask-image:url('webflow-assets/icon-positive-dynamic.svg');background-image:url('webflow-assets/icon-positive-dynamic-coral.svg')"></div></div>
-        <div class="gcard-t">Glass — AI Accounting / Audit</div>
-        <div class="gcard-b">Audit teams lose weeks tracing entries to source documents. Membria marks every posting with origin and trust score.</div>
-      </div>
-      <div class="card">
-        <div class="ico-wrap gcard-ico"><div class="masked" style="-webkit-mask-image:url('webflow-assets/icon-process-improvement.svg');mask-image:url('webflow-assets/icon-process-improvement.svg');background-image:url('webflow-assets/icon-process-improvement-coral.svg')"></div></div>
-        <div class="gcard-t">AI-EPC / Engineering</div>
-        <div class="gcard-b">A missed P&amp;ID clause becomes a safety incident. Five AI critics check every diagram against standards before sign-off.</div>
-      </div>
-    </div>
-    <div class="bottom fade-up" style="transition-delay:.14s"><b>Common pattern:</b> domain knowledge → graph memory → AI workflows → human verification → production. 100+ seats deployed across these use cases.</div>
-  </div>
-</section>
-
-<!-- ══ 10 CORE CAPABILITIES ══ -->
-<section class="slide">
-  <div class="pagenum">10</div>
+  <div class="pagenum">07</div>
   <div class="inner">
     <span class="tag fade-up">Why Membria?</span>
     <h1 class="fade-up" style="transition-delay:.04s">Core Capabilities</h1>
@@ -737,54 +671,210 @@ body { margin:0; height:100vh; height:100dvh; overflow:hidden; display:flex; ali
 </section>
 
 <!-- ══ 11 EPC WEDGE ══ -->
+
 <section class="slide">
-  <div class="pagenum">11</div>
+  <div class="pagenum">08</div>
   <div class="inner">
-    <span class="tag fade-up">The wedge</span>
-    <h1 class="fade-up" style="transition-delay:.05s">EPC first: <em>nobody remembers</em></h1>
-    <div class="split fade-up" style="transition-delay:.08s">
-      <div class="left">
-        <div class="feats">
-          <div class="feat">
-            <div class="ico-wrap"><div class="masked" style="-webkit-mask-image:url('webflow-assets/icon-flow.svg');mask-image:url('webflow-assets/icon-flow.svg');background-image:url('webflow-assets/icon-flow-coral.svg')"></div></div>
-            <div><div class="ft">Description → P&amp;ID in minutes</div><div class="fb">Plain words or an equipment CSV in; a laid-out diagram out.</div></div>
-          </div>
-          <div class="feat">
-            <div class="ico-wrap"><div class="masked" style="-webkit-mask-image:url('webflow-assets/icon-stacked-organizational-chart.svg');mask-image:url('webflow-assets/icon-stacked-organizational-chart.svg');background-image:url('webflow-assets/icon-stacked-organizational-chart-coral.svg')"></div></div>
-            <div><div class="ft">Real CAD files, not pictures</div><div class="fb">DXF for AutoCAD, DEXPI for AVEVA/Hexagon, IFC4 for BIM.</div></div>
-          </div>
-          <div class="feat">
-            <div class="ico-wrap"><div class="masked" style="-webkit-mask-image:url('webflow-assets/interface-icon-check.svg');mask-image:url('webflow-assets/interface-icon-check.svg');background-image:url('webflow-assets/interface-icon-check-coral.svg')"></div></div>
-            <div><div class="ft">Five-discipline critics</div><div class="fb">Process, Mechanical, HSE, I&amp;C, Piping — deterministic, auditable, repeatable.</div></div>
-          </div>
-          <div class="feat">
-            <div class="ico-wrap"><div class="masked" style="-webkit-mask-image:url('webflow-assets/icon-collect.svg');mask-image:url('webflow-assets/icon-collect.svg');background-image:url('webflow-assets/icon-collect-coral.svg')"></div></div>
-            <div><div class="ft">Every defect becomes memory</div><div class="fb">Finding → change request → negative knowledge, automatically.</div></div>
-          </div>
-          <div class="feat">
-            <div class="ico-wrap"><div class="masked" style="-webkit-mask-image:url('webflow-assets/icon-earth-planet.svg');mask-image:url('webflow-assets/icon-earth-planet.svg');background-image:url('webflow-assets/icon-earth-planet-coral.svg')"></div></div>
-            <div><div class="ft">Zero competitors with persistent memory</div><div class="fb">Autodesk, Bentley, AVEVA, Trimble, Procore — all stateless.</div></div>
-          </div>
-          <div class="feat">
-            <div class="ico-wrap"><div class="masked" style="-webkit-mask-image:url('webflow-assets/icon-flash-on.svg');mask-image:url('webflow-assets/icon-flash-on.svg');background-image:url('webflow-assets/icon-flash-on-coral.svg')"></div></div>
-            <div><div class="ft">Regulation is the sales agent</div><div class="fb">EU AI Act + ISO 19650 make traceable decisions mandatory in safety-critical infrastructure.</div></div>
-          </div>
+    <span class="tag fade-up">Focus</span>
+    <h1 class="fade-up" style="transition-delay:.05s">One core, <em>many domains</em></h1>
+    <div class="sub fade-up" style="transition-delay:.08s">Verticals are distribution of one product — not divergence. The same graph schema ships verbatim in every codebase.</div>
+    <div class="tbl-wrap fade-up" style="transition-delay:.12s;flex:1;min-height:0;">
+      <table class="dtbl">
+        <thead><tr><th>Product</th><th>Who buys</th><th>Delivery</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td>Membria CE</td><td>solo developers on Claude Code / Codex / Cursor</td><td>cloud SaaS · zero-install MCP</td><td><span class="badge badge-live">SaaS · code.membria.ai</span></td></tr>
+          <tr><td>Membria Enterprise</td><td>engineering &amp; product teams</td><td>self-hosted platform · own UI</td><td><span class="badge badge-soon">Demo · design partners</span></td></tr>
+          <tr><td>AI-EPC</td><td>EPC contractors &amp; design institutes</td><td>vertical app on the same core</td><td><span class="badge badge-live">Live demo · epc.membria.ai</span></td></tr>
+          <tr><td>Glass</td><td>accounting &amp; audit teams</td><td>vertical app on the same core</td><td><span class="badge badge-blue">Design-partner stage</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="bottom fade-up" style="transition-delay:.15s"><b>Proof of substrate:</b> Decision · Outcome · NegativeKnowledge · Skill — one schema, one causal experience loop, shared verbatim across every codebase. A vertical competitor can't follow us across domains; we can.</div>
+  </div>
+</section>
+
+<!-- ══ 09 PROVEN ACROSS 4 DOMAINS ══ -->
+
+<!-- ══ PROJECTS LIST TEMPLATE ══ -->
+<section class="slide">
+  <div class="pagenum">09</div>
+  <div class="inner">
+    <span class="tag fade-up">Projects</span>
+    <h1 class="fade-up" style="transition-delay:.05s">What we are <em>building</em></h1>
+    <div class="sub fade-up" style="transition-delay:.08s">[One sentence: how these projects show the platform in production.]</div>
+    <div class="tbl-wrap fade-up" style="transition-delay:.12s;flex:1;min-height:0;">
+      <table class="dtbl">
+        <thead><tr><th>Project</th><th>Customer / domain</th><th>What we built</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td>[Project 1]</td><td>[Customer · industry]</td><td>[What we built — one line]</td><td><span class="badge badge-blue">[Status]</span></td></tr>
+          <tr><td>[Project 2]</td><td>[Customer · industry]</td><td>[What we built — one line]</td><td><span class="badge badge-blue">[Status]</span></td></tr>
+          <tr><td>[Project 3]</td><td>[Customer · industry]</td><td>[What we built — one line]</td><td><span class="badge badge-blue">[Status]</span></td></tr>
+          <tr><td>[Project 4]</td><td>[Customer · industry]</td><td>[What we built — one line]</td><td><span class="badge badge-blue">[Status]</span></td></tr>
+          <tr><td>[Project 5]</td><td>[Customer · industry]</td><td>[What we built — one line]</td><td><span class="badge badge-blue">[Status]</span></td></tr>
+          <tr><td>[Project 6]</td><td>[Customer · industry]</td><td>[What we built — one line]</td><td><span class="badge badge-blue">[Status]</span></td></tr>
+          </tbody>
+      </table>
+    </div>
+    <div class="bottom fade-up" style="transition-delay:.15s"><b>[Takeaway]:</b> [what these projects prove for a technology or infrastructure partner.]</div>
+  </div>
+</section>
+
+<!-- ══ CASE TEMPLATE 1: duplicate this slide for every project ══ -->
+<section class="slide s-case">
+  <div class="pagenum">10</div>
+  <div class="inner">
+    <span class="tag fade-up">Case study · 01</span>
+    <h1 class="fade-up" style="transition-delay:.05s">[Project name] <em>[result in 2–4 words]</em></h1>
+    <div class="sub fade-up" style="transition-delay:.08s">[Customer · industry · country · year]</div>
+    <div class="case-grid fade-up" style="transition-delay:.1s">
+      <div class="items">
+        <div class="item">
+          <div class="item-num">1.</div>
+          <div><div class="item-t">Challenge</div>
+          <div class="item-b">[What problem the customer had — 1–2 sentences.]</div></div>
+        </div>
+        <div class="item">
+          <div class="item-num">2.</div>
+          <div><div class="item-t">What we built</div>
+          <div class="item-b">[Solution and how Membria is used — agents, memory, verification, deployment model.]</div></div>
+        </div>
+        <div class="item">
+          <div class="item-num">3.</div>
+          <div><div class="item-t">Result</div>
+          <div class="item-b">[Measured outcome in production — time saved, errors avoided, adoption.]</div></div>
         </div>
       </div>
-      <div class="photo">
-        <img src="webflow-assets/gradient-map-1.webp" alt="Graph data model">
-        <div class="plabel">
-          <div class="plt">Graph data model</div>
-          <div class="pls">Every P&amp;ID, spec and decision — one connected graph</div>
+      <div class="case-stats">
+        <div class="stat-card"><div class="snum">[00%]</div><div class="sdesc">[metric 1]</div></div>
+        <div class="stat-card"><div class="snum">[00x]</div><div class="sdesc">[metric 2]</div></div>
+        <div class="stat-card"><div class="snum">[00]</div><div class="sdesc">[metric 3]</div></div>
+      </div>
+    </div>
+    <div class="bottom fade-up" style="transition-delay:.15s"><b>Stack &amp; partners:</b> [technologies, cloud / infrastructure, partners involved]</div>
+  </div>
+</section>
+
+<!-- ══ CASE TEMPLATE 2: duplicate this slide for every project ══ -->
+<section class="slide s-case">
+  <div class="pagenum">11</div>
+  <div class="inner">
+    <span class="tag fade-up">Case study · 02</span>
+    <h1 class="fade-up" style="transition-delay:.05s">[Project name] <em>[result in 2–4 words]</em></h1>
+    <div class="sub fade-up" style="transition-delay:.08s">[Customer · industry · country · year]</div>
+    <div class="case-grid fade-up" style="transition-delay:.1s">
+      <div class="items">
+        <div class="item">
+          <div class="item-num">1.</div>
+          <div><div class="item-t">Challenge</div>
+          <div class="item-b">[What problem the customer had — 1–2 sentences.]</div></div>
         </div>
+        <div class="item">
+          <div class="item-num">2.</div>
+          <div><div class="item-t">What we built</div>
+          <div class="item-b">[Solution and how Membria is used — agents, memory, verification, deployment model.]</div></div>
+        </div>
+        <div class="item">
+          <div class="item-num">3.</div>
+          <div><div class="item-t">Result</div>
+          <div class="item-b">[Measured outcome in production — time saved, errors avoided, adoption.]</div></div>
+        </div>
+      </div>
+      <div class="case-stats">
+        <div class="stat-card"><div class="snum">[00%]</div><div class="sdesc">[metric 1]</div></div>
+        <div class="stat-card"><div class="snum">[00x]</div><div class="sdesc">[metric 2]</div></div>
+        <div class="stat-card"><div class="snum">[00]</div><div class="sdesc">[metric 3]</div></div>
+      </div>
+    </div>
+    <div class="bottom fade-up" style="transition-delay:.15s"><b>Stack &amp; partners:</b> [technologies, cloud / infrastructure, partners involved]</div>
+  </div>
+</section>
+
+<!-- ══ CASE TEMPLATE 3: duplicate this slide for every project ══ -->
+<section class="slide s-case">
+  <div class="pagenum">12</div>
+  <div class="inner">
+    <span class="tag fade-up">Case study · 03</span>
+    <h1 class="fade-up" style="transition-delay:.05s">[Project name] <em>[result in 2–4 words]</em></h1>
+    <div class="sub fade-up" style="transition-delay:.08s">[Customer · industry · country · year]</div>
+    <div class="case-grid fade-up" style="transition-delay:.1s">
+      <div class="items">
+        <div class="item">
+          <div class="item-num">1.</div>
+          <div><div class="item-t">Challenge</div>
+          <div class="item-b">[What problem the customer had — 1–2 sentences.]</div></div>
+        </div>
+        <div class="item">
+          <div class="item-num">2.</div>
+          <div><div class="item-t">What we built</div>
+          <div class="item-b">[Solution and how Membria is used — agents, memory, verification, deployment model.]</div></div>
+        </div>
+        <div class="item">
+          <div class="item-num">3.</div>
+          <div><div class="item-t">Result</div>
+          <div class="item-b">[Measured outcome in production — time saved, errors avoided, adoption.]</div></div>
+        </div>
+      </div>
+      <div class="case-stats">
+        <div class="stat-card"><div class="snum">[00%]</div><div class="sdesc">[metric 1]</div></div>
+        <div class="stat-card"><div class="snum">[00x]</div><div class="sdesc">[metric 2]</div></div>
+        <div class="stat-card"><div class="snum">[00]</div><div class="sdesc">[metric 3]</div></div>
+      </div>
+    </div>
+    <div class="bottom fade-up" style="transition-delay:.15s"><b>Stack &amp; partners:</b> [technologies, cloud / infrastructure, partners involved]</div>
+  </div>
+</section>
+
+<!-- ══ TEAM DETAIL TEMPLATE ══ -->
+<section class="slide s-team">
+  <div class="pagenum">13</div>
+  <div class="inner">
+    <span class="tag fade-up">Team</span>
+    <h1 class="fade-up" style="transition-delay:.05s">The people <em>behind it</em></h1>
+    <div class="sub fade-up" style="transition-delay:.08s">[One sentence: combined experience and why this team can deliver for partners.]</div>
+    <div class="tcards fade-up" style="transition-delay:.12s">
+      <div class="tc">
+        <img src="team-photos/aprossine.webp" alt="Michael Aprossine">
+        <div class="tn">Michael Aprossine</div><div class="tr">CEO · Co-Founder</div>
+        <div class="tbio">[2–3 sentences: background, years of experience, what Michael owns at Membria.]</div>
+        <div class="tfocus"><b>Focus:</b> platform architecture, enterprise delivery<br><b>Previously:</b> [companies / projects]</div>
+      </div>
+      <div class="tc">
+        <img src="team-photos/khomenok.webp" alt="Philippe Khomenok">
+        <div class="tn">Philippe Khomenok</div><div class="tr">COO · Co-Founder</div>
+        <div class="tbio">[2–3 sentences: background, years of experience, what Philippe owns at Membria.]</div>
+        <div class="tfocus"><b>Focus:</b> strategic vision, go-to-market and growth<br><b>Previously:</b> [companies / projects]</div>
+      </div>
+      <div class="tc">
+        <img src="team-photos/keer.webp" alt="Mike Keer">
+        <div class="tn">Mike Keer</div><div class="tr">CTO</div>
+        <div class="tbio">[2–3 sentences: background, years of experience, what Mike owns at Membria.]</div>
+        <div class="tfocus"><b>Focus:</b> memory &amp; reasoning systems — fast, reliable, built to scale<br><b>Previously:</b> [companies / projects]</div>
+      </div>
+      <div class="tc">
+        <img src="team-photos/mayya-aprosina.webp" alt="Mayya Aprosina">
+        <div class="tn">Mayya Aprosina</div><div class="tr">UI/UX</div>
+        <div class="tbio">[2–3 sentences: background, years of experience, what Mayya owns at Membria.]</div>
+        <div class="tfocus"><b>Focus:</b> product design across CE, EPC and Code surfaces<br><b>Previously:</b> [companies / projects]</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ══ 12 MOAT: THREE COMMONS GRAPHS ══ -->
 <section class="slide">
-  <div class="pagenum">12</div>
+  <div class="pagenum">14</div>
+  <div class="inner">
+    <span class="tag fade-up">Partnership models</span>
+    <h1 class="fade-up" style="transition-delay:.05s">Technology <em>&amp; infrastructure</em></h1>
+    <div class="sub fade-up" style="transition-delay:.08s">Two partner tracks — pick one or combine them.</div>
+    <div class="grid4 fade-up" style="transition-delay:.12s;flex:1;min-height:0;">
+      <div class="card"><div class="onum">Technology</div><div class="ot">Agent &amp; developer platforms</div><div class="ob">Agent, IDE and workflow platforms embed Membria memory through MCP and A2A — your users get persistent, auditable experience out of the box.</div></div><div class="card"><div class="onum">Technology</div><div class="ot">AI, data &amp; tooling vendors</div><div class="ob">Connect your models, data pipelines or engineering tools to the shared knowledge graph: memory, verification and standards as a service inside your product.</div></div><div class="card"><div class="onum">Infrastructure</div><div class="ot">Cloud &amp; HPC providers</div><div class="ob">Host Membria for sovereign, self-hosted and on-premise deployments — with a joint route to enterprise and public-sector buyers.</div></div><div class="card"><div class="onum">Infrastructure</div><div class="ot">GPU &amp; hardware vendors</div><div class="ob">Co-optimise graph and inference workloads for your platform and publish reference deployments for AI-agent memory at scale.</div></div>
+    </div>
+    <div class="bottom fade-up" style="transition-delay:.16s"><b>Flexible by design:</b> commercial terms are agreed per partner. Start with a pilot, scale what works.</div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="pagenum">15</div>
   <div class="inner">
     <span class="tag fade-up">Moat</span>
     <h1 class="fade-up" style="transition-delay:.05s">Three EMPIRIA graphs, <em>day one</em></h1>
@@ -804,134 +894,20 @@ body { margin:0; height:100vh; height:100dvh; overflow:hidden; display:flex; ali
 </section>
 
 <!-- ══ 13 STANDARDS GRAPH ══ -->
-<section class="slide">
-  <div class="pagenum">13</div>
-  <div class="inner">
-    <span class="tag fade-up">Data moat</span>
-    <h1 class="fade-up" style="transition-delay:.05s;font-size:2.5em;margin:0.1em 0 0.35em;line-height:1.08;">The engineering knowledge graph <em>no one else has</em></h1>
-    <div class="stats s13-stats fade-up" style="grid-template-columns:repeat(4,1fr);flex:0 0 auto;transition-delay:.08s;margin-bottom:0.8em;">
-      <div class="stat-card dark"><div class="snum">20,000+</div><div class="sdesc">engineering standards processed — API · ASME · IEC · ISO · ГОСТ · DNV · NFPA · AWS · ASTM</div></div>
-      <div class="stat-card"><div class="snum">2.5M+</div><div class="sdesc">machine-extracted rules: ~1.2M prohibitions + ~1.3M best practices</div></div>
-      <div class="stat-card"><div class="snum">10,000+</div><div class="sdesc">equipment types mapped to rules across 20+ disciplines</div></div>
-      <div class="stat-card"><div class="snum">6</div><div class="sdesc">jurisdictions in one graph: US · EU · UK · Norway · CIS · International</div></div>
-    </div>
-    <div class="card fade-up" style="transition-delay:.12s;flex:1;min-height:0;padding:0.9em 1.5em;display:flex;flex-direction:column;justify-content:center;">
-      <div class="jur compact">
-        <div class="jur-row"><div class="jur-name">ISO</div><div class="jur-bar"><i style="width:100%"></i></div><div class="jur-n">~35,000</div></div>
-        <div class="jur-row"><div class="jur-name">IEC</div><div class="jur-bar"><i style="width:56%"></i></div><div class="jur-n">~10,900</div></div>
-        <div class="jur-row"><div class="jur-name">ASTM</div><div class="jur-bar"><i style="width:51%"></i></div><div class="jur-n">~9,200</div></div>
-        <div class="jur-row"><div class="jur-name">ГОСТ (CIS)</div><div class="jur-bar"><i style="width:23%"></i></div><div class="jur-n">~1,800</div></div>
-        <div class="jur-row"><div class="jur-name">API</div><div class="jur-bar"><i style="width:22%"></i></div><div class="jur-n">~1,760</div></div>
-        <div class="jur-row"><div class="jur-name">ASME</div><div class="jur-bar"><i style="width:19%"></i></div><div class="jur-n">~1,200</div></div>
-        <div class="jur-row"><div class="jur-name">NFPA</div><div class="jur-bar"><i style="width:15%"></i></div><div class="jur-n">~760</div></div>
-        <div class="jur-row"><div class="jur-name">DNV</div><div class="jur-bar"><i style="width:14%"></i></div><div class="jur-n">~700</div></div>
-        <div class="jur-row"><div class="jur-name">AWS</div><div class="jur-bar"><i style="width:11%"></i></div><div class="jur-n">~450</div></div>
-      </div>
-      <div style="font-size:0.66em;color:var(--muted);margin-top:0.6em;">+ ACI · EEMUA · WRC · HI · FM · CGA · NORSOK · Eurocode — bars on a sqrt scale for readability</div>
-    </div>
-    <div class="bottom fade-up" style="transition-delay:.15s;margin-top:0.7em;padding:0.6em 1.2em;"><b>Prohibitions + best practices, one graph.</b> No incumbent has anything like it — in any jurisdiction.</div>
-  </div>
-</section>
 
-<!-- ══ 14 CODE PROOF ENGINE ══ -->
-<section class="slide">
-  <div class="pagenum">14</div>
-  <div class="inner">
-    <span class="tag fade-up">Proof engine</span>
-    <h1 class="fade-up" style="transition-delay:.05s">Code: evidence, <em>not opinions</em></h1>
-    <div class="sub fade-up" style="transition-delay:.08s">Membria CE is live for solo developers — and every session strengthens the shared graph the enterprise products run on.</div>
-    <div class="stats fade-up" style="grid-template-columns:repeat(4,1fr);flex:0 0 auto;transition-delay:.1s;margin-bottom:1em;">
-      <div class="stat-card"><div class="snum">96.5K</div><div class="sdesc">production repos mined by the CodeDigger crawler</div></div>
-      <div class="stat-card"><div class="snum">7,448</div><div class="sdesc">anti-patterns cross-validated with an objective removal-rate signal</div></div>
-      <div class="stat-card dark"><div class="snum">~570K</div><div class="sdesc">Skills + AntiPatterns live today — scaling toward 1–2M</div></div>
-      <div class="stat-card"><div class="snum">1</div><div class="sdesc">command to connect: npx @membria/cli init</div></div>
-    </div>
-    <div class="items fade-up" style="transition-delay:.13s">
-      <div class="item">
-        <div class="item-num">→</div>
-        <div><div class="item-t">Removal-rate: the signal nobody else mines</div>
-        <div class="item-b">The share of pull requests that delete a pattern, computed from commit archaeology — historical evidence from real codebases, not scraped opinions.</div></div>
-      </div>
-      <div class="item">
-        <div class="item-num">→</div>
-        <div><div class="item-t">PLG funnel feeds the moat</div>
-        <div class="item-b">Solo developers adopt in one command; their validated experience compounds the commons graph that enterprise and vertical products query.</div></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ══ 15 COMPETITION ══ -->
-<section class="slide">
-  <div class="pagenum">15</div>
-  <div class="inner">
-    <span class="tag fade-up">Competition</span>
-    <h1 class="fade-up" style="transition-delay:.05s">Nobody <em>remembers</em></h1>
-    <div class="tbl-wrap fade-up" style="transition-delay:.1s;flex:1;min-height:0;">
-      <table class="mtx">
-        <thead>
-          <tr>
-            <th>Capability</th>
-            <th class="us">Membria</th>
-            <th>Autodesk</th>
-            <th>Bentley</th>
-            <th>AVEVA</th>
-            <th>Procore</th>
-            <th>Symphony&nbsp;AI</th>
-            <th>Palantir<br>Foundry</th>
-            <th>mem0 · Zep<br>Letta</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td>Persistent memory across sessions</td><td class="us"><span class="mk mk-y">✓</span></td><td><span class="mk mk-n">—</span></td><td><span class="mk mk-n">—</span></td><td><span class="mk mk-n">—</span></td><td><span class="mk mk-n">—</span></td><td><span class="mk mk-n">—</span></td><td><span class="mk mk-p">~</span></td><td><span class="mk mk-y">✓</span></td></tr>
-          <tr><td>Decision → outcome provenance</td><td class="us"><span class="mk mk-y">✓</span></td><td><span class="mk mk-n">—</span></td><td><span class="mk mk-n">—</span></td><td><span class="mk mk-n">—</span></td><td><span class="mk mk-n">—</span></td><td><span class="mk mk-n">—</span></td><td><span class="mk mk-p">~</span></td><td><span class="mk mk-n">—</span></td></tr>
-          <tr><td>Negative knowledge — what already failed</td><td class="us"><span class="mk mk-y">✓</span></td><td><span class="mk mk-n">—</span></td><td><span class="mk mk-n">—</span></td><td><span class="mk mk-n">—</span></td><td><span class="mk mk-n">—</span></td><td><span class="mk mk-n">—</span></td><td><span class="mk mk-n">—</span></td><td><span class="mk mk-n">—</span></td></tr>
-          <tr><td>Verification &amp; quality gates</td><td class="us"><span class="mk mk-y">✓</span></td><td><span class="mk mk-p">~</span></td><td><span class="mk mk-p">~</span></td><td><span class="mk mk-p">~</span></td><td><span class="mk mk-n">—</span></td><td><span class="mk mk-n">—</span></td><td><span class="mk mk-p">~</span></td><td><span class="mk mk-n">—</span></td></tr>
-          <tr><td>Standards graph — ISO · API · ASME</td><td class="us"><span class="mk mk-y">✓</span></td><td><span class="mk mk-n">—</span></td><td><span class="mk mk-n">—</span></td><td><span class="mk mk-n">—</span></td><td><span class="mk mk-n">—</span></td><td><span class="mk mk-n">—</span></td><td><span class="mk mk-n">—</span></td><td><span class="mk mk-n">—</span></td></tr>
-          <tr><td>EPC domain depth</td><td class="us"><span class="mk mk-y">✓</span></td><td><span class="mk mk-y">✓</span></td><td><span class="mk mk-y">✓</span></td><td><span class="mk mk-y">✓</span></td><td><span class="mk mk-y">✓</span></td><td><span class="mk mk-p">~</span></td><td><span class="mk mk-p">~</span></td><td><span class="mk mk-n">—</span></td></tr>
-          <tr><td>Works with any agent via MCP</td><td class="us"><span class="mk mk-y">✓</span></td><td><span class="mk mk-n">—</span></td><td><span class="mk mk-n">—</span></td><td><span class="mk mk-n">—</span></td><td><span class="mk mk-n">—</span></td><td><span class="mk mk-n">—</span></td><td><span class="mk mk-n">—</span></td><td><span class="mk mk-y">✓</span></td></tr>
-          <tr><td>Multi-agent orchestration</td><td class="us"><span class="mk mk-y">✓</span></td><td><span class="mk mk-n">—</span></td><td><span class="mk mk-n">—</span></td><td><span class="mk mk-n">—</span></td><td><span class="mk mk-n">—</span></td><td><span class="mk mk-n">—</span></td><td><span class="mk mk-y">✓</span></td><td><span class="mk mk-n">—</span></td></tr>
-          <tr><td>Experience compounds across projects</td><td class="us"><span class="mk mk-y">✓</span></td><td><span class="mk mk-n">—</span></td><td><span class="mk mk-n">—</span></td><td><span class="mk mk-n">—</span></td><td><span class="mk mk-n">—</span></td><td><span class="mk mk-n">—</span></td><td><span class="mk mk-n">—</span></td><td><span class="mk mk-n">—</span></td></tr>
-          <tr><td>Serves small &amp; mid-size business</td><td class="us"><span class="mk mk-y">✓</span></td><td><span class="mk mk-y">✓</span></td><td><span class="mk mk-p">~</span></td><td><span class="mk mk-n">—</span></td><td><span class="mk mk-y">✓</span></td><td><span class="mk mk-n">—</span></td><td><span class="mk mk-n">—</span></td><td><span class="mk mk-y">✓</span></td></tr>
-          <tr><td>Installed base &amp; distribution</td><td class="us"><span class="mk mk-p">~</span></td><td><span class="mk mk-y">✓</span></td><td><span class="mk mk-y">✓</span></td><td><span class="mk mk-y">✓</span></td><td><span class="mk mk-y">✓</span></td><td><span class="mk mk-p">~</span></td><td><span class="mk mk-y">✓</span></td><td><span class="mk mk-p">~</span></td></tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="bottom fade-up" style="transition-delay:.14s"><span class="mtx-key"><b class="mk-y">✓</b> yes · <b class="mk-p">~</b> partial · <b class="mk-n">—</b> no</span> &nbsp;·&nbsp; <b>The real competition is inertia:</b> Excel + "it works fine as is." Every project starts from a blank page — that is the memory problem, and it's solvable.</div>
-  </div>
-</section>
-
-<!-- ══ 16 MODEL & ROADMAP ══ -->
 <section class="slide">
   <div class="pagenum">16</div>
   <div class="inner">
-    <span class="tag fade-up">Model &amp; roadmap</span>
-    <h1 class="fade-up" style="transition-delay:.05s">Sequencing, not <em>spreading</em></h1>
-    <div class="sub fade-up" style="transition-delay:.08s">CE subscriptions for solo developers · per-seat team plans · self-hosted enterprise license · EPC per-project pricing.</div>
-    <div class="ladder fade-up" style="transition-delay:.12s">
-      <div class="card step p1">
-        <div class="phase-lbl">Now</div>
-        <div class="onum">Foundation</div>
-        <div class="orev"><b>€500K</b> revenue by end of 2026</div>
-        <div class="ob">1 bank + 1 government, live<br>EPC pilots in engineering<br>CE &amp; EPC SaaS launching in parallel<br>100+ seats in production</div>
-      </div>
-      <div class="card step p2">
-        <div class="phase-lbl">Next 12 months</div>
-        <div class="onum">EPC revenue</div>
-        <div class="orev"><b>€2M</b> revenue in 2027</div>
-        <div class="ob">first EPC contracts<br>Glass audit beta<br>commons → 1–2M nodes<br>ISO 27001 / SOC 2 path</div>
-      </div>
-      <div class="card step p3">
-        <div class="phase-lbl">24 months</div>
-        <div class="onum">Memory-plane API</div>
-        <div class="orev"><b>€6M</b> revenue in 2028</div>
-        <div class="ob">open experience layer<br>any agent, any vendor<br>cross-industry commons<br>platform economics</div>
-      </div>
+    <span class="tag fade-up">How we start</span>
+    <h1 class="fade-up" style="transition-delay:.05s">From first call <em>to co-launch</em></h1>
+    <div class="sub fade-up" style="transition-delay:.08s">A short, low-risk path — you see the value before committing.</div>
+    <div class="grid4 fade-up" style="transition-delay:.12s;flex:1;min-height:0;">
+      <div class="card"><div class="onum">01</div><div class="ot">Align</div><div class="ob">Share your platform or infrastructure and the customers you serve; we map where memory, verification or knowledge add value.</div></div><div class="card"><div class="onum">02</div><div class="ot">Pilot</div><div class="ob">Connect with one command and run a scoped pilot on your own stack, with our engineers alongside.</div></div><div class="card"><div class="onum">03</div><div class="ot">Integrate</div><div class="ob">Embed Membria or deploy it on your infrastructure; agree deployment model, support and security review.</div></div><div class="card"><div class="onum">04</div><div class="ot">Co-launch</div><div class="ob">Go to market together: reference deployments, joint case studies and a shared pipeline.</div></div>
     </div>
+    <div class="bottom fade-up" style="transition-delay:.16s"><b>Start in minutes:</b> <span style="font-family:monospace">npx @membria/cli init</span> — then talk to us at <b>hi@actiq.ai</b></div>
   </div>
 </section>
 
-<!-- ══ 17 TEAM & ASK — CLOSING ══ -->
 <section class="slide s-close">
   <div class="pagenum" style="color:var(--coral)">17</div>
   <div class="inner">
@@ -943,8 +919,8 @@ body { margin:0; height:100vh; height:100dvh; overflow:hidden; display:flex; ali
       </div>
     </div>
     <div class="right">
-      <span class="tag fade-up">Team &amp; Ask</span>
-      <h1 class="fade-up" style="transition-delay:.05s">Let's Work Together</h1>
+      <span class="tag fade-up">Partner with us</span>
+      <h1 class="fade-up" style="transition-delay:.05s">Let's Build Together</h1>
       <div class="team-row fade-up" style="transition-delay:.08s">
         <div class="tmember">
           <img class="tphoto" src="team-photos/aprossine.webp" alt="Michael Aprossine">
@@ -965,18 +941,20 @@ body { margin:0; height:100vh; height:100dvh; overflow:hidden; display:flex; ali
       </div>
       <div class="tbl-wrap fade-up" style="transition-delay:.12s">
         <table class="dtbl">
-          <thead><tr><th>Ask</th><th>Detail</th></tr></thead>
+          <thead><tr><th>Partner with us</th><th>Detail</th></tr></thead>
           <tbody>
-            <tr><td>Traction</td><td>1 bank + 1 government live enterprise · multiple EPC engineering pilots · 100+ seats deployed · CE &amp; EPC SaaS launching in parallel</td></tr>
-            <tr><td>Raising</td><td>€500K pre-seed on a €5M pre-revenue valuation</td></tr>
-            <tr><td>Use of funds</td><td>EPC go-to-market · core team to 7 · 18 months runway to Series A</td></tr>
-            <tr><td>Contact</td><td>hi@actiq.ai · membria.ai · code.membria.ai · epc.membria.ai · glass.membria.ai (soon)</td></tr>
+            <tr><td>Who we look for</td><td>technology: agent &amp; developer platforms, AI, data and tooling vendors · infrastructure: cloud, HPC, GPU and hardware providers</td></tr>
+            <tr><td>Proof</td><td>1 bank + 1 government live enterprise · 100+ seats deployed · technology partners NVIDIA · AWS · LuxProvide</td></tr>
+            <tr><td>Next step</td><td>30-minute intro call, then a scoped pilot</td></tr>
+            <tr><td>Contact</td><td>hi@actiq.ai · membria.ai · code.membria.ai · epc.membria.ai</td></tr>
           </tbody>
         </table>
       </div>
     </div>
   </div>
 </section>
+
+
 
 </div>
 
