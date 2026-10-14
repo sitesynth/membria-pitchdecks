@@ -174,7 +174,8 @@ body { margin:0; height:100vh; height:100dvh; overflow:hidden; display:flex; ali
 /* who-we-are photo cards */
 .who-cards { display:grid; grid-template-columns:repeat(4,1fr); gap:1em; flex:1; min-height:0; }
 .who-cards .card { padding:0; overflow:hidden; display:flex; flex-direction:column; height:100%; }
-.who-cards .card-img { flex:1; width:100%; min-height:0; object-fit:cover; display:block; }
+.who-cards .card-media { flex:1; position:relative; min-height:0; overflow:hidden; }
+.who-cards .card-img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; }
 .who-cards .card-body { padding:1.1em 1.2em 1.3em; flex-shrink:0; }
 .who-cards .ct { font-family:var(--serif); font-size:1.08em; font-weight:400; color:var(--ink); margin-bottom:0.45em; letter-spacing:-0.01em; }
 .who-cards .cb-sub { font-size:0.72em; font-weight:600; color:var(--coral); margin-bottom:0.42em; letter-spacing:0.01em; }
@@ -407,7 +408,7 @@ body { margin:0; height:100vh; height:100dvh; overflow:hidden; display:flex; ali
     <h1 class="fade-up" style="transition-delay:.05s">Who We Are</h1>
     <div class="who-cards fade-up" style="transition-delay:.1s">
       <div class="card">
-        <img class="card-img" src="who1.jpg" alt="Actiquest">
+        <div class="card-media"><img class="card-img" src="who1.jpg" alt="Actiquest"></div>
         <div class="card-body">
           <div class="ct">Actiquest Labs</div>
           <div class="cb-sub">Applied AI Systems Company</div>
@@ -415,7 +416,7 @@ body { margin:0; height:100vh; height:100dvh; overflow:hidden; display:flex; ali
         </div>
       </div>
       <div class="card">
-        <img class="card-img" src="who2.jpg" alt="Membria">
+        <div class="card-media"><img class="card-img" src="who2.jpg" alt="Membria"></div>
         <div class="card-body">
           <div class="ct">Membria.AI</div>
           <div class="cb-sub">AI Operating Environment</div>
@@ -423,7 +424,7 @@ body { margin:0; height:100vh; height:100dvh; overflow:hidden; display:flex; ali
         </div>
       </div>
       <div class="card">
-        <img class="card-img" src="who3.jpg" alt="Vertical Expertise">
+        <div class="card-media"><img class="card-img" src="who3.jpg" alt="Vertical Expertise"></div>
         <div class="card-body">
           <div class="ct">Vertical Expertise</div>
           <div class="cb-sub">Code · Fintech · Government · Audit · EPC</div>
@@ -431,7 +432,7 @@ body { margin:0; height:100vh; height:100dvh; overflow:hidden; display:flex; ali
         </div>
       </div>
       <div class="card">
-        <img class="card-img" src="who4.jpg" alt="How We Work">
+        <div class="card-media"><img class="card-img" src="who4.jpg" alt="How We Work"></div>
         <div class="card-body">
           <div class="ct">How We Work</div>
           <div class="cb-sub">Applied AI Engineering</div>
