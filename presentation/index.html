@@ -740,16 +740,16 @@ body { margin:0; height:100vh; height:100dvh; overflow:hidden; display:flex; ali
       <table class="dtbl">
         <thead><tr><th>Project</th><th>Customer / domain</th><th>What we built</th><th>Status</th></tr></thead>
         <tbody>
-          <tr><td>Membria CE</td><td>solo developers · Claude Code, Codex, Cursor</td><td>experience layer for coding agents: decisions, outcomes and failures over one MCP endpoint</td><td><span class="badge badge-live">SaaS · live</span></td></tr>
-          <tr><td>Membria CLI</td><td>engineering teams · inside the customer perimeter</td><td>SDLC harness: spec-to-release pipeline of agent roles with gates, policy and shared memory</td><td><span class="badge badge-soon">Demo · design partners</span></td></tr>
-          <tr><td>AI-EPC</td><td>EPC contractors &amp; design institutes</td><td>tender to issued package across 17 engineering disciplines, checked against standards</td><td><span class="badge badge-live">Live demo</span></td></tr>
-          <tr><td>Crypto broker platform</td><td>licensed virtual-asset broker · Central Asia</td><td>data bus and decision memory between the execution and compliance tracks</td><td><span class="badge badge-soon">In build · dev stand</span></td></tr>
-          <tr><td>Bank automation</td><td>developer-owned bank</td><td>regulatory reporting, mortgage pipeline and escrow assistants</td><td><span class="badge badge-blue">Pilot proposal</span></td></tr>
-          <tr><td>C2 Center AI</td><td>government emergency response</td><td>early warning and zone access control with human approval, on-premise</td><td><span class="badge badge-blue">Target workflow</span></td></tr>
+          <tr><td>Membria CE</td><td>solo developers · Claude Code, Codex, Cursor</td><td>remembers every decision and what happened next, so coding agents stop repeating mistakes</td><td><span class="badge badge-live">SaaS</span></td></tr>
+          <tr><td>Membria CLI</td><td>engineering teams · inside the customer perimeter</td><td>one delivery pipeline for a team's agents, from spec to release, with gates, policy and audit</td><td><span class="badge badge-blue">On-Premise</span></td></tr>
+          <tr><td>AI-EPC</td><td>EPC contractors &amp; design institutes</td><td>turns a tender folder into a checked, issued engineering package across 17 disciplines</td><td><span class="badge badge-live">SaaS</span></td></tr>
+          <tr><td>Crypto broker platform</td><td>licensed virtual-asset broker · Central Asia</td><td>data bus and decision memory that connect execution and compliance</td><td><span class="badge badge-blue">On-Premise</span></td></tr>
+          <tr><td>Bank automation</td><td>developer-owned bank</td><td>regulatory report specs, mortgage checks and escrow rules, drafted and validated by agents</td><td><span class="badge badge-blue">On-Premise</span></td></tr>
+          <tr><td>C2 Center AI</td><td>government emergency response</td><td>early warning and road-closure control, with every decision approved by a person</td><td><span class="badge badge-blue">On-Premise</span></td></tr>
         </tbody>
       </table>
     </div>
-    <div class="bottom fade-up" style="transition-delay:.15s"><b>Honest status:</b> CE is live, the others range from demo and development to target workflows. Client names are withheld; each case marks what is built and what is target.</div>
+    <div class="bottom fade-up" style="transition-delay:.15s"><b>Two delivery models:</b> SaaS to start in minutes, On-Premise inside the customer's perimeter. Client names are withheld.</div>
   </div>
 </section>
 
@@ -760,16 +760,16 @@ body { margin:0; height:100vh; height:100dvh; overflow:hidden; display:flex; ali
   <div class="inner">
     <span class="tag fade-up">Case study · 01</span>
     <h1 class="fade-up" style="transition-delay:.05s">Membria CE <em>learns from reverts</em></h1>
-    <div class="sub fade-up" style="transition-delay:.08s">Solo developers · Claude Code, Codex, Cursor · live SaaS</div>
+    <div class="sub fade-up" style="transition-delay:.08s">Solo developers · Claude Code, Codex, Cursor · SaaS</div>
     <div class="case-grid fade-up" style="transition-delay:.1s">
       <div class="items">
-        <div class="item"><div class="item-num">1.</div><div><div class="item-t">Challenge</div><div class="item-b">Coding agents start every session from zero. A fix reverted two weeks ago is proposed again, because the lesson lives in an old transcript, not in memory.</div></div></div>
-        <div class="item"><div class="item-num">2.</div><div><div class="item-t">What we built</div><div class="item-b">An experience layer beside any harness, connected through one MCP endpoint. It records each decision with its alternatives and confidence, and attaches outcomes from git reverts, CI and merged PRs.</div></div></div>
-        <div class="item"><div class="item-num">3.</div><div><div class="item-t">Result</div><div class="item-b">Failures become warnings before the next similar choice, and confidence is calibrated per domain. A read-only commons from real repositories means day one is not empty.</div></div></div>
+        <div class="item"><div class="item-num">1.</div><div><div class="item-t">The situation</div><div class="item-b">A developer asks the agent to add caching to an API client. The agent reaches for an in-memory LRU — the same choice that broke under multi-worker deploys and was reverted two weeks ago.</div></div></div>
+        <div class="item"><div class="item-num">2.</div><div><div class="item-t">How it works</div><div class="item-b">Before choosing, the agent asks Membria for decision context. It gets the reverted decision with its lesson (per-process cache, inconsistent across workers) and a signal from the commons: most projects that adopt this pattern later remove it.</div></div></div>
+        <div class="item"><div class="item-num">3.</div><div><div class="item-t">The result</div><div class="item-b">The agent picks a shared cache and records the decision with its alternatives. When the change survives, the outcome attaches itself from git and CI — nobody writes a post-mortem.</div></div></div>
       </div>
-      <div class="case-stats"><div class="stat-card"><div class="snum">96.5K</div><div class="sdesc">production repos mined</div></div><div class="stat-card"><div class="snum">~570K</div><div class="sdesc">Skills + AntiPatterns live</div></div><div class="stat-card"><div class="snum">1</div><div class="sdesc">command to connect</div></div></div>
+      <div class="case-stats"><div class="stat-card"><div class="snum">96.5K</div><div class="sdesc">production repos mined</div></div><div class="stat-card"><div class="snum">~570K</div><div class="sdesc">Skills + AntiPatterns</div></div><div class="stat-card"><div class="snum">1</div><div class="sdesc">command to connect</div></div></div>
     </div>
-    <div class="bottom fade-up" style="transition-delay:.15s"><b>Stack &amp; partners:</b> MCP · Claude Code · Codex · Cursor · cloud SaaS or self-hosted · code.membria.ai</div>
+    <div class="bottom fade-up" style="transition-delay:.15s"><b>Stack &amp; partners:</b> MCP · Claude Code · Codex · Cursor · code.membria.ai</div>
   </div>
 </section>
 
@@ -780,16 +780,16 @@ body { margin:0; height:100vh; height:100dvh; overflow:hidden; display:flex; ali
   <div class="inner">
     <span class="tag fade-up">Case study · 02</span>
     <h1 class="fade-up" style="transition-delay:.05s">Membria CLI <em>agents as one team</em></h1>
-    <div class="sub fade-up" style="transition-delay:.08s">Engineering teams · small team or inside the customer perimeter · demo with design partners</div>
+    <div class="sub fade-up" style="transition-delay:.08s">Engineering teams · inside the customer perimeter · On-Premise</div>
     <div class="case-grid fade-up" style="transition-delay:.1s">
       <div class="items">
-        <div class="item"><div class="item-num">1.</div><div><div class="item-t">Challenge</div><div class="item-b">Per-seat agents speed up individuals and slow down teams: no shared process, no shared memory, and no way to say which agent did what under whose approval.</div></div></div>
-        <div class="item"><div class="item-num">2.</div><div><div class="item-t">What we built</div><div class="item-b">A team SDLC harness: spec, design, plan, code, test, docs, review, release — run by agent roles on a shared graph, with hard quality gates, policy, approvals and audit.</div></div></div>
-        <div class="item"><div class="item-num">3.</div><div><div class="item-t">Result</div><div class="item-b">Every decision and outcome is recorded; a revert marks a decision failed for every engineer and agent. Any model per role, with the team graph kept in the customer perimeter.</div></div></div>
+        <div class="item"><div class="item-num">1.</div><div><div class="item-t">The situation</div><div class="item-b">A team of six has to add rate limiting to the public API. Instead of six separate agent sessions, the task enters one pipeline: Researcher, Planner, Developer, Reviewer and Gate.</div></div></div>
+        <div class="item"><div class="item-num">2.</div><div><div class="item-t">How it works</div><div class="item-b">The Researcher surfaces a per-process counter the team shipped and reverted last year. The Planner builds the plan against CodeGraph and adds a load test. An engineer's own Claude Code takes the Developer seat over MCP.</div></div></div>
+        <div class="item"><div class="item-num">3.</div><div><div class="item-t">The result</div><div class="item-b">The Gate blocks the first attempt for missing load-test evidence and passes the second. Every step has an actor, a model, a policy decision and an audit record, and the team graph never leaves the perimeter.</div></div></div>
       </div>
-      <div class="case-stats"><div class="stat-card"><div class="snum">8</div><div class="sdesc">pipeline phases, spec to release</div></div><div class="stat-card"><div class="snum">5</div><div class="sdesc">agent roles incl. a blocking gate</div></div><div class="stat-card"><div class="snum">2</div><div class="sdesc">run modes: team and enterprise</div></div></div>
+      <div class="case-stats"><div class="stat-card"><div class="snum">8</div><div class="sdesc">pipeline phases, spec to release</div></div><div class="stat-card"><div class="snum">5</div><div class="sdesc">agent roles, one blocking gate</div></div><div class="stat-card"><div class="snum">100%</div><div class="sdesc">of the team graph stays in the perimeter</div></div></div>
     </div>
-    <div class="bottom fade-up" style="transition-delay:.15s"><b>Stack &amp; partners:</b> MCP · OIDC / SSO · OPA · any LLM provider · self-hosted or inside the perimeter</div>
+    <div class="bottom fade-up" style="transition-delay:.15s"><b>Stack &amp; partners:</b> MCP · OIDC / SSO · OPA · any LLM provider</div>
   </div>
 </section>
 
@@ -800,16 +800,16 @@ body { margin:0; height:100vh; height:100dvh; overflow:hidden; display:flex; ali
   <div class="inner">
     <span class="tag fade-up">Case study · 03</span>
     <h1 class="fade-up" style="transition-delay:.05s">AI-EPC <em>from tender to issue</em></h1>
-    <div class="sub fade-up" style="transition-delay:.08s">EPC contractors &amp; design institutes · live demo · the full flow below is the target state</div>
+    <div class="sub fade-up" style="transition-delay:.08s">EPC contractors &amp; design institutes · SaaS</div>
     <div class="case-grid fade-up" style="transition-delay:.1s">
       <div class="items">
-        <div class="item"><div class="item-num">1.</div><div><div class="item-t">Challenge</div><div class="item-b">A tender arrives as a folder of specs, drawings and catalogues. Requirements get missed, disciplines drift apart, and a late clause becomes rework — 28% of budget overruns.</div></div></div>
-        <div class="item"><div class="item-num">2.</div><div><div class="item-t">What we built</div><div class="item-b">Reads the tender into a cited requirements register, then builds the engineering level by level. Models propose; rules, codes and catalogues accept or reject. Every value has a source or a recorded decision.</div></div></div>
-        <div class="item"><div class="item-num">3.</div><div><div class="item-t">Result</div><div class="item-b">A consistent package per the contracted register, with an evidence trail behind each document. Engineers approve at every gate; the system never stamps or certifies.</div></div></div>
+        <div class="item"><div class="item-num">1.</div><div><div class="item-t">The situation</div><div class="item-b">An EPC contractor uploads a tender folder: specifications, drawings, vendor catalogues, contract terms. This is where requirements get missed, and a late clause turns into rework — 28% of budget overruns.</div></div></div>
+        <div class="item"><div class="item-num">2.</div><div><div class="item-t">How it works</div><div class="item-b">AI-EPC reads every file, scanned pages included, into a requirements register where each line cites its source clause. It builds the design level by level: models propose, rules, codes and catalogues accept or reject, and unknown values become questions to the customer.</div></div></div>
+        <div class="item"><div class="item-num">3.</div><div><div class="item-t">The result</div><div class="item-b">Each discipline lead approves documents at a gate, and a change in one place reaches every dependent sheet. The contractor issues a consistent package with an evidence trail behind each document. Engineers sign; the system never stamps.</div></div></div>
       </div>
-      <div class="case-stats"><div class="stat-card"><div class="snum">17</div><div class="sdesc">engineering disciplines in scope</div></div><div class="stat-card"><div class="snum">20,000+</div><div class="sdesc">standards processed into the graph</div></div><div class="stat-card"><div class="snum">5</div><div class="sdesc">approval gates, G0 to G4</div></div></div>
+      <div class="case-stats"><div class="stat-card"><div class="snum">17</div><div class="sdesc">engineering disciplines</div></div><div class="stat-card"><div class="snum">20,000+</div><div class="sdesc">standards in the graph</div></div><div class="stat-card"><div class="snum">5</div><div class="sdesc">approval gates, G0 to G4</div></div></div>
     </div>
-    <div class="bottom fade-up" style="transition-delay:.15s"><b>Stack &amp; partners:</b> DXF · DEXPI · IFC · ISO / IEC / ASME / API / GOST · on-premise or cloud · epc.membria.ai</div>
+    <div class="bottom fade-up" style="transition-delay:.15s"><b>Stack &amp; partners:</b> DXF · DEXPI · IFC · ISO / IEC / ASME / API / GOST · epc.membria.ai</div>
   </div>
 </section>
 
@@ -820,16 +820,16 @@ body { margin:0; height:100vh; height:100dvh; overflow:hidden; display:flex; ali
   <div class="inner">
     <span class="tag fade-up">Case study · 04</span>
     <h1 class="fade-up" style="transition-delay:.05s">Crypto broker <em>one data bus</em></h1>
-    <div class="sub fade-up" style="transition-delay:.08s">Licensed virtual-asset broker · Central Asia · client anonymised · dev stand</div>
+    <div class="sub fade-up" style="transition-delay:.08s">Licensed virtual-asset broker · Central Asia · client anonymised · On-Premise</div>
     <div class="case-grid fade-up" style="transition-delay:.1s">
       <div class="items">
-        <div class="item"><div class="item-num">1.</div><div><div class="item-t">Challenge</div><div class="item-b">Two vendors build execution and compliance in parallel with no shared contract. Nobody can say why a transaction was blocked, and personal data must stay out of shared systems.</div></div></div>
-        <div class="item"><div class="item-num">2.</div><div><div class="item-t">What we built</div><div class="item-b">Membria owns the data bus and decision memory: a Kafka backbone with a catalog of 38 event types, schema-validated and replayable, and a graph of 42 object types. No personal-data profiles are stored.</div></div></div>
-        <div class="item"><div class="item-num">3.</div><div><div class="item-t">Result</div><div class="item-b">Both vendors integrate against one documented contract. Compliance asks in plain language why an operation was blocked and gets the chain with its source events; encrypted backups are restore-tested automatically.</div></div></div>
+        <div class="item"><div class="item-num">1.</div><div><div class="item-t">The situation</div><div class="item-b">A licensed broker runs execution and compliance as two parallel tracks built by two vendors. An operation must not execute until compliance has decided on it, and personal data must stay out of shared systems.</div></div></div>
+        <div class="item"><div class="item-num">2.</div><div><div class="item-t">How it works</div><div class="item-b">Membria owns the data bus and decision memory between the tracks: a Kafka backbone with 38 schema-validated event types and a graph of 42 object types. A client's status and every operation decision travel to the other track over the bus.</div></div></div>
+        <div class="item"><div class="item-num">3.</div><div><div class="item-t">The result</div><div class="item-b">A compliance officer asks in plain language why an operation was blocked and gets the full chain — screening result, limit breaches, approval steps — with the source events. Both vendors integrate against one documented contract.</div></div></div>
       </div>
-      <div class="case-stats"><div class="stat-card"><div class="snum">38</div><div class="sdesc">event types on one bus</div></div><div class="stat-card"><div class="snum">376</div><div class="sdesc">automated tests passing</div></div><div class="stat-card"><div class="snum">~6 wks</div><div class="sdesc">first full cycle, dev stand</div></div></div>
+      <div class="case-stats"><div class="stat-card"><div class="snum">38</div><div class="sdesc">event types on one bus</div></div><div class="stat-card"><div class="snum">376</div><div class="sdesc">automated tests passing</div></div><div class="stat-card"><div class="snum">~6 wks</div><div class="sdesc">from design to first full cycle</div></div></div>
     </div>
-    <div class="bottom fade-up" style="transition-delay:.15s"><b>Stack &amp; partners:</b> Kafka · Memgraph · Qdrant · FastAPI · Python · Membria Memory Contract API</div>
+    <div class="bottom fade-up" style="transition-delay:.15s"><b>Stack &amp; partners:</b> Kafka · Memgraph · Qdrant · FastAPI · Python</div>
   </div>
 </section>
 
@@ -839,17 +839,17 @@ body { margin:0; height:100vh; height:100dvh; overflow:hidden; display:flex; ali
   <div class="pagenum">15</div>
   <div class="inner">
     <span class="tag fade-up">Case study · 05</span>
-    <h1 class="fade-up" style="transition-delay:.05s">Bank pilot <em>reporting &amp; mortgage</em></h1>
-    <div class="sub fade-up" style="transition-delay:.08s">Developer-owned bank · regulatory reporting, mortgage and escrow · pilot proposal</div>
+    <h1 class="fade-up" style="transition-delay:.05s">Bank <em>reporting &amp; mortgage</em></h1>
+    <div class="sub fade-up" style="transition-delay:.08s">Developer-owned bank · regulatory reporting, mortgage and escrow · On-Premise</div>
     <div class="case-grid fade-up" style="transition-delay:.1s">
       <div class="items">
-        <div class="item"><div class="item-num">1.</div><div><div class="item-t">Challenge</div><div class="item-b">Dense regulation and repetitive expert work: central-bank report specs take 2–5 business days, mortgage review is a 40+ field manual checklist, escrow specs are copied per project.</div></div></div>
-        <div class="item"><div class="item-num">2.</div><div><div class="item-t">What we built</div><div class="item-b">A three-phase pilot on the bank's own LLM choice: a reporting assistant, a mortgage pipeline assistant, then ecosystem intelligence. Graphs hold the object model, regulatory forms and escrow rules; skills keep mappings that worked.</div></div></div>
-        <div class="item"><div class="item-num">3.</div><div><div class="item-t">Result</div><div class="item-b">Targets: report specification from 2–5 days to 1–4 hours, mortgage cycle from days to hours for standard cases, and regulatory changes traced to every affected spec.</div></div></div>
+        <div class="item"><div class="item-num">1.</div><div><div class="item-t">The situation</div><div class="item-b">Methodologists spend 2–5 business days on each central-bank report specification. Mortgage review is a 40+ field manual checklist, and escrow specs are copied from the previous project.</div></div></div>
+        <div class="item"><div class="item-num">2.</div><div><div class="item-t">How it works</div><div class="item-b">A reporting assistant writes the specification from a free-form task, using graphs of the bank's object model and the regulator's forms. Skills keep the mappings that worked; rejected mappings are never proposed again. A mortgage assistant checks each application against project and escrow data.</div></div></div>
+        <div class="item"><div class="item-num">3.</div><div><div class="item-t">The result</div><div class="item-b">A specification is ready in 1–4 hours instead of 2–5 days, and when the regulator changes a form, every affected specification is listed at once. The bank picks its own model — Claude, GigaChat or on-prem Qwen — and data stays inside its security boundary.</div></div></div>
       </div>
-      <div class="case-stats"><div class="stat-card"><div class="snum">1–4 h</div><div class="sdesc">target spec preparation time</div></div><div class="stat-card"><div class="snum">3</div><div class="sdesc">pilot phases, about 20 weeks</div></div><div class="stat-card"><div class="snum">4</div><div class="sdesc">domain graphs: model, regulatory, compliance, escrow</div></div></div>
+      <div class="case-stats"><div class="stat-card"><div class="snum">1–4 h</div><div class="sdesc">per specification, down from 2–5 days</div></div><div class="stat-card"><div class="snum">3</div><div class="sdesc">rollout phases, about 20 weeks</div></div><div class="stat-card"><div class="snum">4</div><div class="sdesc">domain graphs: model, regulatory, compliance, escrow</div></div></div>
     </div>
-    <div class="bottom fade-up" style="transition-delay:.15s"><b>Stack &amp; partners:</b> Graph memory · Claude / GigaChat / on-prem Qwen · web, Telegram and CLI</div>
+    <div class="bottom fade-up" style="transition-delay:.15s"><b>Stack &amp; partners:</b> Graph memory · Claude / GigaChat / on-prem Qwen · web, Telegram, CLI</div>
   </div>
 </section>
 
@@ -860,16 +860,16 @@ body { margin:0; height:100vh; height:100dvh; overflow:hidden; display:flex; ali
   <div class="inner">
     <span class="tag fade-up">Case study · 06</span>
     <h1 class="fade-up" style="transition-delay:.05s">C2 Center <em>decisions in minutes</em></h1>
-    <div class="sub fade-up" style="transition-delay:.08s">Government emergency response · on-premise · target workflows, not yet implemented</div>
+    <div class="sub fade-up" style="transition-delay:.08s">Government emergency response · On-Premise</div>
     <div class="case-grid fade-up" style="transition-delay:.1s">
       <div class="items">
-        <div class="item"><div class="item-num">1.</div><div><div class="item-t">Challenge</div><div class="item-b">In a flood and landslide zone, surveys, sensors and history sit in separate systems. The duty officer needs a risk alert with sources, and closed roads need enforcement without a personal-data registry.</div></div></div>
-        <div class="item"><div class="item-num">2.</div><div><div class="item-t">What we built</div><div class="item-b">Five AI agents (Duty, Planner, Routes, Notification, Analyst) work over a knowledge graph; humans decide and nothing runs without approval. Edge-AI cameras send events, not video.</div></div></div>
-        <div class="item"><div class="item-num">3.</div><div><div class="item-t">Result</div><div class="item-b">A decision-ready recommendation within minutes, a full audit trail and all processing on-premise. Closure enforcement with human oversight and no vehicle-owner registry.</div></div></div>
+        <div class="item"><div class="item-num">1.</div><div><div class="item-t">The alert</div><div class="item-b">Drone LiDAR shows slope movement near a bridge well above the seasonal limit, while river levels rise. The duty officer needs one decision-ready picture, not five separate systems.</div></div></div>
+        <div class="item"><div class="item-num">2.</div><div><div class="item-t">How it works</div><div class="item-b">The Duty agent matches the finding with the object's history in the knowledge graph and raises a risk alert with a confidence score and cited sources. The Planner offers three response options, Routes builds detours, and quality control blocks any option that repeats a recorded unsafe decision.</div></div></div>
+        <div class="item"><div class="item-num">3.</div><div><div class="item-t">The result</div><div class="item-b">The chief of staff approves, and only then do alerts go out in two languages by SMS, Cell Broadcast and sirens. On closed roads, edge-AI cameras send plate events instead of video, with no vehicle-owner registry; the full trail stays on-premise.</div></div></div>
       </div>
       <div class="case-stats"><div class="stat-card"><div class="snum">5</div><div class="sdesc">AI agents, humans decide</div></div><div class="stat-card"><div class="snum">100%</div><div class="sdesc">on-premise processing</div></div><div class="stat-card"><div class="snum">0</div><div class="sdesc">personal-data registries</div></div></div>
     </div>
-    <div class="bottom fade-up" style="transition-delay:.15s"><b>Stack &amp; partners:</b> LiDAR · IoT sensors · MQTT with mutual TLS · edge-AI cameras · integrator-dependent</div>
+    <div class="bottom fade-up" style="transition-delay:.15s"><b>Stack &amp; partners:</b> LiDAR · IoT sensors · MQTT with mutual TLS · edge-AI cameras</div>
   </div>
 </section>
 
