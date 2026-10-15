@@ -748,18 +748,19 @@ body { margin:0; height:100vh; height:100dvh; overflow:hidden; display:flex; ali
   <div class="inner">
     <span class="tag fade-up">Case study · 02</span>
     <h1 class="fade-up" style="transition-delay:.05s">Membria CLI <em>agents as one team</em></h1>
-    <div class="sub fade-up" style="transition-delay:.08s">Engineering teams · inside the customer perimeter · On-Premise</div>
+    <div class="sub fade-up" style="transition-delay:.08s"><span style="display:block;color:var(--ink);font-weight:500;margin-bottom:0.35em">Engineering teams · inside the customer perimeter · On-Premise</span>An SDLC harness that runs a team’s agents as one delivery pipeline, from spec to release, with gates, policy and audit, and starts from the experience accumulated in Membria Code.</div>
     <div class="case-grid fade-up" style="transition-delay:.1s">
       <div class="items">
         <div class="item"><div class="item-num">1.</div><div><div class="item-t">The situation</div><div class="item-b">A team of six has to add rate limiting to the public API. Instead of six separate agent sessions, the task enters one pipeline: Researcher, Planner, Developer, Reviewer and Gate.</div></div></div>
-        <div class="item"><div class="item-num">2.</div><div><div class="item-t">How it works</div><div class="item-b">The Researcher surfaces a per-process counter the team shipped and reverted last year. The Planner builds the plan against CodeGraph and adds a load test. An engineer's own Claude Code takes the Developer seat over MCP.</div></div></div>
-        <div class="item"><div class="item-num">3.</div><div><div class="item-t">The result</div><div class="item-b">The Gate blocks the first attempt for missing load-test evidence and passes the second. Every step has an actor, a model, a policy decision and an audit record, and the team graph never leaves the perimeter.</div></div></div>
+        <div class="item"><div class="item-num">2.</div><div><div class="item-t">How it works</div><div class="item-b">The Researcher surfaces a per-process counter the team shipped and reverted last year, and Membria Code adds what the team has never seen: in most projects that adopted this pattern, it was later removed. The Planner builds the plan against CodeGraph and adds a load test. An engineer’s own Claude Code takes the Developer seat over MCP.</div></div></div>
+        <div class="item"><div class="item-num">3.</div><div><div class="item-t">The result</div><div class="item-b">The Gate blocks the first attempt for missing load-test evidence and passes the second. Two weeks later the change has survived, and the outcome becomes the team’s own experience for the next task. Every step has an actor, a model, a policy decision and an audit record.</div></div></div>
       </div>
-      <div class="case-stats"><div class="stat-card"><div class="snum">8</div><div class="sdesc">pipeline phases, spec to release</div></div><div class="stat-card"><div class="snum">5</div><div class="sdesc">agent roles, one blocking gate</div></div><div class="stat-card"><div class="snum">100%</div><div class="sdesc">of the team graph stays in the perimeter</div></div></div>
+      <div class="case-stats"><div class="stat-card"><div class="snum">570K</div><div class="sdesc">skills and anti-patterns available from day one</div></div><div class="stat-card"><div class="snum">5</div><div class="sdesc">agent roles, one blocking gate</div></div><div class="stat-card"><div class="snum">0</div><div class="sdesc">bytes of the team graph leave the perimeter</div></div></div>
     </div>
-    <div class="bottom fade-up" style="transition-delay:.15s"><b>Stack &amp; partners:</b> MCP · OIDC / SSO · OPA · any LLM provider</div>
+    <div class="bottom fade-up" style="transition-delay:.15s"><b>Stack &amp; partners:</b> MCP · OIDC / SSO · OPA · any LLM provider · Membria Code commons (read-only)</div>
   </div>
 </section>
+
 
 <!-- ══ CASE 03 ══ -->
 
