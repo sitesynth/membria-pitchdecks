@@ -399,6 +399,17 @@ body { margin:0; height:100vh; height:100dvh; overflow:hidden; display:flex; ali
 .s-team .tc .tbio { font-size:0.8em; font-weight:300; color:var(--mid); line-height:1.5; }
 .s-team .tc .tfocus { margin-top:auto; padding-top:0.7em; border-top:1px solid var(--border); font-size:0.72em; color:var(--muted); line-height:1.5; }
 .s-team .tc .tfocus b { color:var(--ink); font-weight:600; }
+
+/* ── architecture layers + infra slide ── */
+.s-arch .arch { display:flex; flex-direction:column; gap:0.55em; flex:1; min-height:0; }
+.s-arch .arow { display:grid; grid-template-columns:11.5em 1fr; gap:0.7em; flex:1; min-height:0; }
+.s-arch .alabel { border-radius:0.45em; color:#fff; font-weight:700; font-size:0.8em; letter-spacing:0.02em; display:flex; align-items:center; padding:0 1em; line-height:1.25; }
+.s-arch .achips { background:var(--white); border-radius:0.45em; box-shadow:var(--shadow); display:flex; flex-wrap:wrap; align-content:center; gap:0.4em 0.5em; padding:0.5em 0.9em; }
+.s-arch .chip { font-size:0.78em; font-weight:500; color:var(--ink); background:rgba(26,37,72,0.06); border-radius:999px; padding:0.28em 0.8em; white-space:nowrap; }
+.s-arch .chip b { font-weight:700; color:var(--coral); }
+.s-infra .ibody { display:grid; grid-template-columns:14em 1fr; gap:1.3em; flex:1; min-height:0; }
+.s-infra .istats { display:flex; flex-direction:column; gap:0.9em; }
+.s-infra .istats .stat-card { flex:1; }
 </style>
 </head>
 <body>
@@ -674,8 +685,26 @@ body { margin:0; height:100vh; height:100dvh; overflow:hidden; display:flex; ali
 
 <!-- ══ 11 EPC WEDGE ══ -->
 
-<section class="slide">
+<!-- ══ ARCHITECTURE & INTEGRATION ══ -->
+<section class="slide s-arch">
   <div class="pagenum">08</div>
+  <div class="inner">
+    <span class="tag fade-up">Architecture</span>
+    <h1 class="fade-up" style="transition-delay:.05s">Architecture <em>&amp; integration</em></h1>
+    <div class="sub fade-up" style="transition-delay:.08s">One MCP endpoint in front, one graph core behind, any model and any infrastructure underneath.</div>
+    <div class="arch fade-up" style="transition-delay:.12s">
+      <div class="arow"><div class="alabel" style="background:#5b8fc9">Agents &amp; clients</div><div class="achips"><span class="chip">Claude Code</span><span class="chip">Codex</span><span class="chip">Cursor</span><span class="chip">Telegram</span><span class="chip">Web dashboard</span><span class="chip">CLI</span></div></div>
+      <div class="arow"><div class="alabel" style="background:#4a7f6e">Integration</div><div class="achips"><span class="chip"><b>MCP</b> — one endpoint</span><span class="chip"><b>A2A</b> agent coordination</span><span class="chip">Memory Contract API</span><span class="chip">Python client library</span><span class="chip">Kafka event bus</span></div></div>
+      <div class="arow"><div class="alabel" style="background:#f57f65">Membria core</div><div class="achips"><span class="chip">Causal memory: Decision · Outcome · NegativeKnowledge · Skill</span><span class="chip">Multi-agent mesh &amp; quality gates</span><span class="chip">Verification engine</span><span class="chip">WorkGraph · CodeGraph · GraphRAG</span></div></div>
+      <div class="arow"><div class="alabel" style="background:#8a6a9e">Data &amp; models</div><div class="achips"><span class="chip">Memgraph property graph</span><span class="chip">Qdrant vector search</span><span class="chip">Postgres</span><span class="chip">S3-compatible object storage</span><span class="chip">LLM gateway: Claude · GPT · GigaChat · on-prem open-weight (vLLM)</span></div></div>
+      <div class="arow"><div class="alabel" style="background:#1a2548">Deployment &amp; governance</div><div class="achips"><span class="chip">Cloud SaaS</span><span class="chip">Self-hosted</span><span class="chip">On-premise</span><span class="chip">Offline signed bundles for closed networks</span><span class="chip">OIDC / SSO · RBAC</span><span class="chip">OPA policy · audit log</span></div></div>
+    </div>
+    <div class="bottom fade-up" style="transition-delay:.16s"><b>Connect in one command:</b> <span style="font-family:monospace">npx @membria/cli init</span> — customer data stays in a private per-tenant graph; nothing is published unless you choose to.</div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="pagenum">09</div>
   <div class="inner">
     <span class="tag fade-up">Focus</span>
     <h1 class="fade-up" style="transition-delay:.05s">One core, <em>many domains</em></h1>
@@ -700,8 +729,9 @@ body { margin:0; height:100vh; height:100dvh; overflow:hidden; display:flex; ali
 <!-- ══ PROJECTS LIST TEMPLATE ══ -->
 
 <!-- ══ PROJECTS LIST ══ -->
+
 <section class="slide">
-  <div class="pagenum">09</div>
+  <div class="pagenum">10</div>
   <div class="inner">
     <span class="tag fade-up">Projects</span>
     <h1 class="fade-up" style="transition-delay:.05s">What we are <em>building</em></h1>
@@ -724,8 +754,9 @@ body { margin:0; height:100vh; height:100dvh; overflow:hidden; display:flex; ali
 </section>
 
 <!-- ══ CASE 01 ══ -->
+
 <section class="slide s-case">
-  <div class="pagenum">10</div>
+  <div class="pagenum">11</div>
   <div class="inner">
     <span class="tag fade-up">Case study · 01</span>
     <h1 class="fade-up" style="transition-delay:.05s">Membria CE <em>learns from reverts</em></h1>
@@ -743,8 +774,9 @@ body { margin:0; height:100vh; height:100dvh; overflow:hidden; display:flex; ali
 </section>
 
 <!-- ══ CASE 02 ══ -->
+
 <section class="slide s-case">
-  <div class="pagenum">11</div>
+  <div class="pagenum">12</div>
   <div class="inner">
     <span class="tag fade-up">Case study · 02</span>
     <h1 class="fade-up" style="transition-delay:.05s">Membria CLI <em>agents as one team</em></h1>
@@ -762,8 +794,9 @@ body { margin:0; height:100vh; height:100dvh; overflow:hidden; display:flex; ali
 </section>
 
 <!-- ══ CASE 03 ══ -->
+
 <section class="slide s-case">
-  <div class="pagenum">12</div>
+  <div class="pagenum">13</div>
   <div class="inner">
     <span class="tag fade-up">Case study · 03</span>
     <h1 class="fade-up" style="transition-delay:.05s">AI-EPC <em>from tender to issue</em></h1>
@@ -781,8 +814,9 @@ body { margin:0; height:100vh; height:100dvh; overflow:hidden; display:flex; ali
 </section>
 
 <!-- ══ CASE 04 ══ -->
+
 <section class="slide s-case">
-  <div class="pagenum">13</div>
+  <div class="pagenum">14</div>
   <div class="inner">
     <span class="tag fade-up">Case study · 04</span>
     <h1 class="fade-up" style="transition-delay:.05s">Crypto broker <em>one data bus</em></h1>
@@ -800,8 +834,9 @@ body { margin:0; height:100vh; height:100dvh; overflow:hidden; display:flex; ali
 </section>
 
 <!-- ══ CASE 05 ══ -->
+
 <section class="slide s-case">
-  <div class="pagenum">14</div>
+  <div class="pagenum">15</div>
   <div class="inner">
     <span class="tag fade-up">Case study · 05</span>
     <h1 class="fade-up" style="transition-delay:.05s">Bank pilot <em>reporting &amp; mortgage</em></h1>
@@ -819,8 +854,9 @@ body { margin:0; height:100vh; height:100dvh; overflow:hidden; display:flex; ali
 </section>
 
 <!-- ══ CASE 06 ══ -->
+
 <section class="slide s-case">
-  <div class="pagenum">15</div>
+  <div class="pagenum">16</div>
   <div class="inner">
     <span class="tag fade-up">Case study · 06</span>
     <h1 class="fade-up" style="transition-delay:.05s">C2 Center <em>decisions in minutes</em></h1>
@@ -840,7 +876,7 @@ body { margin:0; height:100vh; height:100dvh; overflow:hidden; display:flex; ali
 <!-- ══ TEAM DETAIL TEMPLATE ══ -->
 
 <section class="slide s-team">
-  <div class="pagenum">16</div>
+  <div class="pagenum">17</div>
   <div class="inner">
     <span class="tag fade-up">Team</span>
     <h1 class="fade-up" style="transition-delay:.05s">The people <em>behind it</em></h1>
@@ -874,8 +910,38 @@ body { margin:0; height:100vh; height:100dvh; overflow:hidden; display:flex; ali
   </div>
 </section>
 
+<!-- ══ INFRASTRUCTURE PARTNERS ══ -->
+<section class="slide s-infra">
+  <div class="pagenum">18</div>
+  <div class="inner">
+    <span class="tag fade-up">Infrastructure partners</span>
+    <h1 class="fade-up" style="transition-delay:.05s">What we need <em>from infrastructure</em></h1>
+    <div class="sub fade-up" style="transition-delay:.08s">Agent memory is RAM-bound and latency-critical — the profile a sovereign HPC or cloud partner is built for.</div>
+    <div class="ibody fade-up" style="transition-delay:.12s">
+      <div class="istats">
+        <div class="stat-card"><div class="snum">&lt;200 ms</div><div class="sdesc">target latency for every memory read on the agent hot path</div></div>
+        <div class="stat-card"><div class="snum">~3M</div><div class="sdesc">MCP calls per day at full scale: 30k clients across three verticals</div></div>
+        <div class="stat-card"><div class="snum">1.5–3 TB</div><div class="sdesc">RAM for the graph layer, before hot/cold tiering</div></div>
+      </div>
+      <div class="tbl-wrap">
+        <table class="dtbl">
+          <thead><tr><th>Requirement</th><th>Why it matters</th></tr></thead>
+          <tbody>
+            <tr><td>High-RAM nodes · 256 GB+ · NVMe</td><td>Memgraph keeps active tenant graphs in memory for sub-200 ms reads; RAM, not CPU, is the dominant constraint</td></tr>
+            <tr><td>GPU · H100 or L40S</td><td>Self-hosted inference for knowledge extraction (7–30B models) removes external API quotas</td></tr>
+            <tr><td>Private network · static IPs</td><td>Low-latency shard replication; MCP clients pin their endpoints</td></tr>
+            <tr><td>EU residency · sovereign options</td><td>Enterprise and public-sector clients need jurisdiction control over their knowledge graphs</td></tr>
+            <tr><td>S3-compatible object storage</td><td>100–150 TB for document corpus, OCR cache and graph snapshots</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="bottom fade-up" style="transition-delay:.16s"><b>Already working with:</b> LuxProvide / MeluXina (HPC) · NVIDIA · Amazon Web Services. Flat, predictable pricing is preferred.</div>
+  </div>
+</section>
+
 <section class="slide">
-  <div class="pagenum">17</div>
+  <div class="pagenum">19</div>
   <div class="inner">
     <span class="tag fade-up">Partnership models</span>
     <h1 class="fade-up" style="transition-delay:.05s">Technology <em>&amp; infrastructure</em></h1>
@@ -888,7 +954,7 @@ body { margin:0; height:100vh; height:100dvh; overflow:hidden; display:flex; ali
 </section>
 
 <section class="slide">
-  <div class="pagenum">18</div>
+  <div class="pagenum">20</div>
   <div class="inner">
     <span class="tag fade-up">Moat</span>
     <h1 class="fade-up" style="transition-delay:.05s">Three EMPIRIA graphs, <em>day one</em></h1>
@@ -910,7 +976,7 @@ body { margin:0; height:100vh; height:100dvh; overflow:hidden; display:flex; ali
 <!-- ══ 13 STANDARDS GRAPH ══ -->
 
 <section class="slide">
-  <div class="pagenum">19</div>
+  <div class="pagenum">21</div>
   <div class="inner">
     <span class="tag fade-up">How we start</span>
     <h1 class="fade-up" style="transition-delay:.05s">From first call <em>to co-launch</em></h1>
@@ -967,6 +1033,7 @@ body { margin:0; height:100vh; height:100dvh; overflow:hidden; display:flex; ali
     </div>
   </div>
 </section>
+
 
 
 
