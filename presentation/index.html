@@ -703,20 +703,25 @@ body { margin:0; height:100vh; height:100dvh; overflow:hidden; display:flex; ali
 <section class="slide s-case">
   <div class="pagenum">09</div>
   <div class="inner">
-    <span class="tag fade-up">Case study · 01</span>
+    <span class="tag fade-up">Use case · Membria CODE SaaS</span>
     <h1 class="fade-up" style="transition-delay:.05s">Membria CE <em>learns from reverts</em></h1>
-    <div class="sub fade-up" style="transition-delay:.08s">Solo developers · Claude Code, Codex, Cursor (API to B2B) · SaaS</div>
+    <div class="sub fade-up" style="transition-delay:.08s">A hosted experience layer for developers who ship with Claude Code, Codex or Cursor. One MCP endpoint, a private graph per account, nothing to run.</div>
     <div class="case-grid fade-up" style="transition-delay:.1s">
       <div class="items">
-        <div class="item"><div class="item-num">1.</div><div><div class="item-t">The situation</div><div class="item-b">A developer asks the agent to add caching to an API client. The agent reaches for an in-memory LRU — the same choice that broke under multi-worker deploys and was reverted two weeks ago.</div></div></div>
-        <div class="item"><div class="item-num">2.</div><div><div class="item-t">How it works</div><div class="item-b">Before choosing, the agent asks Membria for decision context. It gets the reverted decision with its lesson (per-process cache, inconsistent across workers) and a signal from the commons: most projects that adopt this pattern later remove it.</div></div></div>
-        <div class="item"><div class="item-num">3.</div><div><div class="item-t">The result</div><div class="item-b">The agent picks a shared cache and records the decision with its alternatives. When the change survives, the outcome attaches itself from git and CI — nobody writes a post-mortem. The agent gets better without touching model weights and without grading itself: an alternative to recursive self-improvement, grounded in what really happened.</div></div></div>
+        <div class="item"><div class="item-num">1.</div><div><div class="item-t">The situation</div><div class="item-b">A developer asks Claude Code to add caching to an API client. The model reaches for an in-memory LRU — the same choice that broke under multi-worker deploys and was reverted two weeks ago. That lesson lives in an old transcript nobody will read.</div></div></div>
+        <div class="item"><div class="item-num">2.</div><div><div class="item-t">How it works</div><div class="item-b">Before choosing, the model asks Membria for decision context. It gets back the reverted decision and its negative knowledge — per-process cache, inconsistent across workers, recorded with the decision — plus the commons signal: how often this pattern is removed in other projects.</div></div></div>
+        <div class="item"><div class="item-num">3.</div><div><div class="item-t">The result</div><div class="item-b">The model picks a shared cache and records the decision with its alternatives. Two weeks later the change is still in place, and the outcome attaches itself from git — nobody writes a post-mortem. The model is unchanged and never grades its own work: the outcome comes from reality, and the next decision starts from what actually happened.</div></div></div>
       </div>
-      <div class="case-stats"><div class="stat-card"><div class="snum">96.5K</div><div class="sdesc">production repos mined</div></div><div class="stat-card"><div class="snum">~570K</div><div class="sdesc">Skills + AntiPatterns</div></div><div class="stat-card"><div class="snum">1</div><div class="sdesc">command to connect</div></div></div>
+      <div class="case-stats">
+        <div class="stat-card"><div class="snum">96.5K</div><div class="sdesc">production repos mined</div></div>
+        <div class="stat-card"><div class="snum">570K</div><div class="sdesc">skills + anti-patterns in the commons</div></div>
+        <div class="stat-card"><div class="snum">1</div><div class="sdesc">command to connect<br><span style="font-family:monospace;font-size:0.9em;color:var(--ink)">npx @membria/cli init</span></div></div>
+      </div>
     </div>
-    <div class="bottom fade-up" style="transition-delay:.15s"><b>Stack &amp; partners:</b> MCP · Claude Code · Codex · Cursor · code.membria.ai</div>
+    <div class="bottom fade-up" style="transition-delay:.15s"><b>Works with:</b> Claude Code · Codex · Cursor · any MCP client · code.membria.ai</div>
   </div>
 </section>
+
 
 <!-- ══ CASE 02 ══ -->
 
