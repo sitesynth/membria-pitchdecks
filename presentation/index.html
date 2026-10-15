@@ -416,6 +416,16 @@ body { margin:0; height:100vh; height:100dvh; overflow:hidden; display:flex; ali
 .s-loop .loop-return { position:relative; height:2.7em; margin:0 12.5%; border:2px solid var(--coral); border-top:none; border-radius:0 0 0.9em 0.9em; opacity:0.85; }
 .s-loop .loop-return::before { content:''; position:absolute; left:-0.62em; top:-0.5em; border-left:0.5em solid transparent; border-right:0.5em solid transparent; border-bottom:0.8em solid var(--coral); }
 .s-loop .loop-return span { position:absolute; left:50%; bottom:-0.82em; transform:translateX(-50%); background:var(--bg); padding:0 0.9em; font-family:var(--serif); font-style:italic; font-size:1.15em; color:var(--coral); }
+
+/* ── product slide: experience / integration / foundation ── */
+.s-prod .pcols { display:grid; grid-template-columns:repeat(3,1fr); gap:2.6em; flex:1; min-height:0; margin-top:0.3em; }
+.s-prod .picons { display:flex; gap:0.35em; padding:0.55em; background:linear-gradient(160deg,#22305a,#0f1830); border-radius:1em; box-shadow:0 12px 32px rgba(20,30,60,0.18); }
+.s-prod .pic { flex:1; display:flex; flex-direction:column; align-items:center; gap:0.4em; padding:0.7em 0.15em; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.08); border-radius:0.65em; }
+.s-prod .pic svg { width:2.3em; height:2.3em; }
+.s-prod .pic span { font-size:0.74em; font-weight:500; color:#f6f4ee; text-align:center; }
+.s-prod .pcol h3 { font-family:var(--serif); font-size:1.9em; font-weight:400; margin-top:0.8em; letter-spacing:-0.01em; }
+.s-prod .psub { font-size:0.82em; color:var(--muted); margin:0.1em 0 0.8em; }
+.s-prod .pcol .chklist li { font-size:0.88em; }
 </style>
 </head>
 <body>
@@ -582,48 +592,16 @@ body { margin:0; height:100vh; height:100dvh; overflow:hidden; display:flex; ali
 
 <!-- ══ 06 CORE: REASONING GRAPH WORKFORCE ══ -->
 
-<section class="slide">
+<section class="slide s-prod">
   <div class="pagenum">05</div>
   <div class="inner">
     <span class="tag fade-up">Product</span>
-    <h1 class="fade-up" style="transition-delay:.05s">Membria <em>Reasoning Graph</em> Workforce</h1>
-    <div class="pillars fade-up" style="transition-delay:.1s">
-      <div class="pillar-col">
-        <span class="pillar-pill">Institutional knowledge</span>
-        <img class="pillar-img" src="21.png" alt="Memory pillars">
-        <div class="pillar-ct">Memory</div>
-        <ul class="chklist">
-          <li><b>Decisions</b> — every choice captured with its reasoning</li>
-          <li><b>Consistency</b> — behavior chains keep teams aligned</li>
-          <li><b>Skills</b> — wins distilled into reusable know-how</li>
-          <li><b>NegativeKnowledge</b> — failures become rules</li>
-        </ul>
-      </div>
-      <div class="pillar-col">
-        <span class="pillar-pill">Multi-agent harness</span>
-        <img class="pillar-img" src="22.png" alt="Reasoning pillars">
-        <div class="pillar-ct">Reasoning</div>
-        <ul class="chklist">
-          <li><b>Mesh</b> — many agents work in parallel</li>
-          <li><b>Coordination</b> — agents hand off via A2A</li>
-          <li><b>Routing</b> — each task to the right model</li>
-          <li><b>Quality gates</b> — verification blocks bad output</li>
-        </ul>
-      </div>
-      <div class="pillar-col">
-        <span class="pillar-pill">Domain-agnostic foundation</span>
-        <img class="pillar-img" src="23.png" alt="Graph pillars">
-        <div class="pillar-ct">Graph</div>
-        <ul class="chklist">
-          <li><b>GraphRAG</b> — semantic search over a property graph</li>
-          <li><b>Multi-domain</b> — one schema across every domain</li>
-          <li><b>Orchestration</b> — work runs as a dependency graph</li>
-          <li><b>Adaptive</b> — memory that strengthens with use</li>
-        </ul>
-      </div>
-    </div>
+    <h1 class="fade-up" style="transition-delay:.05s">Membria, <em>the experience layer</em></h1>
+    <div class="sub fade-up" style="transition-delay:.08s">Judgment = reasoning from your model + experience from Membria. The reasoning is theirs. The experience is ours.</div>
+    <div class="pcols fade-up" style="transition-delay:.12s"><div class="pcol"><div class="picons"><div class="pic"><svg aria-label="Decisions" viewBox="0 0 48 48" fill="none" stroke="#F6F4EE" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M24 42 V26"/><path d="M24 26 C24 18 14 18 14 13"/><path d="M24 26 C24 18 34 18 34 13"/><circle cx="34" cy="9" r="4" fill="#F0866B" stroke="none"/><circle cx="14" cy="9" r="4"/><circle cx="24" cy="42" r="3" fill="#F6F4EE" stroke="none"/></svg><span>Decisions</span></div><div class="pic"><svg aria-label="Outcomes" viewBox="0 0 48 48" fill="none" stroke="#F6F4EE" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="27" cy="27" r="14"/><circle cx="27" cy="27" r="7"/><circle cx="27" cy="27" r="2.5" fill="#F0866B" stroke="none"/><path d="M6 6 L20 20" stroke="#F0866B"/><path d="M12 20 H20 V12" stroke="#F0866B"/></svg><span>Outcomes</span></div><div class="pic"><svg aria-label="Knowledge" viewBox="0 0 48 48" fill="none" stroke="#F6F4EE" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="20" cy="27" r="14"/><path d="M13 27 L18 32 L27 22"/><path d="M36 7 L45 22 H27 Z" fill="#F0866B" stroke="none"/><path d="M36 12 V17" stroke="#1A2340" stroke-width="2.2"/><circle cx="36" cy="19.6" r="1.3" fill="#1A2340" stroke="none"/></svg><span>Knowledge</span></div><div class="pic"><svg aria-label="Calibration" viewBox="0 0 48 48" fill="none" stroke="#F6F4EE" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M8 35 A16 16 0 0 1 40 35"/><path d="M12 25 L15 27"/><path d="M24 17 V21"/><path d="M36 25 L33 27"/><path d="M24 35 L32 23" stroke="#F0866B" stroke-width="3"/><circle cx="24" cy="35" r="3" fill="#F0866B" stroke="none"/></svg><span>Calibration</span></div></div><h3>Experience</h3><div class="psub">What is kept</div><ul class="chklist"><li><span><b>Decisions</b> — captured as made, with alternatives and confidence</span></li><li><span><b>Outcomes</b> — come from reality, not the model, linked to the decision</span></li><li><span><b>Knowledge</b> — failures become warnings, wins become practice</span></li><li><span><b>Calibration</b> — where the model is reliable, measured per domain</span></li></ul></div><div class="pcol"><div class="picons"><div class="pic"><svg aria-label="Models" viewBox="0 0 48 48" fill="none" stroke="#F6F4EE" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="14" y="14" width="20" height="20" rx="4"/><rect x="20" y="20" width="8" height="8" rx="1.5" fill="#F0866B" stroke="none"/><path d="M19 14 V8 M24 14 V8 M29 14 V8 M19 34 V40 M24 34 V40 M29 34 V40 M14 19 H8 M14 24 H8 M14 29 H8 M34 19 H40 M34 24 H40 M34 29 H40"/></svg><span>Models</span></div><div class="pic"><svg aria-label="Harnesses" viewBox="0 0 48 48" fill="none" stroke="#F6F4EE" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M18 5 V15 M30 5 V15"/><path d="M12 15 H36 V23 A12 12 0 0 1 12 23 Z"/><path d="M24 35 V44" stroke="#F0866B" stroke-width="3"/></svg><span>Harnesses</span></div><div class="pic"><svg aria-label="Collectors" viewBox="0 0 48 48" fill="none" stroke="#F6F4EE" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M8 28 V40 H40 V28"/><path d="M8 28 H16 L20 33 H28 L32 28 H40"/><path d="M24 6 V22" stroke="#F0866B"/><path d="M18 16 L24 22 L30 16" stroke="#F0866B"/></svg><span>Collectors</span></div><div class="pic"><svg aria-label="Commons" viewBox="0 0 48 48" fill="none" stroke="#F6F4EE" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="22" width="18" height="16" rx="3"/><path d="M10 22 V17 A6 6 0 0 1 22 17 V22"/><circle cx="16" cy="30" r="2" fill="#F6F4EE" stroke="none"/><path d="M37 13 L43 24 M37 13 L31 24 M31 24 H43" stroke="#F0866B" stroke-width="1.8"/><circle cx="37" cy="13" r="3" fill="#F0866B" stroke="none"/><circle cx="43" cy="24" r="3" fill="#F0866B" stroke="none"/><circle cx="31" cy="24" r="3" fill="#F0866B" stroke="none"/></svg><span>Commons</span></div></div><h3>Integration</h3><div class="psub">How it plugs in</div><ul class="chklist"><li><span><b>Models</b> — any model, frontier or local; the experience is the same</span></li><li><span><b>Harnesses</b> — any harness, over one MCP endpoint, nothing to install</span></li><li><span><b>Collectors</b> — outcomes from git, CI, QA, audit, incident review</span></li><li><span><b>Commons</b> — your graph stays private, anti-patterns are shared</span></li></ul></div><div class="pcol"><div class="picons"><div class="pic"><svg aria-label="Causality" viewBox="0 0 48 48" fill="none" stroke="#F6F4EE" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="24" r="4.5"/><circle cx="24" cy="24" r="4.5"/><circle cx="40" cy="24" r="4.5" fill="#F0866B" stroke="none"/><path d="M13 24 H18.5 M16 21 L18.5 24 L16 27"/><path d="M29 24 H34.5 M32 21 L34.5 24 L32 27"/></svg><span>Causality</span></div><div class="pic"><svg aria-label="Provenance" viewBox="0 0 48 48" fill="none" stroke="#F6F4EE" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 H27 L35 13 V41 H11 Z"/><path d="M27 5 V13 H35"/><path d="M16 22 H30 M16 28 H30"/><circle cx="34" cy="36" r="7" fill="#F0866B" stroke="#1A2340" stroke-width="2"/><path d="M31 36 L33 38 L37.5 33.5" stroke="#1A2340" stroke-width="2"/></svg><span>Provenance</span></div><div class="pic"><svg aria-label="Audit trail" viewBox="0 0 48 48" fill="none" stroke="#F6F4EE" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M14 8 V40"/><circle cx="14" cy="12" r="3.5" fill="#F0866B" stroke="none"/><circle cx="14" cy="24" r="3.5" fill="#F6F4EE" stroke="none"/><circle cx="14" cy="36" r="3.5" fill="#F6F4EE" stroke="none"/><path d="M22 12 H38 M22 24 H34 M22 36 H38"/></svg><span>Audit trail</span></div><div class="pic"><svg aria-label="One schema" viewBox="0 0 48 48" fill="none" stroke="#F6F4EE" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M24 7 L42 16 L24 25 L6 16 Z" fill="#F0866B" stroke="none"/><path d="M6 24 L24 33 L42 24"/><path d="M6 32 L24 41 L42 32"/></svg><span>One schema</span></div></div><h3>Foundation</h3><div class="psub">Why it can be trusted</div><ul class="chklist"><li><span><b>Causality</b> — decision linked to consequence, not a vector store</span></li><li><span><b>Provenance</b> — every fact has a source, a standard, an approver</span></li><li><span><b>Audit trail</b> — who decided what, when, on what evidence</span></li><li><span><b>One schema</b> — code, engineering, finance, emergency, music</span></li></ul></div></div>
   </div>
 </section>
+
 
 <!-- ══ 07 HOW IT WORKS ══ -->
 
@@ -689,26 +667,7 @@ body { margin:0; height:100vh; height:100dvh; overflow:hidden; display:flex; ali
 
 <!-- ══ 11 EPC WEDGE ══ -->
 
-<section class="slide">
-  <div class="pagenum">08</div>
-  <div class="inner">
-    <span class="tag fade-up">Focus</span>
-    <h1 class="fade-up" style="transition-delay:.05s">One core, <em>many domains</em></h1>
-    <div class="sub fade-up" style="transition-delay:.08s">Verticals are distribution of one product — not divergence. The same graph schema ships verbatim in every codebase.</div>
-    <div class="tbl-wrap fade-up" style="transition-delay:.12s;flex:1;min-height:0;">
-      <table class="dtbl">
-        <thead><tr><th>Product</th><th>Who buys</th><th>Delivery</th><th>Status</th></tr></thead>
-        <tbody>
-          <tr><td>Membria CE</td><td>solo developers on Claude Code / Codex / Cursor</td><td>cloud SaaS · zero-install MCP</td><td><span class="badge badge-live">SaaS · code.membria.ai</span></td></tr>
-          <tr><td>Membria Enterprise</td><td>engineering &amp; product teams</td><td>self-hosted platform · own UI</td><td><span class="badge badge-soon">Demo · design partners</span></td></tr>
-          <tr><td>AI-EPC</td><td>EPC contractors &amp; design institutes</td><td>vertical app on the same core</td><td><span class="badge badge-live">Live demo · epc.membria.ai</span></td></tr>
-          <tr><td>Glass</td><td>accounting &amp; audit teams</td><td>vertical app on the same core</td><td><span class="badge badge-blue">Design-partner stage</span></td></tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="bottom fade-up" style="transition-delay:.15s"><b>Proof of substrate:</b> Decision · Outcome · NegativeKnowledge · Skill — one schema, one causal experience loop, shared verbatim across every codebase. A vertical competitor can't follow us across domains; we can.</div>
-  </div>
-</section>
+
 
 <!-- ══ 09 PROVEN ACROSS 4 DOMAINS ══ -->
 
@@ -717,7 +676,7 @@ body { margin:0; height:100vh; height:100dvh; overflow:hidden; display:flex; ali
 <!-- ══ PROJECTS LIST ══ -->
 
 <section class="slide">
-  <div class="pagenum">09</div>
+  <div class="pagenum">08</div>
   <div class="inner">
     <span class="tag fade-up">Projects</span>
     <h1 class="fade-up" style="transition-delay:.05s">What we are <em>building</em></h1>
@@ -742,7 +701,7 @@ body { margin:0; height:100vh; height:100dvh; overflow:hidden; display:flex; ali
 <!-- ══ CASE 01 ══ -->
 
 <section class="slide s-case">
-  <div class="pagenum">10</div>
+  <div class="pagenum">09</div>
   <div class="inner">
     <span class="tag fade-up">Case study · 01</span>
     <h1 class="fade-up" style="transition-delay:.05s">Membria CE <em>learns from reverts</em></h1>
@@ -762,7 +721,7 @@ body { margin:0; height:100vh; height:100dvh; overflow:hidden; display:flex; ali
 <!-- ══ CASE 02 ══ -->
 
 <section class="slide s-case">
-  <div class="pagenum">11</div>
+  <div class="pagenum">10</div>
   <div class="inner">
     <span class="tag fade-up">Case study · 02</span>
     <h1 class="fade-up" style="transition-delay:.05s">Membria CLI <em>agents as one team</em></h1>
@@ -782,7 +741,7 @@ body { margin:0; height:100vh; height:100dvh; overflow:hidden; display:flex; ali
 <!-- ══ CASE 03 ══ -->
 
 <section class="slide s-case">
-  <div class="pagenum">12</div>
+  <div class="pagenum">11</div>
   <div class="inner">
     <span class="tag fade-up">Case study · 03</span>
     <h1 class="fade-up" style="transition-delay:.05s">AI-EPC <em>from tender to issue</em></h1>
@@ -802,7 +761,7 @@ body { margin:0; height:100vh; height:100dvh; overflow:hidden; display:flex; ali
 <!-- ══ CASE 04 ══ -->
 
 <section class="slide s-case">
-  <div class="pagenum">13</div>
+  <div class="pagenum">12</div>
   <div class="inner">
     <span class="tag fade-up">Case study · 04</span>
     <h1 class="fade-up" style="transition-delay:.05s">Crypto broker <em>one data bus</em></h1>
@@ -822,7 +781,7 @@ body { margin:0; height:100vh; height:100dvh; overflow:hidden; display:flex; ali
 <!-- ══ CASE 05 ══ -->
 
 <section class="slide s-case">
-  <div class="pagenum">14</div>
+  <div class="pagenum">13</div>
   <div class="inner">
     <span class="tag fade-up">Case study · 05</span>
     <h1 class="fade-up" style="transition-delay:.05s">Bank <em>reporting &amp; mortgage</em></h1>
@@ -842,7 +801,7 @@ body { margin:0; height:100vh; height:100dvh; overflow:hidden; display:flex; ali
 <!-- ══ CASE 06 ══ -->
 
 <section class="slide s-case">
-  <div class="pagenum">15</div>
+  <div class="pagenum">14</div>
   <div class="inner">
     <span class="tag fade-up">Case study · 06</span>
     <h1 class="fade-up" style="transition-delay:.05s">C2 Center <em>decisions in minutes</em></h1>
@@ -862,7 +821,7 @@ body { margin:0; height:100vh; height:100dvh; overflow:hidden; display:flex; ali
 <!-- ══ TEAM DETAIL TEMPLATE ══ -->
 
 <section class="slide s-team">
-  <div class="pagenum">16</div>
+  <div class="pagenum">15</div>
   <div class="inner">
     <span class="tag fade-up">Team</span>
     <h1 class="fade-up" style="transition-delay:.05s">The people <em>behind it</em></h1>
@@ -898,7 +857,7 @@ body { margin:0; height:100vh; height:100dvh; overflow:hidden; display:flex; ali
 
 <!-- ══ INFRASTRUCTURE PARTNERS ══ -->
 <section class="slide s-infra">
-  <div class="pagenum">17</div>
+  <div class="pagenum">16</div>
   <div class="inner">
     <span class="tag fade-up">Infrastructure partners</span>
     <h1 class="fade-up" style="transition-delay:.05s">What we need <em>from infrastructure</em></h1>
@@ -927,7 +886,7 @@ body { margin:0; height:100vh; height:100dvh; overflow:hidden; display:flex; ali
 </section>
 
 <section class="slide">
-  <div class="pagenum">18</div>
+  <div class="pagenum">17</div>
   <div class="inner">
     <span class="tag fade-up">Partnership models</span>
     <h1 class="fade-up" style="transition-delay:.05s">Technology <em>&amp; infrastructure</em></h1>
@@ -940,7 +899,7 @@ body { margin:0; height:100vh; height:100dvh; overflow:hidden; display:flex; ali
 </section>
 
 <section class="slide">
-  <div class="pagenum">19</div>
+  <div class="pagenum">18</div>
   <div class="inner">
     <span class="tag fade-up">Moat</span>
     <h1 class="fade-up" style="transition-delay:.05s">Three EMPIRIA graphs, <em>day one</em></h1>
@@ -962,7 +921,7 @@ body { margin:0; height:100vh; height:100dvh; overflow:hidden; display:flex; ali
 <!-- ══ 13 STANDARDS GRAPH ══ -->
 
 <section class="slide">
-  <div class="pagenum">20</div>
+  <div class="pagenum">19</div>
   <div class="inner">
     <span class="tag fade-up">How we start</span>
     <h1 class="fade-up" style="transition-delay:.05s">From first call <em>to co-launch</em></h1>
