@@ -404,6 +404,18 @@ body { margin:0; height:100vh; height:100dvh; overflow:hidden; display:flex; ali
 .s-infra .ibody { display:grid; grid-template-columns:14em 1fr; gap:1.3em; flex:1; min-height:0; }
 .s-infra .istats { display:flex; flex-direction:column; gap:0.9em; }
 .s-infra .istats .stat-card { flex:1; }
+
+/* ── experience loop slide ── */
+.s-loop .loop-wrap { flex:1; min-height:0; display:flex; flex-direction:column; justify-content:center; padding-bottom:1em; }
+.s-loop .grid4 { flex:none; }
+.s-loop .card { position:relative; display:flex; flex-direction:column; }
+.s-loop .card:not(:last-child)::after { content:'→'; position:absolute; right:-1.05em; top:2.1em; width:1.1em; text-align:center; color:var(--coral); font-size:1.1em; font-weight:700; z-index:2; }
+.s-loop .ob { margin-bottom:1em; }
+.s-loop .sig { margin-top:auto; padding-top:0.8em; border-top:1px solid var(--border); font-size:0.72em; line-height:1.45; color:var(--muted); }
+.s-loop .sig b { display:block; color:var(--coral); font-size:0.92em; font-weight:700; letter-spacing:0.07em; text-transform:uppercase; margin-bottom:0.2em; }
+.s-loop .loop-return { position:relative; height:2.7em; margin:0 12.5%; border:2px solid var(--coral); border-top:none; border-radius:0 0 0.9em 0.9em; opacity:0.85; }
+.s-loop .loop-return::before { content:''; position:absolute; left:-0.62em; top:-0.5em; border-left:0.5em solid transparent; border-right:0.5em solid transparent; border-bottom:0.8em solid var(--coral); }
+.s-loop .loop-return span { position:absolute; left:50%; bottom:-0.82em; transform:translateX(-50%); background:var(--bg); padding:0 0.9em; font-family:var(--serif); font-style:italic; font-size:1.15em; color:var(--coral); }
 </style>
 </head>
 <body>
@@ -615,20 +627,19 @@ body { margin:0; height:100vh; height:100dvh; overflow:hidden; display:flex; ali
 
 <!-- ══ 07 HOW IT WORKS ══ -->
 
-<section class="slide">
+<section class="slide s-loop">
   <div class="pagenum">06</div>
   <div class="inner">
     <span class="tag fade-up">How it works</span>
-    <h1 class="fade-up" style="transition-delay:.05s">One loop, <em>every stage</em></h1>
-    <div class="sub fade-up" style="transition-delay:.08s">Not a memory bolted onto one step — every shipped outcome feeds the next decision.</div>
-    <div class="grid4 fade-up" style="transition-delay:.12s;flex:1;min-height:0;">
-      <div class="card"><div class="onum">01</div><div class="ot">Plan</div><div class="ob">Recalls decisions and outcomes from similar work — the agent starts from what already worked.</div></div>
-      <div class="card"><div class="onum">02</div><div class="ot">Execute</div><div class="ob">Injects validated skills and blocks known anti-patterns as the work is being done.</div></div>
-      <div class="card"><div class="onum">03</div><div class="ot">Review</div><div class="ob">Checks the result against past failures and standards — deterministic critics, auditable output.</div></div>
-      <div class="card"><div class="onum">04</div><div class="ot">Ship</div><div class="ob">Records the real outcome and links it back to the decision that caused it.</div></div>
+    <h1 class="fade-up" style="transition-delay:.05s">One loop, <em>every decision</em></h1>
+    <div class="sub fade-up" style="transition-delay:.08s">Reasoning goes in. Experience comes out. Every real outcome feeds the next decision.</div>
+    <div class="loop-wrap fade-up" style="transition-delay:.12s">
+      <div class="grid4"><div class="card"><div class="onum">01</div><div class="ot">Recall</div><div class="ob">Before a decision, Membria surfaces what is already known: similar decisions, how they ended, what failed, and how reliable the model has been in this domain.</div><div class="sig"><b>Signal</b>past decisions · negative knowledge · domain calibration</div></div><div class="card"><div class="onum">02</div><div class="ot">Decide</div><div class="ob">The decision is captured at the moment of choice: the statement, the alternatives considered, the stated confidence. Not after the fact.</div><div class="sig"><b>Signal</b>statement · alternatives · confidence</div></div><div class="card"><div class="onum">03</div><div class="ot">Outcome</div><div class="ob">The result arrives from reality, not from the model: a revert, a failed check, an audit finding, an incident — or survival. It is linked to the decision that caused it. Every outcome has a source and a trail.</div><div class="sig"><b>Signal</b>git revert · drawing QA · audit · incident review · time survival</div></div><div class="card"><div class="onum">04</div><div class="ot">Learn</div><div class="ob">Failure becomes a warning, success becomes a validated practice, confidence is recalibrated per domain. All of it feeds the next Recall.</div><div class="sig"><b>Signal</b>warning · validated practice · recalibration</div></div></div>
+      <div class="loop-return"><span>experience</span></div>
     </div>
   </div>
 </section>
+
 
 <!-- ══ 08 ONE CORE FOUR PRODUCTS ══ -->
 
