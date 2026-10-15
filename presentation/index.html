@@ -423,8 +423,9 @@ body { margin:0; height:100vh; height:100dvh; overflow:hidden; display:flex; ali
 .s-loop .ob { margin-bottom:1em; }
 .s-loop .chips { margin-top:auto; display:flex; flex-wrap:nowrap; gap:0.3em; padding-top:0.6em; }
 .s-loop .chip { font-size:0.7em; white-space:nowrap; color:#6b6b6b; background:var(--bg); border-radius:0.5em; padding:0.3em 0.62em; }
-.s-loop .loop-return { position:relative; height:2.7em; margin:0 12.5%; border:2px solid var(--coral); border-top:none; border-radius:0 0 0.9em 0.9em; opacity:0.85; }
-.s-loop .loop-return::before { content:''; position:absolute; left:-0.62em; top:-0.5em; border-left:0.5em solid transparent; border-right:0.5em solid transparent; border-bottom:0.8em solid var(--coral); }
+.s-loop .loop-return { position:relative; height:2.7em; margin:0 12.5%; border:3px solid var(--coral); border-top:none; border-radius:0 0 0.9em 0.9em; }
+.s-loop .loop-return::before { content:''; position:absolute; left:-0.55em; top:-0.55em; width:0.85em; height:0.85em; border-left:3px solid var(--coral); border-top:3px solid var(--coral); transform:rotate(45deg); }
+.s-loop .loop-return::after { content:''; position:absolute; right:-0.48em; top:-0.45em; width:0.7em; height:0.7em; border-radius:50%; background:var(--coral); }
 .s-loop .loop-return span { position:absolute; left:50%; bottom:-0.8em; transform:translateX(-50%); background:var(--bg); padding:0 1em; white-space:nowrap; font-size:0.78em; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; color:var(--coral); }
 
 /* ── product slide: experience / integration / foundation ── */
