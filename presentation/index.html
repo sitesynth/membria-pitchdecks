@@ -438,7 +438,7 @@ body { margin:0; height:100vh; height:100dvh; overflow:hidden; display:flex; ali
         <div class="kicker" style="margin:0;">Membria.AI · Partnerships</div>
       </div>
       <div class="title">Build with the memory layer for <em>AI agents</em>.</div>
-      <div class="sub-title">We are looking for technology and infrastructure partners to bring persistent, auditable agent memory to more teams, clouds and data centres.</div>
+      <div class="sub-title">Agents that improve from real-world consequences, not from grading themselves — an auditable, model-agnostic alternative to recursive self-improvement. We are looking for technology and infrastructure partners to bring it to more teams, clouds and data centres.</div>
     </div>
     <div class="footer-row fade-up" style="transition-delay:.15s">
       <div class="author">
@@ -740,12 +740,12 @@ body { margin:0; height:100vh; height:100dvh; overflow:hidden; display:flex; ali
       <table class="dtbl">
         <thead><tr><th>Project</th><th>Customer / domain</th><th>What we built</th><th>Status</th></tr></thead>
         <tbody>
-          <tr><td>Membria CE</td><td>solo developers · Claude Code, Codex, Cursor</td><td>remembers every decision and what happened next, so coding agents stop repeating mistakes</td><td><span class="badge badge-live">SaaS</span></td></tr>
-          <tr><td>Membria CLI</td><td>engineering teams · inside the customer perimeter</td><td>one delivery pipeline for a team's agents, from spec to release, with gates, policy and audit</td><td><span class="badge badge-blue">On-Premise</span></td></tr>
-          <tr><td>AI-EPC</td><td>EPC contractors &amp; design institutes</td><td>turns a tender folder into a checked, issued engineering package across 17 disciplines</td><td><span class="badge badge-live">SaaS</span></td></tr>
-          <tr><td>Crypto broker platform</td><td>licensed virtual-asset broker · Central Asia</td><td>data bus and decision memory that connect execution and compliance</td><td><span class="badge badge-blue">On-Premise</span></td></tr>
-          <tr><td>Bank automation</td><td>developer-owned bank</td><td>regulatory report specs, mortgage checks and escrow rules, drafted and validated by agents</td><td><span class="badge badge-blue">On-Premise</span></td></tr>
-          <tr><td>C2 Center AI</td><td>government emergency response</td><td>early warning and road-closure control, with every decision approved by a person</td><td><span class="badge badge-blue">On-Premise</span></td></tr>
+          <tr><td>Membria CE</td><td>solo developers · Claude Code, Codex, Cursor (API to B2B)</td><td>remembers every decision and what happened next, so coding agents stop repeating mistakes</td><td><span style="white-space:nowrap" class="badge badge-live">SaaS</span></td></tr>
+          <tr><td>Membria CLI</td><td>engineering teams · inside the customer perimeter</td><td>one delivery pipeline for a team's agents, from spec to release, with gates, policy and audit</td><td><span style="white-space:nowrap" class="badge badge-blue">On-Premise</span></td></tr>
+          <tr><td>AI-EPC</td><td>EPC contractors &amp; design institutes · Worldwide</td><td>turns a tender folder into a checked, issued engineering package across 17 disciplines</td><td><span style="white-space:nowrap" class="badge badge-live">SaaS</span></td></tr>
+          <tr><td>Crypto broker platform</td><td>licensed virtual-asset broker · Central Asia</td><td>data bus and decision memory that connect execution and compliance</td><td><span style="white-space:nowrap" class="badge badge-blue">On-Premise</span></td></tr>
+          <tr><td>Bank automation</td><td>developer-owned bank · CIS</td><td>regulatory report specs, mortgage checks and escrow rules, drafted and validated by agents</td><td><span style="white-space:nowrap" class="badge badge-blue">On-Premise</span></td></tr>
+          <tr><td>C2 Center AI</td><td>government emergency response</td><td>early warning and road-closure control, with every decision approved by a person</td><td><span style="white-space:nowrap" class="badge badge-blue">On-Premise</span></td></tr>
         </tbody>
       </table>
     </div>
@@ -760,12 +760,12 @@ body { margin:0; height:100vh; height:100dvh; overflow:hidden; display:flex; ali
   <div class="inner">
     <span class="tag fade-up">Case study · 01</span>
     <h1 class="fade-up" style="transition-delay:.05s">Membria CE <em>learns from reverts</em></h1>
-    <div class="sub fade-up" style="transition-delay:.08s">Solo developers · Claude Code, Codex, Cursor · SaaS</div>
+    <div class="sub fade-up" style="transition-delay:.08s">Solo developers · Claude Code, Codex, Cursor (API to B2B) · SaaS</div>
     <div class="case-grid fade-up" style="transition-delay:.1s">
       <div class="items">
         <div class="item"><div class="item-num">1.</div><div><div class="item-t">The situation</div><div class="item-b">A developer asks the agent to add caching to an API client. The agent reaches for an in-memory LRU — the same choice that broke under multi-worker deploys and was reverted two weeks ago.</div></div></div>
         <div class="item"><div class="item-num">2.</div><div><div class="item-t">How it works</div><div class="item-b">Before choosing, the agent asks Membria for decision context. It gets the reverted decision with its lesson (per-process cache, inconsistent across workers) and a signal from the commons: most projects that adopt this pattern later remove it.</div></div></div>
-        <div class="item"><div class="item-num">3.</div><div><div class="item-t">The result</div><div class="item-b">The agent picks a shared cache and records the decision with its alternatives. When the change survives, the outcome attaches itself from git and CI — nobody writes a post-mortem.</div></div></div>
+        <div class="item"><div class="item-num">3.</div><div><div class="item-t">The result</div><div class="item-b">The agent picks a shared cache and records the decision with its alternatives. When the change survives, the outcome attaches itself from git and CI — nobody writes a post-mortem. The agent gets better without touching model weights and without grading itself: an alternative to recursive self-improvement, grounded in what really happened.</div></div></div>
       </div>
       <div class="case-stats"><div class="stat-card"><div class="snum">96.5K</div><div class="sdesc">production repos mined</div></div><div class="stat-card"><div class="snum">~570K</div><div class="sdesc">Skills + AntiPatterns</div></div><div class="stat-card"><div class="snum">1</div><div class="sdesc">command to connect</div></div></div>
     </div>
@@ -800,7 +800,7 @@ body { margin:0; height:100vh; height:100dvh; overflow:hidden; display:flex; ali
   <div class="inner">
     <span class="tag fade-up">Case study · 03</span>
     <h1 class="fade-up" style="transition-delay:.05s">AI-EPC <em>from tender to issue</em></h1>
-    <div class="sub fade-up" style="transition-delay:.08s">EPC contractors &amp; design institutes · SaaS</div>
+    <div class="sub fade-up" style="transition-delay:.08s">EPC contractors &amp; design institutes · Worldwide · SaaS</div>
     <div class="case-grid fade-up" style="transition-delay:.1s">
       <div class="items">
         <div class="item"><div class="item-num">1.</div><div><div class="item-t">The situation</div><div class="item-b">An EPC contractor uploads a tender folder: specifications, drawings, vendor catalogues, contract terms. This is where requirements get missed, and a late clause turns into rework — 28% of budget overruns.</div></div></div>
@@ -840,7 +840,7 @@ body { margin:0; height:100vh; height:100dvh; overflow:hidden; display:flex; ali
   <div class="inner">
     <span class="tag fade-up">Case study · 05</span>
     <h1 class="fade-up" style="transition-delay:.05s">Bank <em>reporting &amp; mortgage</em></h1>
-    <div class="sub fade-up" style="transition-delay:.08s">Developer-owned bank · regulatory reporting, mortgage and escrow · On-Premise</div>
+    <div class="sub fade-up" style="transition-delay:.08s">Developer-owned bank · CIS · regulatory reporting, mortgage and escrow · On-Premise</div>
     <div class="case-grid fade-up" style="transition-delay:.1s">
       <div class="items">
         <div class="item"><div class="item-num">1.</div><div><div class="item-t">The situation</div><div class="item-b">Methodologists spend 2–5 business days on each central-bank report specification. Mortgage review is a 40+ field manual checklist, and escrow specs are copied from the previous project.</div></div></div>
