@@ -387,8 +387,12 @@ body { margin:0; height:100vh; height:100dvh; overflow:hidden; display:flex; ali
 .tpl-ph { color:var(--muted); }
 .s-case .case-grid { display:grid; grid-template-columns:1fr 14em; gap:1.3em; flex:1; min-height:0; }
 .s-case .items { margin:auto 0; }
-.s-case .item-t { font-size:1.18em; }
-.s-case .item-b { font-size:1.12em; line-height:1.5; }
+.s-case .item-t { font-size:1.05em; }
+.s-case .item-b { font-size:0.93em; line-height:1.4; }
+.s-case .inner h1 { margin-bottom:0.2em; }
+.s-case .case-stats { gap:0.6em; }
+.s-case .stat-card { padding:0.7em 1em 0.8em; justify-content:center; gap:0.2em; }
+.s-case .snum { font-size:2em; }
 .s-case .stat-card { flex:1; }
 .s-case .case-stats { display:flex; flex-direction:column; gap:0.9em; }
 .s-team .tcards { display:grid; grid-template-columns:repeat(4,1fr); gap:1em; flex:1; min-height:0; }
@@ -401,6 +405,12 @@ body { margin:0; height:100vh; height:100dvh; overflow:hidden; display:flex; ali
 .s-team .tc .tfocus b { color:var(--ink); font-weight:600; }
 
 /* ── infra slide ── */
+.s-infra .istats { gap:0.7em; }
+.s-infra .istats .stat-card { padding:0.8em 1em; }
+.s-infra .istats .snum { font-size:2em; }
+.s-infra .dtbl tbody td { padding:0.4em 1.1em; font-size:0.8em; }
+.s-infra .dtbl thead th { padding:0.6em 1.1em; }
+
 .s-infra .ibody { display:grid; grid-template-columns:14em 1fr; gap:1.3em; flex:1; min-height:0; }
 .s-infra .istats { display:flex; flex-direction:column; gap:0.9em; }
 .s-infra .istats .stat-card { flex:1; }
@@ -685,7 +695,7 @@ body { margin:0; height:100vh; height:100dvh; overflow:hidden; display:flex; ali
       <table class="dtbl">
         <thead><tr><th>Project</th><th>Customer / domain</th><th>What we built</th><th>Status</th></tr></thead>
         <tbody>
-          <tr><td>Membria CE</td><td>solo developers · Claude Code, Codex, Cursor (API to B2B)</td><td>remembers every decision and what happened next, so coding agents stop repeating mistakes</td><td><span style="white-space:nowrap" class="badge badge-live">SaaS</span></td></tr>
+          <tr><td>Membria Code</td><td>solo developers · Claude Code, Codex, Cursor (API to B2B)</td><td>remembers every decision and what happened next, so coding agents stop repeating mistakes</td><td><span style="white-space:nowrap" class="badge badge-live">SaaS</span></td></tr>
           <tr><td>Membria CLI</td><td>engineering teams · inside the customer perimeter</td><td>one delivery pipeline for a team's agents, from spec to release, with gates, policy and audit</td><td><span style="white-space:nowrap" class="badge badge-blue">On-Premise</span></td></tr>
           <tr><td>AI-EPC</td><td>EPC contractors &amp; design institutes · Worldwide</td><td>turns a tender folder into a checked, issued engineering package across 17 disciplines</td><td><span style="white-space:nowrap" class="badge badge-live">SaaS</span></td></tr>
           <tr><td>Broker Platform</td><td>licensed virtual-asset broker · Central Asia</td><td>data bus and decision memory that connect execution and compliance</td><td><span style="white-space:nowrap" class="badge badge-blue">On-Premise</span></td></tr>
@@ -703,8 +713,8 @@ body { margin:0; height:100vh; height:100dvh; overflow:hidden; display:flex; ali
 <section class="slide s-case">
   <div class="pagenum">09</div>
   <div class="inner">
-    <span class="tag fade-up">Use case · Membria CODE SaaS</span>
-    <h1 class="fade-up" style="transition-delay:.05s">Membria CE <em>learns from reverts</em></h1>
+    <span class="tag fade-up">Use case: SaaS</span>
+    <h1 class="fade-up" style="transition-delay:.05s">Membria Code <em>learns from reverts</em></h1>
     <div class="sub fade-up" style="transition-delay:.08s"><span style="display:block;color:var(--ink);font-weight:500;margin-bottom:0.35em">Solo developers · Claude Code, Codex, Cursor (API to B2B) · SaaS</span>A hosted experience layer for developers who ship with Claude Code, Codex or Cursor. One MCP endpoint, a private graph per account, nothing to run.</div>
     <div class="case-grid fade-up" style="transition-delay:.1s">
       <div class="items">
