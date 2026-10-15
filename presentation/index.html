@@ -386,7 +386,9 @@ body { margin:0; height:100vh; height:100dvh; overflow:hidden; display:flex; ali
 /* ── partner-deck templates: projects list, case studies, team detail ── */
 .tpl-ph { color:var(--muted); }
 .s-case .case-grid { display:grid; grid-template-columns:1fr 14em; gap:1.3em; flex:1; min-height:0; }
-.s-case .items { margin:0; }
+.s-case .items { margin:auto 0; }
+.s-case .item-t { font-size:1.18em; }
+.s-case .item-b { font-size:1.12em; line-height:1.5; }
 .s-case .stat-card { flex:1; }
 .s-case .case-stats { display:flex; flex-direction:column; gap:0.9em; }
 .s-team .tcards { display:grid; grid-template-columns:repeat(4,1fr); gap:1em; flex:1; min-height:0; }
@@ -696,137 +698,149 @@ body { margin:0; height:100vh; height:100dvh; overflow:hidden; display:flex; ali
 <!-- ══ 09 PROVEN ACROSS 4 DOMAINS ══ -->
 
 <!-- ══ PROJECTS LIST TEMPLATE ══ -->
+
+<!-- ══ PROJECTS LIST ══ -->
 <section class="slide">
   <div class="pagenum">09</div>
   <div class="inner">
     <span class="tag fade-up">Projects</span>
     <h1 class="fade-up" style="transition-delay:.05s">What we are <em>building</em></h1>
-    <div class="sub fade-up" style="transition-delay:.08s">[One sentence: how these projects show the platform in production.]</div>
+    <div class="sub fade-up" style="transition-delay:.08s">Six projects on one memory core — from developer tools to regulated finance and public safety.</div>
     <div class="tbl-wrap fade-up" style="transition-delay:.12s;flex:1;min-height:0;">
       <table class="dtbl">
         <thead><tr><th>Project</th><th>Customer / domain</th><th>What we built</th><th>Status</th></tr></thead>
         <tbody>
-          <tr><td>[Project 1]</td><td>[Customer · industry]</td><td>[What we built — one line]</td><td><span class="badge badge-blue">[Status]</span></td></tr>
-          <tr><td>[Project 2]</td><td>[Customer · industry]</td><td>[What we built — one line]</td><td><span class="badge badge-blue">[Status]</span></td></tr>
-          <tr><td>[Project 3]</td><td>[Customer · industry]</td><td>[What we built — one line]</td><td><span class="badge badge-blue">[Status]</span></td></tr>
-          <tr><td>[Project 4]</td><td>[Customer · industry]</td><td>[What we built — one line]</td><td><span class="badge badge-blue">[Status]</span></td></tr>
-          <tr><td>[Project 5]</td><td>[Customer · industry]</td><td>[What we built — one line]</td><td><span class="badge badge-blue">[Status]</span></td></tr>
-          <tr><td>[Project 6]</td><td>[Customer · industry]</td><td>[What we built — one line]</td><td><span class="badge badge-blue">[Status]</span></td></tr>
-          </tbody>
+          <tr><td>Membria CE</td><td>solo developers · Claude Code, Codex, Cursor</td><td>experience layer for coding agents: decisions, outcomes and failures over one MCP endpoint</td><td><span class="badge badge-live">SaaS · live</span></td></tr>
+          <tr><td>Membria CLI</td><td>engineering teams · inside the customer perimeter</td><td>SDLC harness: spec-to-release pipeline of agent roles with gates, policy and shared memory</td><td><span class="badge badge-soon">Demo · design partners</span></td></tr>
+          <tr><td>AI-EPC</td><td>EPC contractors &amp; design institutes</td><td>tender to issued package across 17 engineering disciplines, checked against standards</td><td><span class="badge badge-live">Live demo</span></td></tr>
+          <tr><td>Crypto broker platform</td><td>licensed virtual-asset broker · Central Asia</td><td>data bus and decision memory between the execution and compliance tracks</td><td><span class="badge badge-soon">In build · dev stand</span></td></tr>
+          <tr><td>Bank automation</td><td>developer-owned bank</td><td>regulatory reporting, mortgage pipeline and escrow assistants</td><td><span class="badge badge-blue">Pilot proposal</span></td></tr>
+          <tr><td>C2 Center AI</td><td>government emergency response</td><td>early warning and zone access control with human approval, on-premise</td><td><span class="badge badge-blue">Target workflow</span></td></tr>
+        </tbody>
       </table>
     </div>
-    <div class="bottom fade-up" style="transition-delay:.15s"><b>[Takeaway]:</b> [what these projects prove for a technology or infrastructure partner.]</div>
+    <div class="bottom fade-up" style="transition-delay:.15s"><b>Honest status:</b> CE is live, the others range from demo and development to target workflows. Client names are withheld; each case marks what is built and what is target.</div>
   </div>
 </section>
 
-<!-- ══ CASE TEMPLATE 1: duplicate this slide for every project ══ -->
+<!-- ══ CASE 01 ══ -->
 <section class="slide s-case">
   <div class="pagenum">10</div>
   <div class="inner">
     <span class="tag fade-up">Case study · 01</span>
-    <h1 class="fade-up" style="transition-delay:.05s">[Project name] <em>[result in 2–4 words]</em></h1>
-    <div class="sub fade-up" style="transition-delay:.08s">[Customer · industry · country · year]</div>
+    <h1 class="fade-up" style="transition-delay:.05s">Membria CE <em>learns from reverts</em></h1>
+    <div class="sub fade-up" style="transition-delay:.08s">Solo developers · Claude Code, Codex, Cursor · live SaaS</div>
     <div class="case-grid fade-up" style="transition-delay:.1s">
       <div class="items">
-        <div class="item">
-          <div class="item-num">1.</div>
-          <div><div class="item-t">Challenge</div>
-          <div class="item-b">[What problem the customer had — 1–2 sentences.]</div></div>
-        </div>
-        <div class="item">
-          <div class="item-num">2.</div>
-          <div><div class="item-t">What we built</div>
-          <div class="item-b">[Solution and how Membria is used — agents, memory, verification, deployment model.]</div></div>
-        </div>
-        <div class="item">
-          <div class="item-num">3.</div>
-          <div><div class="item-t">Result</div>
-          <div class="item-b">[Measured outcome in production — time saved, errors avoided, adoption.]</div></div>
-        </div>
+        <div class="item"><div class="item-num">1.</div><div><div class="item-t">Challenge</div><div class="item-b">Coding agents start every session from zero. A fix reverted two weeks ago is proposed again, because the lesson lives in an old transcript, not in memory.</div></div></div>
+        <div class="item"><div class="item-num">2.</div><div><div class="item-t">What we built</div><div class="item-b">An experience layer beside any harness, connected through one MCP endpoint. It records each decision with its alternatives and confidence, and attaches outcomes from git reverts, CI and merged PRs.</div></div></div>
+        <div class="item"><div class="item-num">3.</div><div><div class="item-t">Result</div><div class="item-b">Failures become warnings before the next similar choice, and confidence is calibrated per domain. A read-only commons from real repositories means day one is not empty.</div></div></div>
       </div>
-      <div class="case-stats">
-        <div class="stat-card"><div class="snum">[00%]</div><div class="sdesc">[metric 1]</div></div>
-        <div class="stat-card"><div class="snum">[00x]</div><div class="sdesc">[metric 2]</div></div>
-        <div class="stat-card"><div class="snum">[00]</div><div class="sdesc">[metric 3]</div></div>
-      </div>
+      <div class="case-stats"><div class="stat-card"><div class="snum">96.5K</div><div class="sdesc">production repos mined</div></div><div class="stat-card"><div class="snum">~570K</div><div class="sdesc">Skills + AntiPatterns live</div></div><div class="stat-card"><div class="snum">1</div><div class="sdesc">command to connect</div></div></div>
     </div>
-    <div class="bottom fade-up" style="transition-delay:.15s"><b>Stack &amp; partners:</b> [technologies, cloud / infrastructure, partners involved]</div>
+    <div class="bottom fade-up" style="transition-delay:.15s"><b>Stack &amp; partners:</b> MCP · Claude Code · Codex · Cursor · cloud SaaS or self-hosted · code.membria.ai</div>
   </div>
 </section>
 
-<!-- ══ CASE TEMPLATE 2: duplicate this slide for every project ══ -->
+<!-- ══ CASE 02 ══ -->
 <section class="slide s-case">
   <div class="pagenum">11</div>
   <div class="inner">
     <span class="tag fade-up">Case study · 02</span>
-    <h1 class="fade-up" style="transition-delay:.05s">[Project name] <em>[result in 2–4 words]</em></h1>
-    <div class="sub fade-up" style="transition-delay:.08s">[Customer · industry · country · year]</div>
+    <h1 class="fade-up" style="transition-delay:.05s">Membria CLI <em>agents as one team</em></h1>
+    <div class="sub fade-up" style="transition-delay:.08s">Engineering teams · small team or inside the customer perimeter · demo with design partners</div>
     <div class="case-grid fade-up" style="transition-delay:.1s">
       <div class="items">
-        <div class="item">
-          <div class="item-num">1.</div>
-          <div><div class="item-t">Challenge</div>
-          <div class="item-b">[What problem the customer had — 1–2 sentences.]</div></div>
-        </div>
-        <div class="item">
-          <div class="item-num">2.</div>
-          <div><div class="item-t">What we built</div>
-          <div class="item-b">[Solution and how Membria is used — agents, memory, verification, deployment model.]</div></div>
-        </div>
-        <div class="item">
-          <div class="item-num">3.</div>
-          <div><div class="item-t">Result</div>
-          <div class="item-b">[Measured outcome in production — time saved, errors avoided, adoption.]</div></div>
-        </div>
+        <div class="item"><div class="item-num">1.</div><div><div class="item-t">Challenge</div><div class="item-b">Per-seat agents speed up individuals and slow down teams: no shared process, no shared memory, and no way to say which agent did what under whose approval.</div></div></div>
+        <div class="item"><div class="item-num">2.</div><div><div class="item-t">What we built</div><div class="item-b">A team SDLC harness: spec, design, plan, code, test, docs, review, release — run by agent roles on a shared graph, with hard quality gates, policy, approvals and audit.</div></div></div>
+        <div class="item"><div class="item-num">3.</div><div><div class="item-t">Result</div><div class="item-b">Every decision and outcome is recorded; a revert marks a decision failed for every engineer and agent. Any model per role, with the team graph kept in the customer perimeter.</div></div></div>
       </div>
-      <div class="case-stats">
-        <div class="stat-card"><div class="snum">[00%]</div><div class="sdesc">[metric 1]</div></div>
-        <div class="stat-card"><div class="snum">[00x]</div><div class="sdesc">[metric 2]</div></div>
-        <div class="stat-card"><div class="snum">[00]</div><div class="sdesc">[metric 3]</div></div>
-      </div>
+      <div class="case-stats"><div class="stat-card"><div class="snum">8</div><div class="sdesc">pipeline phases, spec to release</div></div><div class="stat-card"><div class="snum">5</div><div class="sdesc">agent roles incl. a blocking gate</div></div><div class="stat-card"><div class="snum">2</div><div class="sdesc">run modes: team and enterprise</div></div></div>
     </div>
-    <div class="bottom fade-up" style="transition-delay:.15s"><b>Stack &amp; partners:</b> [technologies, cloud / infrastructure, partners involved]</div>
+    <div class="bottom fade-up" style="transition-delay:.15s"><b>Stack &amp; partners:</b> MCP · OIDC / SSO · OPA · any LLM provider · self-hosted or inside the perimeter</div>
   </div>
 </section>
 
-<!-- ══ CASE TEMPLATE 3: duplicate this slide for every project ══ -->
+<!-- ══ CASE 03 ══ -->
 <section class="slide s-case">
   <div class="pagenum">12</div>
   <div class="inner">
     <span class="tag fade-up">Case study · 03</span>
-    <h1 class="fade-up" style="transition-delay:.05s">[Project name] <em>[result in 2–4 words]</em></h1>
-    <div class="sub fade-up" style="transition-delay:.08s">[Customer · industry · country · year]</div>
+    <h1 class="fade-up" style="transition-delay:.05s">AI-EPC <em>from tender to issue</em></h1>
+    <div class="sub fade-up" style="transition-delay:.08s">EPC contractors &amp; design institutes · live demo · the full flow below is the target state</div>
     <div class="case-grid fade-up" style="transition-delay:.1s">
       <div class="items">
-        <div class="item">
-          <div class="item-num">1.</div>
-          <div><div class="item-t">Challenge</div>
-          <div class="item-b">[What problem the customer had — 1–2 sentences.]</div></div>
-        </div>
-        <div class="item">
-          <div class="item-num">2.</div>
-          <div><div class="item-t">What we built</div>
-          <div class="item-b">[Solution and how Membria is used — agents, memory, verification, deployment model.]</div></div>
-        </div>
-        <div class="item">
-          <div class="item-num">3.</div>
-          <div><div class="item-t">Result</div>
-          <div class="item-b">[Measured outcome in production — time saved, errors avoided, adoption.]</div></div>
-        </div>
+        <div class="item"><div class="item-num">1.</div><div><div class="item-t">Challenge</div><div class="item-b">A tender arrives as a folder of specs, drawings and catalogues. Requirements get missed, disciplines drift apart, and a late clause becomes rework — 28% of budget overruns.</div></div></div>
+        <div class="item"><div class="item-num">2.</div><div><div class="item-t">What we built</div><div class="item-b">Reads the tender into a cited requirements register, then builds the engineering level by level. Models propose; rules, codes and catalogues accept or reject. Every value has a source or a recorded decision.</div></div></div>
+        <div class="item"><div class="item-num">3.</div><div><div class="item-t">Result</div><div class="item-b">A consistent package per the contracted register, with an evidence trail behind each document. Engineers approve at every gate; the system never stamps or certifies.</div></div></div>
       </div>
-      <div class="case-stats">
-        <div class="stat-card"><div class="snum">[00%]</div><div class="sdesc">[metric 1]</div></div>
-        <div class="stat-card"><div class="snum">[00x]</div><div class="sdesc">[metric 2]</div></div>
-        <div class="stat-card"><div class="snum">[00]</div><div class="sdesc">[metric 3]</div></div>
-      </div>
+      <div class="case-stats"><div class="stat-card"><div class="snum">17</div><div class="sdesc">engineering disciplines in scope</div></div><div class="stat-card"><div class="snum">20,000+</div><div class="sdesc">standards processed into the graph</div></div><div class="stat-card"><div class="snum">5</div><div class="sdesc">approval gates, G0 to G4</div></div></div>
     </div>
-    <div class="bottom fade-up" style="transition-delay:.15s"><b>Stack &amp; partners:</b> [technologies, cloud / infrastructure, partners involved]</div>
+    <div class="bottom fade-up" style="transition-delay:.15s"><b>Stack &amp; partners:</b> DXF · DEXPI · IFC · ISO / IEC / ASME / API / GOST · on-premise or cloud · epc.membria.ai</div>
+  </div>
+</section>
+
+<!-- ══ CASE 04 ══ -->
+<section class="slide s-case">
+  <div class="pagenum">13</div>
+  <div class="inner">
+    <span class="tag fade-up">Case study · 04</span>
+    <h1 class="fade-up" style="transition-delay:.05s">Crypto broker <em>one data bus</em></h1>
+    <div class="sub fade-up" style="transition-delay:.08s">Licensed virtual-asset broker · Central Asia · client anonymised · dev stand</div>
+    <div class="case-grid fade-up" style="transition-delay:.1s">
+      <div class="items">
+        <div class="item"><div class="item-num">1.</div><div><div class="item-t">Challenge</div><div class="item-b">Two vendors build execution and compliance in parallel with no shared contract. Nobody can say why a transaction was blocked, and personal data must stay out of shared systems.</div></div></div>
+        <div class="item"><div class="item-num">2.</div><div><div class="item-t">What we built</div><div class="item-b">Membria owns the data bus and decision memory: a Kafka backbone with a catalog of 38 event types, schema-validated and replayable, and a graph of 42 object types. No personal-data profiles are stored.</div></div></div>
+        <div class="item"><div class="item-num">3.</div><div><div class="item-t">Result</div><div class="item-b">Both vendors integrate against one documented contract. Compliance asks in plain language why an operation was blocked and gets the chain with its source events; encrypted backups are restore-tested automatically.</div></div></div>
+      </div>
+      <div class="case-stats"><div class="stat-card"><div class="snum">38</div><div class="sdesc">event types on one bus</div></div><div class="stat-card"><div class="snum">376</div><div class="sdesc">automated tests passing</div></div><div class="stat-card"><div class="snum">~6 wks</div><div class="sdesc">first full cycle, dev stand</div></div></div>
+    </div>
+    <div class="bottom fade-up" style="transition-delay:.15s"><b>Stack &amp; partners:</b> Kafka · Memgraph · Qdrant · FastAPI · Python · Membria Memory Contract API</div>
+  </div>
+</section>
+
+<!-- ══ CASE 05 ══ -->
+<section class="slide s-case">
+  <div class="pagenum">14</div>
+  <div class="inner">
+    <span class="tag fade-up">Case study · 05</span>
+    <h1 class="fade-up" style="transition-delay:.05s">Bank pilot <em>reporting &amp; mortgage</em></h1>
+    <div class="sub fade-up" style="transition-delay:.08s">Developer-owned bank · regulatory reporting, mortgage and escrow · pilot proposal</div>
+    <div class="case-grid fade-up" style="transition-delay:.1s">
+      <div class="items">
+        <div class="item"><div class="item-num">1.</div><div><div class="item-t">Challenge</div><div class="item-b">Dense regulation and repetitive expert work: central-bank report specs take 2–5 business days, mortgage review is a 40+ field manual checklist, escrow specs are copied per project.</div></div></div>
+        <div class="item"><div class="item-num">2.</div><div><div class="item-t">What we built</div><div class="item-b">A three-phase pilot on the bank's own LLM choice: a reporting assistant, a mortgage pipeline assistant, then ecosystem intelligence. Graphs hold the object model, regulatory forms and escrow rules; skills keep mappings that worked.</div></div></div>
+        <div class="item"><div class="item-num">3.</div><div><div class="item-t">Result</div><div class="item-b">Targets: report specification from 2–5 days to 1–4 hours, mortgage cycle from days to hours for standard cases, and regulatory changes traced to every affected spec.</div></div></div>
+      </div>
+      <div class="case-stats"><div class="stat-card"><div class="snum">1–4 h</div><div class="sdesc">target spec preparation time</div></div><div class="stat-card"><div class="snum">3</div><div class="sdesc">pilot phases, about 20 weeks</div></div><div class="stat-card"><div class="snum">4</div><div class="sdesc">domain graphs: model, regulatory, compliance, escrow</div></div></div>
+    </div>
+    <div class="bottom fade-up" style="transition-delay:.15s"><b>Stack &amp; partners:</b> Graph memory · Claude / GigaChat / on-prem Qwen · web, Telegram and CLI</div>
+  </div>
+</section>
+
+<!-- ══ CASE 06 ══ -->
+<section class="slide s-case">
+  <div class="pagenum">15</div>
+  <div class="inner">
+    <span class="tag fade-up">Case study · 06</span>
+    <h1 class="fade-up" style="transition-delay:.05s">C2 Center <em>decisions in minutes</em></h1>
+    <div class="sub fade-up" style="transition-delay:.08s">Government emergency response · on-premise · target workflows, not yet implemented</div>
+    <div class="case-grid fade-up" style="transition-delay:.1s">
+      <div class="items">
+        <div class="item"><div class="item-num">1.</div><div><div class="item-t">Challenge</div><div class="item-b">In a flood and landslide zone, surveys, sensors and history sit in separate systems. The duty officer needs a risk alert with sources, and closed roads need enforcement without a personal-data registry.</div></div></div>
+        <div class="item"><div class="item-num">2.</div><div><div class="item-t">What we built</div><div class="item-b">Five AI agents (Duty, Planner, Routes, Notification, Analyst) work over a knowledge graph; humans decide and nothing runs without approval. Edge-AI cameras send events, not video.</div></div></div>
+        <div class="item"><div class="item-num">3.</div><div><div class="item-t">Result</div><div class="item-b">A decision-ready recommendation within minutes, a full audit trail and all processing on-premise. Closure enforcement with human oversight and no vehicle-owner registry.</div></div></div>
+      </div>
+      <div class="case-stats"><div class="stat-card"><div class="snum">5</div><div class="sdesc">AI agents, humans decide</div></div><div class="stat-card"><div class="snum">100%</div><div class="sdesc">on-premise processing</div></div><div class="stat-card"><div class="snum">0</div><div class="sdesc">personal-data registries</div></div></div>
+    </div>
+    <div class="bottom fade-up" style="transition-delay:.15s"><b>Stack &amp; partners:</b> LiDAR · IoT sensors · MQTT with mutual TLS · edge-AI cameras · integrator-dependent</div>
   </div>
 </section>
 
 <!-- ══ TEAM DETAIL TEMPLATE ══ -->
+
 <section class="slide s-team">
-  <div class="pagenum">13</div>
+  <div class="pagenum">16</div>
   <div class="inner">
     <span class="tag fade-up">Team</span>
     <h1 class="fade-up" style="transition-delay:.05s">The people <em>behind it</em></h1>
@@ -861,7 +875,7 @@ body { margin:0; height:100vh; height:100dvh; overflow:hidden; display:flex; ali
 </section>
 
 <section class="slide">
-  <div class="pagenum">14</div>
+  <div class="pagenum">17</div>
   <div class="inner">
     <span class="tag fade-up">Partnership models</span>
     <h1 class="fade-up" style="transition-delay:.05s">Technology <em>&amp; infrastructure</em></h1>
@@ -874,7 +888,7 @@ body { margin:0; height:100vh; height:100dvh; overflow:hidden; display:flex; ali
 </section>
 
 <section class="slide">
-  <div class="pagenum">15</div>
+  <div class="pagenum">18</div>
   <div class="inner">
     <span class="tag fade-up">Moat</span>
     <h1 class="fade-up" style="transition-delay:.05s">Three EMPIRIA graphs, <em>day one</em></h1>
@@ -896,7 +910,7 @@ body { margin:0; height:100vh; height:100dvh; overflow:hidden; display:flex; ali
 <!-- ══ 13 STANDARDS GRAPH ══ -->
 
 <section class="slide">
-  <div class="pagenum">16</div>
+  <div class="pagenum">19</div>
   <div class="inner">
     <span class="tag fade-up">How we start</span>
     <h1 class="fade-up" style="transition-delay:.05s">From first call <em>to co-launch</em></h1>
@@ -953,6 +967,7 @@ body { margin:0; height:100vh; height:100dvh; overflow:hidden; display:flex; ali
     </div>
   </div>
 </section>
+
 
 
 
