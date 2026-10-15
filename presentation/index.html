@@ -436,6 +436,14 @@ body { margin:0; height:100vh; height:100dvh; overflow:hidden; display:flex; ali
 .s-prod .pcol h3 { font-family:var(--serif); font-size:1.9em; font-weight:400; margin-top:0.8em; letter-spacing:-0.01em; }
 .s-prod .psub { font-size:0.82em; color:var(--muted); margin:0.1em 0 0.8em; }
 .s-prod .pcol .chklist li { font-size:0.88em; }
+
+/* ── partner journey slide ── */
+.s-journey .grid4 { flex:1; min-height:0; margin-bottom:0.8em; }
+.s-journey .card { display:flex; flex-direction:column; }
+.s-journey .when { display:inline-block; align-self:flex-start; font-size:0.72em; font-weight:600; color:var(--blue); background:rgba(91,143,201,0.10); border:1px solid rgba(91,143,201,0.25); border-radius:999px; padding:0.15em 0.7em; margin:0.1em 0 0.6em; }
+.s-journey .ob { font-size:0.84em; line-height:1.45; margin-bottom:0.6em; }
+.s-journey .get { margin-top:auto; min-height:7.2em; padding-top:0.7em; border-top:1px solid var(--border); font-size:0.78em; line-height:1.45; color:var(--mid); }
+.s-journey .get b { display:block; color:var(--coral); font-size:0.9em; letter-spacing:0.07em; text-transform:uppercase; margin-bottom:0.25em; }
 </style>
 </head>
 <body>
@@ -907,18 +915,17 @@ body { margin:0; height:100vh; height:100dvh; overflow:hidden; display:flex; ali
 
 <!-- ══ 13 STANDARDS GRAPH ══ -->
 
-<section class="slide">
+<section class="slide s-journey">
   <div class="pagenum">17</div>
   <div class="inner">
     <span class="tag fade-up">How we start</span>
     <h1 class="fade-up" style="transition-delay:.05s">From first call <em>to co-launch</em></h1>
-    <div class="sub fade-up" style="transition-delay:.08s">A short, low-risk path — you see the value before committing.</div>
-    <div class="grid4 fade-up" style="transition-delay:.12s;flex:1;min-height:0;">
-      <div class="card"><div class="onum">01</div><div class="ot">Align</div><div class="ob">Share your platform or infrastructure and the customers you serve; we map where memory, verification or knowledge add value.</div></div><div class="card"><div class="onum">02</div><div class="ot">Pilot</div><div class="ob">Connect with one command and run a scoped pilot on your own stack, with our engineers alongside.</div></div><div class="card"><div class="onum">03</div><div class="ot">Integrate</div><div class="ob">Embed Membria or deploy it on your infrastructure; agree deployment model, support and security review.</div></div><div class="card"><div class="onum">04</div><div class="ot">Co-launch</div><div class="ob">Go to market together: reference deployments, joint case studies and a shared pipeline.</div></div>
-    </div>
-    <div class="bottom fade-up" style="transition-delay:.16s"><b>Start in minutes:</b> <span style="font-family:monospace">npx @membria/cli init</span> — then talk to us at <b>hi@actiq.ai</b></div>
+    <div class="sub fade-up" style="transition-delay:.08s">A short, low-risk path: you see measured results before you commit.</div>
+    <div class="grid4 fade-up" style="transition-delay:.12s"><div class="card"><div class="onum">01</div><div class="ot">Align</div><span class="when">Week 1</span><div class="ob">Share your platform and the users you serve. We pick the one workflow where repeated mistakes cost the most and agree on how to measure it.</div><div class="get"><b>You get</b>a pilot scope and a baseline metric.</div></div><div class="card"><div class="onum">02</div><div class="ot">Pilot</div><span class="when">4–6 weeks</span><div class="ob">Connect over MCP or API and run Membria on that workflow with real users, our engineers alongside. Outcomes are collected automatically from your own systems.</div><div class="get"><b>You get</b>before-and-after numbers on repeated mistakes, reverts or rework, plus a go/no-go decision based on them.</div></div><div class="card"><div class="onum">03</div><div class="ot">Integrate</div><span class="when">4–8 weeks</span><div class="ob">Embed Membria in your product, hosted or on your infrastructure. Agree the deployment model, data boundaries, support and security review.</div><div class="get"><b>You get</b>a production integration with a private graph for each of your customers.</div></div><div class="card"><div class="onum">04</div><div class="ot">Co-launch</div><span class="when" style="visibility:hidden">–</span><div class="ob">Offer it to your users together: reference deployments, a joint case study built on the pilot’s numbers, and a shared pipeline.</div><div class="get"><b>You get</b>a published case and joint go-to-market.</div></div></div>
+    <div class="bottom fade-up" style="transition-delay:.16s"><b>Partnerships:</b> hi@actiq.ai</div>
   </div>
 </section>
+
 
 <section class="slide s-close">
   <div class="pagenum" style="color:var(--coral)">18</div>
